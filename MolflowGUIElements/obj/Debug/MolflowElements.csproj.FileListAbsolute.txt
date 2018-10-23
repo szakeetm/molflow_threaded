@@ -1,0 +1,23 @@
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\bin\Debug\MolflowElements.exe.config
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\bin\Debug\MolflowElements.exe
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\bin\Debug\MolflowElements.pdb
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.csprojAssemblyReference.cache
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.FacetAdvParams.resources
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.CreateShape.resources
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.MoveFacet.resources
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.Properties.Resources.resources
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.csproj.GenerateResource.cache
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.csproj.CoreCompileInputs.cache
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.exe
+C:\Users\mszakacs\cernbox\CERNBox_work\VS projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.pdb
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\bin\Debug\MolflowElements.exe.config
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\bin\Debug\MolflowElements.exe
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\bin\Debug\MolflowElements.pdb
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.FacetAdvParams.resources
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.CreateShape.resources
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.MoveFacet.resources
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.Properties.Resources.resources
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.csproj.GenerateResource.cache
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.csproj.CoreCompileInputs.cache
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.exe
+C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\MolflowElements\obj\Debug\MolflowElements.pdb

@@ -1,0 +1,7 @@
+.*
+!/.gitignore
+intermediary/
+shipped/
+source_snapshots/
+test/
+tmp/

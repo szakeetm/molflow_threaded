@@ -1,0 +1,143 @@
+MoveFacet.h:
+
+GLToggle	*offsetCheckbox;
+GLToggle	*directionCheckBox;
+GLTextField	*distanceText;
+GLLabel	*dxLabel;
+GLTextField	*xText;
+GLLabel	*cmLabelX;
+GLLabel	*cmLabelY;
+GLTextField	*yText;
+GLLabel	*dyLabel;
+GLLabel	*cmLabelZ;
+GLTextField	*zText;
+GLLabel	*dzLabel;
+GLTitledPanel	*directionPanel;
+GLButton	*dirFacetCenterButton;
+GLButton	*dirVertexButton;
+GLButton	*baseFacetCenterButton;
+GLButton	*baseVertexButton;
+GLButton	*facetNormalButton;
+GLLabel	*label4;
+GLLabel	*label1;
+GLLabel	*directionStatusLabel;
+GLLabel	*baseStatusLabel;
+GLButton	*copyButton;
+GLButton	*moveButton;
+GLTitledPanel	*dirPanel;
+GLTitledPanel	*basePanel;
+
+
+
+MoveFacet.cpp:
+
+int wD = 228;
+int hD = 365;
+directionPanel = new GLTitledPanel("In direction");
+directionPanel->SetBounds(4,111,216,187);
+Add(directionPanel);
+dirPanel = new GLTitledPanel("Direction");
+directionPanel->SetCompBounds(dirPanel,110,92,100,89);
+directionPanel->Add(dirPanel);
+basePanel = new GLTitledPanel("Base");
+directionPanel->SetCompBounds(basePanel,8,92,100,89);
+directionPanel->Add(basePanel);
+offsetCheckbox = new GLToggle(0,"Absolute offset");
+offsetCheckbox->SetBounds(5,6,96,17);
+Add(offsetCheckbox);
+
+directionCheckBox = new GLToggle(0,"Direction and distance");
+directionCheckBox->SetBounds(100,6,125,17);
+Add(directionCheckBox);
+
+distanceText = new GLTextField(0,"");
+directionPanel->SetCompBounds(distanceText,63,23,98,20);
+directionPanel->Add(distanceText);
+
+dxLabel = new GLLabel("dX");
+dxLabel->SetBounds(8,32,20,13);
+Add(dxLabel);
+
+xText = new GLTextField(0,"0");
+xText->SetBounds(49,29,116,20);
+Add(xText);
+
+cmLabelX = new GLLabel("cm");
+cmLabelX->SetBounds(171,32,21,13);
+Add(cmLabelX);
+
+cmLabelY = new GLLabel("cm");
+cmLabelY->SetBounds(171,58,21,13);
+Add(cmLabelY);
+
+yText = new GLTextField(0,"0");
+yText->SetBounds(49,55,116,20);
+Add(yText);
+
+dyLabel = new GLLabel("dY");
+dyLabel->SetBounds(8,58,20,13);
+Add(dyLabel);
+
+cmLabelZ = new GLLabel("cm");
+cmLabelZ->SetBounds(171,84,21,13);
+Add(cmLabelZ);
+
+zText = new GLTextField(0,"0");
+zText->SetBounds(49,81,116,20);
+Add(zText);
+
+dzLabel = new GLLabel("dZ");
+dzLabel->SetBounds(8,84,20,13);
+Add(dzLabel);
+
+dirFacetCenterButton = new GLButton(0,"Facet center");
+dirPanel->SetCompBounds(dirFacetCenterButton,6,60,84,20);
+dirPanel->Add(dirFacetCenterButton);
+
+dirVertexButton = new GLButton(0,"Selected Vertex");
+dirPanel->SetCompBounds(dirVertexButton,6,31,84,20);
+dirPanel->Add(dirVertexButton);
+
+baseFacetCenterButton = new GLButton(0,"Facet center");
+basePanel->SetCompBounds(baseFacetCenterButton,6,60,84,20);
+basePanel->Add(baseFacetCenterButton);
+
+baseVertexButton = new GLButton(0,"Selected Vertex");
+basePanel->SetCompBounds(baseVertexButton,6,31,84,20);
+basePanel->Add(baseVertexButton);
+
+facetNormalButton = new GLButton(0,"Facet normal");
+directionPanel->SetCompBounds(facetNormalButton,62,56,99,20);
+directionPanel->Add(facetNormalButton);
+
+label4 = new GLLabel("cm");
+directionPanel->SetCompBounds(label4,167,26,21,13);
+directionPanel->Add(label4);
+
+label1 = new GLLabel("Distance:");
+directionPanel->SetCompBounds(label1,8,26,52,13);
+directionPanel->Add(label1);
+
+directionStatusLabel = new GLLabel("Choose base first");
+dirPanel->SetCompBounds(directionStatusLabel,9,14,88,13);
+dirPanel->Add(directionStatusLabel);
+
+baseStatusLabel = new GLLabel("base status");
+basePanel->SetCompBounds(baseStatusLabel,7,14,61,13);
+basePanel->Add(baseStatusLabel);
+
+copyButton = new GLButton(0,"Copy facet");
+copyButton->SetBounds(120,314,84,20);
+Add(copyButton);
+
+moveButton = new GLButton(0,"Move facet");
+moveButton->SetBounds(18,314,84,20);
+Add(moveButton);
+
+SetTitle("Move facet");
+// Center dialog
+int wS,hS;
+GLToolkit::GetScreenSize(&wS,&hS);
+int xD = (wS-wD)/2;
+int yD = (hS-hD)/2;
+SetBounds(xD,yD,wD,hD);

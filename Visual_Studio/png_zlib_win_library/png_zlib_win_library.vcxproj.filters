@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\png">
+      <UniqueIdentifier>{5207c75e-6c09-4bdc-9e28-7cb3cf31d251}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\zlib">
+      <UniqueIdentifier>{43871006-13cd-47a5-a604-6e549e92902f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\png.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngerror.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pnggccrd.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngget.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngmem.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngpread.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngread.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngrio.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngrtran.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngrutil.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngset.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngtrans.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngvcrd.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwio.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwrite.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwtran.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwutil.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\png_zlib_windows\png\png.h">
+      <Filter>Source Files\png</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\png_zlib_windows\png\pngconf.h">
+      <Filter>Source Files\png</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\png_zlib_windows\zlib\zconf.h">
+      <Filter>Source Files\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\png_zlib_windows\zlib\zlib.h">
+      <Filter>Source Files\zlib</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

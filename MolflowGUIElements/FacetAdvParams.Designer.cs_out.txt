@@ -1,0 +1,431 @@
+FacetAdvParams.h:
+
+GLTitledPanel	*aPanel;
+GLTextField	*lengthText;
+GLLabel	*perCm;
+GLTextField	*resolutionText;
+GLLabel	*l5;
+GLToggle	*enableBtn;
+GLToggle	*recordDesBtn;
+GLLabel	*perCell;
+GLToggle	*recordDirBtn;
+GLToggle	*recordTransBtn;
+GLToggle	*recordReflBtn;
+GLToggle	*recordACBtn;
+GLToggle	*recordAbsBtn;
+GLTitledPanel	*mPanel;
+GLToggle	*showTexture;
+GLToggle	*showVolume;
+GLTextField	*cellText;
+GLLabel	*l8;
+GLTextField	*ramText;
+GLLabel	*l7;
+GLTitledPanel	*vPanel;
+GLButton	*quickApply;
+GLTitledPanel	*desPanel;
+GLTextField	*fileYieldText;
+GLLabel	*label3;
+GLLabel	*label1;
+GLLabel	*label2;
+GLTitledPanel	*paramPanel;
+GLTitledPanel	*angleMapPanel;
+GLToggle	*facetMovingToggle;
+GLTextField	*facetSuperDest;
+GLLabel	*label8;
+GLTextField	*facetStructure;
+GLLabel	*label7;
+GLTextField	*facetTeleport;
+GLLabel	*label4;
+GLLabel	*label5;
+GLLabel	*label6;
+GLCombo	*facetUseDesFile;
+GLTextField	*facetAccFactor;
+GLTextField	*fileDoseText;
+GLTextField	*fileFluxText;
+GLLabel	*label11;
+GLLabel	*label9;
+GLLabel	*label12;
+GLLabel	*label10;
+GLToggle	*enableSojournTime;
+GLLabel	*sojournLabel3;
+GLTextField	*sojournE;
+GLLabel	*sojournLabel2;
+GLLabel	*sojournLabel1;
+GLTextField	*sojournFreq;
+GLButton	*SojournInfoButton;
+GLLabel	*label14;
+GLTextField	*angleMapPhiResText;
+GLTextField	*angleMapThetaLowresText;
+GLButton	*angleMapImportButton;
+GLButton	*angleMapExportButton;
+GLToggle	*angleMapRecordCheckbox;
+GLButton	*angleMapReleaseButton;
+GLButton	*remeshButton;
+GLLabel	*label16;
+GLLabel	*label15;
+GLLabel	*label13;
+GLTextField	*cosineNReflBox;
+GLTextField	*specularReflBox;
+GLTextField	*diffuseReflBox;
+GLButton	*angleMapCopyButton;
+GLLabel	*limitLabel;
+GLLabel	*label17;
+GLTextField	*angleMapThetaLimitText;
+GLLabel	*label20;
+GLLabel	*label19;
+GLTextField	*angleMapThetaHighresText;
+GLLabel	*angleMapStatusLabel;
+GLTextField	*reflectionExponentBox;
+GLTitledPanel	*histogramPanel;
+GLLabel	*label22;
+GLLabel	*label21;
+GLLabel	*label18;
+GLTextField	*histogramHitBinSizeText;
+GLTextField	*histogramFlightDistanceLimitText;
+GLTextField	*histogramHitCountLimitText;
+GLToggle	*histogramRecordCheckbox;
+
+
+
+FacetAdvParams.cpp:
+
+int wD = 320;
+int hD = 745;
+aPanel = new GLTitledPanel("Texture properties");
+aPanel->SetBounds(5,3,309,123);
+Add(aPanel);
+mPanel = new GLTitledPanel("Texture cell / memory");
+mPanel->SetBounds(5,129,309,44);
+Add(mPanel);
+vPanel = new GLTitledPanel("View settings");
+vPanel->SetBounds(5,383,309,44);
+Add(vPanel);
+desPanel = new GLTitledPanel("Dynamic desorption");
+desPanel->SetBounds(5,433,309,69);
+Add(desPanel);
+paramPanel = new GLTitledPanel("Additional parameters");
+paramPanel->SetBounds(5,177,309,200);
+Add(paramPanel);
+angleMapPanel = new GLTitledPanel("Incident angle distribution");
+angleMapPanel->SetBounds(5,508,309,149);
+Add(angleMapPanel);
+histogramPanel = new GLTitledPanel("Histogram");
+histogramPanel->SetBounds(5,663,309,66);
+Add(histogramPanel);
+lengthText = new GLTextField(0,"");
+aPanel->SetCompBounds(lengthText,180,36,72,18);
+aPanel->Add(lengthText);
+
+perCm = new GLLabel("cells/cm");
+aPanel->SetCompBounds(perCm,125,39,40,12);
+aPanel->Add(perCm);
+
+resolutionText = new GLTextField(0,"");
+aPanel->SetCompBounds(resolutionText,60,36,62,18);
+aPanel->Add(resolutionText);
+
+l5 = new GLLabel("Resolution:");
+aPanel->SetCompBounds(l5,5,39,52,12);
+aPanel->Add(l5);
+
+enableBtn = new GLToggle(0,"Enable texture");
+aPanel->SetCompBounds(enableBtn,5,18,83,16);
+aPanel->Add(enableBtn);
+
+recordDesBtn = new GLToggle(0,"Count desorption");
+aPanel->SetCompBounds(recordDesBtn,5,60,94,16);
+aPanel->Add(recordDesBtn);
+
+perCell = new GLLabel("cm/cell");
+aPanel->SetCompBounds(perCell,260,39,35,12);
+aPanel->Add(perCell);
+
+recordDirBtn = new GLToggle(0,"Record direction vectors");
+aPanel->SetCompBounds(recordDirBtn,165,102,125,16);
+aPanel->Add(recordDirBtn);
+
+recordTransBtn = new GLToggle(0,"Count transparent pass");
+aPanel->SetCompBounds(recordTransBtn,165,81,120,16);
+aPanel->Add(recordTransBtn);
+
+recordReflBtn = new GLToggle(0,"Count reflection");
+aPanel->SetCompBounds(recordReflBtn,165,60,89,16);
+aPanel->Add(recordReflBtn);
+
+recordACBtn = new GLToggle(0,"Angular coefficient");
+aPanel->SetCompBounds(recordACBtn,5,102,101,16);
+aPanel->Add(recordACBtn);
+
+recordAbsBtn = new GLToggle(0,"Count absorption");
+aPanel->SetCompBounds(recordAbsBtn,5,81,94,16);
+aPanel->Add(recordAbsBtn);
+
+showTexture = new GLToggle(0,"Draw Texture");
+vPanel->SetCompBounds(showTexture,10,18,80,16);
+vPanel->Add(showTexture);
+
+showVolume = new GLToggle(0,"Draw Volume");
+vPanel->SetCompBounds(showVolume,110,18,81,16);
+vPanel->Add(showVolume);
+
+cellText = new GLTextField(0,"");
+mPanel->SetCompBounds(cellText,195,19,107,18);
+mPanel->Add(cellText);
+
+l8 = new GLLabel("Cells:");
+mPanel->SetCompBounds(l8,166,22,29,12);
+mPanel->Add(l8);
+
+ramText = new GLTextField(0,"");
+mPanel->SetCompBounds(ramText,58,19,100,18);
+mPanel->Add(ramText);
+
+l7 = new GLLabel("Memory:");
+mPanel->SetCompBounds(l7,10,22,43,12);
+mPanel->Add(l7);
+
+quickApply = new GLButton(0,"<- Change draw");
+vPanel->SetCompBounds(quickApply,200,15,99,20);
+vPanel->Add(quickApply);
+
+fileYieldText = new GLTextField(0,"");
+desPanel->SetCompBounds(fileYieldText,205,18,58,18);
+desPanel->Add(fileYieldText);
+
+label3 = new GLLabel("mol/ph");
+desPanel->SetCompBounds(label3,265,21,33,12);
+desPanel->Add(label3);
+
+label1 = new GLLabel("Avg");
+desPanel->SetCompBounds(label1,155,21,48,12);
+desPanel->Add(label1);
+
+label2 = new GLLabel("Use file:");
+desPanel->SetCompBounds(label2,5,21,39,12);
+desPanel->Add(label2);
+
+facetMovingToggle = new GLToggle(0,"Moving part");
+paramPanel->SetCompBounds(facetMovingToggle,9,132,74,16);
+paramPanel->Add(facetMovingToggle);
+
+facetSuperDest = new GLTextField(0,"");
+paramPanel->SetCompBounds(facetSuperDest,198,111,101,18);
+paramPanel->Add(facetSuperDest);
+
+label8 = new GLLabel("Link to:");
+paramPanel->SetCompBounds(label8,157,114,35,12);
+paramPanel->Add(label8);
+
+facetStructure = new GLTextField(0,"");
+paramPanel->SetCompBounds(facetStructure,59,111,91,18);
+paramPanel->Add(facetStructure);
+
+label7 = new GLLabel("Structure:");
+paramPanel->SetCompBounds(label7,9,114,46,12);
+paramPanel->Add(label7);
+
+facetTeleport = new GLTextField(0,"");
+paramPanel->SetCompBounds(facetTeleport,154,87,145,18);
+paramPanel->Add(facetTeleport);
+
+label4 = new GLLabel("Teleport to facet:");
+paramPanel->SetCompBounds(label4,9,90,74,12);
+paramPanel->Add(label4);
+
+label5 = new GLLabel("Accomodation coefficient:");
+paramPanel->SetCompBounds(label5,9,66,126,13);
+paramPanel->Add(label5);
+
+label6 = new GLLabel("Reflection:");
+paramPanel->SetCompBounds(label6,10,22,50,12);
+paramPanel->Add(label6);
+
+facetUseDesFile = new GLCombo(0);
+desPanel->SetCompBounds(facetUseDesFile,50,18,95,20);
+desPanel->Add(facetUseDesFile);
+facetUseDesFile->SetSize(1);
+facetUseDesFile->SetValueAt(0,"No file imported");
+
+facetAccFactor = new GLTextField(0,"");
+paramPanel->SetCompBounds(facetAccFactor,154,63,145,18);
+paramPanel->Add(facetAccFactor);
+
+fileDoseText = new GLTextField(0,"");
+desPanel->SetCompBounds(fileDoseText,205,42,58,18);
+desPanel->Add(fileDoseText);
+
+fileFluxText = new GLTextField(0,"");
+desPanel->SetCompBounds(fileFluxText,50,42,55,18);
+desPanel->Add(fileFluxText);
+
+label11 = new GLLabel("ph/cm2");
+desPanel->SetCompBounds(label11,265,45,36,12);
+desPanel->Add(label11);
+
+label9 = new GLLabel("ph/s/cm2");
+desPanel->SetCompBounds(label9,105,45,44,12);
+desPanel->Add(label9);
+
+label12 = new GLLabel("Avg");
+desPanel->SetCompBounds(label12,155,45,49,12);
+desPanel->Add(label12);
+
+label10 = new GLLabel("Avg");
+desPanel->SetCompBounds(label10,5,45,44,12);
+desPanel->Add(label10);
+
+enableSojournTime = new GLToggle(0,"Wall Sojourn time");
+paramPanel->SetCompBounds(enableSojournTime,9,153,95,16);
+paramPanel->Add(enableSojournTime);
+
+sojournLabel3 = new GLLabel("J/mole");
+paramPanel->SetCompBounds(sojournLabel3,249,174,37,13);
+paramPanel->Add(sojournLabel3);
+
+sojournE = new GLTextField(0,"");
+paramPanel->SetCompBounds(sojournE,199,171,50,18);
+paramPanel->Add(sojournE);
+
+sojournLabel2 = new GLLabel("Hz   Binding E:");
+paramPanel->SetCompBounds(sojournLabel2,124,174,76,13);
+paramPanel->Add(sojournLabel2);
+
+sojournLabel1 = new GLLabel("Attempt freq:");
+paramPanel->SetCompBounds(sojournLabel1,9,174,67,13);
+paramPanel->Add(sojournLabel1);
+
+sojournFreq = new GLTextField(0,"");
+paramPanel->SetCompBounds(sojournFreq,74,171,50,18);
+paramPanel->Add(sojournFreq);
+
+SojournInfoButton = new GLButton(0,"Info");
+paramPanel->SetCompBounds(SojournInfoButton,228,147,69,20);
+paramPanel->Add(SojournInfoButton);
+
+label14 = new GLLabel("Theta (grazing angle):");
+angleMapPanel->SetCompBounds(label14,9,36,93,12);
+angleMapPanel->Add(label14);
+
+angleMapPhiResText = new GLTextField(0,"");
+angleMapPanel->SetCompBounds(angleMapPhiResText,115,77,46,18);
+angleMapPanel->Add(angleMapPhiResText);
+
+angleMapThetaLowresText = new GLTextField(0,"");
+angleMapPanel->SetCompBounds(angleMapThetaLowresText,115,33,46,18);
+angleMapPanel->Add(angleMapThetaLowresText);
+
+angleMapImportButton = new GLButton(0,"Import CSV");
+angleMapPanel->SetCompBounds(angleMapImportButton,140,122,64,20);
+angleMapPanel->Add(angleMapImportButton);
+
+angleMapExportButton = new GLButton(0,"Export to CSV");
+angleMapPanel->SetCompBounds(angleMapExportButton,63,122,73,20);
+angleMapPanel->Add(angleMapExportButton);
+
+angleMapRecordCheckbox = new GLToggle(0,"Record");
+angleMapPanel->SetCompBounds(angleMapRecordCheckbox,10,16,54,16);
+angleMapPanel->Add(angleMapRecordCheckbox);
+
+angleMapReleaseButton = new GLButton(0,"Release recorded");
+angleMapPanel->SetCompBounds(angleMapReleaseButton,205,122,93,20);
+angleMapPanel->Add(angleMapReleaseButton);
+
+remeshButton = new GLButton(0,"Force remesh");
+aPanel->SetCompBounds(remeshButton,218,13,77,20);
+aPanel->Add(remeshButton);
+
+label16 = new GLLabel("part cosine^");
+paramPanel->SetCompBounds(label16,108,44,55,12);
+paramPanel->Add(label16);
+
+label15 = new GLLabel("part specular,");
+paramPanel->SetCompBounds(label15,216,22,61,12);
+paramPanel->Add(label15);
+
+label13 = new GLLabel("part diffuse,");
+paramPanel->SetCompBounds(label13,108,22,54,12);
+paramPanel->Add(label13);
+
+cosineNReflBox = new GLTextField(0,"");
+paramPanel->SetCompBounds(cosineNReflBox,65,41,40,18);
+paramPanel->Add(cosineNReflBox);
+
+specularReflBox = new GLTextField(0,"");
+paramPanel->SetCompBounds(specularReflBox,171,19,40,18);
+paramPanel->Add(specularReflBox);
+
+diffuseReflBox = new GLTextField(0,"");
+paramPanel->SetCompBounds(diffuseReflBox,65,19,40,18);
+paramPanel->Add(diffuseReflBox);
+
+angleMapCopyButton = new GLButton(0,"Copy");
+angleMapPanel->SetCompBounds(angleMapCopyButton,10,122,50,20);
+angleMapPanel->Add(angleMapCopyButton);
+
+limitLabel = new GLLabel("values from limit to PI/2");
+angleMapPanel->SetCompBounds(limitLabel,166,58,102,12);
+angleMapPanel->Add(limitLabel);
+
+label17 = new GLLabel("values from 0 to");
+angleMapPanel->SetCompBounds(label17,166,36,71,12);
+angleMapPanel->Add(label17);
+
+angleMapThetaLimitText = new GLTextField(0,"");
+angleMapPanel->SetCompBounds(angleMapThetaLimitText,249,33,46,18);
+angleMapPanel->Add(angleMapThetaLimitText);
+
+label20 = new GLLabel("values from -PI to +PI");
+angleMapPanel->SetCompBounds(label20,166,80,94,12);
+angleMapPanel->Add(label20);
+
+label19 = new GLLabel("Phi (azimuth with U):");
+angleMapPanel->SetCompBounds(label19,10,80,91,12);
+angleMapPanel->Add(label19);
+
+angleMapThetaHighresText = new GLTextField(0,"");
+angleMapPanel->SetCompBounds(angleMapThetaHighresText,115,55,46,18);
+angleMapPanel->Add(angleMapThetaHighresText);
+
+angleMapStatusLabel = new GLLabel("Status: no recorded map");
+angleMapPanel->SetCompBounds(angleMapStatusLabel,10,106,105,12);
+angleMapPanel->Add(angleMapStatusLabel);
+
+reflectionExponentBox = new GLTextField(0,"");
+paramPanel->SetCompBounds(reflectionExponentBox,171,41,40,18);
+paramPanel->Add(reflectionExponentBox);
+
+label22 = new GLLabel("Hit count bin size:");
+histogramPanel->SetCompBounds(label22,163,41,78,12);
+histogramPanel->Add(label22);
+
+label21 = new GLLabel("Hit count limit:");
+histogramPanel->SetCompBounds(label21,48,41,64,12);
+histogramPanel->Add(label21);
+
+label18 = new GLLabel("Flight distance limit (cm):");
+histogramPanel->SetCompBounds(label18,133,19,108,12);
+histogramPanel->Add(label18);
+
+histogramHitBinSizeText = new GLTextField(0,"1");
+histogramPanel->SetCompBounds(histogramHitBinSizeText,249,38,46,18);
+histogramPanel->Add(histogramHitBinSizeText);
+
+histogramFlightDistanceLimitText = new GLTextField(0,"");
+histogramPanel->SetCompBounds(histogramFlightDistanceLimitText,249,16,46,18);
+histogramPanel->Add(histogramFlightDistanceLimitText);
+
+histogramHitCountLimitText = new GLTextField(0,"");
+histogramPanel->SetCompBounds(histogramHitCountLimitText,112,38,46,18);
+histogramPanel->Add(histogramHitCountLimitText);
+
+histogramRecordCheckbox = new GLToggle(0,"Record");
+histogramPanel->SetCompBounds(histogramRecordCheckbox,10,18,54,16);
+histogramPanel->Add(histogramRecordCheckbox);
+
+SetTitle("Advanced facet parameters");
+// Center dialog
+int wS,hS;
+GLToolkit::GetScreenSize(&wS,&hS);
+int xD = (wS-wD)/2;
+int yD = (hS-hD)/2;
+SetBounds(xD,yD,wD,hD);

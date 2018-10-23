@@ -1,0 +1,1 @@
+These are wrappers that translate between old C-style methods shipped with NFD and modern C++11 methods.

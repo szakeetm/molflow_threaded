@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{8A89D94C-532B-4DF2-971A-4F5185DFA634}</ProjectGuid>
+    <RootNamespace>molflowwin</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <ProjectName>molflow_win</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>..\..\bin\win\debug\</OutDir>
+    <IntDir>..\..\intermediary\win\debug\molflow\</IntDir>
+    <TargetName>molflow</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>..\..\bin\win\release\</OutDir>
+    <IntDir>..\..\intermediary\win\release\molflow\</IntDir>
+    <TargetName>molflow</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>CURL_STATICLIB;_MBCS;MOLFLOW;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\SDL;..\..\include\png_zlib_windows\png</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;SDL2.lib;SDL2main.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\debug\</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>CURL_STATICLIB;_MBCS;MOLFLOW;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\SDL;..\..\include\png_zlib_windows\png</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;SDL2.lib;SDL2main.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\release\</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\molflow_code\FacetAdvParams.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\FacetDetails.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\GeometryRender.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\GeometryViewer.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\GlobalSettings.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\ImportDesorption.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\IntersectAABB.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\MolFlow.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\MolflowFacet.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\MolflowGeometry.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\MolflowTypes.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\MolflowWorker.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\MomentsEditor.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\Movement.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\OutgassingMap.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\Parameter.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\ParameterEditor.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\PressureEvolution.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\ProfilePlotter.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\Simulation.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\SimulationMC.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\SubProcessFacet.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\TexturePlotter.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\TextureScaling.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\TimeSettings.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\TimewisePlotter.cpp" />
+    <ClCompile Include="..\..\source\molflow_code\Viewer3DSettings.cpp" />
+    <ClCompile Include="..\..\source\shared_code\AddVertex.cpp" />
+    <ClCompile Include="..\..\source\shared_code\AlignFacet.cpp" />
+    <ClCompile Include="..\..\source\shared_code\AppUpdater.cpp" />
+    <ClCompile Include="..\..\source\shared_code\ASELoader.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Buffer_shared.cpp" />
+    <ClCompile Include="..\..\source\shared_code\BuildIntersection.cpp" />
+    <ClCompile Include="..\..\source\shared_code\CollapseSettings.cpp" />
+    <ClCompile Include="..\..\source\shared_code\CreateShape.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Distributions.cpp" />
+    <ClCompile Include="..\..\source\shared_code\ExtrudeFacet.cpp" />
+    <ClCompile Include="..\..\source\shared_code\FacetCoordinates.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Facet_shared.cpp" />
+    <ClCompile Include="..\..\source\shared_code\File.cpp" />
+    <ClCompile Include="..\..\source\shared_code\FormulaEditor.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GeometryRender_shared.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GeometryViewer_shared.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Geometry_shared.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLApp.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLButton.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\AxisPanel.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLAxis.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLChart.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLChartOptions.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLDataView.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLDataViewOptions.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLColorBox.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLCombo.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLComponent.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLContainer.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLFont.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLGradient.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLIcon.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLInputBox.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLLabel.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLList.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLMatrix.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLMenu.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLMenuBar.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLMessageBox.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLParser.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLProgress.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLSaveDialog.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLScrollBar.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLSpinner.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLSprite.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLTabWindow.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLTextField.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLTitledPanel.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLToggle.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLToolkit.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLUnitDialog.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLWindow.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLWindowManager.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GLApp\MathTools.cpp" />
+    <ClCompile Include="..\..\source\shared_code\GrahamScan.cpp" />
+    <ClCompile Include="..\..\source\shared_code\HistogramPlotter.cpp" />
+    <ClCompile Include="..\..\source\shared_code\HistogramSettings.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Interface.cpp" />
+    <ClCompile Include="..\..\source\shared_code\IntersectAABB_shared.cpp" />
+    <ClCompile Include="..\..\source\shared_code\LoadStatus.cpp" />
+    <ClCompile Include="..\..\source\shared_code\MirrorFacet.cpp" />
+    <ClCompile Include="..\..\source\shared_code\MirrorVertex.cpp" />
+    <ClCompile Include="..\..\source\shared_code\MoveFacet.cpp" />
+    <ClCompile Include="..\..\source\shared_code\MoveVertex.cpp" />
+    <ClCompile Include="..\..\source\shared_code\ParticleLogger.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Polygon.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Random.cpp" />
+    <ClCompile Include="..\..\source\shared_code\RecoveryDialog.cpp" />
+    <ClCompile Include="..\..\source\shared_code\RotateFacet.cpp" />
+    <ClCompile Include="..\..\source\shared_code\RotateVertex.cpp" />
+    <ClCompile Include="..\..\source\shared_code\ScaleFacet.cpp" />
+    <ClCompile Include="..\..\source\shared_code\ScaleVertex.cpp" />
+    <ClCompile Include="..\..\source\shared_code\SelectDialog.cpp" />
+    <ClCompile Include="..\..\source\shared_code\SelectTextureType.cpp" />
+    <ClCompile Include="..\..\source\shared_code\ShMemory.cpp" />
+    <ClCompile Include="..\..\source\shared_code\SmartSelection.cpp" />
+    <ClCompile Include="..\..\source\shared_code\SplitFacet.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Vector.cpp" />
+    <ClCompile Include="..\..\source\shared_code\VertexCoordinates.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Web.cpp" />
+    <ClCompile Include="..\..\source\shared_code\WinProcess.cpp" />
+    <ClCompile Include="..\..\source\shared_code\Worker_shared.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\molflow_code\FacetAdvParams.h" />
+    <ClInclude Include="..\..\source\molflow_code\FacetDetails.h" />
+    <ClInclude Include="..\..\source\molflow_code\GlobalSettings.h" />
+    <ClInclude Include="..\..\source\molflow_code\ImportDesorption.h" />
+    <ClInclude Include="..\..\source\molflow_code\MolFlow.h" />
+    <ClInclude Include="..\..\source\molflow_code\MolflowFacet.h" />
+    <ClInclude Include="..\..\source\molflow_code\MolflowGeometry.h" />
+    <ClInclude Include="..\..\source\molflow_code\MolflowTypes.h" />
+    <ClInclude Include="..\..\source\molflow_code\MomentsEditor.h" />
+    <ClInclude Include="..\..\source\molflow_code\Movement.h" />
+    <ClInclude Include="..\..\source\molflow_code\OutgassingMap.h" />
+    <ClInclude Include="..\..\source\molflow_code\Parameter.h" />
+    <ClInclude Include="..\..\source\molflow_code\ParameterEditor.h" />
+    <ClInclude Include="..\..\source\molflow_code\PressureEvolution.h" />
+    <ClInclude Include="..\..\source\molflow_code\ProfilePlotter.h" />
+    <ClInclude Include="..\..\source\molflow_code\Simulation.h" />
+    <ClInclude Include="..\..\source\molflow_code\TexturePlotter.h" />
+    <ClInclude Include="..\..\source\molflow_code\TextureScaling.h" />
+    <ClInclude Include="..\..\source\molflow_code\TimeSettings.h" />
+    <ClInclude Include="..\..\source\molflow_code\TimewisePlotter.h" />
+    <ClInclude Include="..\..\source\molflow_code\Viewer3DSettings.h" />
+    <ClInclude Include="..\..\source\shared_code\AddVertex.h" />
+    <ClInclude Include="..\..\source\shared_code\AlignFacet.h" />
+    <ClInclude Include="..\..\source\shared_code\AppUpdater.h" />
+    <ClInclude Include="..\..\source\shared_code\ASELoader.h" />
+    <ClInclude Include="..\..\source\shared_code\Buffer_shared.h" />
+    <ClInclude Include="..\..\source\shared_code\BuildIntersection.h" />
+    <ClInclude Include="..\..\source\shared_code\CollapseSettings.h" />
+    <ClInclude Include="..\..\source\shared_code\CreateShape.h" />
+    <ClInclude Include="..\..\source\shared_code\Distributions.h" />
+    <ClInclude Include="..\..\source\shared_code\DrawingArea.h" />
+    <ClInclude Include="..\..\source\shared_code\ExtrudeFacet.h" />
+    <ClInclude Include="..\..\source\shared_code\FacetCoordinates.h" />
+    <ClInclude Include="..\..\source\shared_code\Facet_shared.h" />
+    <ClInclude Include="..\..\source\shared_code\File.h" />
+    <ClInclude Include="..\..\source\shared_code\FormulaEditor.h" />
+    <ClInclude Include="..\..\source\shared_code\GeometryViewer.h" />
+    <ClInclude Include="..\..\source\shared_code\Geometry_shared.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLApp.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLButton.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\AxisPanel.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\DataList.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLAxis.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLChart.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLChartConst.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLChartOptions.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLDataView.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLDataViewOptions.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\SearchInfo.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLColorBox.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLCombo.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLComponent.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLContainer.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLFont.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLGradient.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLIcon.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLInputBox.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLLabel.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLList.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLMatrix.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLMenu.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLMenuBar.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLMessageBox.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLParser.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLProgress.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLSaveDialog.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLScrollBar.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLSpinner.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLSprite.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLTabWindow.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLTextField.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLTitledPanel.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLToggle.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLToolkit.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLTypes.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLUnitDialog.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLWindow.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLWindowManager.h" />
+    <ClInclude Include="..\..\source\shared_code\GLApp\MathTools.h" />
+    <ClInclude Include="..\..\source\shared_code\GrahamScan.h" />
+    <ClInclude Include="..\..\source\shared_code\HistogramPlotter.h" />
+    <ClInclude Include="..\..\source\shared_code\HistogramSettings.h" />
+    <ClInclude Include="..\..\source\shared_code\Interface.h" />
+    <ClInclude Include="..\..\source\shared_code\IntersectAABB_shared.h" />
+    <ClInclude Include="..\..\source\shared_code\LoadStatus.h" />
+    <ClInclude Include="..\..\source\shared_code\MirrorFacet.h" />
+    <ClInclude Include="..\..\source\shared_code\MirrorVertex.h" />
+    <ClInclude Include="..\..\source\shared_code\MoveFacet.h" />
+    <ClInclude Include="..\..\source\shared_code\MoveVertex.h" />
+    <ClInclude Include="..\..\source\shared_code\ParticleLogger.h" />
+    <ClInclude Include="..\..\source\shared_code\Polygon.h" />
+    <ClInclude Include="..\..\source\shared_code\Random.h" />
+    <ClInclude Include="..\..\source\shared_code\RecoveryDialog.h" />
+    <ClInclude Include="..\..\source\shared_code\RotateFacet.h" />
+    <ClInclude Include="..\..\source\shared_code\RotateVertex.h" />
+    <ClInclude Include="..\..\source\shared_code\ScaleFacet.h" />
+    <ClInclude Include="..\..\source\shared_code\ScaleVertex.h" />
+    <ClInclude Include="..\..\source\shared_code\SelectDialog.h" />
+    <ClInclude Include="..\..\source\shared_code\SelectTextureType.h" />
+    <ClInclude Include="..\..\source\shared_code\SmartSelection.h" />
+    <ClInclude Include="..\..\source\shared_code\SMP.h" />
+    <ClInclude Include="..\..\source\shared_code\SmpStatus.h" />
+    <ClInclude Include="..\..\source\shared_code\SplitFacet.h" />
+    <ClInclude Include="..\..\source\shared_code\Vector.h" />
+    <ClInclude Include="..\..\source\shared_code\versionId.h" />
+    <ClInclude Include="..\..\source\shared_code\VertexCoordinates.h" />
+    <ClInclude Include="..\..\source\shared_code\Web.h" />
+    <ClInclude Include="..\..\source\shared_code\Worker.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\source\molflow_code\LICENSE" />
+    <None Include="..\..\source\shared_code\GLApp\GLFileBox.cpp.obsolete" />
+    <None Include="..\..\source\shared_code\GLApp\GLFileBox.h.obsolete" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

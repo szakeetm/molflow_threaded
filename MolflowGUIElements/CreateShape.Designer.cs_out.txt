@@ -1,0 +1,258 @@
+CreateShape.h:
+
+GLTitledPanel	*shapePanel;
+GLToggle	*racetrackCheckbox;
+GLToggle	*ellipseCheckbox;
+GLToggle	*rectangleCheckbox;
+GLTitledPanel	*positionPanel;
+GLLabel	*normalStatusLabel;
+GLButton	*normalVertexButton;
+GLButton	*facetNormalButton;
+GLLabel	*axisStatusLabel;
+GLButton	*axisVertexButton;
+GLButton	*axisFacetUButton;
+GLLabel	*centerStatusLabel;
+GLButton	*centerVertexButton;
+GLButton	*facetCenterButton;
+GLTextField	*normalZtext;
+GLLabel	*label9;
+GLTextField	*normalYtext;
+GLLabel	*label10;
+GLTextField	*normalXtext;
+GLLabel	*label11;
+GLLabel	*label12;
+GLTextField	*axisZtext;
+GLLabel	*label5;
+GLTextField	*axisYtext;
+GLLabel	*label6;
+GLTextField	*axisXtext;
+GLLabel	*label7;
+GLLabel	*label8;
+GLTextField	*centerZtext;
+GLLabel	*label4;
+GLTextField	*centerYtext;
+GLLabel	*label3;
+GLTextField	*centerXtext;
+GLLabel	*label2;
+GLLabel	*label1;
+GLTitledPanel	*sizePanel;
+GLButton	*fullCircleButton;
+GLTextField	*nbstepsText;
+GLLabel	*label22;
+GLLabel	*label20;
+GLTextField	*racetrackToplengthText;
+GLLabel	*label21;
+GLLabel	*label18;
+GLTextField	*axis2LengthText;
+GLLabel	*label19;
+GLLabel	*label17;
+GLTextField	*axis1LengthText;
+GLLabel	*label16;
+GLButton	*createButton;
+
+
+
+CreateShape.cpp:
+
+int wD = 713;
+int hD = 478;
+shapePanel = new GLTitledPanel("Shape");
+shapePanel->SetBounds(8,3,694,247);
+Add(shapePanel);
+positionPanel = new GLTitledPanel("Position");
+positionPanel->SetBounds(8,256,694,94);
+Add(positionPanel);
+sizePanel = new GLTitledPanel("Size");
+sizePanel->SetBounds(8,356,694,66);
+Add(sizePanel);
+racetrackCheckbox = new GLToggle(0,"Racetrack");
+shapePanel->SetCompBounds(racetrackCheckbox,424,19,76,17);
+shapePanel->Add(racetrackCheckbox);
+
+ellipseCheckbox = new GLToggle(0,"Circle / Ellipse");
+shapePanel->SetCompBounds(ellipseCheckbox,308,19,93,17);
+shapePanel->Add(ellipseCheckbox);
+
+rectangleCheckbox = new GLToggle(0,"Square / Rectangle");
+shapePanel->SetCompBounds(rectangleCheckbox,182,19,120,17);
+shapePanel->Add(rectangleCheckbox);
+
+normalStatusLabel = new GLLabel("status");
+positionPanel->SetCompBounds(normalStatusLabel,594,68,35,13);
+positionPanel->Add(normalStatusLabel);
+
+normalVertexButton = new GLButton(0,"Center to vertex");
+positionPanel->SetCompBounds(normalVertexButton,506,65,85,20);
+positionPanel->Add(normalVertexButton);
+
+facetNormalButton = new GLButton(0,"Facet N");
+positionPanel->SetCompBounds(facetNormalButton,425,65,75,20);
+positionPanel->Add(facetNormalButton);
+
+axisStatusLabel = new GLLabel("status");
+positionPanel->SetCompBounds(axisStatusLabel,594,42,35,13);
+positionPanel->Add(axisStatusLabel);
+
+axisVertexButton = new GLButton(0,"Center to vertex");
+positionPanel->SetCompBounds(axisVertexButton,506,39,85,20);
+positionPanel->Add(axisVertexButton);
+
+axisFacetUButton = new GLButton(0,"Facet U");
+positionPanel->SetCompBounds(axisFacetUButton,425,39,75,20);
+positionPanel->Add(axisFacetUButton);
+
+centerStatusLabel = new GLLabel("status");
+positionPanel->SetCompBounds(centerStatusLabel,594,16,35,13);
+positionPanel->Add(centerStatusLabel);
+
+centerVertexButton = new GLButton(0,"From vertex");
+positionPanel->SetCompBounds(centerVertexButton,506,13,85,20);
+positionPanel->Add(centerVertexButton);
+
+facetCenterButton = new GLButton(0,"Facet center");
+positionPanel->SetCompBounds(facetCenterButton,425,13,75,20);
+positionPanel->Add(facetCenterButton);
+
+normalZtext = new GLTextField(0,"1");
+positionPanel->SetCompBounds(normalZtext,339,65,80,20);
+positionPanel->Add(normalZtext);
+
+label9 = new GLLabel("Z:");
+positionPanel->SetCompBounds(label9,322,68,17,13);
+positionPanel->Add(label9);
+
+normalYtext = new GLTextField(0,"0");
+positionPanel->SetCompBounds(normalYtext,232,65,80,20);
+positionPanel->Add(normalYtext);
+
+label10 = new GLLabel("Y:");
+positionPanel->SetCompBounds(label10,215,68,17,13);
+positionPanel->Add(label10);
+
+normalXtext = new GLTextField(0,"0");
+positionPanel->SetCompBounds(normalXtext,128,65,80,20);
+positionPanel->Add(normalXtext);
+
+label11 = new GLLabel("X:");
+positionPanel->SetCompBounds(label11,111,68,17,13);
+positionPanel->Add(label11);
+
+label12 = new GLLabel("Normal direction:");
+positionPanel->SetCompBounds(label12,6,68,86,13);
+positionPanel->Add(label12);
+
+axisZtext = new GLTextField(0,"0");
+positionPanel->SetCompBounds(axisZtext,339,40,80,20);
+positionPanel->Add(axisZtext);
+
+label5 = new GLLabel("Z:");
+positionPanel->SetCompBounds(label5,322,42,17,13);
+positionPanel->Add(label5);
+
+axisYtext = new GLTextField(0,"0");
+positionPanel->SetCompBounds(axisYtext,232,39,80,20);
+positionPanel->Add(axisYtext);
+
+label6 = new GLLabel("Y:");
+positionPanel->SetCompBounds(label6,215,42,17,13);
+positionPanel->Add(label6);
+
+axisXtext = new GLTextField(0,"1");
+positionPanel->SetCompBounds(axisXtext,128,39,80,20);
+positionPanel->Add(axisXtext);
+
+label7 = new GLLabel("X:");
+positionPanel->SetCompBounds(label7,111,42,17,13);
+positionPanel->Add(label7);
+
+label8 = new GLLabel("Axis1 direction:");
+positionPanel->SetCompBounds(label8,6,42,78,13);
+positionPanel->Add(label8);
+
+centerZtext = new GLTextField(0,"0");
+positionPanel->SetCompBounds(centerZtext,339,13,80,20);
+positionPanel->Add(centerZtext);
+
+label4 = new GLLabel("Z:");
+positionPanel->SetCompBounds(label4,322,16,17,13);
+positionPanel->Add(label4);
+
+centerYtext = new GLTextField(0,"0");
+positionPanel->SetCompBounds(centerYtext,232,13,80,20);
+positionPanel->Add(centerYtext);
+
+label3 = new GLLabel("Y:");
+positionPanel->SetCompBounds(label3,215,16,17,13);
+positionPanel->Add(label3);
+
+centerXtext = new GLTextField(0,"0");
+positionPanel->SetCompBounds(centerXtext,128,13,80,20);
+positionPanel->Add(centerXtext);
+
+label2 = new GLLabel("X:");
+positionPanel->SetCompBounds(label2,111,16,17,13);
+positionPanel->Add(label2);
+
+label1 = new GLLabel("Center:");
+positionPanel->SetCompBounds(label1,6,16,41,13);
+positionPanel->Add(label1);
+
+fullCircleButton = new GLButton(0,"Full circle sides");
+sizePanel->SetCompBounds(fullCircleButton,449,13,142,20);
+sizePanel->Add(fullCircleButton);
+
+nbstepsText = new GLTextField(0,"10");
+sizePanel->SetCompBounds(nbstepsText,339,39,80,20);
+sizePanel->Add(nbstepsText);
+
+label22 = new GLLabel("Steps in arc:");
+sizePanel->SetCompBounds(label22,229,42,66,13);
+sizePanel->Add(label22);
+
+label20 = new GLLabel("cm");
+sizePanel->SetCompBounds(label20,422,16,21,13);
+sizePanel->Add(label20);
+
+racetrackToplengthText = new GLTextField(0,"");
+sizePanel->SetCompBounds(racetrackToplengthText,339,13,80,20);
+sizePanel->Add(racetrackToplengthText);
+
+label21 = new GLLabel("Racetrack top length:");
+sizePanel->SetCompBounds(label21,229,16,110,13);
+sizePanel->Add(label21);
+
+label18 = new GLLabel("cm");
+sizePanel->SetCompBounds(label18,161,42,21,13);
+sizePanel->Add(label18);
+
+axis2LengthText = new GLTextField(0,"1");
+sizePanel->SetCompBounds(axis2LengthText,79,39,80,20);
+sizePanel->Add(axis2LengthText);
+
+label19 = new GLLabel("Axis2 length:");
+sizePanel->SetCompBounds(label19,6,42,67,13);
+sizePanel->Add(label19);
+
+label17 = new GLLabel("cm");
+sizePanel->SetCompBounds(label17,161,16,21,13);
+sizePanel->Add(label17);
+
+axis1LengthText = new GLTextField(0,"1");
+sizePanel->SetCompBounds(axis1LengthText,79,13,80,20);
+sizePanel->Add(axis1LengthText);
+
+label16 = new GLLabel("Axis1 length:");
+sizePanel->SetCompBounds(label16,6,16,67,13);
+sizePanel->Add(label16);
+
+createButton = new GLButton(0,"Create facet");
+createButton->SetBounds(327,431,100,20);
+Add(createButton);
+
+SetTitle("Create shape");
+// Center dialog
+int wS,hS;
+GLToolkit::GetScreenSize(&wS,&hS);
+int xD = (wS-wD)/2;
+int yD = (hS-hD)/2;
+SetBounds(xD,yD,wD,hD);

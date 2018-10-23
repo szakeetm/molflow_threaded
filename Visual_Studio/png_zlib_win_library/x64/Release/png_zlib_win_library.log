@@ -1,0 +1,53 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(377,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  png.c
+  pngerror.c
+  pnggccrd.c
+  pngget.c
+  pngmem.c
+  pngpread.c
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngpread.c(525): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngpread.c(541): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngpread.c(705): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngpread.c(728): warning C4267: '-=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngpread.c(1284): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngread.c
+  pngrio.c
+  pngrtran.c
+  pngrutil.c
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngrutil.c(211): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngrutil.c(235): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngrutil.c(298): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngrutil.c(1057): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngrutil.c(1150): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  pngset.c
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngset.c(396): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngset.c(412): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngset.c(434): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngset.c(685): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngset.c(975): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngset.c(1009): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngset.c(1027): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngtrans.c
+  pngvcrd.c
+  pngwio.c
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngwio.c(52): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  pngwrite.c
+  pngwtran.c
+  pngwutil.c
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngwutil.c(172): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngwutil.c(1319): warning C4267: 'function': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\users\mszakacs\cernbox\cernbox_work\vs_projects\molflow_threaded\_molflow_threaded\molflow_project\lib\include\png\pngwutil.c(1538): warning C4267: '=': conversion from 'size_t' to 'png_uint_32', possible loss of data
+  adler32.c
+  compress.c
+  crc32.c
+  Compiling...
+  deflate.c
+  gzio.c
+  infback.c
+  inffast.c
+  inflate.c
+  inftrees.c
+  trees.c
+  uncompr.c
+  zutil.c
+  png_zlib_win_library.vcxproj -> C:\Users\mszakacs\cernbox\CERNBox_work\VS_projects\molflow_threaded\_molflow_threaded\png_zlib_win_library\..\molflow_project\lib\lib\png_zlib_win_library.lib

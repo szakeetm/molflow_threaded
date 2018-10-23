@@ -1,0 +1,695 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\shared_code">
+      <UniqueIdentifier>{40466a9e-e88f-4cd0-a220-92f8cc8b6baa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\molflow_code">
+      <UniqueIdentifier>{02ec38da-e832-4c72-af08-6e949a99ab24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\shared_code\GLApp">
+      <UniqueIdentifier>{2f5697af-15fe-42f5-9103-9a6bd74164c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\shared_code\GLApp\GLChart">
+      <UniqueIdentifier>{a0cac2e5-dd08-440c-a8cf-146f1969caa7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\shared_code\ASELoader.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Buffer_shared.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\BuildIntersection.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\CollapseSettings.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\CreateShape.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Distributions.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\ExtrudeFacet.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Facet_shared.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\FacetCoordinates.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\File.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\FormulaEditor.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Geometry_shared.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GeometryRender_shared.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GeometryViewer_shared.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GrahamScan.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\HistogramPlotter.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\HistogramSettings.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Interface.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\IntersectAABB_shared.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\LoadStatus.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\MirrorFacet.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\MirrorVertex.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\MoveFacet.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\MoveVertex.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\ParticleLogger.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Polygon.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Random.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\RecoveryDialog.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\RotateFacet.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\RotateVertex.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\ScaleFacet.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\ScaleVertex.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\SelectDialog.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\SelectTextureType.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\ShMemory.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\SmartSelection.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\SplitFacet.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Vector.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\VertexCoordinates.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Web.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\WinProcess.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\Worker_shared.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\AddVertex.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\AlignFacet.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\AppUpdater.cpp">
+      <Filter>Source Files\shared_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\GeometryViewer.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\GlobalSettings.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\ImportDesorption.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\IntersectAABB.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\MolFlow.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\MolflowFacet.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\MolflowGeometry.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\MolflowTypes.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\MolflowWorker.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\MomentsEditor.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\Movement.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\OutgassingMap.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\Parameter.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\ParameterEditor.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\PressureEvolution.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\ProfilePlotter.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\Simulation.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\SimulationMC.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\SubProcessFacet.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\TexturePlotter.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\TextureScaling.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\TimeSettings.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\TimewisePlotter.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\Viewer3DSettings.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\FacetAdvParams.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\FacetDetails.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\molflow_code\GeometryRender.cpp">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLWindowManager.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\MathTools.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLApp.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLButton.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLColorBox.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLCombo.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLComponent.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLContainer.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLFont.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLGradient.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLIcon.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLInputBox.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLLabel.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLList.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLMatrix.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLMenu.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLMenuBar.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLMessageBox.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLParser.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLProgress.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLSaveDialog.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLScrollBar.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLSpinner.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLSprite.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLTabWindow.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLTextField.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLTitledPanel.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLToggle.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLToolkit.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLUnitDialog.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLWindow.cpp">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLAxis.cpp">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLChart.cpp">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLChartOptions.cpp">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLDataView.cpp">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\GLDataViewOptions.cpp">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\AxisPanel.cpp">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\source\shared_code\AddVertex.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\AlignFacet.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\AppUpdater.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\ASELoader.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Buffer_shared.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\BuildIntersection.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\CollapseSettings.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\CreateShape.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Distributions.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\DrawingArea.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\ExtrudeFacet.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Facet_shared.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\FacetCoordinates.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\File.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\FormulaEditor.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Geometry_shared.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GeometryViewer.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GrahamScan.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\HistogramPlotter.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\HistogramSettings.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Interface.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\IntersectAABB_shared.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\LoadStatus.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\MirrorFacet.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\MirrorVertex.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\MoveFacet.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\MoveVertex.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\ParticleLogger.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Polygon.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Random.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\RecoveryDialog.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\RotateFacet.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\RotateVertex.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\ScaleFacet.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\ScaleVertex.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\SelectDialog.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\SelectTextureType.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\SmartSelection.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\SMP.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\SmpStatus.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\SplitFacet.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Vector.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\versionId.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\VertexCoordinates.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Web.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\Worker.h">
+      <Filter>Source Files\shared_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\FacetAdvParams.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\FacetDetails.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\GlobalSettings.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\ImportDesorption.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\MolFlow.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\MolflowFacet.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\MolflowGeometry.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\MolflowTypes.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\MomentsEditor.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\Movement.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\OutgassingMap.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\Parameter.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\ParameterEditor.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\PressureEvolution.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\ProfilePlotter.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\Simulation.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\TexturePlotter.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\TextureScaling.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\TimeSettings.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\TimewisePlotter.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\molflow_code\Viewer3DSettings.h">
+      <Filter>Source Files\molflow_code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLWindowManager.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\MathTools.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLApp.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLButton.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLColorBox.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLCombo.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLComponent.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLContainer.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLFont.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLGradient.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLIcon.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLInputBox.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLLabel.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLList.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLMatrix.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLMenu.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLMenuBar.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLMessageBox.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLParser.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLProgress.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLSaveDialog.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLScrollBar.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLSpinner.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLSprite.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLTabWindow.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLTextField.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLTitledPanel.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLToggle.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLToolkit.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLTypes.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLUnitDialog.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLWindow.h">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\DataList.h">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLAxis.h">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLChart.h">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLChartConst.h">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLChartOptions.h">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLDataView.h">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\GLDataViewOptions.h">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\SearchInfo.h">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\source\shared_code\GLApp\GLChart\AxisPanel.h">
+      <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\source\molflow_code\LICENSE">
+      <Filter>Source Files\molflow_code</Filter>
+    </None>
+    <None Include="..\..\source\shared_code\GLApp\GLFileBox.cpp.obsolete">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </None>
+    <None Include="..\..\source\shared_code\GLApp\GLFileBox.h.obsolete">
+      <Filter>Source Files\shared_code\GLApp</Filter>
+    </None>
+  </ItemGroup>
+</Project>
