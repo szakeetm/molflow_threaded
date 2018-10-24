@@ -32,8 +32,8 @@ std::vector<std::string> NFD_OpenMultiple_Cpp(const std::string& fileFilters,con
 	const char* defaultPath = NULL; if (!path.empty()) defaultPath = path.c_str();
 	nfdpathset_t *outPaths=NULL;
 	nfdresult_t  result = NFD_OpenDialogMultiple(filters, defaultPath, outPaths );
-	size_t nb = NFD_PathSet_GetCount(outPaths);
-	if (nb!=0) {
+	if (result == NFD_OKAY) {
+		size_t nb = NFD_PathSet_GetCount(outPaths);
 		for (size_t i=0;i<nb;i++) {
 			paths.push_back(NFD_PathSet_GetPath( outPaths, i ));
 		}
