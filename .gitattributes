@@ -1,4 +1,4 @@
-*.pdb binary
+*.pdb filter=lfs diff=lfs merge=lfs -text
 *.pdb binary
 *.resources binary
 *.cache binary
@@ -12,3 +12,4 @@
 *.vcxproj binary
 *.filters binary
 *.user binary
+*.tlog binary
