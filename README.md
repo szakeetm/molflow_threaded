@@ -6,7 +6,7 @@ A Monte Carlo simulator for Ultra High Vacuum systems
 **Copyright:** CERN (2018)  
 **License:** GNU GPLv2 or later
 
-<img src="https://molflow.web.cern.ch/sites/molflow.web.cern.ch/files/pictures/2018-10-09%2016_14_20-PowerPoint%20Slide%20Show%20%20-%20%20Presentation1.png" alt="Molflow image" width="500"/>
+<img src="https://molflow.web.cern.ch/sites/molflow.web.cern.ch/files/pictures/2018-10-09%2016_14_20-PowerPoint%20Slide%20Show%20%20-%20%20Presentation1.png" alt="Molflow image" width="800"/>
 
 # Building
 ## Windows
