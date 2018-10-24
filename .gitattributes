@@ -1,0 +1,14 @@
+*.pdb binary
+*.pdb binary
+*.resources binary
+*.cache binary
+*.config binary
+*.resx binary
+*.csproj binary
+*.settings binary
+*.csv binary
+*.o binary
+*.sln binary
+*.vcxproj binary
+*.filters binary
+*.user binary
