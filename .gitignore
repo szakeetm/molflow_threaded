@@ -1,7 +1,11 @@
 .*
 !/.gitignore
-intermediary/
+intermediary/linux/*
+intermediary/win/*
+intermediary/mac/*
 shipped/
 source_snapshots/
 test/
 tmp/
+*.ilk
+*.exp

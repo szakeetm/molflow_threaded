@@ -1260,7 +1260,7 @@ bool Interface::ProcessMessage_shared(GLComponent *src, int message) {
 			std::string asciiName = tmp.str();
 			tmp.str("");
 			tmp.clear();
-			tmp << "Screenshots\\" << asciiName << ".png";
+			tmp << "Screenshots/" << asciiName << ".png";
 
 			
 			std::filesystem::create_directory("Screenshots"); //Doesn't do anything if already exists
