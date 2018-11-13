@@ -147,9 +147,6 @@
     <ClCompile Include="..\..\source\shared_code\Web.cpp">
       <Filter>Source Files\shared_code</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\source\shared_code\WinProcess.cpp">
-      <Filter>Source Files\shared_code</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\source\shared_code\Worker_shared.cpp">
       <Filter>Source Files\shared_code</Filter>
     </ClCompile>
@@ -353,6 +350,9 @@
     </ClCompile>
     <ClCompile Include="..\..\source\shared_code\GLApp\GLChart\AxisPanel.cpp">
       <Filter>Source Files\shared_code\GLApp\GLChart</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\source\shared_code\windows_only\WinProcess.cpp">
+      <Filter>Source Files\shared_code</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -50,30 +50,34 @@ public:
 
 class Simulation; //Fwd declaration
 
+class SubProcessFacetTempVar {
+public:
+	// Temporary var (used in Intersect for collision)
+	double colDistTranspPass=1E99;
+	double colU;
+	double colV;
+	bool   hitted=false;
+};
+
 // Local facet structure
 class SubprocessFacet {
 public:
-	std::vector<double>   textureCellIncrements;              // Texure increment
+	std::vector<double>   textureCellIncrements;              // Texture increment
 	std::vector<bool>     largeEnough;      // cells that are NOT too small for autoscaling
 	double   fullSizeInc;
 	std::vector<double>   outgassingMapCdf; // Cumulative outgassing map when desorption is based on imported file
 	size_t outgassingMapWidthD, outgassingMapHeightD; //Actual width values for faster generation
 	GeneratingAnglemap generatingAngleMap;
 
-	// Temporary var (used in Intersect for collision)
-	double colDist;
-	double colU;
-	double colV;
-	double rw;
-	double rh;
-	double iw;
-	double ih;
+	// Precalc texture values
+	double iw; // 1/textWidthD (1 / actual number of texture cells)
+	double ih; // 1/textHeightD (1 / actual number of texture cells)
+	double rw; //U.length / iw
+	double rh; //V.length / ih	
 
-	// Temporary var (used in FillHit for hit recording)
-	bool   hitted;
 	size_t globalId; //Global index (to identify when superstructures are present)
 	Facet* facetRef = NULL; //Reference to interface facet
-
+	
 	void InitializeOnLoad(size_t nbStruct); //Throws exception
 
 	bool InitializeTexture();
@@ -134,6 +138,7 @@ public:
 	std::vector<ParticleLoggerItem> tmpParticleLog; //Recorded particle log since last UpdateMCHits
 	size_t myLogTarget = 0;
 	GlobalSimuState myTmpResults; //Results recorded since last UpdateMcHits (doesn't include log which is independent)
+	std::vector<SubProcessFacetTempVar> myTmpFacetVars; //One per subprocessfacet, for intersect routine
 	size_t totalDesorbed = 0;           // Total number of desorptions (for this process, not reset on UpdateMCHits)
 
 	// Geometry
@@ -164,6 +169,7 @@ public:
 	void SetReady();
 	void SetStatusStringAtMaster(const std::string& status);
 	void ResizeTmpLog();
+	void ConstructFacetTmpVars();
 	int mainLoop(int index);
 	bool LoadSimulation();
 	bool StartSimulation();

@@ -197,7 +197,7 @@ void Simulation::UpdateMCHits(size_t timeout) {
 	//Manual texture min/max search
 	for (auto& s : worker->subprocessStructures) {
 		for (auto& f : s.facets) {
-			if (f.hitted) {
+			if (myTmpFacetVars[f.globalId].hitted) {
 				if (f.facetRef->sh.isTextured) {
 					for (int m = 0; m < (1 + worker->moments.size()); m++) {
 						double timeCorrection = m == 0 ? worker->wp.finalOutgassingRate : (worker->wp.totalDesorbedMolecules) / worker->wp.timeWindowSize;
@@ -452,8 +452,8 @@ void Simulation::PerformTeleport(SubprocessFacet *iFacet) {
 	auto[inTheta, inPhi] = CartesianToPolar(currentParticle.direction, iFacet->facetRef->sh.nU, iFacet->facetRef->sh.nV, iFacet->facetRef->sh.N);
 	PolarToCartesian(destination, inTheta, inPhi, false);
 	// Move particle to teleport destination point
-	double u = iFacet->colU;
-	double v = iFacet->colV;
+	double u = myTmpFacetVars[iFacet->globalId].colU;
+	double v = myTmpFacetVars[iFacet->globalId].colV;
 	currentParticle.position = destination->facetRef->sh.O + u * destination->facetRef->sh.U + v * destination->facetRef->sh.V;
 	RecordHit(HIT_TELEPORTDEST);
 	int nbTry = 0;
@@ -485,7 +485,7 @@ void Simulation::PerformTeleport(SubprocessFacet *iFacet) {
 	iFacet->facetRef->sh.tmpCounter.sum_1_per_ort_velocity += 2.0 / ortVelocity;
 	iFacet->facetRef->sh.tmpCounter.sum_v_ort += 2.0*(worker->wp.useMaxwellDistribution ? 1.0 : 1.1781)*ortVelocity;*/
 	IncreaseFacetCounter(iFacet, currentParticle.flightTime, 1, 0, 0, 2.0 / ortVelocity, 2.0*(worker->wp.useMaxwellDistribution ? 1.0 : 1.1781)*ortVelocity);
-	iFacet->hitted = true;
+	myTmpFacetVars[iFacet->globalId].hitted = true;
 	/*destination->sh.tmpCounter.sum_1_per_ort_velocity += 2.0 / currentParticle.velocity;
 	destination->sh.tmpCounter.sum_v_ort += currentParticle.velocity*std::abs(DOT3(
 	currentParticle.direction.x, currentParticle.direction.y, currentParticle.direction.z,
@@ -726,8 +726,8 @@ bool Simulation::StartFromSource() {
 
 			// (U,V) -> (x,y,z)
 			currentParticle.position = src->facetRef->sh.O + u * src->facetRef->sh.U + v * src->facetRef->sh.V;
-			src->colU = u;
-			src->colV = v;
+			myTmpFacetVars[src->globalId].colU = u;
+			myTmpFacetVars[src->globalId].colV = v;
 			found = true;
 
 		}
@@ -742,12 +742,12 @@ bool Simulation::StartFromSource() {
 			double u = ((double)mapPositionW + 0.5) / src->outgassingMapWidthD;
 			double v = ((double)mapPositionH + 0.5) / src->outgassingMapHeightD;
 			currentParticle.position = src->facetRef->sh.O + u * src->facetRef->sh.U + v * src->facetRef->sh.V;
-			src->colU = u;
-			src->colV = v;
+			myTmpFacetVars[src->globalId].colU = u;
+			myTmpFacetVars[src->globalId].colV = v;
 		}
 		else {
-			src->colU = 0.5;
-			src->colV = 0.5;
+			myTmpFacetVars[src->globalId].colU = 0.5;
+			myTmpFacetVars[src->globalId].colV = 0.5;
 			currentParticle.position = worker->subprocessStructures[j].facets[i].facetRef->sh.center;
 		}
 
@@ -881,7 +881,7 @@ bool Simulation::StartFromSource() {
 
 	// Count
 
-	src->hitted = true;
+	myTmpFacetVars[src->globalId].hitted = true;
 	totalDesorbed++;
 	myTmpResults.globalHits.globalHits.nbDesorbed++;
 	//sHandle->nbPHit = 0;
@@ -1228,10 +1228,10 @@ void Simulation::PerformTransparentPass(SubprocessFacet *iFacet) { //disabled, c
 	iFacet->facetRef->sh.tmpCounter.sum_1_per_ort_velocity += 2.0 / (currentParticle.velocity*directionFactor);
 	iFacet->facetRef->sh.tmpCounter.sum_v_ort += 2.0*(worker->wp.useMaxwellDistribution ? 1.0 : 1.1781)*currentParticle.velocity*directionFactor;
 	iFacet->hitted = true;
-	if (iFacet->texture && iFacet->facetRef->sh.countTrans) RecordHitOnTexture(iFacet, currentParticle.flightTime + iFacet->colDist / 100.0 / currentParticle.velocity,
+	if (iFacet->texture && iFacet->facetRef->sh.countTrans) RecordHitOnTexture(iFacet, currentParticle.flightTime + iFacet->colDistTranspPass / 100.0 / currentParticle.velocity,
 		true, 2.0, 2.0);
-	if (iFacet->direction && iFacet->facetRef->sh.countDirection) RecordDirectionVector(iFacet, currentParticle.flightTime + iFacet->colDist / 100.0 / currentParticle.velocity);
-	ProfileFacet(iFacet, currentParticle.flightTime + iFacet->colDist / 100.0 / currentParticle.velocity,
+	if (iFacet->direction && iFacet->facetRef->sh.countDirection) RecordDirectionVector(iFacet, currentParticle.flightTime + iFacet->colDistTranspPass / 100.0 / currentParticle.velocity);
+	ProfileFacet(iFacet, currentParticle.flightTime + iFacet->colDistTranspPass / 100.0 / currentParticle.velocity,
 		true, 2.0, 2.0);
 	RecordHit(HIT_TRANS);
 	sHandle->lastHit = iFacet;*/
@@ -1296,8 +1296,8 @@ Simulation::Simulation(Worker*  w)
 
 void Simulation::RecordHitOnTexture(SubprocessFacet *f, double time, bool countHit, double velocity_factor, double ortSpeedFactor) {
 
-	size_t tu = (size_t)(f->colU * f->facetRef->sh.texWidthD);
-	size_t tv = (size_t)(f->colV * f->facetRef->sh.texHeightD);
+	size_t tu = (size_t)(myTmpFacetVars[f->globalId].colU * f->facetRef->sh.texWidthD);
+	size_t tv = (size_t)(myTmpFacetVars[f->globalId].colV * f->facetRef->sh.texHeightD);
 	size_t add = tu + tv * (f->facetRef->sh.texWidth);
 	double ortVelocity = (worker->wp.useMaxwellDistribution ? 1.0 : 1.1781)*currentParticle.velocity*std::abs(Dot(currentParticle.direction, f->facetRef->sh.N)); //surface-orthogonal velocity component
 
@@ -1310,8 +1310,8 @@ void Simulation::RecordHitOnTexture(SubprocessFacet *f, double time, bool countH
 }
 
 void Simulation::RecordDirectionVector(SubprocessFacet *f, double time) {
-	size_t tu = (size_t)(f->colU * f->facetRef->sh.texWidthD);
-	size_t tv = (size_t)(f->colV * f->facetRef->sh.texHeightD);
+	size_t tu = (size_t)(myTmpFacetVars[f->globalId].colU * f->facetRef->sh.texWidthD);
+	size_t tv = (size_t)(myTmpFacetVars[f->globalId].colV * f->facetRef->sh.texHeightD);
 	size_t add = tu + tv * (f->facetRef->sh.texWidth);
 
 	for (size_t m = 0; m <= worker->moments.size(); m++) {
@@ -1339,7 +1339,7 @@ void Simulation::ProfileFacet(SubprocessFacet *f, double time, bool countHit, do
 		}
 	}
 	else if (f->facetRef->sh.profileType == PROFILE_U || f->facetRef->sh.profileType == PROFILE_V) {
-		size_t pos = (size_t)((f->facetRef->sh.profileType == PROFILE_U ? f->colU : f->colV)*(double)PROFILE_SIZE);
+		size_t pos = (size_t)((f->facetRef->sh.profileType == PROFILE_U ? myTmpFacetVars[f->globalId].colU : myTmpFacetVars[f->globalId].colV)*(double)PROFILE_SIZE);
 		if (pos >= 0 && pos < PROFILE_SIZE) {
 			for (size_t m = 0; m <= nbMoments; m++) {
 				if (m == 0 || std::abs(time - worker->moments[m - 1]) < worker->wp.timeWindowSize / 2.0) {
@@ -1379,7 +1379,7 @@ void Simulation::LogHit(SubprocessFacet * f)
 		myOtfp.logFacetId == f->globalId &&
 		tmpParticleLog.size() < myLogTarget) {
 		ParticleLoggerItem log;
-		log.facetHitPosition = Vector2d(f->colU, f->colV);
+		log.facetHitPosition = Vector2d(myTmpFacetVars[f->globalId].colU, myTmpFacetVars[f->globalId].colV);
 		std::tie(log.hitTheta, log.hitPhi) = CartesianToPolar(currentParticle.direction, f->facetRef->sh.nU, f->facetRef->sh.nV, f->facetRef->sh.N);
 		log.oriRatio = currentParticle.oriRatio;
 		log.particleDecayMoment = currentParticle.expectedDecayMoment;
@@ -1499,6 +1499,7 @@ void Simulation::ResetSimulation() {
 	totalDesorbed = 0;
 	myTmpResults.Reset();
 	tmpParticleLog.clear();
+	ConstructFacetTmpVars(); //Reset "hitted" property of facets
 	myLogTarget = 0;
 }
 

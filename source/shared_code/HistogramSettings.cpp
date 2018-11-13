@@ -293,7 +293,7 @@ bool HistogramSettings::Apply() {
 		}
 
 #ifdef MOLFLOW
-		globalRecTime = globalRecordDistanceToggle->GetState();
+		globalRecTime = globalRecordTimeToggle->GetState();
 
 		if (globalRecTime) {
 			if (globalTimeLimitText->GetText() != "...") {

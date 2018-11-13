@@ -227,8 +227,7 @@ void HistogramPlotter::Refresh() {
 			name << "Facet #" << (id + 1);
 		profCombo->SetValueAt(nbProf++, name.str().c_str(),id);
 	}
-	profCombo->SetSelectedIndex(0);
-
+	profCombo->SetSelectedIndex(histogramFacetIds.size() ? 0 : -1);
 	//Refresh chart
 	refreshChart();
 }
@@ -432,7 +431,7 @@ void HistogramPlotter::ProcessMessage(GLComponent *src, int message) {
 			int idx = profCombo->GetSelectedIndex();
 			if (idx >= 0) {
 				int facetId = profCombo->GetUserValueAt(idx);
-				if (idx >= 0) { //Not global histogram
+				if (facetId >= 0 && facetId <geom->GetNbFacet()) { //Not global histogram
 					geom->UnselectAll();
 					geom->GetFacet(profCombo->GetUserValueAt(idx))->selected = true;
 					geom->UpdateSelection();

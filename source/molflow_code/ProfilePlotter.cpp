@@ -488,7 +488,7 @@ void ProfilePlotter::ProcessMessage(GLComponent *src, int message) {
 		else if (src == selButton) {
 
 			int idx = profCombo->GetSelectedIndex();
-			if (idx >= 0) {
+			if (idx >= 0 && idx<geom->GetNbFacet()) {
 				geom->UnselectAll();
 				geom->GetFacet(profCombo->GetUserValueAt(idx))->selected = true;
 				geom->UpdateSelection();

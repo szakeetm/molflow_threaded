@@ -989,7 +989,7 @@ void  Facet::SaveXML_geom(pugi::xml_node f) {
 
 	} //end texture
 
-	if (angleMapCache.empty()) {
+	if (!angleMapCache.empty()) {
 		xml_node textureNode = f.append_child("IncidentAngleMap");
 		textureNode.append_attribute("angleMapPhiWidth") = sh.anglemapParams.phiWidth;
 		textureNode.append_attribute("angleMapThetaLimit") = sh.anglemapParams.thetaLimit;

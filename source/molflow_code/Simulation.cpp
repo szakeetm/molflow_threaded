@@ -96,6 +96,10 @@ void Simulation::ResizeTmpLog() {
 	tmpParticleLog.clear();tmpParticleLog.shrink_to_fit(); tmpParticleLog.reserve(myLogTarget);
 }
 
+void Simulation::ConstructFacetTmpVars() {
+	std::vector<SubProcessFacetTempVar>(worker->GetGeometry()->GetNbFacet()).swap(myTmpFacetVars);
+}
+
 
 int Simulation::mainLoop(int index)
 {
@@ -222,18 +226,18 @@ void Simulation::ClearSimulation() {
 void Simulation::RegisterTransparentPass(SubprocessFacet* f)
 {
 	double directionFactor = std::abs(Dot(currentParticle.direction, f->facetRef->sh.N));
-	IncreaseFacetCounter(f, currentParticle.flightTime + f->colDist / 100.0 / currentParticle.velocity, 1, 0, 0, 2.0 / (currentParticle.velocity*directionFactor), 2.0*(worker->wp.useMaxwellDistribution ? 1.0 : 1.1781)*currentParticle.velocity*directionFactor);
+	IncreaseFacetCounter(f, currentParticle.flightTime + myTmpFacetVars[f->globalId].colDistTranspPass / 100.0 / currentParticle.velocity, 1, 0, 0, 2.0 / (currentParticle.velocity*directionFactor), 2.0*(worker->wp.useMaxwellDistribution ? 1.0 : 1.1781)*currentParticle.velocity*directionFactor);
 
-	f->hitted = true;
+	myTmpFacetVars[f->globalId].hitted = true;
 	if (/*f->texture &&*/ f->facetRef->sh.countTrans) {
-		RecordHitOnTexture(f, currentParticle.flightTime + f->colDist / 100.0 / currentParticle.velocity,
+		RecordHitOnTexture(f, currentParticle.flightTime + myTmpFacetVars[f->globalId].colDistTranspPass / 100.0 / currentParticle.velocity,
 			true, 2.0, 2.0);
 	}
 	if (/*f->direction &&*/ f->facetRef->sh.countDirection) {
-		RecordDirectionVector(f, currentParticle.flightTime + f->colDist / 100.0 / currentParticle.velocity);
+		RecordDirectionVector(f, currentParticle.flightTime + myTmpFacetVars[f->globalId].colDistTranspPass / 100.0 / currentParticle.velocity);
 	}
 	LogHit(f);
-	ProfileFacet(f, currentParticle.flightTime + f->colDist / 100.0 / currentParticle.velocity,
+	ProfileFacet(f, currentParticle.flightTime + myTmpFacetVars[f->globalId].colDistTranspPass / 100.0 / currentParticle.velocity,
 		true, 2.0, 2.0);
 	if (f->facetRef->sh.anglemapParams.record) RecordAngleMap(f);
 }
@@ -248,6 +252,7 @@ bool Simulation::LoadSimulation() {
 	myTmpResults = worker->emptyResultTemplate;
 	SetLocalAndMasterState(PROCESS_STARTING, "Loading log memory structure");
 	ResizeTmpLog();
+	ConstructFacetTmpVars();
 	return loadOK = true;
 }
 

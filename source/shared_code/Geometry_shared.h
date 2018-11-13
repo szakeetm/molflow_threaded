@@ -188,7 +188,7 @@ public:
 	void CloneSelectedFacets();
 	void AddVertex(double X, double Y, double Z, bool selected = true);
 	void AddVertex(const Vector3d& location, bool selected = true);
-	void AddStruct(const char *name);
+	void AddStruct(const char *name,bool deferDrawing=false);
 	void DelStruct(int numToDel);
 	std::vector<DeletedFacet> BuildIntersection(size_t *nbCreated);
 	void    MoveVertexTo(size_t idx, double x, double y, double z);

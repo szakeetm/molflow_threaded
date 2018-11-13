@@ -83,14 +83,19 @@
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <DebugInformationFormat>None</DebugInformationFormat>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
     </ClCompile>
     <Link>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <OptimizeReferences>false</OptimizeReferences>
       <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;SDL2.lib;SDL2main.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\release\</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -201,7 +206,7 @@
     <ClCompile Include="..\..\source\shared_code\Vector.cpp" />
     <ClCompile Include="..\..\source\shared_code\VertexCoordinates.cpp" />
     <ClCompile Include="..\..\source\shared_code\Web.cpp" />
-    <ClCompile Include="..\..\source\shared_code\WinProcess.cpp" />
+    <ClCompile Include="..\..\source\shared_code\windows_only\WinProcess.cpp" />
     <ClCompile Include="..\..\source\shared_code\Worker_shared.cpp" />
   </ItemGroup>
   <ItemGroup>

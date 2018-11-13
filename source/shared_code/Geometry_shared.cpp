@@ -1954,9 +1954,9 @@ void Geometry::SetSelection(std::vector<size_t> selectedFacets, bool isShiftDown
 	mApp->UpdateFacetParams(true);
 }
 
-void Geometry::AddStruct(const char *name) {
+void Geometry::AddStruct(const char *name,bool deferDrawing) {
 	strName[sh.nbSuper++] = strdup(name);
-	BuildGLList();
+	if (!deferDrawing) BuildGLList();
 }
 
 void Geometry::DelStruct(int numToDel) {
@@ -3639,15 +3639,20 @@ void Geometry::LoadTXTGeom(FileReader *file, Worker* worker, size_t strIdx) {
 	for (int i = 0; i < sh.nbFacet; i++) {
 		int nb = file->ReadInt();
 		f[i] = new Facet(nb);
-		for (int j = 0; j < nb; j++)
+		for (int j = 0; j < nb; j++) {
 			f[i]->indices[j] = file->ReadInt() - 1;
+			if (f[i]->indices[j] >= sh.nbVertex) {
+				std::string errMsg = "Facet " + std::to_string(i + 1) + " refers to non-existent vertex (" + std::to_string(f[i]->indices[j]+1)  + ")";
+				throw Error(errMsg.c_str());
+			}
+		}
 	}
 
 	// Read facets params
 	for (int i = 0; i < sh.nbFacet; i++) {
 		f[i]->LoadTXT(file);
 		while ((f[i]->sh.superDest) > sh.nbSuper) { //If facet refers to a structure that doesn't exist, create it
-			AddStruct("TXT linked");
+			AddStruct("TXT linked",true);
 		}
 		f[i]->sh.superIdx = static_cast<int>(strIdx);
 	}

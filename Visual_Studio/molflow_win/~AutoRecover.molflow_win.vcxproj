@@ -73,15 +73,18 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>CURL_STATICLIB;_MBCS;MOLFLOW;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\SDL;..\..\include\png_zlib_windows\png</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -89,6 +92,7 @@
       <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;SDL2.lib;SDL2main.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\release\</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -199,7 +203,7 @@
     <ClCompile Include="..\..\source\shared_code\Vector.cpp" />
     <ClCompile Include="..\..\source\shared_code\VertexCoordinates.cpp" />
     <ClCompile Include="..\..\source\shared_code\Web.cpp" />
-    <ClCompile Include="..\..\source\shared_code\WinProcess.cpp" />
+    <ClCompile Include="..\..\source\shared_code\windows_only\WinProcess.cpp" />
     <ClCompile Include="..\..\source\shared_code\Worker_shared.cpp" />
   </ItemGroup>
   <ItemGroup>

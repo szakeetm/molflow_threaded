@@ -348,15 +348,15 @@ bool RaySphereIntersect(Vector3d *center, double radius, Vector3d *rPos, Vector3
 											minLength = d;
 											collidedFacet = f;
 											found = true;
-											f->colU = u;
-											f->colV = v;
+											sHandle->myTmpFacetVars[f->globalId].colU = u;
+											sHandle->myTmpFacetVars[f->globalId].colV = v;
 										}
 									}
 									else {
-											f->colDist = d;
-											f->colU = u;
-											f->colV = v;
-											sHandle->currentParticle.transparentHitBuffer.push_back(f);
+										sHandle->myTmpFacetVars[f->globalId].colDistTranspPass = d;
+										sHandle->myTmpFacetVars[f->globalId].colU = u;
+										sHandle->myTmpFacetVars[f->globalId].colV = v;
+										sHandle->currentParticle.transparentHitBuffer.push_back(f);
 									}
 								} // IsInFacet
 							} // d range
@@ -469,11 +469,11 @@ std::tuple<bool, SubprocessFacet*, double> Intersect(Simulation* sHandle, const 
 
 	if (found) {
 
-		collidedFacet->hitted = true;
+		sHandle->myTmpFacetVars[collidedFacet->globalId].hitted = true;
 
 		// Second pass for transparent hits
 		for (const auto& tpFacet: sHandle->currentParticle.transparentHitBuffer){
-			if (tpFacet->colDist < minLength) {
+			if (sHandle->myTmpFacetVars[tpFacet->globalId].colDistTranspPass < minLength) {
 				sHandle->RegisterTransparentPass(tpFacet);
 			}
 		}
