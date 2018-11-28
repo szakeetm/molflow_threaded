@@ -2789,14 +2789,14 @@ void MolflowGeometry::LoadXML_geom(pugi::xml_node loadXML, Worker *work, GLProgr
 
 	// Update mesh
 	progressDlg->SetMessage("Building mesh...");
-	for (int i = 0; i < sh.nbFacet; i++) {
+	for (size_t i = 0; i < sh.nbFacet; i++) {
 		double p = (double)i / (double)sh.nbFacet;
 
 		progressDlg->SetProgress(p);
 		Facet *f = facets[i];
 		if (!f->SetTexture(f->sh.texWidthD, f->sh.texHeightD, f->hasMesh)) {
 			char errMsg[512];
-			sprintf(errMsg, "Not enough memory to build mesh on Facet %d. ", i + 1);
+			sprintf(errMsg, "Not enough memory to build mesh on Facet %zd. ", i + 1);
 			throw Error(errMsg);
 		}
 		BuildFacetList(f);
@@ -2977,26 +2977,22 @@ void MolflowGeometry::InsertXML(pugi::xml_node loadXML, Worker *work, GLProgress
 	//AdjustProfile();
 	//isLoaded = true; //InitializeGeometry() sets to true
 
-	/*
-	// Update mesh
+	// Update mesh for newly inserted facets
 	progressDlg->SetMessage("Building mesh...");
+	for (size_t i = sh.nbFacet - nbNewFacets; i < sh.nbFacet; i++) {
+		double p = (double)(sh.nbFacet-i) / (double)nbNewFacets;
 
-	for (int i = 0; i < wp.nbFacet; i++) {
-	double p = (double)i / (double)wp.nbFacet;
-	progressDlg->SetProgress(p);
-	Facet *f = facets[i];
-	if (!f->SetTexture(f->wp.texWidthD, f->wp.texHeightD, f->hasMesh)) {
-
-	char errMsg[512];
-	sprintf(errMsg, "Not enough memory to build mesh on Facet %d. ", i + 1);
-
-	throw Error(errMsg);
+		progressDlg->SetProgress(p);
+		Facet *f = facets[i];
+		if (!f->SetTexture(f->sh.texWidthD, f->sh.texHeightD, f->hasMesh)) {
+			char errMsg[512];
+			sprintf(errMsg, "Not enough memory to build mesh on Facet %zd. ", i + 1);
+			throw Error(errMsg);
+		}
+		BuildFacetList(f);
+		double nU = f->sh.U.Norme();
+		f->tRatio = f->sh.texWidthD / nU;
 	}
-	BuildFacetList(f);
-	double nU = &(f->wp.U).Norme();
-	f->tRatio = f->wp.texWidthD / nU;
-	}
-	*/
 }
 
 bool MolflowGeometry::LoadXML_simustate(pugi::xml_node loadXML, GlobalSimuState& results, Worker *work, GLProgress *progressDlg) {

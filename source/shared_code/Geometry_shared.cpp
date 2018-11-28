@@ -1329,16 +1329,16 @@ void Geometry::Clear() {
 
 void  Geometry::SelectIsolatedVertices() {
 	
-	std::vector<bool> check(sh.nbVertex, false);
+	std::vector<bool> isolated(sh.nbVertex, true);
 
 	for (size_t i = 0; i < sh.nbFacet; i++) {
 		for (const auto& ind : facets[i]->indices) {
-			check[ind]=true;
+			isolated[ind]=false;
 		}
 	}
 
 	for (size_t i = 0; i < sh.nbVertex; i++) {
-		vertices3[i].selected = !check[i];
+		vertices3[i].selected = isolated[i];
 	}
 }
 

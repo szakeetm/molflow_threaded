@@ -315,8 +315,9 @@ void Facet::LoadSYN(FileReader *file, int version, size_t nbVertex) {
 	file->ReadKeyword("indices"); file->ReadKeyword(":");
 	for (size_t i = 0; i < sh.nbIndex; i++) {
 		indices[i] = file->ReadInt() - 1;
-		if (indices[i] >= nbVertex)
+		if (indices[i] >= nbVertex) {
 			throw Error(file->MakeError("Facet index out of bounds"));
+		}
 	}
 
 	if (version >= 9) { //new reflection model

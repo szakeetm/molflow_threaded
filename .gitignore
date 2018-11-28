@@ -7,5 +7,6 @@ shipped/
 source_snapshots/
 test/
 tmp/
+**/Screenshots/
 *.ilk
 *.exp
