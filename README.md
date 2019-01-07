@@ -33,10 +33,12 @@ Use the shortcut (that changes the working directory and launches *molflow.exe*)
 * Install dependencies, like *libsdl2-2.0*, *gsl-bin*, *libatlas-base-dev*  
 * In the *bin/linux* folder, make *molflow*, *7za* and *compress* executable
 * Run *molflow*  
+
 [Detailed instructions here](https://molflow.web.cern.ch/node/296)
 ## Linux (Fedora-based, like Cent OS)
 * Make *launch_molflow.sh* executable
 * Run *launch_molflow.sh* (It adds the lib folder to the library search path and launches molflow)
+
 [Detailed instructions here](https://molflow.web.cern.ch/node/302)
 ## Mac
 * Use Homebrew to install dependencies, like *sdl2*, *libpng*, *gsl*, *gcc*  
