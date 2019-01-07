@@ -10,11 +10,11 @@ A Monte Carlo simulator for Ultra High Vacuum systems
 
 # Building
 ## Windows
-Open *molflow_win.sln* in the *Visual_Studio* folder, and use Visual Studio to build the solution.  
+* Open *molflow_win.sln* in the *Visual_Studio* folder, and use Visual Studio to build the solution.  
 Tested with Visual Studio Community 2017.
 ## Linux (Debian)
-Scripts in the *build_linux* folder  
-Compile source files with *compile_linux.sh* and link with *link_linux.sh*. The resulting binaries are written in *bin/linux_debian*  
+* Scripts in the *build_linux* folder  
+* Compile source files with *compile_linux.sh* and link with *link_linux.sh*. The resulting binaries are written in *bin/linux_debian*  
 Makefile coming soon.  
 See readme.txt  for required packages to build.  
 ## Linux (Fedora-based, like Cent OS)
@@ -22,9 +22,9 @@ See readme.txt  for required packages to build.
 * The compile scripts expect a folder named gcc_8.2.0_compiled_fedora adjacent to this repository.
 
 ## Mac
-Use Homebrew to install build tools, like g++-8, the SDL2 library, libpng, gsl, curl  
-The compile and link scripts are in the *build_mac* folder.  The resulting binaries are written in *bin/mac* 
-Compile source files with *compile_linux.sh* and link with *link_linux.sh*. The resulting binaries are written in *bin/linux_fedora* 
+* Use Homebrew to install build tools, like g++-8, the SDL2 library, libpng, gsl, curl  
+* The compile and link scripts are in the *build_mac* folder.  The resulting binaries are written in *bin/mac* 
+* Compile source files with *compile_linux.sh* and link with *link_linux.sh*. The resulting binaries are written in *bin/linux_fedora* 
  
 # Running
 ## Windows
@@ -33,10 +33,11 @@ Use the shortcut (that changes the working directory and launches *molflow.exe*)
 * Install dependencies, like *libsdl2-2.0*, *gsl-bin*, *libatlas-base-dev*  
 * In the *bin/linux* folder, make *molflow*, *7za* and *compress* executable
 * Run *molflow*  
-## Linux (Fedora-based, like Cent OS)
-* Make launch_molflow.sh executable
-* Run launch_molflow.sh (It adds the lib folder to the library search path and launches molflow)
 [Detailed instructions here](https://molflow.web.cern.ch/node/296)
+## Linux (Fedora-based, like Cent OS)
+* Make *launch_molflow.sh* executable
+* Run *launch_molflow.sh* (It adds the lib folder to the library search path and launches molflow)
+[Detailed instructions here](https://molflow.web.cern.ch/node/302)
 ## Mac
 * Use Homebrew to install dependencies, like *sdl2*, *libpng*, *gsl*, *gcc*  
 * In the *bin/mac* folder, make *molflow*, *7za* and *compress* executable
