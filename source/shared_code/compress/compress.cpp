@@ -43,8 +43,8 @@ int main(int argc,char* argv[]) {
 		std::cout << argv[i] << " ";
 	}
 	std::cout << "\n\n";
-	if (argc<3) {
-		std::cout<<"Incorrect arguments\nUsage: compress FILE_TO_COMPRESS NEW_NAME_NAME_IN ARCHIVE [include_file1 include_file2 ...]\nType any letter and press ENTER to quit\n";
+	if (argc < 3 || argc>4 || (argc == 4 && argv[3][0] != '@')) {
+		std::cout<<"Incorrect arguments\nUsage: compress FILE_TO_COMPRESS NEW_NAME_NAME_IN ARCHIVE  [@include_file_list.txt]\nType any letter and press ENTER to quit\n";
 #ifdef _WIN32
 		ShowWindow( GetConsoleWindow(), SW_RESTORE );
 #endif
@@ -56,9 +56,10 @@ int main(int argc,char* argv[]) {
 	std::string fileNameWith7z;
 	std::string fileNameGeometry;
 	fileName = argv[1];
-	std::cout<<"\nargv0: "<<argv[0];
-	std::cout<<"\nargv1: "<<argv[1];
-	std::cout<<"\nargv2: "<<argv[2]<<"\n";
+	std::cout << "\nFile to compress: " << argv[1];
+	std::cout << "\nNew name in archive: " << argv[2] << "\n";
+	if (argc == 4) std::cout << "Additional file list: " << argv[3] << "\n";
+
 	fileNameWith7z = fileName + "7z";
 	std::string sevenZipName = "7za";
 #ifdef _WIN32
@@ -88,7 +89,9 @@ int main(int argc,char* argv[]) {
 #endif
 
 	command+=sevenZipName + " u -t7z \"" + fileNameWith7z + "\" \"" + fileNameGeometry + "\"";
-	for (int i=3;i<argc;i++) { //include files
+	if (argc==4) { //include file list
+		command = command + " " + argv[3];
+		/*
 		bool duplicate=false;
 		for (int j=3;!duplicate && j<i;j++) { //check for duplicate include files
 			if (strcmp(argv[i],argv[j])==0)
@@ -99,6 +102,7 @@ int main(int argc,char* argv[]) {
 			command += argv[i];
 			command += "\""; //add as new input file
 		}
+		*/
 	}
 #ifdef _WIN32
 	command+="&&popd\"";
@@ -109,6 +113,13 @@ int main(int argc,char* argv[]) {
 	std::cout << "\nYou can continue using Molflow/Synrad while compressing.\n"; //On Windows, compress.exe is launched as a background process
 #endif
 	result=exec(command);
+
+	if (argc == 4) { //Delete list file
+		std::string listFile = argv[3];
+		listFile = listFile.substr(1, std::string::npos);
+		std::filesystem::remove(listFile);
+	}
+
 	size_t found;
 	found=result.find("Everything is Ok");
 	if (found!=std::string::npos) {

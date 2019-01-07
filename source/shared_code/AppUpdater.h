@@ -61,6 +61,12 @@ Adding it to a program requires the following:
 	</LocalConfig>
 </UpdaterConfigFile>
 
+appLaunchedBeforeAsking meaning:
+default: 0
+already asked: -1
+increased at every session, except if already asked (-1)
+compared with askAfterNbLaunches
+
 ------------Example implementation in Molflow/Synrad--------------
 -----In Interface::OneTimeSceneInit_post()----------
 

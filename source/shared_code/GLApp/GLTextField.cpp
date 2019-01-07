@@ -199,12 +199,11 @@ void GLTextField::DeleteString(int count)
 {
   if(!m_Editable) return;
 
-  char tmp[MAX_TEXT_SIZE+1];
-  strcpy(tmp,m_Text);
-  tmp[m_CursorPos]=0;
-  strncat(tmp,m_Text+m_CursorPos+count,MAX_TEXT_SIZE);
-  m_CursorState=1;
-  UpdateText(tmp);
+  std::string tmp = m_Text;
+  tmp.erase(m_CursorPos, count);
+
+  m_CursorState = 1;
+  UpdateText(tmp.c_str());
   ScrollToVisible();
 }
 

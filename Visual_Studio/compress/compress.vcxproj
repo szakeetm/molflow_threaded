@@ -47,7 +47,7 @@
     <IntDir>..\..\intermediary\win\debug\compress\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\..\bin\win\release\</OutDir>
+    <OutDir>..\..\bin\win\</OutDir>
     <IntDir>..\..\intermediary\win\release\compress\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

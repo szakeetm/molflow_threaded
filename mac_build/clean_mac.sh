@@ -1,1 +1,0 @@
-rm ../intermediary/mac/*.o

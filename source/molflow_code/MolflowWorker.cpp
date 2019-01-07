@@ -1396,12 +1396,17 @@ void Worker::AnalyzeSYNfile(const char *fileName, size_t *nbFacet, size_t *nbTex
 FileReader* Worker::ExtractFrom7zAndOpen(const std::string & fileName, const std::string & geomName)
 {
 	std::ostringstream cmd;
+	std::string sevenZipName = "7za";
+
 #ifdef _WIN32
 	//Necessary push/pop trick to support UNC (network) paths in Windows command-line
 	auto CWD = FileUtils::get_working_path();
 	cmd << "cmd /C \"pushd \"" << CWD << "\"&&";
+	cmd << "7za.exe x -t7z -aoa \"" << fileName << "\" -otmp";
+#else
+	cmd << "./7za x -t7z -aoa \"" << fileName << "\" -otmp";
 #endif
-	cmd << "7za x -t7z -aoa \"" << fileName << "\" -otmp";
+	
 #ifdef _WIN32
 	cmd << "&&popd\"";
 #endif

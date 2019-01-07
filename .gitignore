@@ -1,8 +1,6 @@
 .*
 !/.gitignore
-intermediary/linux/*
-intermediary/win/*
-intermediary/mac/*
+intermediary/*
 shipped/
 source_snapshots/
 test/

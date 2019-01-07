@@ -6,9 +6,9 @@
 		<GoogleAnalytics projectId="UA-86802533-2" />
 	</ServerConfig>
 	<LocalConfig>
-		<Permission allowUpdateCheck="true" appLaunchedBeforeAsking="-1" askAfterNbLaunches="-1" />
+		<Permission allowUpdateCheck="false" appLaunchedBeforeAsking="0" askAfterNbLaunches="3" />
 		<Branch name="molflow_public_mac" />
-		<GoogleAnalytics cookie="FDZ9RY3UBEJ" />
+		<GoogleAnalytics cookie="" />
 		<SkippedVersions />
 	</LocalConfig>
 </UpdaterConfigFile>

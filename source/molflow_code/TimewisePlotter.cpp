@@ -100,7 +100,7 @@ TimewisePlotter::TimewisePlotter() :GLWindow() {
 	momLabel = new GLLabel("Displayed moments:");
 	Add(momLabel);
 
-	momentsText = new GLTextField(0, "1,1,32");
+	momentsText = new GLTextField(0, "1,1,50");
 	momentsText->SetEditable(true);
 	Add(momentsText);
 

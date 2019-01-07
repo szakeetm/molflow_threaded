@@ -758,7 +758,7 @@ GLuint GLAxis::initMarker(const char *name) {
     if(getDV(v)>=0) return;
 
     if (!IsHorizontal()) {
-      for(int i=nbView;i>=index;i++)
+      for(int i=nbView;i>=index;i--)
         dataViews[i] = dataViews[i-1];
       dataViews[index]=v;
       nbView++;
