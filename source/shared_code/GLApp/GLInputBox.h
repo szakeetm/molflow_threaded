@@ -2,7 +2,7 @@
 #ifndef _GLINPUTBOXH_
 #define _GLINPUTBOXH_
 
-//#include <SDL/SDL_opengl.h>
+//#include <SDL2/SDL_opengl.h>
 #include "GLWindow.h"
 
 class GLTextField;

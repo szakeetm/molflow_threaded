@@ -2,7 +2,7 @@
 #ifndef _GLSAVEDIALOGH_
 #define _GLSAVEDIALGOH_
 
-#include <SDL/SDL_opengl.h>
+#include <SDL2/SDL_opengl.h>
 #include "GLWindow.h"
 
 // Buttons

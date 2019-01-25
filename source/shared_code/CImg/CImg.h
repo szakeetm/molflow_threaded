@@ -429,7 +429,7 @@
 // (see methods 'CImg<T>::{load,save}_png()'.
 #ifdef cimg_use_png
 extern "C" {
-#include <png/png.h>
+#include <png.h>
 }
 #endif
 

@@ -19,15 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\windows_only\png\png.h" />
-    <ClInclude Include="..\..\include\windows_only\png\pngconf.h" />
-    <ClInclude Include="..\..\include\windows_only\zlib\zconf.h" />
-    <ClInclude Include="..\..\include\windows_only\zlib\zlib.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\include\windows_only\png\png.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngerror.c" />
-    <ClCompile Include="..\..\include\windows_only\png\pnggccrd.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngget.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngmem.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngpread.c" />
@@ -36,12 +29,47 @@
     <ClCompile Include="..\..\include\windows_only\png\pngrtran.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngrutil.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngset.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngtest.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngtrans.c" />
-    <ClCompile Include="..\..\include\windows_only\png\pngvcrd.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngwio.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngwrite.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngwtran.c" />
     <ClCompile Include="..\..\include\windows_only\png\pngwutil.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\adler32.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\compress.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\crc32.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\deflate.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\gzclose.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\gzlib.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\gzread.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\gzwrite.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\infback.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\inffast.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\inflate.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\inftrees.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\trees.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\uncompr.c" />
+    <ClCompile Include="..\..\include\windows_only\zlib\zutil.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\windows_only\png\png.h" />
+    <ClInclude Include="..\..\include\windows_only\png\pngconf.h" />
+    <ClInclude Include="..\..\include\windows_only\png\pngdebug.h" />
+    <ClInclude Include="..\..\include\windows_only\png\pnginfo.h" />
+    <ClInclude Include="..\..\include\windows_only\png\pnglibconf.h" />
+    <ClInclude Include="..\..\include\windows_only\png\pngpriv.h" />
+    <ClInclude Include="..\..\include\windows_only\png\pngstruct.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\crc32.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\deflate.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\gzguts.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\inffast.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\inffixed.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\inflate.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\inftrees.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\trees.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\zconf.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\zlib.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\zutil.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -110,8 +138,9 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MBCS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>None</DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\..\include\windows_only\zlib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -133,7 +162,8 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_MBCS;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\include\windows_only\zlib</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies />

@@ -15,8 +15,8 @@
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 */
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
 
 class GLComponent;
 class GLWindow;

@@ -83,7 +83,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\include\windows_only</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\windows_only;..\..\include\windows_only\png</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -116,7 +116,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>..\..\include\windows_only</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\include\windows_only;..\..\include\windows_only\png</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>

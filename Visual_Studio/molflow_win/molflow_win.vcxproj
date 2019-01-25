@@ -60,12 +60,12 @@
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>CURL_STATICLIB;_MBCS;MOLFLOW;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\windows_only</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\windows_only;..\..\include\windows_only\png</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;SDL2.lib;SDL2main.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
+      <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;SDL2.lib;SDL2main.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\debug\</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
     </Link>
@@ -79,7 +79,7 @@
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>CURL_STATICLIB;_MBCS;MOLFLOW;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\windows_only</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\windows_only;..\..\include\windows_only\png</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <DebugInformationFormat>None</DebugInformationFormat>
@@ -91,7 +91,7 @@
     <Link>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <OptimizeReferences>false</OptimizeReferences>
-      <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;SDL2.lib;SDL2main.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
+      <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;SDL2.lib;SDL2main.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\release\</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>

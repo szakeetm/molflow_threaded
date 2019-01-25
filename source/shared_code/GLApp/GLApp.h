@@ -5,8 +5,8 @@
 //extern long long	  nbDesStart;
 //extern long long	  nbHitStart;
 
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
 #include "GLTypes.h"  //GL_OK
 //#include "GLWindow.h"
 //#include "GLComponent.h"

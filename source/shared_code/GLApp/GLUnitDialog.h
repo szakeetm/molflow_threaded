@@ -2,7 +2,7 @@
 #ifndef _GLUNITDIALOGH_
 #define _GLUNITDIALGOH_
 
-//#include <SDL/SDL_opengl.h>
+//#include <SDL2/SDL_opengl.h>
 #include "GLWindow.h"
 
 // Buttons

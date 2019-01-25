@@ -6,6 +6,7 @@ apt packages needed to compile:
 
 g++-8
 libpng-dev
+libsdl2-dev
 
 and to link:
 
@@ -15,6 +16,5 @@ gtk+-3.0
 libgsl-dev
 libcurl4-gnutls-dev
 libatlas-base-dev
-libsdl2-dev
 
 Tested using Ubuntu 18.04, both in a virtual machine and natively with a Linux shell under Windows 10
