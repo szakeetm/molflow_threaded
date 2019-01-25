@@ -21,70 +21,70 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\png.c">
+    <ClInclude Include="..\..\include\windows_only\png\png.h">
       <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngerror.c">
+    </ClInclude>
+    <ClInclude Include="..\..\include\windows_only\png\pngconf.h">
       <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pnggccrd.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngget.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngmem.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngpread.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngread.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngrio.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngrtran.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngrutil.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngset.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngtrans.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngvcrd.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwio.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwrite.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwtran.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwutil.c">
-      <Filter>Source Files\png</Filter>
-    </ClCompile>
+    </ClInclude>
+    <ClInclude Include="..\..\include\windows_only\zlib\zconf.h">
+      <Filter>Source Files\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\windows_only\zlib\zlib.h">
+      <Filter>Source Files\zlib</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\png_zlib_windows\png\png.h">
+    <ClCompile Include="..\..\include\windows_only\png\png.c">
       <Filter>Source Files\png</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\png_zlib_windows\png\pngconf.h">
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngerror.c">
       <Filter>Source Files\png</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\png_zlib_windows\zlib\zconf.h">
-      <Filter>Source Files\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\png_zlib_windows\zlib\zlib.h">
-      <Filter>Source Files\zlib</Filter>
-    </ClInclude>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pnggccrd.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngget.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngmem.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngpread.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngread.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngrio.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngrtran.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngrutil.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngset.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngtrans.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngvcrd.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngwio.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngwrite.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngwtran.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\windows_only\png\pngwutil.c">
+      <Filter>Source Files\png</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

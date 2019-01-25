@@ -2,7 +2,7 @@
 #ifndef _SPRITE2DH_
 #define _SPRITE2DH_
 
-#include <SDL_opengl.h>
+#include <SDL/SDL_opengl.h>
 
 class Sprite2D {
 

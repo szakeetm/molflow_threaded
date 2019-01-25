@@ -2,8 +2,8 @@
 #ifndef _GLWINDOWH_
 #define _GLWINDOWH_
 
-//#include <SDL.h>
-//#include <SDL_opengl.h>
+//#include <SDL/SDL.h>
+//#include <SDL/SDL_opengl.h>
 #include "GLContainer.h"
 //#include "GLMenu.h"
 class GLMenu;

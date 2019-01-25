@@ -60,7 +60,7 @@
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>CURL_STATICLIB;_MBCS;MOLFLOW;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\SDL;..\..\include\png_zlib_windows\png</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\windows_only</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
@@ -79,7 +79,7 @@
       <SDLCheck>false</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <PreprocessorDefinitions>CURL_STATICLIB;_MBCS;MOLFLOW;_CRT_SECURE_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\SDL;..\..\include\png_zlib_windows\png</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\source\molflow_code;..\..\source\shared_code;..\..\include;..\..\include\windows_only</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <DebugInformationFormat>None</DebugInformationFormat>

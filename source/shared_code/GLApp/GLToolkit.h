@@ -2,8 +2,8 @@
 #ifndef _GLTOOLKITH_
 #define _GLTOOLKITH_
 
-#include <SDL.h>
-#include <SDL_opengl.h>
+#include <SDL/SDL.h>
+#include <SDL/SDL_opengl.h>
 #include <string>
 #include <optional>
 #include <tuple>

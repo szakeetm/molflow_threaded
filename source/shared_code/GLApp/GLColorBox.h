@@ -1,6 +1,6 @@
 // Copyright (c) 2011 rubicon IT GmbH
 
-//#include <SDL_opengl.h>
+//#include <SDL/SDL_opengl.h>
 
 #ifndef _GLCOLORBOXH_
 #define _GLCOLORBOXH_

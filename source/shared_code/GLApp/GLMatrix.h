@@ -2,7 +2,7 @@
 #ifndef _GLMATRIXH_
 #define _GLMATRIXH_
 
-#include <SDL_opengl.h>
+#include <SDL/SDL_opengl.h>
 
 class GLMatrix {
 

@@ -2,7 +2,7 @@
 #ifndef _GLWINDOWMANAGERH_
 #define _GLWINDOWMANAGERH_
 
-#include <SDL.h>
+#include <SDL/SDL.h>
 //#include <SDL_opengl.h>
 //#include "GLTypes.h"
 //#include "GLFont.h"

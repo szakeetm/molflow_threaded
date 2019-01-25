@@ -19,29 +19,29 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\include\png_zlib_windows\png\png.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngerror.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pnggccrd.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngget.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngmem.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngpread.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngread.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngrio.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngrtran.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngrutil.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngset.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngtrans.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngvcrd.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwio.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwrite.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwtran.c" />
-    <ClCompile Include="..\..\include\png_zlib_windows\png\pngwutil.c" />
+    <ClInclude Include="..\..\include\windows_only\png\png.h" />
+    <ClInclude Include="..\..\include\windows_only\png\pngconf.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\zconf.h" />
+    <ClInclude Include="..\..\include\windows_only\zlib\zlib.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\png_zlib_windows\png\png.h" />
-    <ClInclude Include="..\..\include\png_zlib_windows\png\pngconf.h" />
-    <ClInclude Include="..\..\include\png_zlib_windows\zlib\zconf.h" />
-    <ClInclude Include="..\..\include\png_zlib_windows\zlib\zlib.h" />
+    <ClCompile Include="..\..\include\windows_only\png\png.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngerror.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pnggccrd.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngget.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngmem.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngpread.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngread.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngrio.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngrtran.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngrutil.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngset.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngtrans.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngvcrd.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngwio.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngwrite.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngwtran.c" />
+    <ClCompile Include="..\..\include\windows_only\png\pngwutil.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -4,8 +4,8 @@
  * This code is free software, available under zlib/libpng license.
  * http://www.libpng.org/pub/png/src/libpng-LICENSE.txt
  */
-#include <SDL.h>
-#include <png.h>
+#include <SDL/SDL.h>
+#include <png/png.h>
 
 #define SUCCESS 0
 #define ERROR -1
