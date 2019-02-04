@@ -388,6 +388,9 @@ void CreateShape::ProcessMessage(GLComponent *src,int message) {
 			  geom->CreateRacetrack(center, axisDir, normalDir, axis1length, axis2length, racetrackTopLength, (size_t)nbSteps);
 			  break;
 		  }
+		  work->Reload();
+		  mApp->changedSinceSave = true;
+		  mApp->UpdateFacetlistSelected();
 	  }
 	  else if (src == fullCircleButton) {
 		  double axis1length, axis2length;

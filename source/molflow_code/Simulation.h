@@ -66,7 +66,7 @@ public:
 	std::vector<bool>     largeEnough;      // cells that are NOT too small for autoscaling
 	double   fullSizeInc;
 	std::vector<double>   outgassingMapCdf; // Cumulative outgassing map when desorption is based on imported file
-	size_t outgassingMapWidthD, outgassingMapHeightD; //Actual width values for faster generation
+	double outgassingMapWidthD, outgassingMapHeightD; //Actual width values for faster generation
 	GeneratingAnglemap generatingAngleMap;
 
 	// Precalc texture values

@@ -177,7 +177,7 @@ public:
 	std::vector<NeighborFacet> neighbors;
 
 #ifdef MOLFLOW
-	double *outgassingMap; //outgassing map cell values (loaded from file)
+	std::vector<double> outgassingMap; //outgassing map cell values (loaded from file)
 	std::vector<size_t> angleMapCache; //Stores either the recorded or the generating angle map. Worker::Update reads results here. A better implementation would be to separate recorded and generating angle maps
 	bool hasOutgassingFile; //true if a desorption file was loaded and had info about this facet
 	double totalFlux;

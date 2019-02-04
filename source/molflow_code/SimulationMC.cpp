@@ -450,7 +450,7 @@ void Simulation::PerformTeleport(SubprocessFacet *iFacet) {
 
 	// Relaunch particle from new facet
 	auto[inTheta, inPhi] = CartesianToPolar(currentParticle.direction, iFacet->facetRef->sh.nU, iFacet->facetRef->sh.nV, iFacet->facetRef->sh.N);
-	PolarToCartesian(destination, inTheta, inPhi, false);
+	currentParticle.direction = PolarToCartesian(destination, inTheta, inPhi, false);
 	// Move particle to teleport destination point
 	double u = myTmpFacetVars[iFacet->globalId].colU;
 	double v = myTmpFacetVars[iFacet->globalId].colV;
@@ -866,7 +866,7 @@ bool Simulation::StartFromSource() {
 		currentParticle.direction = PolarToCartesian(src, PI - theta, phi, false); //angle map contains incident angle (between N and source dir) and theta is dir (between N and dest dir)
 		//_ASSERTE(currentParticle.direction.x == currentParticle.direction.x);
 
-	}
+		}
 	}
 
 	// Current structure

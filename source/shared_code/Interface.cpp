@@ -1585,14 +1585,7 @@ bool Interface::ProcessMessage_shared(GLComponent *src, int message) {
 				catch (Error &e) {
 					GLMessageBox::Display(e.GetMsg(), "Error creating polygon", GLDLG_OK, GLDLG_ICONERROR);
 				}
-				//UpdateModelParams();
-				try {
-					worker.Reload();
-				}
-				catch (Error &e) {
-
-					GLMessageBox::Display(e.GetMsg(), "Error reloading worker", GLDLG_OK, GLDLG_ICONERROR);
-				}
+				worker.Reload();
 			}
 			return true;
 		case MENU_FACET_CREATE_DIFFERENCE:

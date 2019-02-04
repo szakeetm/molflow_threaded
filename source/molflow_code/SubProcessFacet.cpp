@@ -168,9 +168,10 @@ void SubprocessFacet::InitializeOutgassingMap()
 {
 	if (facetRef->sh.useOutgassingFile) {
 		//Precalc actual outgassing map width and height for faster generation:
-		outgassingMapWidthD = (size_t)(facetRef->sh.U.Norme() * facetRef->sh.outgassingFileRatio);
-		outgassingMapHeightD = (size_t)(facetRef->sh.V.Norme() * facetRef->sh.outgassingFileRatio);
+		outgassingMapWidthD = facetRef->sh.U.Norme() * facetRef->sh.outgassingFileRatio;
+		outgassingMapHeightD = facetRef->sh.V.Norme() * facetRef->sh.outgassingFileRatio;
 		size_t nbE = facetRef->sh.outgassingMapWidth*facetRef->sh.outgassingMapHeight;
+		outgassingMapCdf = facetRef->outgassingMap; //init by copying pdf
 		for (size_t i = 1; i < nbE; i++) {
 			outgassingMapCdf[i] += outgassingMapCdf[i - 1] + facetRef->outgassingMap[i]; //Convert p.d.f to cumulative distr. 
 		}

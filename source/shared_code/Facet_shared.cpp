@@ -134,7 +134,7 @@ Facet::Facet(size_t nbIndex) {
 	sh.isMoving = false;
 
 	hasOutgassingFile = false;
-	outgassingMap = NULL;
+	//outgassingMap = NULL;
 
 	sh.anglemapParams.record = false;
 	sh.anglemapParams.phiWidth = sh.anglemapParams.thetaLowerRes = sh.anglemapParams.thetaHigherRes = 0;
@@ -170,7 +170,7 @@ Facet::~Facet() {
 		  SAFE_FREE(meshvector[i].points);
 	  SAFE_FREE(meshvector);
 #ifdef MOLFLOW
-	  SAFE_FREE(outgassingMap);
+	  //SAFE_FREE(outgassingMap);
 #endif
 }
 

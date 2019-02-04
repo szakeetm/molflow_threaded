@@ -261,7 +261,7 @@ void Facet::LoadXML(xml_node f, size_t nbVertex, bool isMolflowFile, bool& ignor
 
 			std::stringstream outgText;
 			outgText << outgNode.child_value("map");
-			outgassingMap = (double*)malloc(sh.outgassingMapWidth*sh.outgassingMapHeight * sizeof(double));
+			std::vector<double>(sh.outgassingMapWidth*sh.outgassingMapHeight).swap(outgassingMap);
 
 			for (int iy = 0; iy < sh.outgassingMapHeight; iy++) {
 				for (int ix = 0; ix < sh.outgassingMapWidth; ix++) {
@@ -1185,8 +1185,8 @@ double Facet::DensityCorrection() {
 
 void Facet::SerializeForLoader(cereal::BinaryOutputArchive& outputarchive) {
 
-		std::vector<double> outgMapVector(sh.useOutgassingFile ? sh.outgassingMapWidth*sh.outgassingMapHeight : 0);
-		memcpy(outgMapVector.data(), outgassingMap, sizeof(double)*(sh.useOutgassingFile ? sh.outgassingMapWidth*sh.outgassingMapHeight : 0));
+		//std::vector<double> outgMapVector(sh.useOutgassingFile ? sh.outgassingMapWidth*sh.outgassingMapHeight : 0);
+		//memcpy(outgMapVector.data(), outgassingMap, sizeof(double)*(sh.useOutgassingFile ? sh.outgassingMapWidth*sh.outgassingMapHeight : 0));
 		std::vector<double> textIncVector;
 
 		// Add surface elements area (reciprocal)
@@ -1234,7 +1234,7 @@ void Facet::SerializeForLoader(cereal::BinaryOutputArchive& outputarchive) {
 			CEREAL_NVP(indices),
 			CEREAL_NVP(vertices2)
 #ifdef MOLFLOW
-			, CEREAL_NVP(outgMapVector)
+			, CEREAL_NVP(outgassingMap)
 			, CEREAL_NVP(angleMapCache)
 			, CEREAL_NVP(textIncVector)
 #endif

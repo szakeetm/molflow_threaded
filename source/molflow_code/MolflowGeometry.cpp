@@ -152,7 +152,7 @@ void MolflowGeometry::CopyGeometryBuffer(BYTE *buffer, const OntheflySimulationP
 		memcpy(buffer, f->vertices2.data(), sizeof(Vector2d)*f->sh.nbIndex);
 		buffer += sizeof(Vector2d)*f->sh.nbIndex;
 		if (f->sh.useOutgassingFile) {
-			memcpy(buffer, f->outgassingMap, sizeof(double)*f->sh.outgassingMapWidth*f->sh.outgassingMapHeight);
+			memcpy(buffer, f->outgassingMap.data(), sizeof(double)*f->sh.outgassingMapWidth*f->sh.outgassingMapHeight);
 			buffer += sizeof(double)*f->sh.outgassingMapWidth*f->sh.outgassingMapHeight;
 		}
 		//if (f->wp.anglemapParams.hasRecorded) { //Check not necessary, commented out
@@ -2112,9 +2112,12 @@ void MolflowGeometry::ImportDesorption_SYN(
 
 			if (f->selected) {
 				f->sh.outgassingFileRatio = xdims[i] / f->sh.U.Norme();
-				f->outgassingMap = (double*)malloc(f->sh.outgassingMapWidth*f->sh.outgassingMapHeight * sizeof(double));
-				if (!f->outgassingMap) throw Error("Not enough memory to store outgassing map.");
-				memset(f->outgassingMap, 0, f->sh.outgassingMapWidth*f->sh.outgassingMapHeight * sizeof(double)); //set inital values to zero
+				try {
+					std::vector<double>(f->sh.outgassingMapWidth*f->sh.outgassingMapHeight).swap(f->outgassingMap);
+				}
+				catch (...) {
+					throw Error("Not enough memory to store outgassing map.");
+				}
 				f->totalDose = f->sh.totalOutgassing = f->totalFlux = 0.0;
 			}
 
