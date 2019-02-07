@@ -1117,21 +1117,28 @@ void Worker::RealReload(bool sendOnly) { //Sharing geometry with workers
 	std::vector<SubProcessSuperStructure>(GetGeometry()->GetNbStructure()).swap(subprocessStructures); //Create structures
 	size_t nbF = GetGeometry()->GetNbFacet();
 	progressDlg->SetMessage("Preparing facets for simulation...");
-	for (size_t i = 0; i < nbF; i++) {
-		progressDlg->SetProgress((double)i / (double)nbF);
-		SubprocessFacet f;
-		f.globalId = i;
-		f.facetRef = GetGeometry()->GetFacet(i);
-		f.InitializeOnLoad(subprocessStructures.size());
-		if (f.facetRef->sh.superIdx == -1) { //Facet in all structures
-			for (auto& s : subprocessStructures) {
-				s.facets.push_back(f);
+	try {
+		for (size_t i = 0; i < nbF; i++) {
+			progressDlg->SetProgress((double)i / (double)nbF);
+			SubprocessFacet f;
+			f.globalId = i;
+			f.facetRef = GetGeometry()->GetFacet(i);
+			f.InitializeOnLoad(subprocessStructures.size());
+			if (f.facetRef->sh.superIdx == -1) { //Facet in all structures
+				for (auto& s : subprocessStructures) {
+					s.facets.push_back(f);
+				}
+			}
+			else {
+				subprocessStructures[f.facetRef->sh.superIdx].facets.push_back(f);
 			}
 		}
-		else {
-			subprocessStructures[f.facetRef->sh.superIdx].facets.push_back(f);
 		}
-	}
+		catch (Error &e) {
+		progressDlg->SetVisible(false);
+		SAFE_DELETE(progressDlg);
+		throw Error(e.GetMsg());
+		}
 	size_t maxDepth = 0;
 	progressDlg->SetMessage("Constructing ray-tracing volume hierarchy...");
 	for (auto& s : subprocessStructures) {

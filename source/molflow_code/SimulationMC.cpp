@@ -979,7 +979,7 @@ double GeneratingAnglemap::GeneratePhiFromAngleMap(const int & thetaLowerIndex, 
 		// result: previous value weight: w1*w3 / (w1*w3 + w2*w4)
 		//         next     value weight: w2*w4 / (w1*w3 + w2*w4) <- this will be the input for weighed_lower_bound
 
-		double div, weigh;
+		double div;
 		div = ((double)phi_CDFsums[thetaLowerIndex] * (1.0 - thetaOvershoot) + (double)phi_CDFsums[thetaLowerIndex + 1] * thetaOvershoot); // (w1*w3 + w2*w4)
 		if (div > 0.0) {
 			weigh = (thetaOvershoot * (double)phi_CDFsums[thetaLowerIndex + 1]) / div;    //      w2*w4 / (w1*w3 + w2*w4)
