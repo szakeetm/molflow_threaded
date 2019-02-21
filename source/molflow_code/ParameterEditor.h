@@ -44,11 +44,12 @@ public:
 
   // Construction
   ParameterEditor(Worker *work);
+  void Refresh();
   void UpdateCombo();
   void RebuildList(bool autoSize=true, bool refillValues=true);
   // Implementation
   void ProcessMessage(GLComponent *src,int message);
-  void Reset();
+  void PrepareForNewParam();
   
 
 private:

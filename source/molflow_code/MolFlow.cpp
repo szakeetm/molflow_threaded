@@ -254,7 +254,7 @@ void MolFlow::LoadParameterCatalog()
 			Parameter newParam;
 			newParam.fromCatalog = true;
 			newParam.isLogLog = true; //For now
-			newParam.name = csvName + " [catalog]";
+			newParam.name = "[catalog] " + csvName;
 
 			std::vector<std::vector<string>> table;
 			try {
@@ -1481,6 +1481,7 @@ void MolFlow::LoadFile(std::string fileName) {
 		if (movement) movement->Update();
 		if (globalSettings && globalSettings->IsVisible()) globalSettings->Update();
 		if (formulaEditor) formulaEditor->Refresh();
+		if (parameterEditor) parameterEditor->Refresh();
 	}
 	catch (Error &e) {
 
@@ -1548,9 +1549,8 @@ void MolFlow::InsertGeometry(bool newStr,std::string fileName) {
 
 		//worker.LoadTexturesGEO(fullName);
 		UpdateStructMenu();
-		if (profilePlotter) profilePlotter->Reset();
-		if (pressureEvolution) pressureEvolution->Reset();
-		if (timewisePlotter) timewisePlotter->Reset();
+
+		
 		//UpdateCurrentDir(fullName);
 
 		geom->CheckCollinear();
@@ -1577,7 +1577,7 @@ void MolFlow::InsertGeometry(bool newStr,std::string fileName) {
 		if (facetCoordinates) facetCoordinates->UpdateFromSelection();
 		if (vertexCoordinates) vertexCoordinates->Update();
 		if (formulaEditor) formulaEditor->Refresh();
-
+		if (parameterEditor) parameterEditor->Refresh();
 	}
 	catch (Error &e) {
 
@@ -1601,7 +1601,7 @@ void MolFlow::ClearParameters() {
 		else
 			++iter;
 	}
-	if (parameterEditor) parameterEditor->UpdateCombo();
+	if (parameterEditor) parameterEditor->Refresh();
 }
 
 void MolFlow::StartStopSimulation() {
@@ -1818,7 +1818,6 @@ void MolFlow::ProcessMessage(GLComponent *src, int message)
 			break;
 		case MENU_TIME_PARAMETER_EDITOR:
 			if (parameterEditor == NULL) parameterEditor = new ParameterEditor(&worker);
-			parameterEditor->UpdateCombo();
 			parameterEditor->SetVisible(true);
 			break;
 		case MENU_TIMEWISE_PLOTTER:

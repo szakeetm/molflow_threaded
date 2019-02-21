@@ -165,8 +165,7 @@ ParameterEditor::ParameterEditor(Worker *w):GLWindow() {
   
   Add(applyButton);
 
-  UpdateCombo();
-  RebuildList();
+  Refresh();
   
   // Center dialog
   int wS,hS;
@@ -180,36 +179,63 @@ ParameterEditor::ParameterEditor(Worker *w):GLWindow() {
   
 }
 
+void ParameterEditor::Refresh()
+{
+	UpdateCombo();
+	UpdateUserValues();
+	RebuildList();
+	if (work->parameters.size() > 0) { //If there is at least one parameter, show values and plot it 
+		ValidateInput();
+		Plot();
+	}
+}
+
 void ParameterEditor::ProcessMessage(GLComponent *src,int message) {
   switch(message) {
     case MSG_BUTTON:
+		if (Contains({ applyButton,deleteButton }, src) ) {
+			int i = selectorCombo->GetSelectedIndex();
+			if (i > 0 && i-1 < work->parameters.size()) {
+				if (work->parameters[i-1].fromCatalog) {
+					GLMessageBox::Display("Parameters imported from the catalog (.csv files in the parameter_catalog folder) are read-only.");
+					return;
+				}
+			}
+		}
 		if (src==applyButton) {
-			if (ValidateInput() && mApp->AskToReset()) {
+			if (ValidateInput() && mApp->AskToReset()) { //ValidateInput() constructs tempParam
 				if (selectorCombo->GetSelectedIndex() >= 1 && selectorCombo->GetSelectedIndex() < selectorCombo->GetNbRow()) {//existing param
 					work->parameters[selectorCombo->GetSelectedIndex()-1] = tempParam;
-					UpdateCombo();
+					UpdateCombo(); //If name changed
 					UpdateUserValues();
 					Plot();
 				} else if (selectorCombo->GetSelectedIndex() == 0) { //new Param
 					work->parameters.push_back(tempParam);
 					UpdateCombo();
-					selectorCombo->SetSelectedIndex(1);
+					selectorCombo->SetSelectedIndex((int)work->parameters.size()); //Set to newly added parameter
 					deleteButton->SetEnabled(true);
 					UpdateUserValues();
 					Plot();
 				}
-				RebuildList();
-				work->Reload();
+				RebuildList(); //Show parsed and sorted values
+				work->Reload(); //Mark for re-sync with workers
 			}
 		} else if (src == deleteButton) {
-			if (selectorCombo->GetSelectedValue() == "New...") return;
+			if (selectorCombo->GetSelectedValue() == "New...") return; //Delete button shouldn't have been enabled
 			if (mApp->AskToReset()) {
 				work->parameters.erase(work->parameters.begin() + selectorCombo->GetSelectedIndex()-1);
 				UpdateCombo();
-				selectorCombo->SetSelectedIndex(1);
+				bool paramSelected = selectorCombo->GetSelectedIndex() > 0;
 				UpdateUserValues();
 				RebuildList();
-				deleteButton->SetEnabled(false);
+				if (paramSelected) {
+					ValidateInput();
+					Plot();
+				}
+				else {
+					dataView->Reset();
+				}
+				deleteButton->SetEnabled(paramSelected); //has at least one valid parameter
 			}
 		} else if (src == plotButton) {
 			ValidateInput();
@@ -257,7 +283,7 @@ void ParameterEditor::ProcessMessage(GLComponent *src,int message) {
 		}
 		else {
 			if (selectorCombo->GetSelectedIndex() != -1) { //New param
-				Reset();
+				PrepareForNewParam();
 			}
 			deleteButton->SetEnabled(false);
 		}
@@ -272,23 +298,27 @@ void ParameterEditor::ProcessMessage(GLComponent *src,int message) {
   GLWindow::ProcessMessage(src,message);
 }
 
-void ParameterEditor::Reset() {
+void ParameterEditor::PrepareForNewParam() {
+	//Clear table
 	userValues = std::vector<std::pair<std::string, std::string>>();
 	RebuildList();
-	char tmp[32];
-	sprintf(tmp, "Param%d", selectorCombo->GetSelectedIndex());
-	nameField->SetText(tmp);
+	//Clear plot
 	dataView->Reset();
+	//Set default name for new param
+	nameField->SetText("Param"+std::to_string(work->parameters.size()+1));
 }
 
 void ParameterEditor::UpdateCombo() {
 	selectorCombo->SetSize((int)work->parameters.size()+1);
 	selectorCombo->SetValueAt(0, "New...");
-	for (size_t i = 0; i < work->parameters.size(); i++)
-		selectorCombo->SetValueAt((int)i+1, work->parameters[i].name.c_str());
-	
-	if (selectorCombo->GetSelectedIndex() == -1 || selectorCombo->GetSelectedIndex() == ((int)selectorCombo->GetNbRow() - 1)) selectorCombo->SetSelectedIndex((int)selectorCombo->GetNbRow() - 1);
-	Reset();
+	for (size_t i = 0; i < work->parameters.size(); i++) {
+		selectorCombo->SetValueAt((int)i + 1, work->parameters[i].name.c_str());
+	}
+
+	if (selectorCombo->GetSelectedIndex() < 1) selectorCombo->SetSelectedIndex(selectorCombo->GetNbRow()>1 ? 1 : 0); //Select first param, otherwise "New..."
+	else if (selectorCombo->GetSelectedIndex() > (int)selectorCombo->GetNbRow() - 1) selectorCombo->SetSelectedIndex((int)selectorCombo->GetNbRow() - 1); //Select last (probably just deleted the last)
+	if (selectorCombo->GetSelectedIndex() > 0) deleteButton->SetEnabled(true);
+	if (selectorCombo->GetSelectedIndex()==0) PrepareForNewParam(); //If "New..." selected
 }
 
 void ParameterEditor::PasteFromClipboard() {
@@ -381,21 +411,24 @@ void ParameterEditor::RebuildList(bool autoSize, bool refillValues) {
 bool ParameterEditor::ValidateInput() {
 	//Validate name
 	std::string tempName = nameField->GetText();
-	if (tempName.length() == 0) {
-		GLMessageBox::Display("Parameter name can't be empty", "Invalid parameter definition", GLDLG_OK, GLDLG_ICONWARNING);
-		return false;
-	}
-	if (selectorCombo->GetSelectedIndex() == 0) {
-		for (auto& p : work->parameters) {
-			if (tempName.compare(p.name) == 0) {
-				GLMessageBox::Display("This parameter name is already used", "Invalid parameter definition", GLDLG_OK, GLDLG_ICONWARNING);
-				return false;
+
+	if (!beginsWith(tempName, "[catalog]")) {
+		if (tempName.length() == 0) {
+			GLMessageBox::Display("Parameter name can't be empty", "Invalid parameter definition", GLDLG_OK, GLDLG_ICONWARNING);
+			return false;
+		}
+		if (selectorCombo->GetSelectedIndex() == 0) {
+			for (auto& p : work->parameters) {
+				if (tempName.compare(p.name) == 0) {
+					GLMessageBox::Display("This parameter name is already used", "Invalid parameter definition", GLDLG_OK, GLDLG_ICONWARNING);
+					return false;
+				}
 			}
 		}
-	}
-	if (!((tempName[0] >= 65 && tempName[0] <= 90) || (tempName[0] >= 97 && tempName[0] <= 122))) {
-		GLMessageBox::Display("Parameter name must begin with a letter", "Invalid parameter definition", GLDLG_OK, GLDLG_ICONWARNING);
-		return false;
+		if (!((tempName[0] >= 65 && tempName[0] <= 90) || (tempName[0] >= 97 && tempName[0] <= 122))) {
+			GLMessageBox::Display("Parameter name must begin with a letter", "Invalid parameter definition", GLDLG_OK, GLDLG_ICONWARNING);
+			return false;
+		}
 	}
 	
 	/*
@@ -450,8 +483,8 @@ bool ParameterEditor::ValidateInput() {
 
 void ParameterEditor::UpdateUserValues() {
 	userValues = std::vector<std::pair<std::string, std::string>>();
-	nameField->SetText("");
-	if (selectorCombo->GetSelectedIndex()-1 <(int)work->parameters.size()) {
+	//nameField->SetText("");
+	if (selectorCombo->GetSelectedIndex()>0 && selectorCombo->GetSelectedIndex()-1 <(int)work->parameters.size()) {
 		Parameter *getParam = &work->parameters[selectorCombo->GetSelectedIndex()-1];
 
 		for (int row = 0; row < (int)getParam->GetSize(); row++) {

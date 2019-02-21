@@ -1301,12 +1301,13 @@ void Simulation::RecordHitOnTexture(SubprocessFacet *f, double time, bool countH
 	size_t add = tu + tv * (f->facetRef->sh.texWidth);
 	double ortVelocity = (worker->wp.useMaxwellDistribution ? 1.0 : 1.1781)*currentParticle.velocity*std::abs(Dot(currentParticle.direction, f->facetRef->sh.N)); //surface-orthogonal velocity component
 
-	for (size_t m = 0; m <= worker->moments.size(); m++)
+	for (size_t m = 0; m <= worker->moments.size(); m++) {
 		if (m == 0 || std::abs(time - worker->moments[m - 1]) < worker->wp.timeWindowSize / 2.0) {
 			if (countHit) myTmpResults.facetStates[f->globalId].momentResults[m].texture[add].countEquiv += currentParticle.oriRatio;
 			myTmpResults.facetStates[f->globalId].momentResults[m].texture[add].sum_1_per_ort_velocity += currentParticle.oriRatio * velocity_factor / ortVelocity;
 			myTmpResults.facetStates[f->globalId].momentResults[m].texture[add].sum_v_ort_per_area += currentParticle.oriRatio * ortSpeedFactor*ortVelocity*f->textureCellIncrements[add]; // sum ortho_velocity[m/s] / cell_area[cm2]
 		}
+	}
 }
 
 void Simulation::RecordDirectionVector(SubprocessFacet *f, double time) {

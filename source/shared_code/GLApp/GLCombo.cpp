@@ -82,6 +82,7 @@ void GLCombo::SetSize(size_t nbRow) {
 
 void GLCombo::SetValueAt(size_t row,const char *value,int userValue) {
   list->SetValueAt(0,row,value,userValue);
+  if (row == GetSelectedIndex()) text->SetText(value);
 }
 
 int GLCombo::GetUserValueAt(size_t row) {
