@@ -8,3 +8,4 @@ tmp/
 **/Screenshots/
 *.ilk
 *.exp
+molflow.cfg
