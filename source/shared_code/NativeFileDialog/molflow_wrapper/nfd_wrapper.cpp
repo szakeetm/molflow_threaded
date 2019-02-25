@@ -30,14 +30,14 @@ std::vector<std::string> NFD_OpenMultiple_Cpp(const std::string& fileFilters,con
 	std::vector<std::string> paths;
 	const char* filters = NULL; if (!fileFilters.empty()) filters = fileFilters.c_str();
 	const char* defaultPath = NULL; if (!path.empty()) defaultPath = path.c_str();
-	nfdpathset_t *outPaths=NULL;
-	nfdresult_t  result = NFD_OpenDialogMultiple(filters, defaultPath, outPaths );
+	nfdpathset_t outPaths;
+	nfdresult_t  result = NFD_OpenDialogMultiple(filters, defaultPath, &outPaths );
 	if (result == NFD_OKAY) {
-		size_t nb = NFD_PathSet_GetCount(outPaths);
+		size_t nb = NFD_PathSet_GetCount(&outPaths);
 		for (size_t i=0;i<nb;i++) {
-			paths.push_back(NFD_PathSet_GetPath( outPaths, i ));
+			paths.push_back(NFD_PathSet_GetPath( &outPaths, i ));
 		}
-		NFD_PathSet_Free(outPaths);
+		NFD_PathSet_Free(&outPaths);
 	}
 	return paths;	
 }
