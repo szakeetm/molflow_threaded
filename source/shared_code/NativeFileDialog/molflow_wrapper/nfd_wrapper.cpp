@@ -1,9 +1,10 @@
 #include "nfd_wrapper.h"
 #include "../nfd.h"
+
 std::string NFD_OpenFile_Cpp(const std::string& fileFilters,const std::string& path) {
 	std::string resultStr;
-	const char* filters = NULL; if (!fileFilters.empty()) filters = fileFilters.c_str();
-	const char* defaultPath = NULL; if (!path.empty()) defaultPath = path.c_str();
+	const char* filters = fileFilters.c_str(); if (fileFilters.empty()) filters = NULL;
+	const char* defaultPath = path.c_str(); if (path.empty()) defaultPath = NULL;
 	nfdchar_t* fn;
 	nfdresult_t result = NFD_OpenDialog(filters, defaultPath, &fn);
 	if (result == NFD_OKAY) {

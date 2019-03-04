@@ -13,18 +13,22 @@ A Monte Carlo simulator for Ultra High Vacuum systems
 * Open *molflow_win.sln* in the *Visual_Studio* folder, and use Visual Studio to build the solution.  
 Tested with Visual Studio Community 2017.
 ## Linux (Debian)
-* Scripts in the *build_linux* folder  
-* Compile source files with *compile_linux.sh* and link with *link_linux.sh*. The resulting binaries are written in *bin/linux_debian*  
+* Scripts in the *build_linux_debian* folder  
+* Compile source files with *compile_linux_debian.sh* and link with *link_linux_debian.sh*. The resulting binaries are written in *bin/linux_debian*  
 Makefile coming soon.  
 See readme.txt  for required packages to build.  
 ## Linux (Fedora-based, like Cent OS)
-* You have to clone and build GCC 8.2 first.
-* The compile scripts expect a folder named gcc_8.2.0_compiled_fedora adjacent to this repository.
-
+* Scripts in the *build_linux_fedora* folder
+* The readme.txt file in this folder contains more info
+* You have to clone and build GCC 8.2 (or later) first.
+* Before building GCC 8, you can configure an install directory (../configure --prefix=$GCC8DIR --enable-languages=c,c++ --disable-multilib)
+* The compile scripts expect a folder named *$GCC8DIR* (GCC installation folder with bin and lib64 folders) adjacent to this repository.
+* Compile source files with *compile_linux.sh* and link with *link_linux_fedora.sh*. The resulting binaries are written in *bin/linux_fedora*  
+See 
 ## Mac
 * Use Homebrew to install build tools, like g++-8, the SDL2 library, libpng, gsl, curl  
 * The compile and link scripts are in the *build_mac* folder.  The resulting binaries are written in *bin/mac* 
-* Compile source files with *compile_linux.sh* and link with *link_linux.sh*. The resulting binaries are written in *bin/linux_fedora* 
+* Compile source files with *compile_mac.sh* and link with *link_mac.sh*. The resulting binaries are written in *bin/mac* 
  
 # Running
 ## Windows
