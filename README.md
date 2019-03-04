@@ -15,16 +15,15 @@ Tested with Visual Studio Community 2017.
 ## Linux (Debian)
 * Scripts in the *build_linux_debian* folder  
 * Compile source files with *compile_linux_debian.sh* and link with *link_linux_debian.sh*. The resulting binaries are written in *bin/linux_debian*  
-Makefile coming soon.  
-See readme.txt  for required packages to build.  
+CMakeLists.txt / makefile coming soon.  
+See *readme.txt*  for required packages to build.  
 ## Linux (Fedora-based, like Cent OS)
 * Scripts in the *build_linux_fedora* folder
-* The readme.txt file in this folder contains more info
+* The *readme.txt* file in this folder contains more info
 * You have to clone and build GCC 8.2 (or later) first.
 * Before building GCC 8, you can configure an install directory (../configure --prefix=$GCC8DIR --enable-languages=c,c++ --disable-multilib)
-* The compile scripts expect a folder named *$GCC8DIR* (GCC installation folder with bin and lib64 folders) adjacent to this repository.
+* The compile scripts expect a GCC installation folder (with bin and lib64 folders), the location should be the default (*/usr/bin*) or defined by the *$GCC8DIR* environment variable
 * Compile source files with *compile_linux.sh* and link with *link_linux_fedora.sh*. The resulting binaries are written in *bin/linux_fedora*  
-See 
 ## Mac
 * Use Homebrew to install build tools, like g++-8, the SDL2 library, libpng, gsl, curl  
 * The compile and link scripts are in the *build_mac* folder.  The resulting binaries are written in *bin/mac* 
