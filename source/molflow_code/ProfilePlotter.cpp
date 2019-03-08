@@ -486,24 +486,26 @@ void ProfilePlotter::ProcessMessage(GLComponent *src, int message) {
 			SetVisible(false);
 		}
 		else if (src == selButton) {
-
 			int idx = profCombo->GetSelectedIndex();
-			if (idx >= 0 && idx<geom->GetNbFacet()) {
-				geom->UnselectAll();
-				geom->GetFacet(profCombo->GetUserValueAt(idx))->selected = true;
-				geom->UpdateSelection();
+			if (idx >= 0) { //Something selected (not -1)
+				int facetId = profCombo->GetUserValueAt(idx);
+				//if (facetId >= 0 && facetId < geom->GetNbFacet()) { //Check commented out: should never be able to select non-existing facet
+					geom->UnselectAll();
+					geom->GetFacet(facetId)->selected = true;
+					geom->UpdateSelection();
 
-				mApp->UpdateFacetParams(true);
+					mApp->UpdateFacetParams(true);
 
-				mApp->facetList->SetSelectedRow(profCombo->GetUserValueAt(idx));
-				mApp->facetList->ScrollToVisible(profCombo->GetUserValueAt(idx), 1, true);
+					mApp->facetList->SetSelectedRow(profCombo->GetUserValueAt(idx));
+					mApp->facetList->ScrollToVisible(profCombo->GetUserValueAt(idx), 1, true);
+				//}
 			}
 		}
 		else if (src == addButton) {
 
 			int idx = profCombo->GetSelectedIndex();
 
-			if (idx >= 0) {
+			if (idx >= 0) { //Something selected (not -1)
 				addView(profCombo->GetUserValueAt(idx));
 				refreshViews();
 			}

@@ -1570,8 +1570,9 @@ void MolFlow::InsertGeometry(bool newStr,std::string fileName) {
 		viewer[3]->ToFrontView();
 		SelectViewer(0);
 		*/
+		RefreshPlotterCombos();
+		//UpdatePlotters();
 		
-		UpdatePlotters();
 		if (outgassingMap) outgassingMap->Update(m_fTime, true);
 		if (facetDetails) facetDetails->Update();
 		if (facetCoordinates) facetCoordinates->UpdateFromSelection();
@@ -1758,7 +1759,8 @@ void MolFlow::ProcessMessage(GLComponent *src, int message)
 					worker.CalcTotalOutgassing();
 					//geom->CheckIsolatedVertex();
 					UpdateModelParams();
-					UpdatePlotters();
+					RefreshPlotterCombos();
+					//UpdatePlotters();
 					if (vertexCoordinates) vertexCoordinates->Update();
 					if (facetCoordinates) facetCoordinates->UpdateFromSelection();
 					// Send to sub process
@@ -2225,7 +2227,8 @@ void MolFlow::EmptyGeometry() {
 	UpdateTitle();
 	changedSinceSave = false;
 	ResetAutoSaveTimer();
-	UpdatePlotters();
+	RefreshPlotterCombos();
+	//UpdatePlotters();
 }
 
 void MolFlow::LoadConfig() {
@@ -2790,6 +2793,13 @@ void MolFlow::UpdatePlotters() {
 	if (profilePlotter) profilePlotter->Update(m_fTime, true);
 	if (texturePlotter) texturePlotter->Update(m_fTime, true);
 	if (histogramPlotter) histogramPlotter->Update(m_fTime,true);
+}
+
+void MolFlow::RefreshPlotterCombos() {
+	if (pressureEvolution) pressureEvolution->Refresh();
+	if (timewisePlotter) timewisePlotter->Refresh();
+	if (profilePlotter) profilePlotter->Refresh();
+	if (histogramPlotter) histogramPlotter->Refresh();
 }
 
 void MolFlow::UpdateFacetHits(bool allRows) {

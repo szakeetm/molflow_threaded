@@ -73,6 +73,7 @@ public:
 	float GetAppTime();
 	void ClearParameters();
 	void UpdatePlotters();
+	void RefreshPlotterCombos();
 
 	//Flow/sticking coeff. conversion
 	void calcFlow();

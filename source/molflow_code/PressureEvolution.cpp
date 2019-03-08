@@ -158,14 +158,16 @@ void PressureEvolution::Refresh() {
 
 	//Remove views that aren't present anymore
 	for (auto i = views.begin();i!=views.end();) {
-		if ((*i)->userData1 >= geom->GetNbFacet()) {
+		if ((*i)->userData1 >= geom->GetNbFacet()) { //If pointing to non-existent facet
 			chart->GetY1Axis()->RemoveDataView(*i);
-			views.erase(i);
+			SAFE_DELETE(*i);
+			i=views.erase(i);
 		}
 		else {
 			i++;
 		}
 	}
+	
 
 	//Construct combo
 	profCombo->SetSize(views.size());
@@ -311,6 +313,7 @@ void PressureEvolution::addView(size_t facetId) {
 void PressureEvolution::remView(size_t viewId) {
 
 	chart->GetY1Axis()->RemoveDataView(views[viewId]);
+	SAFE_DELETE(views[viewId]);
 	views.erase(views.begin()+viewId);
 
 }

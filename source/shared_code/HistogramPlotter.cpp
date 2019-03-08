@@ -408,6 +408,7 @@ void HistogramPlotter::remView(int facetId) {
 		return;
 	}
 	modes[modeId].chart->GetY1Axis()->RemoveDataView(modes[modeId].views[--i]);
+	SAFE_DELETE(modes[modeId].views[i]);
 	modes[modeId].views.erase(modes[modeId].views.begin() + i);
 }
 
