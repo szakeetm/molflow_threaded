@@ -435,8 +435,8 @@ void AppUpdater::DownloadInstallUpdate(const UpdateManifest& update, UpdateLogWi
 
 						std::stringstream payload2;
 						payload2 << "v=1&t=event&tid=" << googleAnalyticsTrackingId << "&cid=" << userId << "&ec=" << resultCategory << "&ea=" << resultDetail.str();
-						payload << "&an=" << applicationName << "&aid=" << branchName << "&av=" << currentVersionId << "_" << os;
-						payload << "&el=" << os << "%20" << applicationName << "%20" << currentVersionId << "%20" << branchName;
+						payload2 << "&an=" << applicationName << "&aid=" << branchName << "&av=" << currentVersionId << "_" << os;
+						payload2 << "&el=" << os << "%20" << applicationName << "%20" << currentVersionId << "%20" << branchName;
 						SendHTTPPostRequest("http://www.google-analytics.com/collect", payload2.str()); //Sends random app and version id for analytics. Also sends install id to count number of users
 						return;
 
@@ -470,8 +470,8 @@ void AppUpdater::DownloadInstallUpdate(const UpdateManifest& update, UpdateLogWi
 
 	std::stringstream payload3;
 	payload3 << "v=1&t=event&tid=" << googleAnalyticsTrackingId << "&cid=" << userId << "&ec=" << resultCategory << "&ea=" << resultDetail.str();
-	payload << "&an=" << applicationName << "&aid=" << branchName << "&av=" << currentVersionId << "_" << os;
-	payload << "&el=" << os << "%20" << applicationName << "%20" << currentVersionId << "%20" << branchName;
+	payload3 << "&an=" << applicationName << "&aid=" << branchName << "&av=" << currentVersionId << "_" << os;
+	payload3 << "&el=" << os << "%20" << applicationName << "%20" << currentVersionId << "%20" << branchName;
 	SendHTTPPostRequest("http://www.google-analytics.com/collect", payload3.str()); //Sends random app and version id for analytics. Also sends install id to count number of users
 
 	//logWindow->Log("[Background update thread closed.]");
