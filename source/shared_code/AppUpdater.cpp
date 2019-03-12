@@ -428,7 +428,7 @@ void AppUpdater::DownloadInstallUpdate(const UpdateManifest& update, UpdateLogWi
 					}
 					catch (std::filesystem::filesystem_error err) {
 						resultCategory = "fileCopyWarning";
-						resultDetail << "fileCopyWarning_" << copyFile << "_" << applicationName << "_" << currentVersionId;
+						resultDetail << "fileCopyWarning_" << space2underscore(copyFile) << "_" << applicationName << "_" << currentVersionId;
 						userResult.str(""); userResult.clear();
 						userResult << "Couldn't copy " << copyFile << " to " << configDest.str() << "  File skipped.";
 						logWindow->Log(userResult.str());
