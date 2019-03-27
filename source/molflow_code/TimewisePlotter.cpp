@@ -71,9 +71,6 @@ TimewisePlotter::TimewisePlotter() :GLWindow() {
 	chart->GetXAxis()->SetAnnotation(VALUE_ANNO);
 	Add(chart);
 
-	dismissButton = new GLButton(0, "Dismiss");
-	Add(dismissButton);
-
 	selButton = new GLButton(0, "Show Facet");
 	Add(selButton);
 
@@ -117,7 +114,11 @@ TimewisePlotter::TimewisePlotter() :GLWindow() {
 	logYToggle = new GLToggle(0, "Log Y");
 	Add(logYToggle);
 
-	
+	warningLabel = new GLLabel("Profiles can only be used on rectangular facets.");
+	Add(warningLabel);
+
+	dismissButton = new GLButton(0, "Dismiss");
+	Add(dismissButton);
 
 	// Center dialog
 	int wS, hS;
@@ -146,6 +147,8 @@ void TimewisePlotter::SetBounds(int x, int y, int w, int h) {
 	momLabel->SetBounds(30, h - 45, 117, 19);
 	momentsText->SetBounds(130, h - 45, 180, 19);
 	momentsLabel->SetBounds(315, h - 45, 60, 19);
+
+	warningLabel->SetBounds(w - 340, h - 45, 235, 19);
 	dismissButton->SetBounds(w - 100, h - 45, 90, 19);
 
 	GLWindow::SetBounds(x, y, w, h);

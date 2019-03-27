@@ -69,8 +69,7 @@ private:
   GLChart     *chart;
   GLCombo     *profCombo;
   GLLabel     *normLabel;
-  GLLabel	  *qLabel;
-  GLLabel     *unitLabel;
+  GLLabel     *warningLabel;
   GLCombo     *normCombo;
   //GLToggle    *showAllMoments;
 

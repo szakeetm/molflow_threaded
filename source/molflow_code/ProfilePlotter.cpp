@@ -127,8 +127,10 @@ ProfilePlotter::ProfilePlotter() :GLWindow() {
 	Add(normCombo);
 
 	logYToggle = new GLToggle(0, "Log Y");
-
 	Add(logYToggle);
+
+	warningLabel = new GLLabel("Profiles can only be used on rectangular facets.");
+	Add(warningLabel);
 
 	correctForGas = new GLToggle(0, "Surface->Volume conversion");
 	correctForGas->SetVisible(false);
@@ -138,7 +140,7 @@ ProfilePlotter::ProfilePlotter() :GLWindow() {
 	formulaText->SetEditable(true);
 	Add(formulaText);
 
-	formulaBtn = new GLButton(0, "-> Plot");
+	formulaBtn = new GLButton(0, "-> Plot expression");
 	Add(formulaBtn);
 
 	// Center dialog
@@ -155,7 +157,7 @@ ProfilePlotter::ProfilePlotter() :GLWindow() {
 }
 
 void ProfilePlotter::SetBounds(int x, int y, int w, int h) {
-
+	
 	chart->SetBounds(7, 5, w - 15, h - 110);
 	profCombo->SetBounds(7, h - 95, 180, 19);
 	selButton->SetBounds(190, h - 95, 80, 19);
@@ -163,11 +165,12 @@ void ProfilePlotter::SetBounds(int x, int y, int w, int h) {
 	removeButton->SetBounds(360, h - 95, 80, 19);
 	removeAllButton->SetBounds(445, h - 95, 80, 19);
 	logYToggle->SetBounds(190, h - 70, 40, 19);
+	warningLabel->SetBounds(w-240,h-70,235,19);
 	correctForGas->SetBounds(240, h - 70, 80, 19);
 	normLabel->SetBounds(7, h - 68, 50, 19);
 	normCombo->SetBounds(61, h - 70, 125, 19);
 	formulaText->SetBounds(7, h - 45, 350, 19);
-	formulaBtn->SetBounds(360, h - 45, 80, 19);;
+	formulaBtn->SetBounds(360, h - 45, 120, 19);;
 	dismissButton->SetBounds(w - 100, h - 45, 90, 19);
 
 	GLWindow::SetBounds(x, y, w, h);

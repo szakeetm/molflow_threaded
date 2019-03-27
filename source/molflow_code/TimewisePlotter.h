@@ -62,6 +62,7 @@ private:
   
   Worker      *worker;
   GLButton    *dismissButton;
+  GLLabel     *warningLabel;
   GLChart     *chart;
   GLCombo     *profCombo;
   GLLabel     *normLabel;
