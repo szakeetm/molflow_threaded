@@ -71,17 +71,6 @@ ProfilePlotter::ProfilePlotter() :GLWindow() {
 
 	lastUpdate = 0.0f;
 
-	colors = {
-		GLColor(255,000,055), //red
-		GLColor(000,000,255), //blue
-		GLColor(000,204,051), //green
-		GLColor(000,000,000), //black
-		GLColor(255,153,051), //orange
-		GLColor(153,204,255), //light blue
-		GLColor(153,000,102), //violet
-		GLColor(255,230,005) //yellow
-	};
-
 	chart = new GLChart(0);
 	chart->SetBorder(BORDER_BEVEL_IN);
 	chart->GetY1Axis()->SetGridVisible(true);
@@ -313,28 +302,6 @@ void ProfilePlotter::plot() {
 
 }
 
-GLColor ProfilePlotter::GetFirstAvailableColor()
-{
-	std::vector<bool> colorAvailable(colors.size(), true);
-	int nbViews = chart->GetY1Axis()->GetViewNumber();
-	for (int i = 0; i < nbViews; i++) {
-		GLColor c = chart->GetY1Axis()->GetDataView(i)->GetColor();
-		bool found = false;
-		for (size_t ii = 0; !found && ii < colors.size(); ii++) {
-			if (c == colors[ii]) {
-				colorAvailable[ii] = false;
-				found = true; //We assume that all colors are different
-			}
-		}
-	}
-	//Pick first available color
-	for (size_t i = 0; i < colorAvailable.size(); i++) {
-		if (colorAvailable[i]) return colors[i];
-	}
-	//Nothing found, return black
-	return GLColor(0,0,0);
-}
-
 void ProfilePlotter::refreshViews() {
 
 	// Lock during update
@@ -463,7 +430,7 @@ void ProfilePlotter::addView(int facet) {
 		sprintf(tmp, "F#%d", facet + 1);
 		v->SetName(tmp);
 		//Look for first available color
-		GLColor col = GetFirstAvailableColor();
+		GLColor col = chart->GetFirstAvailableColor();
 		v->SetColor(col);
 		v->SetMarkerColor(col);
 		v->SetLineWidth(2);

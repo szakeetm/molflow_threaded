@@ -4,6 +4,8 @@
 
 //#include "..\GLWindow.h"
 #include "../GLComponent.h"
+
+#include <vector>
 //#include "..\GLMenu.h"
 //#include "..\GLButton.h"
 
@@ -77,6 +79,8 @@ public:
   void InvalidateDeviceObjects();
   void RestoreDeviceObjects();
 
+  GLColor GetFirstAvailableColor();
+
 private:
 
   void paintLabel(GLDataView *v,GLAxis *axis,int x,int y,int w);
@@ -142,6 +146,8 @@ private:
   int y2AxisThickness;
   int xAxisThickness;
   int xAxisUpMargin;
+
+  std::vector<GLColor> colors;
 
   // Axis
   GLAxis *xAxis;

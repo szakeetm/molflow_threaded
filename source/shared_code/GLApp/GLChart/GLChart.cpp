@@ -44,6 +44,17 @@ GLChart::GLChart(int compId):GLComponent(compId) {
 	y2Axis = new GLAxis(this, VERTICAL_RIGHT);
 	displayDuration = 3600;
 
+	colors = {
+		GLColor(255,000,055), //red
+		GLColor(000,000,255), //blue
+		GLColor(000,204,051), //green
+		GLColor(000,000,000), //black
+		GLColor(255,153,051), //orange
+		GLColor(153,204,255), //light blue
+		GLColor(153,000,102), //violet
+		GLColor(255,230,005) //yellow
+	};
+
 	nbLabel = 0;
 	zoomDrag = false;
 	zoomDragAllowed = false;
@@ -344,6 +355,30 @@ void GLChart::RestoreDeviceObjects() {
 	RVALIDATE_DLG(dvOptions);
 	GLAxis::Revalidate();
 	GLComponent::RestoreDeviceObjects();
+}
+
+GLColor GLChart::GetFirstAvailableColor()
+	{
+		std::vector<size_t> colorCount(colors.size(), 0);
+		int nbViews = GetY1Axis()->GetViewNumber();
+		for (int i = 0; i < nbViews; i++) {
+			GLColor c = GetY1Axis()->GetDataView(i)->GetColor();
+			for (size_t ii = 0; ii < colors.size(); ii++) {
+				if (c == colors[ii]) {
+					colorCount[ii]++;
+				}
+			}
+		}
+		//Pick first available color
+		size_t min = 1000; size_t minIndex = 0;
+		for (size_t i = 0; i < colorCount.size(); i++) {
+			if (colorCount[i] < min) {
+				min = colorCount[i];
+				minIndex = i;
+			}
+		}
+		return colors[minIndex];
+	
 }
 
 void GLChart::paintLabel(GLDataView *v,GLAxis *axis,int x,int y,int w) {
