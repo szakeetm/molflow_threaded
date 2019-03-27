@@ -54,6 +54,7 @@ private:
   void addView(size_t facetId);
   void remView(size_t viewId);
   void refreshChart();
+  GLColor GetFirstAvailableColor();
 
   Worker      *worker;
 

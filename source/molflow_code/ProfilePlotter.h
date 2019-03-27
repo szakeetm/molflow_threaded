@@ -62,6 +62,8 @@ private:
   void refreshViews();
   void plot();
 
+  GLColor GetFirstAvailableColor();
+
   Worker      *worker;
   GLButton    *dismissButton;
   GLChart     *chart;
@@ -82,9 +84,7 @@ private:
   GLToggle    *correctForGas;
 
   GLDataView  *views[MAX_VIEWS];
-  GLColor    *colors[8];
-
-  int          nbColors;
+  std::vector<GLColor> colors;
   int          nbView;
   float        lastUpdate;
 

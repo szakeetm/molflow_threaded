@@ -71,15 +71,16 @@ ProfilePlotter::ProfilePlotter() :GLWindow() {
 
 	lastUpdate = 0.0f;
 
-	nbColors = 8;
-	colors[0] = new GLColor(); colors[0]->r = 255; colors[0]->g = 000; colors[0]->b = 055; //red
-	colors[1] = new GLColor(); colors[1]->r = 000; colors[1]->g = 000; colors[1]->b = 255; //blue
-	colors[2] = new GLColor(); colors[2]->r = 000; colors[2]->g = 204; colors[2]->b = 051; //green
-	colors[3] = new GLColor(); colors[3]->r = 000; colors[3]->g = 000; colors[3]->b = 000; //black
-	colors[4] = new GLColor(); colors[4]->r = 255; colors[4]->g = 153; colors[4]->b = 051; //orange
-	colors[5] = new GLColor(); colors[5]->r = 153; colors[5]->g = 204; colors[5]->b = 255; //light blue
-	colors[6] = new GLColor(); colors[6]->r = 153; colors[6]->g = 000; colors[6]->b = 102; //violet
-	colors[7] = new GLColor(); colors[7]->r = 255; colors[7]->g = 230; colors[7]->b = 005; //yellow
+	colors = {
+		GLColor(255,000,055), //red
+		GLColor(000,000,255), //blue
+		GLColor(000,204,051), //green
+		GLColor(000,000,000), //black
+		GLColor(255,153,051), //orange
+		GLColor(153,204,255), //light blue
+		GLColor(153,000,102), //violet
+		GLColor(255,230,005) //yellow
+	};
 
 	chart = new GLChart(0);
 	chart->SetBorder(BORDER_BEVEL_IN);
@@ -309,6 +310,28 @@ void ProfilePlotter::plot() {
 
 }
 
+GLColor ProfilePlotter::GetFirstAvailableColor()
+{
+	std::vector<bool> colorAvailable(colors.size(), true);
+	int nbViews = chart->GetY1Axis()->GetViewNumber();
+	for (int i = 0; i < nbViews; i++) {
+		GLColor c = chart->GetY1Axis()->GetDataView(i)->GetColor();
+		bool found = false;
+		for (size_t ii = 0; !found && ii < colors.size(); ii++) {
+			if (c == colors[ii]) {
+				colorAvailable[ii] = false;
+				found = true; //We assume that all colors are different
+			}
+		}
+	}
+	//Pick first available color
+	for (size_t i = 0; i < colorAvailable.size(); i++) {
+		if (colorAvailable[i]) return colors[i];
+	}
+	//Nothing found, return black
+	return GLColor(0,0,0);
+}
+
 void ProfilePlotter::refreshViews() {
 
 	// Lock during update
@@ -436,8 +459,10 @@ void ProfilePlotter::addView(int facet) {
 		//sprintf(tmp, "F#%d %s", facet + 1, profType[f->wp.profileType]);
 		sprintf(tmp, "F#%d", facet + 1);
 		v->SetName(tmp);
-		v->SetColor(*colors[nbView%nbColors]);
-		v->SetMarkerColor(*colors[nbView%nbColors]);
+		//Look for first available color
+		GLColor col = GetFirstAvailableColor();
+		v->SetColor(col);
+		v->SetMarkerColor(col);
 		v->SetLineWidth(2);
 		v->userData1 = facet;
 
@@ -564,6 +589,8 @@ std::vector<int> ProfilePlotter::GetViews() {
 		v.push_back(views[i]->userData1);
 	return v;
 }
+
+
 
 bool ProfilePlotter::IsLogScaled() {
 	return chart->GetY1Axis()->GetScale();

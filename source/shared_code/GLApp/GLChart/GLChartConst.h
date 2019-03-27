@@ -241,6 +241,9 @@ public:
 		g = green;
 		b = blue;
 	}
+	bool operator==(const GLColor& col) {
+		return r == col.r && g == col.g && b == col.b;
+	}
   int r;
   int g;
   int b;

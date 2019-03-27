@@ -302,8 +302,9 @@ void PressureEvolution::addView(size_t facetId) {
 	v->SetName(tmp.str().c_str());
 	v->SetViewType(TYPE_BAR);
 	v->SetMarker(MARKER_DOT);
-	v->SetColor(colors[views.size() % colors.size()]);
-	v->SetMarkerColor(colors[views.size() % colors.size()]);
+	GLColor col = GetFirstAvailableColor();
+	v->SetColor(col);
+	v->SetMarkerColor(col);
 	v->userData1 = (int)facetId;
 	views.push_back(v);
 	chart->GetY1Axis()->AddDataView(v);
@@ -383,3 +384,24 @@ void PressureEvolution::ProcessMessage(GLComponent *src, int message) {
 
 }
 
+GLColor PressureEvolution::GetFirstAvailableColor()
+{
+	std::vector<bool> colorAvailable(colors.size(), true);
+	int nbViews = chart->GetY1Axis()->GetViewNumber();
+	for (int i = 0; i < nbViews; i++) {
+		GLColor c = chart->GetY1Axis()->GetDataView(i)->GetColor();
+		bool found = false;
+		for (size_t ii = 0; !found && ii < colors.size(); ii++) {
+			if (c == colors[ii]) {
+				colorAvailable[ii] = false;
+				found = true; //We assume that all colors are different
+			}
+		}
+	}
+	//Pick first available color
+	for (size_t i = 0; i < colorAvailable.size(); i++) {
+		if (colorAvailable[i]) return colors[i];
+	}
+	//Nothing found, return black
+	return GLColor(0, 0, 0);
+}
