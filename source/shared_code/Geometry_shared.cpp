@@ -176,7 +176,7 @@ void Geometry::InitializeGeometry(int facet_number) {
 
 			if (facet_number == -1) {
 				// Hit address
-				f->sh.hitOffset = fOffset;
+				f->sh.hitOffset = fOffset; //For hits data serialization, not used since 2.7 (multithreaded design)
 #ifdef MOLFLOW
 				fOffset += f->GetHitsSize(mApp->worker.moments.size());
 #endif
