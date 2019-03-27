@@ -506,7 +506,7 @@ void GLWindow::DoModal() {
         theApp->Resize(evt.window.data1,evt.window.data2);
         needRedraw = true;
       }
-      ManageEvent(&evt);
+      if (evt.type!=SDL_MOUSEWHEEL) ManageEvent(&evt); //Prevent closing combos
       if(!evtProcessed && evt.type==SDL_MOUSEBUTTONDOWN && animateFocus) GLWindowManager::AnimateFocus(this);
       if(evt.type == SDL_WINDOWEVENT && evt.window.event ==SDL_WINDOWEVENT_EXPOSED) needRedraw = true;
     }
