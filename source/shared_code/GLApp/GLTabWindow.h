@@ -29,8 +29,9 @@ public:
   void SetPanelNumber(int numP);
   void SetPanelName(int idx,const char *name);
   void Clear();
-  void Update();
+  void UpdateBar();
   void SetTextColor(int r,int g,int b);
+  int GetSelectedTabIndex();
 
   //Overrides
   void SetBounds(int x,int y,int w,int h);

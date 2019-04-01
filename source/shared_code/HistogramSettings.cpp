@@ -135,7 +135,7 @@ HistogramSettings::HistogramSettings(Geometry *g, Worker *w):GLWindow() {
 
 	//Facet histogram settings
 	facetSettingsPanel = new GLTitledPanel("Facet histogram");
-	SetCompBoundsRelativeTo(globalSettingsPanel, facetSettingsPanel, 0, globalSettingsPanel->GetHeight() + 10, globalSettingsPanel->GetWidth(), globalSettingsPanel->GetHeight());
+	SetCompBoundsRelativeTo(globalSettingsPanel, facetSettingsPanel, 0, globalSettingsPanel->GetHeight() + 5, globalSettingsPanel->GetWidth(), globalSettingsPanel->GetHeight());
 	Add(facetSettingsPanel);
 
 	facetRecordBounceToggle = new GLToggle(0, "Record bounces until absorbtion");
@@ -213,7 +213,7 @@ HistogramSettings::HistogramSettings(Geometry *g, Worker *w):GLWindow() {
 	
 
 	// Right center
-	SetBounds(20,40,wD,hD); //Default position
+	SetBounds(5,35,wD,hD); //Default position
 
 	RestoreDeviceObjects();
 	

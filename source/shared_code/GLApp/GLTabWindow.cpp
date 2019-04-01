@@ -211,7 +211,7 @@ void GLTabWindow::Clear() {
 
 }
 
-void GLTabWindow::Update() {
+void GLTabWindow::UpdateBar() {
 
   if(bar) SAFE_DELETE(bar);
   bar = new TabbedBar(panels,nbPanel);
@@ -248,4 +248,9 @@ void GLTabWindow::showHide() {
 
 void GLTabWindow::SetTextColor(int r,int g,int b) {
   if(bar) bar->SetTextColor(r,g,b);
+}
+
+int GLTabWindow::GetSelectedTabIndex()
+{
+	return bar->GetSelected();
 }

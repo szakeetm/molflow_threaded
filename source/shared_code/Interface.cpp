@@ -801,7 +801,7 @@ void Interface::OneTimeSceneInit_shared_pre() {
 	menu->GetSubMenu("Tools")->Add(NULL); // Separator
 	menu->GetSubMenu("Tools")->Add("Texture scaling...", MENU_EDIT_TSCALING, SDLK_d, CTRL_MODIFIER);
 	menu->GetSubMenu("Tools")->Add("Particle logger...", MENU_TOOLS_PARTICLELOGGER);
-	menu->GetSubMenu("Tools")->Add("Histogram settings...", MENU_TOOLS_HISTOGRAMSETTINGS, SDLK_t, CTRL_MODIFIER);
+	//menu->GetSubMenu("Tools")->Add("Histogram settings...", MENU_TOOLS_HISTOGRAMSETTINGS, SDLK_t, CTRL_MODIFIER);
 	menu->GetSubMenu("Tools")->Add("Global Settings ...", MENU_EDIT_GLOBALSETTINGS);
 	menu->GetSubMenu("Tools")->Add(NULL); // Separator
 	menu->GetSubMenu("Tools")->Add("Take screenshot", MENU_TOOLS_SCREENSHOT,SDLK_r, CTRL_MODIFIER);

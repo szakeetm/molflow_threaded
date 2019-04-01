@@ -20,7 +20,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
 #pragma once
 #include <vector>
-#include "GLApp/GLWindow.h"
+#include "GLApp/GLTabWindow.h"
 #include "GLApp/GLChart/GLChartConst.h"
 class GLChart;
 class GLLabel;
@@ -46,7 +46,7 @@ public:
 	std::string XaxisLabel;
 };
 
-class HistogramPlotter : public GLWindow {
+class HistogramPlotter : public GLTabWindow {
 
 public:
 
@@ -72,19 +72,19 @@ private:
 
   Worker      *worker;
 
-  GLLabel *modeLabel, *label1, *normLabel;
+  GLLabel *label1, *normLabel;
 
-  GLCombo     *modeCombo; //Bounce / distance / time
+  //GLCombo     *modeCombo; //Bounce / distance / time
   GLCombo     *profCombo; //Which facets
   GLCombo     *yScaleCombo; //Absolute / normalized
   GLButton    *selButton;
   GLButton    *addButton;
   GLButton    *removeButton;
   GLButton    *removeAllButton;
+  GLButton    *histogramSettingsButton;
 
   GLToggle *logXToggle,*logYToggle;
 
-  std::vector<GLColor>    colors;
   float        lastUpdate;
 
   std::vector<HistogramMode> modes; //Bounces, Flight distance, Flight time (for Molflow)

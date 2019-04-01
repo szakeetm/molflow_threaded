@@ -207,7 +207,7 @@ GLChartOptions::GLChartOptions(GLChart *chart) : GLTabWindow() {
     closeBtn->SetBounds(215, 320, 80, 19);
     GLWindow::Add(closeBtn);
 
-    Update();
+    UpdateBar();
     SetTextColor(120,120,120);
 
     // Center dialog

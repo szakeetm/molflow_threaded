@@ -18,6 +18,7 @@ GNU General Public License for more details.
 Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 */
 #include "HistogramPlotter.h"
+#include "HistogramSettings.h"
 #include "GLApp/GLToolkit.h"
 #include "GLApp/GLMessageBox.h"
 #include "GLApp/GLToggle.h"
@@ -51,7 +52,9 @@ extern SynRad*mApp;
 
 extern const char*profType[];
 
-HistogramPlotter::HistogramPlotter(Worker *w) :GLWindow() {
+HistogramPlotter::HistogramPlotter(Worker *w) :GLTabWindow() {
+
+	worker = w;
 
 	int wD = 750;
 	int hD = 400;
@@ -59,17 +62,6 @@ HistogramPlotter::HistogramPlotter(Worker *w) :GLWindow() {
 	SetTitle("Histogram plotter");
 	SetIconfiable(true);
 	lastUpdate = 0.0f;
-
-	colors = {
-		GLColor(255,000,055), //red
-		GLColor(000,000,255), //blue
-		GLColor(000,204,051), //green
-		GLColor(000,000,000), //black
-		GLColor(255,153,051), //orange
-		GLColor(153,204,255), //light blue
-		GLColor(153,000,102), //violet
-		GLColor(255,230,005)  //yellow
-	};
 
 	HistogramMode bounceMode;
 	bounceMode.name = "Bounces before absorption";
@@ -88,15 +80,10 @@ HistogramPlotter::HistogramPlotter(Worker *w) :GLWindow() {
 	modes.push_back(timeMode);
 #endif
 
-	modeLabel = new GLLabel("Histogram type:");
-	Add(modeLabel);
+	SetPanelNumber((int)modes.size());
 
-	modeCombo = new GLCombo(0);
-	modeCombo->SetSize(modes.size());
-	Add(modeCombo);
-
-	for (size_t i = 0; i < modes.size(); i++) {
-		modeCombo->SetValueAt(i, modes[i].name.c_str());
+	for (int i = 0; i < modes.size(); i++) {
+		SetPanelName(i, modes[i].name.c_str());
 		modes[i].chart = new GLChart(0);
 		modes[i].chart->SetBorder(BORDER_BEVEL_IN);
 		modes[i].chart->GetY1Axis()->SetGridVisible(true);
@@ -106,37 +93,36 @@ HistogramPlotter::HistogramPlotter(Worker *w) :GLWindow() {
 		modes[i].chart->GetY1Axis()->SetAnnotation(VALUE_ANNO);
 		modes[i].chart->GetXAxis()->SetAnnotation(VALUE_ANNO);
 		modes[i].chart->GetXAxis()->SetName(modes[i].XaxisLabel.c_str());
-		modes[i].chart->SetVisible(i == 0);
-		Add(modes[i].chart);
-	}
-	modeCombo->SetSelectedIndex(0);
-	
+		//modes[i].chart->SetVisible(i == 0);
+		Add(i,modes[i].chart);
+	}	
 
 	selButton = new GLButton(0, "<-Show Facet");
-	Add(selButton);
+	GLWindow::Add(selButton);
 	
 	addButton = new GLButton(0, "Add");
-	Add(addButton);
+	GLWindow::Add(addButton);
 
 	removeButton = new GLButton(0, "Remove");
-	Add(removeButton);
+	GLWindow::Add(removeButton);
 
 	removeAllButton = new GLButton(0, "Remove all");
-	Add(removeAllButton);
+	GLWindow::Add(removeAllButton);
 
-	
+	histogramSettingsButton = new GLButton(0, "<< Hist.settings");
+	GLWindow::Add(histogramSettingsButton);
 
 	profCombo = new GLCombo(0);
-	Add(profCombo);
+	GLWindow::Add(profCombo);
 
 	logXToggle = new GLToggle(0, "Log X");
-	Add(logXToggle);
+	GLWindow::Add(logXToggle);
 
 	logYToggle = new GLToggle(0, "Log Y");
-	Add(logYToggle);
+	GLWindow::Add(logYToggle);
 
 	normLabel = new GLLabel("Y scale:");
-	Add(normLabel);
+	GLWindow::Add(normLabel);
 
 	yScaleCombo = new GLCombo(0);
 	yScaleCombo->SetEditable(true);
@@ -144,44 +130,45 @@ HistogramPlotter::HistogramPlotter(Worker *w) :GLWindow() {
 	yScaleCombo->SetValueAt(0, "Absolute");
 	yScaleCombo->SetValueAt(1, "Normalized");
 	yScaleCombo->SetSelectedIndex(0); //Absolute by default
-	Add(yScaleCombo);
+	GLWindow::Add(yScaleCombo);
 
-	// Center dialog
+	UpdateBar(); //Build menubar
+
+	
 	int wS, hS;
-	GLToolkit::GetScreenSize(&wS, &hS);
-	int xD = (wS - wD) / 2;
-	int yD = (hS - hD) / 2;
-	SetBounds(xD, yD, wD, hD);
+	//GLToolkit::GetScreenSize(&wS, &hS);
+	//int xD = (wS - wD) / 2;
+	//int yD = (hS - hD) / 2;
+	SetBounds(280, 35, wD, hD);
 	SetResizable(true);
 	SetMinimumSize(wD, 220);
 
 	RestoreDeviceObjects();
-
-	worker = w;
 	Refresh();
-
 }
 
 void HistogramPlotter::SetBounds(int x, int y, int w, int h) {
 
-	modeLabel->SetBounds(7, 5, 80, 20);
-	modeCombo->SetBounds(87, 5, 200, 19);
 	for (const auto& mode : modes) {
-		SetCompBoundsRelativeTo(modeLabel, mode.chart, 0, 25, w-15, h - 85);
+		
+		mode.chart->SetBounds( 5, 0, w - 15, h - 85);
 	}
-	profCombo->SetBounds(7, h - 45, 120, 19);
-	selButton->SetBounds(130, h - 45, 75, 19);
-	addButton->SetBounds(210, h - 45, 75, 19);
-	removeButton->SetBounds(290, h - 45, 75, 19);
-	removeAllButton->SetBounds(370, h - 45, 75, 19);
+
+	histogramSettingsButton->SetBounds(7, h-70, 90, 18);
+	profCombo->SetBounds(110, h - 70, 120, 19);
+	selButton->SetBounds(235, h - 70, 75, 19);
+	addButton->SetBounds(315, h - 70, 40, 19);
+	removeButton->SetBounds(360, h - 70, 45, 19);
+	removeAllButton->SetBounds(410, h - 70, 75, 19);
+	
+	normLabel->SetBounds(w-260, h - 69, 50, 19);
+	yScaleCombo->SetBounds(w - 215, h - 70, 105, 19);
+	logXToggle->SetBounds(w - 105, h - 70, 40, 19);
+	logYToggle->SetBounds(w - 55, h - 70, 40, 19);
+	
 	
 
-	logXToggle->SetBounds(w - 105, h - 45, 40, 19);
-	logYToggle->SetBounds(w - 55, h - 45, 40, 19);
-	normLabel->SetBounds(490, h - 42, 50, 19);
-	yScaleCombo->SetBounds(535, h - 45, 105, 19);
-
-	GLWindow::SetBounds(x, y, w, h);
+	GLTabWindow::SetBounds(x, y, w, h);
 
 }
 
@@ -191,7 +178,7 @@ void HistogramPlotter::Refresh() {
 	Geometry *geom = worker->GetGeometry();
 
 	//Collect histogram facets for currently displayed mode
-	size_t modeId = modeCombo->GetSelectedIndex();
+	size_t modeId = GetSelectedTabIndex();
 	std::vector<int> histogramFacetIds;
 
 	bool recordGlobal = ((modeId == HISTOGRAM_MODE_BOUNCES && worker->wp.globalHistogramParams.recordBounce)
@@ -244,7 +231,7 @@ void HistogramPlotter::Update(float appTime, bool force) {
 		return;
 	}
 
-	size_t modeId = modeCombo->GetSelectedIndex();
+	size_t modeId = GetSelectedTabIndex();
 	if ((appTime - lastUpdate > 1.0f || force) && modes[modeId].views.size() > 0) {
 		if (worker->isRunning) refreshChart();
 		lastUpdate = appTime;
@@ -254,7 +241,7 @@ void HistogramPlotter::Update(float appTime, bool force) {
 
 void HistogramPlotter::refreshChart() {
 	//refreshes chart values
-	size_t modeId = modeCombo->GetSelectedIndex();
+	size_t modeId = GetSelectedTabIndex();
 
 	int yScaleMode = yScaleCombo->GetSelectedIndex();
 	Geometry *geom = worker->GetGeometry();
@@ -355,7 +342,7 @@ std::tuple<std::vector<double>*,double,double,size_t> HistogramPlotter::GetHisto
 }
 
 void HistogramPlotter::addView(int facetId) {
-	size_t modeId = modeCombo->GetSelectedIndex();
+	int modeId = GetSelectedTabIndex();
 	Geometry *geom = worker->GetGeometry();
 
 	// Check that view is not already added
@@ -380,8 +367,9 @@ void HistogramPlotter::addView(int facetId) {
 	v->SetName(tmp.str().c_str());
 	v->SetViewType(TYPE_BAR);
 	v->SetMarker(MARKER_DOT);
-	v->SetColor(colors[modes[modeId].views.size() % colors.size()]);
-	v->SetMarkerColor(colors[modes[modeId].views.size() % colors.size()]);
+	GLColor col = modes[modeId].chart->GetFirstAvailableColor();
+	v->SetColor(col);
+	v->SetMarkerColor(col);
 	v->userData1 = facetId;
 	modes[modeId].views.push_back(v);
 	modes[modeId].chart->GetY1Axis()->AddDataView(v);
@@ -395,7 +383,7 @@ void HistogramPlotter::addView(int facetId) {
 }
 
 void HistogramPlotter::remView(int facetId) {
-	size_t modeId = modeCombo->GetSelectedIndex();
+	size_t modeId = GetSelectedTabIndex();
 	Geometry *geom = worker->GetGeometry();
 
 	bool found = false;
@@ -423,7 +411,7 @@ void HistogramPlotter::Reset() {
 }
 
 void HistogramPlotter::ProcessMessage(GLComponent *src, int message) {
-	size_t modeId = modeCombo->GetSelectedIndex();
+	size_t modeId = GetSelectedTabIndex();
 	Geometry *geom = worker->GetGeometry();
 	switch (message) {
 	case MSG_BUTTON:
@@ -464,30 +452,48 @@ void HistogramPlotter::ProcessMessage(GLComponent *src, int message) {
 
 			Reset();
 		}
+		else if (src == histogramSettingsButton) {
+			if (!mApp->histogramSettings || !mApp->histogramSettings->IsVisible())
+			{
+				SAFE_DELETE(mApp->histogramSettings);
+				mApp->histogramSettings = new HistogramSettings(geom, worker);
+				mApp->histogramSettings->Refresh(geom->GetSelectedFacets());
+				mApp->histogramSettings->SetVisible(true);
+			} else {
+				mApp->histogramSettings->SetVisible(false);				
+			}
+		}
 		break;
 	case MSG_COMBO:
 		if (src == yScaleCombo) {
 			refreshChart();
 		}
-		else if (src == modeCombo) {
-			modeId = modeCombo->GetSelectedIndex();
+	case MSG_TAB:
+	/*
+	//Hide/show managed by GLTabWindow
+
+			modeId = GetSelectedTabIndex();
 			for (size_t i = 0; i < modes.size(); i++) {
 				modes[i].chart->SetVisible(i == modeId);
 			}
+	*/
 			Refresh(); //Rebuild prof combo
-		}
-		break;
+		
+	
+	break;
 	case MSG_TOGGLE:
-		if (src == logXToggle) {
-			modes[modeId].chart->GetXAxis()->SetScale(logXToggle->GetState());
-		}
-		else if (src == logYToggle) {
-			modes[modeId].chart->GetY1Axis()->SetScale(logYToggle->GetState());
+		for (auto& mode : modes) {
+			if (src == logXToggle) {
+				mode.chart->GetXAxis()->SetScale(logXToggle->GetState());
+			}
+			else if (src == logYToggle) {
+				mode.chart->GetY1Axis()->SetScale(logYToggle->GetState());
+			}
 		}
 		break;
 	}
 
-	GLWindow::ProcessMessage(src, message);
+	GLTabWindow::ProcessMessage(src, message);
 
 }
 

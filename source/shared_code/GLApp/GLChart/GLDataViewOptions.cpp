@@ -411,7 +411,7 @@ GLDataViewOptions::GLDataViewOptions(GLChart *chart) : GLTabWindow() {
     closeBtn->SetBounds(160, 188, 80, 19);
     GLWindow::Add(closeBtn);
 
-    Update();
+    UpdateBar();
     SetTextColor(120,120,120);
 
     // Center dialog
