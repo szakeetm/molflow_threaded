@@ -549,7 +549,7 @@ void ProfilePlotter::SetViews(std::vector<int> views) {
 	for (int view : views)
 		if (view<worker->GetGeometry()->GetNbFacet() && worker->GetGeometry()->GetFacet(view)->sh.isProfile)
 			addView(view);
-	Refresh();
+	//Refresh(); //Commented out: at this point, simulation results are not yet loaded
 }
 
 std::vector<int> ProfilePlotter::GetViews() {

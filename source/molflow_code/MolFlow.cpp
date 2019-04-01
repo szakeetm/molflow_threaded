@@ -1470,7 +1470,7 @@ void MolFlow::LoadFile(std::string fileName) {
 		if (timewisePlotter) timewisePlotter->Refresh();
 		if (histogramPlotter) histogramPlotter->Reset();
 		if (histogramSettings) histogramSettings->Refresh({});
-		//if (profilePlotter) profilePlotter->Refresh(); //Might have loaded views
+		if (profilePlotter) profilePlotter->Refresh();
 		if (texturePlotter) texturePlotter->Update(0.0,true);
 		//if (parameterEditor) parameterEditor->UpdateCombo(); //Done by ClearParameters()
 		if (textureScaling) textureScaling->Update();
