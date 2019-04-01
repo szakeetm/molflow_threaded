@@ -132,6 +132,7 @@ void Geometry::CheckIsolatedVertex() {
 		sprintf(tmp, "Remove %d isolated vertices ?", nbI);
 		if (GLMessageBox::Display(tmp, "Question", GLDLG_OK | GLDLG_CANCEL, GLDLG_ICONINFO) == GLDLG_OK) {
 			DeleteIsolatedVertices(false);
+			mApp->UpdateModelParams();
 		}
 	}
 }
