@@ -72,6 +72,7 @@ private:
   GLButton	*undoButton;
   GLButton	*getSelectedFacetButton;
 
+
   int planeMode;
   std::vector<DeletedFacet> deletedFacetList;
   size_t nbFacet, nbCreated;

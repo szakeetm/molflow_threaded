@@ -123,11 +123,11 @@ SplitFacet::SplitFacet(Geometry *g,Worker *w):GLWindow() {
 	Add(resultLabel);
 
 	splitButton = new GLButton(0, "Split");
-	splitButton->SetBounds(12, 210, 129, 23);
+	splitButton->SetBounds(12, 210, 129, 21);
 	Add(splitButton);
 
 	undoButton = new GLButton(0, "Undo");
-	undoButton->SetBounds(202, 210, 129, 23);
+	undoButton->SetBounds(202, 210, 129, 21);
 	Add(undoButton);
 
 	getSelectedFacetButton = new GLButton(0, "<- Get selected");
