@@ -110,7 +110,7 @@ GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 
 	leftHandedToggle = new GLToggle(0, "Left-handed coord. system");
 	leftHandedToggle->SetBounds(15, 197, 160, 19);
-	settingsPanel->Add(leftHandedToggle);
+	settingsPanel->Add( leftHandedToggle);
 
 	highlightNonplanarToggle = new GLToggle(0, "Highlight non-planar facets");
 	highlightNonplanarToggle->SetBounds(15, 222, 160, 19);
