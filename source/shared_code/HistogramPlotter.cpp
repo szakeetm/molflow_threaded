@@ -112,8 +112,8 @@ HistogramPlotter::HistogramPlotter(Worker *w) :GLTabWindow() {
 	histogramSettingsButton = new GLButton(0, "<< Hist.settings");
 	GLWindow::Add(histogramSettingsButton);
 
-	profCombo = new GLCombo(0);
-	GLWindow::Add(profCombo);
+	histCombo = new GLCombo(0);
+	GLWindow::Add(histCombo);
 
 	logXToggle = new GLToggle(0, "Log X");
 	GLWindow::Add(logXToggle);
@@ -135,11 +135,11 @@ HistogramPlotter::HistogramPlotter(Worker *w) :GLTabWindow() {
 	UpdateBar(); //Build menubar
 
 	
-	int wS, hS;
+	//int wS, hS;
 	//GLToolkit::GetScreenSize(&wS, &hS);
 	//int xD = (wS - wD) / 2;
 	//int yD = (hS - hD) / 2;
-	SetBounds(280, 35, wD, hD);
+	SetBounds(280, 35, wD, hD); //Position so that settings fit on the left
 	SetResizable(true);
 	SetMinimumSize(wD, 220);
 
@@ -155,7 +155,7 @@ void HistogramPlotter::SetBounds(int x, int y, int w, int h) {
 	}
 
 	histogramSettingsButton->SetBounds(7, h-70, 90, 18);
-	profCombo->SetBounds(110, h - 70, 120, 19);
+	histCombo->SetBounds(110, h - 70, 120, 19);
 	selButton->SetBounds(235, h - 70, 75, 19);
 	addButton->SetBounds(315, h - 70, 40, 19);
 	removeButton->SetBounds(360, h - 70, 45, 19);
@@ -204,7 +204,7 @@ void HistogramPlotter::Refresh() {
 
 
 	//Construct combo
-	profCombo->SetSize(histogramFacetIds.size());
+	histCombo->SetSize(histogramFacetIds.size());
 	size_t nbProf = 0;
 	for (const int& id : histogramFacetIds) {
 		std::ostringstream name;
@@ -212,9 +212,9 @@ void HistogramPlotter::Refresh() {
 			name << "Global";
 		else
 			name << "Facet #" << (id + 1);
-		profCombo->SetValueAt(nbProf++, name.str().c_str(),id);
+		histCombo->SetValueAt(nbProf++, name.str().c_str(),id);
 	}
-	profCombo->SetSelectedIndex(histogramFacetIds.size() ? 0 : -1);
+	histCombo->SetSelectedIndex(histogramFacetIds.size() ? 0 : -1);
 	//Refresh chart
 	refreshChart();
 }
@@ -417,35 +417,35 @@ void HistogramPlotter::ProcessMessage(GLComponent *src, int message) {
 	case MSG_BUTTON:
 		if (src == selButton) {
 
-			int idx = profCombo->GetSelectedIndex();
+			int idx = histCombo->GetSelectedIndex();
 			if (idx >= 0) {
-				int facetId = profCombo->GetUserValueAt(idx);
+				int facetId = histCombo->GetUserValueAt(idx);
 				if (facetId >= 0 && facetId <geom->GetNbFacet()) { //Not global histogram
 					geom->UnselectAll();
-					geom->GetFacet(profCombo->GetUserValueAt(idx))->selected = true;
+					geom->GetFacet(histCombo->GetUserValueAt(idx))->selected = true;
 					geom->UpdateSelection();
 
 					mApp->UpdateFacetParams(true);
 
-					mApp->facetList->SetSelectedRow(profCombo->GetUserValueAt(idx));
-					mApp->facetList->ScrollToVisible(profCombo->GetUserValueAt(idx), 1, true);
+					mApp->facetList->SetSelectedRow(histCombo->GetUserValueAt(idx));
+					mApp->facetList->ScrollToVisible(histCombo->GetUserValueAt(idx), 1, true);
 				}
 			}
 		}
 		else if (src == addButton) {
 
-			int idx = profCombo->GetSelectedIndex();
+			int idx = histCombo->GetSelectedIndex();
 
 			if (idx >= 0) {
-				addView(profCombo->GetUserValueAt(idx));
+				addView(histCombo->GetUserValueAt(idx));
 				refreshChart();
 			}
 		}
 		else if (src == removeButton) {
 
-			int idx = profCombo->GetSelectedIndex();
+			int idx = histCombo->GetSelectedIndex();
 
-			if (idx >= 0) remView(profCombo->GetUserValueAt(idx));
+			if (idx >= 0) remView(histCombo->GetUserValueAt(idx));
 			refreshChart();
 		}
 		else if (src == removeAllButton) {
@@ -468,9 +468,10 @@ void HistogramPlotter::ProcessMessage(GLComponent *src, int message) {
 		if (src == yScaleCombo) {
 			refreshChart();
 		}
+		break;
 	case MSG_TAB:
 	/*
-	//Hide/show managed by GLTabWindow
+	//Hide/show charts already managed by GLTabWindow
 
 			modeId = GetSelectedTabIndex();
 			for (size_t i = 0; i < modes.size(); i++) {

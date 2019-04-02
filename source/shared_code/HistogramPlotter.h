@@ -75,7 +75,7 @@ private:
   GLLabel *label1, *normLabel;
 
   //GLCombo     *modeCombo; //Bounce / distance / time
-  GLCombo     *profCombo; //Which facets
+  GLCombo     *histCombo; //Which facets
   GLCombo     *yScaleCombo; //Absolute / normalized
   GLButton    *selButton;
   GLButton    *addButton;
