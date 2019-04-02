@@ -254,6 +254,7 @@ public:
 	float    lastAppTime;
 	bool     antiAliasing;
 	bool     whiteBg;
+	bool highlightNonplanarFacets;
 	bool	 leftHandedView;
 	float    lastMeasTime; // Last measurement time (for hps and dps)
 	double   coplanarityTolerance; //Select coplanar tolerance

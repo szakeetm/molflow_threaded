@@ -1930,7 +1930,7 @@ std::vector<size_t> Geometry::GetSelectedFacets() {
 	return selection;
 }
 
-std::vector<size_t> Geometry::GetNonPlanarFacets(const double& tolerance) {
+std::vector<size_t> Geometry::GetNonPlanarFacetIds(const double& tolerance) {
 	std::vector<size_t> nonPlanar;
 	for (size_t i = 0; i < sh.nbFacet; i++)
 		if (facets[i]->nonSimple || std::abs(facets[i]->planarityError)>=tolerance) nonPlanar.push_back(i);

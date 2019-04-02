@@ -73,11 +73,11 @@ GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 	SetIconfiable(true);
 
 	GLTitledPanel *settingsPanel = new GLTitledPanel("Program settings");
-	settingsPanel->SetBounds(5, 2, 270, 228);
+	settingsPanel->SetBounds(5, 2, 270, 242);
 	Add(settingsPanel);
 
 	GLLabel *asLabel = new GLLabel("Autosave frequency (minutes):");
-	asLabel->SetBounds(16, 25, 80, 19);
+	asLabel->SetBounds(16, 22, 80, 19);
 	settingsPanel->Add(asLabel);
 
 	autoSaveText = new GLTextField(0, "");
@@ -85,39 +85,43 @@ GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 	settingsPanel->Add(autoSaveText);
 
 	chkSimuOnly = new GLToggle(0, "Autosave only when simulation is running");
-	chkSimuOnly->SetBounds(15, 50, 160, 19);
+	chkSimuOnly->SetBounds(15, 47, 160, 19);
 	settingsPanel->Add(chkSimuOnly);
 
 	chkCompressSavedFiles = new GLToggle(0, "Use .zip as default extension (otherwise .xml)");
-	chkCompressSavedFiles->SetBounds(15, 75, 100, 19);
+	chkCompressSavedFiles->SetBounds(15, 72, 100, 19);
 	settingsPanel->Add(chkCompressSavedFiles);
 
 	chkCheckForUpdates = new GLToggle(0, "Check for updates at startup");
-	chkCheckForUpdates->SetBounds(15, 100, 160, 19);
+	chkCheckForUpdates->SetBounds(15, 97, 160, 19);
 	settingsPanel->Add(chkCheckForUpdates);
 
 	chkAutoUpdateFormulas = new GLToggle(0, "Auto refresh formulas");
-	chkAutoUpdateFormulas->SetBounds(15, 125, 160, 19);
+	chkAutoUpdateFormulas->SetBounds(15, 122, 160, 19);
 	settingsPanel->Add(chkAutoUpdateFormulas);
 
 	chkAntiAliasing = new GLToggle(0, "Anti-Aliasing");
-	chkAntiAliasing->SetBounds(15, 150, 160, 19);
+	chkAntiAliasing->SetBounds(15, 147, 160, 19);
 	settingsPanel->Add(chkAntiAliasing);
 
 	chkWhiteBg = new GLToggle(0, "White Background");
-	chkWhiteBg->SetBounds(15, 175, 160, 19);
+	chkWhiteBg->SetBounds(15, 172, 160, 19);
 	settingsPanel->Add(chkWhiteBg);
 
 	leftHandedToggle = new GLToggle(0, "Left-handed coord. system");
-	leftHandedToggle->SetBounds(15, 200, 160, 19);
+	leftHandedToggle->SetBounds(15, 197, 160, 19);
 	settingsPanel->Add(leftHandedToggle);
 
+	highlightNonplanarToggle = new GLToggle(0, "Highlight non-planar facets");
+	highlightNonplanarToggle->SetBounds(15, 222, 160, 19);
+	settingsPanel->Add(highlightNonplanarToggle);
+
 	GLTitledPanel *simuSettingsPanel = new GLTitledPanel("Simulation settings");
-	simuSettingsPanel->SetBounds(280, 2, 295, 228);
+	simuSettingsPanel->SetBounds(280, 2, 290, 242);
 	Add(simuSettingsPanel);
 
 	GLLabel *massLabel = new GLLabel("Gas molecular mass (g/mol):");
-	massLabel->SetBounds(290, 25, 150, 19);
+	massLabel->SetBounds(290, 22, 150, 19);
 	simuSettingsPanel->Add(massLabel);
 
 	gasMassText = new GLTextField(0, "");
@@ -125,7 +129,7 @@ GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 	simuSettingsPanel->Add(gasMassText);
 
 	enableDecay = new GLToggle(0, "Gas half life (s):");
-	enableDecay->SetBounds(290, 50, 150, 19);
+	enableDecay->SetBounds(290, 47, 150, 19);
 	simuSettingsPanel->Add(enableDecay);
 
 	halfLifeText = new GLTextField(0, "");
@@ -133,7 +137,7 @@ GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 	simuSettingsPanel->Add(halfLifeText);
 	
 	GLLabel *outgassingLabel = new GLLabel("Final outgassing rate (mbar*l/sec):");
-	outgassingLabel->SetBounds(290, 75, 150, 19);
+	outgassingLabel->SetBounds(290, 72, 150, 19);
 	simuSettingsPanel->Add(outgassingLabel);
 
 	outgassingText = new GLTextField(0, "");
@@ -142,7 +146,7 @@ GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 	simuSettingsPanel->Add(outgassingText);
 
 	GLLabel *influxLabel = new GLLabel("Total desorbed molecules:");
-	influxLabel->SetBounds(290, 100, 150, 19);
+	influxLabel->SetBounds(290, 97, 150, 19);
 	simuSettingsPanel->Add(influxLabel);
 
 	influxText = new GLTextField(0, "");
@@ -163,7 +167,7 @@ GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 	simuSettingsPanel->Add(lowFluxInfo);
 
 	GLLabel *cutoffLabel = new GLLabel("Cutoff ratio:");
-	cutoffLabel->SetBounds(290, 175, 80, 19);
+	cutoffLabel->SetBounds(310, 176, 80, 19);
 	simuSettingsPanel->Add(cutoffLabel);
 
 	cutoffText = new GLTextField(0, "");
@@ -172,7 +176,7 @@ GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 	simuSettingsPanel->Add(cutoffText);
 
 	applyButton = new GLButton(0, "Apply above settings");
-	applyButton->SetBounds(wD / 2 - 65, 235, 130, 19);
+	applyButton->SetBounds(wD / 2 - 65, 248, 130, 19);
 	Add(applyButton);
 
 	/*chkNonIsothermal = new GLToggle(0,"Non-isothermal system (textures only, experimental)");
@@ -237,6 +241,7 @@ void GlobalSettings::Update() {
 	char tmp[256];
 	chkAntiAliasing->SetState(mApp->antiAliasing);
 	chkWhiteBg->SetState(mApp->whiteBg);
+	highlightNonplanarToggle->SetState(mApp->highlightNonplanarFacets);
 	leftHandedToggle->SetState(mApp->leftHandedView);
 	//chkNonIsothermal->SetState(nonIsothermal);
 	UpdateOutgassing();
@@ -416,6 +421,7 @@ void GlobalSettings::ProcessMessage(GLComponent *src, int message) {
 		else if (src == applyButton) {
 			mApp->antiAliasing = chkAntiAliasing->GetState();
 			mApp->whiteBg = chkWhiteBg->GetState();
+			mApp->highlightNonplanarFacets = highlightNonplanarToggle->GetState();
 			mApp->leftHandedView = (bool)leftHandedToggle->GetState();
 			for (int i = 0; i < MAX_VIEWER; i++) {
 				mApp->viewer[i]->UpdateMatrix();

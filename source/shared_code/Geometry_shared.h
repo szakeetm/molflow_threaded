@@ -217,7 +217,7 @@ public:
 	std::string GetName();
 	void UpdateName(const char *fileName);
 	std::vector<size_t> GetSelectedFacets();
-	std::vector<size_t> GetNonPlanarFacets(const double& tolerance=1E-5);
+	std::vector<size_t> GetNonPlanarFacetIds(const double& tolerance=1E-5);
 	size_t GetNbSelectedFacets();
 	void SetSelection(std::vector<size_t> selectedFacets, bool isShiftDown, bool isCtrlDown);
 	int  RestoreDeviceObjects();

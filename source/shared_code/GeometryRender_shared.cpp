@@ -1088,8 +1088,10 @@ void Geometry::Render(GLfloat *matView, bool renderVolume, bool renderTexture, i
 			glEnable(GL_LINE_SMOOTH);
 		}
 		glBlendFunc(GL_ONE, GL_ZERO);
-		glColor3f(1.0f, 0.0f, 1.0f);    //purple
-		glCallList(nonPlanarList);
+		if (mApp->highlightNonplanarFacets) {
+			glColor3f(1.0f, 0.0f, 1.0f);    //purple
+			glCallList(nonPlanarList);
+		}
 		glColor3f(1.0f, 0.0f, 0.0f);    //red
 		if (showHidden) {
 			glDisable(GL_DEPTH_TEST);
@@ -1372,7 +1374,7 @@ void Geometry::BuildNonPlanarList() {
 	}
 	glLineWidth(2.0f);
 
-	auto nonPlanarFacetIds = GetNonPlanarFacets();
+	auto nonPlanarFacetIds = GetNonPlanarFacetIds();
 	hasNonPlanar = nonPlanarFacetIds.size() > 0;
 	for (const auto& np : nonPlanarFacetIds) {
 		Facet *f = facets[np];

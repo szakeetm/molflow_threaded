@@ -2396,6 +2396,8 @@ void MolFlow::LoadConfig() {
 		worker.ontheflyParams.lowFluxCutoff = f->ReadDouble();
 		f->ReadKeyword("leftHandedView"); f->ReadKeyword(":");
 		leftHandedView = f->ReadInt();
+		f->ReadKeyword("highlightNonplanarFacets"); f->ReadKeyword(":");
+		highlightNonplanarFacets = f->ReadInt();
 	}
 	catch (...) {
 		/*std::ostringstream tmp;
@@ -2526,6 +2528,7 @@ void MolFlow::SaveConfig() {
 		f->Write("lowFluxMode:"); f->Write(worker.ontheflyParams.lowFluxMode, "\n");
 		f->Write("lowFluxCutoff:"); f->Write(worker.ontheflyParams.lowFluxCutoff, "\n");
 		f->Write("leftHandedView:"); f->Write(leftHandedView, "\n");
+		f->Write("highlightNonplanarFacets:"); f->Write(highlightNonplanarFacets, "\n");
 	}
 	catch (Error &err) {
 		GLMessageBox::Display(err.GetMsg(), "Error saving config file", GLDLG_OK, GLDLG_ICONWARNING);

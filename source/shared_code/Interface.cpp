@@ -113,6 +113,7 @@ Interface::Interface() {
 
 	antiAliasing = true;
 	whiteBg = false;
+	highlightNonplanarFacets = true;
 	leftHandedView = false;
 	autoUpdateFormulas = true;
 	compressSavedFiles = true;
@@ -1434,7 +1435,7 @@ bool Interface::ProcessMessage_shared(GLComponent *src, int message) {
 				return true;
 			}
 			geom->UnselectAll();
-			std::vector<size_t> nonPlanarFacetids = geom->GetNonPlanarFacets(planarityThreshold);
+			std::vector<size_t> nonPlanarFacetids = geom->GetNonPlanarFacetIds(planarityThreshold);
 			for (const auto& i : nonPlanarFacetids)
 				geom->SelectFacet(i);
 			geom->UpdateSelection();
