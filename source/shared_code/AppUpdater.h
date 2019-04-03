@@ -156,9 +156,10 @@ public:
 	void ProcessMessage(GLComponent *src, int message);
 	void ClearLog();
 	void Log(const std::string& line);
-	void OnResize();
+	void SetBounds(int x, int y, int w, int h) override;
 private:
 	void RebuildList();
+	
 	GLList *logList;
 	GLButton *okButton,*copyButton;
 	std::vector<std::string> lines;

@@ -687,25 +687,27 @@ UpdateLogWindow::UpdateLogWindow(Interface *app)
 
 	logList->SetColumnLabelVisible(true);
 	logList->SetSize(1, 1);
-	logList->SetBounds(5, 5, wD - 10, hD - 60);
-	logList->SetColumnWidthForAll(600);
+	
+	//logList->SetColumnWidthForAll(600);
 	Add(logList);
 
 	okButton = new GLButton(0, "Dismiss");
-	okButton->SetBounds(10, hD - 45, 80, 19);
+	
 	Add(okButton);
 
 	copyButton = new GLButton(0, "Copy to clipboard");
-	copyButton->SetBounds(wD - 115, hD - 45, 100, 19);
+	
 	Add(copyButton);
 
 	SetTitle("Update log");
 	//Set to lower right corner
-	int wS, hS;
-	GLToolkit::GetScreenSize(&wS, &hS);
-	int xD = (wS - wD) - 217;
+	//int wS, hS;
+	//GLToolkit::GetScreenSize(&wS, &hS);
+	//int xD = (wS - wD) - 217;
+	int xD = 10;
 	int yD = 50;
 	SetBounds(xD, yD, wD, hD);
+	SetResizable(true);
 
 	RestoreDeviceObjects();
 	isLocked = false;
@@ -741,11 +743,20 @@ void UpdateLogWindow::Log(const std::string & line)
 
 void UpdateLogWindow::RebuildList()
 {
+	int oldColumnWidth = logList->GetColWidth(0);
 	logList->SetSize(1, lines.size(), false, false);
-	logList->SetColumnWidthForAll(600);
+	logList->SetColumnWidth(0, oldColumnWidth); //Restore after SetSize reset it to default
 	for (size_t i = 0; i < lines.size(); i++) {
 		logList->SetValueAt(0, i, lines[i].c_str());
 	}
+}
+
+void UpdateLogWindow::SetBounds(int x, int y, int w, int h) {
+	logList->SetBounds(5, 5, w - 10, h - 60);
+	logList->SetColumnWidth(0, w - 25); //Leave space for vertical scrollbar
+	okButton->SetBounds(10, h - 45, 80, 19);
+	copyButton->SetBounds(w - 115, h - 45, 100, 19);
+	GLWindow::SetBounds(x, y, w, h);
 }
 
 void UpdateLogWindow::ProcessMessage(GLComponent *src, int message) {
