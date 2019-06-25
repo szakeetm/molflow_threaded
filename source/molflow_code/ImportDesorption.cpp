@@ -40,6 +40,9 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
 extern MolFlow *mApp;
 
+/**
+* \brief Constructor to initialise the Import Desorption window
+*/
 ImportDesorption::ImportDesorption():GLWindow() {
 
 	int wD = 400;
@@ -188,6 +191,11 @@ ImportDesorption::ImportDesorption():GLWindow() {
 
 }
 
+/**
+* \brief Sets thread worker and geometry object to this window
+* \param s Geometry object
+* \param w Worker object
+*/
 void ImportDesorption::SetGeometry(Geometry *s,Worker *w) {
 
 	geom = s;
@@ -195,6 +203,11 @@ void ImportDesorption::SetGeometry(Geometry *s,Worker *w) {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void ImportDesorption::ProcessMessage(GLComponent *src,int message) {
 
 	switch(message) {
@@ -360,6 +373,10 @@ void ImportDesorption::ProcessMessage(GLComponent *src,int message) {
 	GLWindow::ProcessMessage(src,message);
 }
 
+/**
+* \brief Function to load a conversion file
+* \param fileName name of the conversion file
+*/
 void ImportDesorption::LoadConvFile(const char* fileName) {
 	FileReader *f = NULL;
 	try {
@@ -383,6 +400,9 @@ void ImportDesorption::LoadConvFile(const char* fileName) {
 	}
 }
 
+/**
+* \brief Toggles text field/button states depending on the selected convert option
+*/
 void ImportDesorption::EnableDisableComponents(){
 	r1->SetState(mode==MODE_NOCONV);
 		r2->SetState(mode==MODE_EQUATION);

@@ -41,6 +41,13 @@ extern MolFlow *mApp;
 extern SynRad *mApp;
 #endif
 
+/**
+* \brief To set placement of toolbar at the bottom and it's size
+* \param x x position of window
+* \param y y position of window
+* \param w width of window
+* \param h height of window
+*/
 void GeometryViewer::SetBounds(int x, int y, int width, int height) {
 	if (this->posX != x || this->posY != y || this->width != width || this->height != height) {
 		GLComponent::SetBounds(x, y, width, height);
@@ -75,6 +82,9 @@ void GeometryViewer::SetBounds(int x, int y, int width, int height) {
 	}
 }
 
+/**
+* \brief Draws Lines and Hits into 3D area via OpenGL.
+*/
 void GeometryViewer::DrawLinesAndHits() {
 
 	// Lines

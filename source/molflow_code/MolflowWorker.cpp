@@ -76,6 +76,9 @@ extern MolFlow *mApp;
 extern SynRad*mApp;
 #endif
 
+/**
+* \brief Default constructor for a worker
+*/
 Worker::Worker() {
 	
 	//Molflow specific
@@ -127,10 +130,23 @@ Worker::Worker() {
 	strcpy(fullFileName, "");
 }
 
+/**
+* \brief Getter to retrieve the geometry on this worker
+* \return pointer of the geometry object
+*/
 MolflowGeometry* Worker::GetMolflowGeometry() {
 	return geom;
 }
 
+/**
+* \brief Function for saving geometry to a set file
+* \param fileName output file name with extension
+* \param prg GLProgress window where loading is visualised
+* \param askConfirm if a window should be opened to ask if the file should be overwritten
+* \param saveSelected if a selection is to be saved
+* \param autoSave if automatic saving is enabled
+* \param crashSave if save on crash is enabled
+*/
 void Worker::SaveGeometry(std::string fileName, GLProgress *prg, bool askConfirm, bool saveSelected, bool autoSave, bool crashSave) {
 
 	try {
@@ -350,6 +366,10 @@ void Worker::SaveGeometry(std::string fileName, GLProgress *prg, bool askConfirm
 	}
 }
 
+/**
+* \brief Function for saving of the profile data (simulation)
+* \param fileName output file name
+*/
 void Worker::ExportProfiles(const char *fn) {
 
 	std::string fileName = fn;
@@ -379,6 +399,11 @@ void Worker::ExportProfiles(const char *fn) {
 	
 }
 
+/**
+* \brief Function for exportation of the angle maps
+* \param facetList vector of all facets necessary for the export
+* \param fileName output file name
+*/
 void Worker::ExportAngleMaps(std::vector<size_t> facetList, std::string fileName) {
 	bool overwriteAll = false;
 	for (size_t facetIndex : facetList) {
@@ -428,6 +453,12 @@ void Worker::ExportAngleMaps(std::vector<size_t> facetList, std::string fileName
 	Reload();
 	}*/
 
+	/**
+	* \brief Function for loading of the geometry
+	* \param fileName input file name
+	* \param insert if geometry will be inserted into an existing geometry view
+	* \param newStr if a new structure needs to be created
+	*/
 void Worker::LoadGeometry(const std::string& fileName,bool insert,bool newStr) {
 	if (!insert) {
 		needsReload = true;
@@ -821,6 +852,11 @@ void Worker::LoadGeometry(const std::string& fileName,bool insert,bool newStr) {
 	}
 }
 
+/**
+* \brief Function for loading textures from a GEO file
+* \param f input file handle
+* \param version version of the GEO data description
+*/
 void Worker::LoadTexturesGEO(FileReader *f, int version) {	
 		GLProgress *progressDlg = new GLProgress("Loading textures", "Please wait");
 		progressDlg->SetProgress(0.0);
@@ -838,6 +874,10 @@ void Worker::LoadTexturesGEO(FileReader *f, int version) {
 		SAFE_DELETE(progressDlg);	
 }
 
+/**
+* \brief Function that updates various variables when stopping a simulation
+* \param appTime current time of the application
+*/
 void Worker::InnerStop(float appTime) {
 
 	stopTime = appTime;
@@ -847,6 +887,9 @@ void Worker::InnerStop(float appTime) {
 
 }
 
+/**
+* \brief Function that starts exactly one simulation step for AC (angular coefficient) mode
+*/
 void Worker::OneACStep() {
 
 	if (ontheflyParams.nbProcess == 0)
@@ -859,6 +902,10 @@ void Worker::OneACStep() {
 
 }
 
+/**
+* \brief Function that executes one step in AC (angular coefficient) mode and updates the interface
+* \param appTime current time of the application
+*/
 void Worker::StepAC(float appTime) {
 
 	try {
@@ -871,6 +918,11 @@ void Worker::StepAC(float appTime) {
 
 }
 
+/**
+* \brief Function that handles starting and stopping of the simulation
+* \param appTime current time of the application
+* \param sMode simulation mode (MC/AC)
+*/
 void Worker::StartStop(float appTime , size_t sMode) {
 
 	if (isRunning)  {
@@ -917,6 +969,10 @@ void Worker::StartStop(float appTime , size_t sMode) {
 
 }
 
+/**
+* \brief Function that inserts a list of new paramters at the beginning of the catalog parameters
+* \param newParams vector containing new parameters to be inserted
+*/
 void Worker::InsertParametersBeforeCatalog(const std::vector<Parameter>& newParams)
 {
 	auto iter = parameters.begin();
@@ -1000,6 +1056,12 @@ void Worker::Update(float appTime) {
 }
 */
 
+/**
+* \brief Function that updates the global hit counter with the cached value + releases the mutex
+* \param skipFacetHits TODO: check if not necessary anymore
+* 
+* Send total and facet hit counts to subprocesses
+*/
 void Worker::SendToHitBuffer(bool skipFacetHits ) {
 	GlobalSimuState* hits = GetHits();
 	if (!hits) throw Error("Failed to initialize 'hits' dataport");
@@ -1055,6 +1117,10 @@ if (!ExecuteAndWait(COMMAND_LOADAC, PROCESS_RUNAC, dpSize)) {
 }
 */
 
+/**
+* \brief Function that reloads the whole simulation (resets simulation, rebuilds ray tracing etc) and synchronises subprocesses to main process
+* \param sendOnly if only certain parts should be reloaded (geometry reloading / ray tracing tree)
+*/
 void Worker::RealReload(bool sendOnly) { //Sharing geometry with workers
 	GLProgress *progressDlg = new GLProgress("Performing preliminary calculations on geometry...", "Passing Geometry to workers");
 	progressDlg->SetVisible(true);
@@ -1172,6 +1238,10 @@ void Worker::RealReload(bool sendOnly) { //Sharing geometry with workers
 	SAFE_DELETE(progressDlg);
 }
 
+/**
+* \brief Serialization function for a binary cereal archive for the worker attributes
+* \return output string stream containing the result of the archiving
+*/
 std::ostringstream Worker::SerializeForLoader()
 {
 	//std::ofstream os("out.xml");
@@ -1194,6 +1264,10 @@ std::ostringstream Worker::SerializeForLoader()
 	return result;
 }
 
+/**
+* \brief Resets the hit counter and can reload the simulation
+* \param noReload if the whole simulation should not be reloaded
+*/
 void Worker::ClearHits(bool noReload) {
 	try {
 		if (!noReload && needsReload) RealReload();
@@ -1213,6 +1287,10 @@ void Worker::ClearHits(bool noReload) {
 
 }
 
+/**
+* \brief Resets workers global hit cache
+* Reset function mainly used for initialisation / reload procedures
+*/
 void Worker::ResetWorkerStats() {
 
 	memset(&globalHitCache, 0, sizeof(GlobalHitBuffer));
@@ -1220,6 +1298,9 @@ void Worker::ResetWorkerStats() {
 
 }
 
+/**
+* \brief Starts the simulation process
+*/
 void Worker::Start() {
 
 	// Check that at least one desortion facet exists
@@ -1260,6 +1341,11 @@ return result;
 }
 */
 
+/**
+* \brief Adds a time serie to moments and returns the number of elements
+* \param newMoments vector containing a list of new moments that should be added
+* \return number of new moments that got added
+*/
 int Worker::AddMoment(std::vector<double> newMoments) {
 	int nb = (int)newMoments.size();
 	for (int i = 0; i < nb; i++)
@@ -1267,6 +1353,11 @@ int Worker::AddMoment(std::vector<double> newMoments) {
 	return nb;
 }
 
+/**
+* \brief Parses a user input and returns a vector of time moments
+* \param userInput string of format "%lf,%lf,%lf" describing start, interval and end for a list of new moments
+* \return vector containing parsed moments
+*/
 std::vector<double> Worker::ParseMoment(std::string userInput) {
 	std::vector<double> parsedResult;
 	double begin, interval, end;
@@ -1285,15 +1376,21 @@ std::vector<double> Worker::ParseMoment(std::string userInput) {
 	return parsedResult;
 }
 
+/**
+* \brief Resets/clears all moment variables
+*/
 void Worker::ResetMoments() {
 	displayedMoment = 0;
 	moments.clear();
 	userMoments.clear();
 }
 
-double Worker::GetMoleculesPerTP(size_t moment)
-//Returns how many physical molecules one test particle represents
-{
+/**
+* \brief Returns how many physical molecules one test particle represents
+* \param moment if there is constant flow or time-dependent mode
+* \return amount of physical molecules represented by one test particle
+*/
+double Worker::GetMoleculesPerTP(size_t moment) {
 	if (globalHitCache.globalHits.nbDesorbed == 0) return 0; //avoid division by 0
 	if (moment == 0) {
 		//Constant flow
@@ -1319,6 +1416,18 @@ void Worker::ImportDesorption_DES(const char *fileName) {
 }
 */
 
+/**
+* \brief Importing desorption data from a SYN file
+* \param fileName name of the input file
+* \param source what the source to calculate the dose is
+* \param time time to calculate the dose
+* \param mode mode used for outgassing calculation
+* \param eta0 coefficient for outgassing calculation in mode==1
+* \param alpha exponent for outgassing calculation in mode==1
+* \param cutoffdose cutoff dose for outgassing calculation in mode==1
+* \param convDistr distribution for outgassing calculation in mode==2
+* \param prg GLProgress window where visualising of the import progress is shown
+*/
 void Worker::ImportDesorption_SYN(const char *fileName, const size_t &source, const double &time,
 	const size_t &mode, const double &eta0, const double &alpha, const double &cutoffdose,
 	const std::vector<std::pair<double, double>> &convDistr,
@@ -1363,6 +1472,13 @@ void Worker::ImportDesorption_SYN(const char *fileName, const size_t &source, co
 	}
 }
 
+/**
+* \brief To analyse desorption data from a SYN file
+* \param fileName name of the input file
+* \param nbFacet number of facets in the file
+* \param nbTextured number of textured facets in the file
+* \param nbDifferent (TODO: check usage)
+*/
 void Worker::AnalyzeSYNfile(const char *fileName, size_t *nbFacet, size_t *nbTextured, size_t *nbDifferent) {
 	std::string ext = FileUtils::GetExtension(fileName);
 	bool isSYN = (ext == "syn") || (ext == "SYN");
@@ -1407,6 +1523,12 @@ void Worker::AnalyzeSYNfile(const char *fileName, size_t *nbFacet, size_t *nbTex
 	}
 }
 
+/**
+* \brief Extract a 7z file and return the file handle
+* \param fileName name of the input file
+* \param geomName name of the geometry file
+* \return handle to opened decompressed file
+*/
 FileReader* Worker::ExtractFrom7zAndOpen(const std::string & fileName, const std::string & geomName)
 {
 	std::ostringstream cmd;
@@ -1439,6 +1561,14 @@ FileReader* Worker::ExtractFrom7zAndOpen(const std::string & fileName, const std
 	return new FileReader(toOpen); //decompressed file opened
 }
 
+/**
+* \brief Do calculations necessary before launching simulation
+* determine latest moment
+* Generate integrated desorption functions
+* match parameters
+* Generate speed distribution functions
+* Angle map
+*/
 void Worker::PrepareToRun() {
 
 	//determine latest moment
@@ -1549,6 +1679,11 @@ void Worker::PrepareToRun() {
 	
 }
 
+/**
+* \brief Get ID (if it exists) of the Commulative Distribution Function (CFD) for a particular temperature (bin)
+* \param temperature temperature for the CFD
+* \return ID of the CFD
+*/
 int Worker::GetCDFId(double temperature) {
 
 	int i;
@@ -1557,6 +1692,11 @@ int Worker::GetCDFId(double temperature) {
 	return i;
 }
 
+/**
+* \brief Generate a new Commulative Distribution Function (CFD) for a particular temperature (bin)
+* \param temperature for the CFD
+* \return Previous size of temperatures vector, which determines new ID
+*/
 int Worker::GenerateNewCDF(double temperature){
 	size_t i = temperatures.size();
 	temperatures.push_back(temperature);
@@ -1564,6 +1704,11 @@ int Worker::GenerateNewCDF(double temperature){
 	return (int)i;
 }
 
+/**
+* \brief Generate a new ID (integrated desorption) for desorption parameter for time-dependent simulations
+* \param paramId parameter ID
+* \return Previous size of IDs vector, which determines new id in the vector
+*/
 int Worker::GenerateNewID(int paramId){
 	size_t i = desorptionParameterIDs.size();
 	desorptionParameterIDs.push_back(paramId);
@@ -1571,6 +1716,11 @@ int Worker::GenerateNewID(int paramId){
 	return (int)i;
 }
 
+/**
+* \brief Get ID (if it exists) of the integrated desorption (ID) function for a particular paramId
+* \param paramId parameter ID
+* \return Id of the integrated desorption function
+*/
 int Worker::GetIDId(int paramId) {
 
 	int i;
@@ -1580,6 +1730,9 @@ int Worker::GetIDId(int paramId) {
 
 }
 
+/**
+* \brief Compute the outgassing of all source facet depending on the mode (file, regular, time-dependent) and set it to the global settings
+*/
 void Worker::CalcTotalOutgassing() {
 	// Compute the outgassing of all source facet
 	wp.totalDesorbedMolecules = wp.finalOutgassingRate_Pa_m3_sec = wp.finalOutgassingRate = 0.0;
@@ -1615,6 +1768,13 @@ void Worker::CalcTotalOutgassing() {
 
 }
 
+/**
+* \brief Generate cumulative distribution function (CFD) for the velocity
+* \param gasTempKelvins gas temperature in Kelvin
+* \param gasMassGramsPerMol molar gas mass in grams per mol
+* \param size amount of points/bins of the CFD
+* \return CFD as a Vector containing a pair of double values (x value = speed_bin, y value = cumulated value)
+*/
 std::vector<std::pair<double, double>> Worker::Generate_CDF(double gasTempKelvins, double gasMassGramsPerMol, size_t size){
 	std::vector<std::pair<double, double>> cdf; cdf.reserve(size);
 	double Kb = 1.38E-23;
@@ -1654,6 +1814,11 @@ std::vector<std::pair<double, double>> Worker::Generate_CDF(double gasTempKelvin
 	return cdf;
 }
 
+/**
+* \brief Generate integrated desorption (ID) function
+* \param paramId parameter identifier
+* \return ID as a Vector containing a pair of double values (x value = moment, y value = desorption value)
+*/
 std::vector<std::pair<double, double>> Worker::Generate_ID(int paramId){
 	std::vector<std::pair<double, double>> ID;
 	//First, let's check at which index is the latest moment
@@ -1709,6 +1874,11 @@ std::vector<std::pair<double, double>> Worker::Generate_ID(int paramId){
 
 }
 
+/**
+* \brief Get ID of a parameter (if it exists) for a corresponding name
+* \param name name of the parameter that shall be looked up
+* \return ID corresponding to the found parameter
+*/
 int Worker::GetParamId(const std::string name) {
 	int foundId = -1;
 	for (int i = 0; foundId == -1 && i < (int)parameters.size(); i++)
@@ -1732,6 +1902,9 @@ CloseZip(hz);
 return 0;
 }*/
 
+/**
+* \brief Saves current facet hit counter from cache to results
+*/
 void Worker::SendFacetHitCounts(/*Dataport* dpHit*/) {
 	LockMutex(results.mutex);
 	size_t nbFacet = geom->GetNbFacet();

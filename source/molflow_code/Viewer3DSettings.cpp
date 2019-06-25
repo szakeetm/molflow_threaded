@@ -42,6 +42,9 @@ extern MolFlow *mApp;
 extern SynRad*mApp;
 #endif
 
+/**
+* \brief Constructor with initialisation for 3D Viewer settings window (view options from top right panel)
+*/
 Viewer3DSettings::Viewer3DSettings():GLWindow() {
 
   int wD = 215;
@@ -173,6 +176,11 @@ Viewer3DSettings::Viewer3DSettings():GLWindow() {
 
 }
 
+/**
+* \brief Repositions the window depending on the width and height
+* \param wD width of the panel
+* \param hD height of the panel
+*/
 void Viewer3DSettings :: Reposition(int wD, int hD) {
 	// Position dialog next to Viewer parameters
 	if (wD == 0) wD= this->GetWidth();
@@ -182,6 +190,11 @@ void Viewer3DSettings :: Reposition(int wD, int hD) {
 	SetBounds(toggleX - wD - 10, toggleY + 20, wD, hD);
 }
 
+/**
+* \brief Refresh labels, texts and button states
+* \param s geometry the data comes from
+* \param v geometry viewer the settings apply to
+*/
 void Viewer3DSettings::Refresh(Geometry *s,GeometryViewer *v) {
 
   char tmp[128];
@@ -224,6 +237,13 @@ void Viewer3DSettings::Refresh(Geometry *s,GeometryViewer *v) {
   }
 }
 
+/**
+* \brief Sets positions and sizes of the window
+* \param x x-coordinate of the element
+* \param y y-coordinate of the element
+* \param w width of the element
+* \param h height of the element
+*/
 void Viewer3DSettings::ProcessMessage(GLComponent *src,int message) {
 
   switch(message) {

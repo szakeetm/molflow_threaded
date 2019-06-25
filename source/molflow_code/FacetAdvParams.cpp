@@ -50,6 +50,12 @@ extern MolFlow *mApp;
 extern SynRad*mApp;
 #endif
 
+/**
+* \brief Constructor for the Advanced facet parameters panel
+* \param w Pointer to a worker
+*
+* This is the constructor for the class
+*/
 FacetAdvParams::FacetAdvParams(Worker *w) :GLWindow() {
 
 	worker = w;
@@ -388,6 +394,10 @@ FacetAdvParams::FacetAdvParams(Worker *w) :GLWindow() {
 	RestoreDeviceObjects();
 }
 
+/** 
+* \brief Updates the texture cell / memory size on the panel
+* \return void
+*/
 void FacetAdvParams::UpdateSize() {
 
 	char tmp[64];
@@ -433,6 +443,10 @@ void FacetAdvParams::UpdateSize() {
 
 }
 
+/**
+* \brief Updates the texture cell / memory size on the panel for changes made to resolution text
+* \return void
+*/
 void FacetAdvParams::UpdateSizeForRatio() {
 	if (!geom->IsLoaded()) return;
 	double ratio;
@@ -495,6 +509,11 @@ void FacetAdvParams::UpdateSizeForRatio() {
 
 }
 
+/**
+* \brief Refreshes the advanced facet parameters panel completly depending on selection of facets
+* \param selection Vector of facet IDs
+* \return void
+*/
 void FacetAdvParams::Refresh(std::vector<size_t> selection) {
 
 	sumArea = sumOutgassing = 0.0;
@@ -881,6 +900,12 @@ void FacetAdvParams::Refresh(std::vector<size_t> selection) {
 	UpdateSize();
 }
 
+/**
+* \brief Sets position of the whole panel depending on it's size
+* \param wD Panel width
+* \param hD Panel height
+* \return void
+*/
 void FacetAdvParams::Reposition(int wD, int hD) {
 	if (wD == 0) wD = this->GetWidth();
 	if (hD == 0) hD = this->GetHeight();
@@ -890,6 +915,11 @@ void FacetAdvParams::Reposition(int wD, int hD) {
 	SetBounds(facetX - wD - 10, Min(facetY + 20, 115), wD, hD); //If below 115, the bottom can be out of screen
 }
 
+/**
+* \brief Apply new textures on the facets
+* \param force If remeshing needs to be forced
+* \return bool value 0 if it didnt work 1 if it did
+*/
 bool FacetAdvParams::ApplyTexture(bool force) {
 	bool boundMap = true; // boundaryBtn->GetState();
 	double ratio = 0.0;
@@ -898,7 +928,7 @@ bool FacetAdvParams::ApplyTexture(bool force) {
 	bool doRatio = false;
 	if (enableBtn->GetState() == 1) { //check if valid texture settings are to be applied
 
-									  // Check counting mode
+		// Check counting mode
 		if (!recordDesBtn->GetState() && !recordAbsBtn->GetState() &&
 			!recordReflBtn->GetState() && !recordTransBtn->GetState() &&
 			!recordACBtn->GetState() && !recordDirBtn->GetState()) {
@@ -971,6 +1001,10 @@ bool FacetAdvParams::ApplyTexture(bool force) {
 	return true;
 }
 
+/**
+* \brief Apply various values from the panel
+* \return bool value 0 if it didnt work 1 if it did
+*/
 bool FacetAdvParams::Apply() {
 	std::vector<size_t> selectedFacets=geom->GetSelectedFacets();
 	int nbPerformed = 0;
@@ -1408,6 +1442,9 @@ bool FacetAdvParams::Apply() {
 	return ApplyTexture(); //Finally, apply textures
 }
 
+/**
+* \brief Apply changes to draw settings for a facet
+*/
 void FacetAdvParams::ApplyDrawSettings() {
 	//Apply view settings without stopping the simulation
 
@@ -1430,6 +1467,10 @@ void FacetAdvParams::ApplyDrawSettings() {
 	geom->BuildGLList(); //Re-render facets
 }
 
+/**
+* \brief Toggles various tickboxes depending on what's active and what's not
+* \param src the button that got pressed to call this event
+*/
 void FacetAdvParams::UpdateToggle(GLComponent *src) {
 
 	/*if (src==boundaryBtn) {
@@ -1491,6 +1532,11 @@ void FacetAdvParams::UpdateToggle(GLComponent *src) {
 	//UpdateSizeForRatio();
 }
 
+/**
+* \brief Processes events like button clicks for the advanced facet parameters panel.
+* \param src the component that got used to call this event
+* \param message the type that triggered change (button, text change etc.)
+*/
 void FacetAdvParams::ProcessMessage(GLComponent *src, int message) {
 
 	switch (message) {
@@ -1647,6 +1693,9 @@ from C. Benvenutti http://cds.cern.ch/record/454180
 	GLWindow::ProcessMessage(src, message);
 }
 
+/**
+* \brief Text change if Wall sojoourn time option is enabled/disabled
+*/
 void FacetAdvParams::CalcSojournTime() {
 	double sojF,sojE,facetT;
 	if (enableSojournTime->GetState() == 0
@@ -1661,6 +1710,9 @@ void FacetAdvParams::CalcSojournTime() {
 	enableSojournTime->SetText(tmp.str());
 }
 
+/**
+* \brief Places Dyanmic desorption area and incident angle distribution properly if closed or open
+*/
 void FacetAdvParams::PlaceComponents() {
 	int desPanelPos, angleMapPanelPos, desPanelHeight, angleMapPanelHeight;
 	int x, w;

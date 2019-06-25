@@ -51,6 +51,10 @@ extern SynRad*mApp;
 
 extern const char*profType[];
 
+/**
+* \brief Constructor with initialisation for Pressure evolution window (Time/Pressure evolution)
+* \param w worker handle
+*/
 PressureEvolution::PressureEvolution(Worker *w) :GLWindow() {
 
 	int wD = 750;
@@ -133,6 +137,13 @@ PressureEvolution::PressureEvolution(Worker *w) :GLWindow() {
 
 }
 
+/**
+* \brief Sets positions and sizes of all UI elements
+* \param x x-coordinate of the element
+* \param y y-coordinate of the element
+* \param w width of the element
+* \param h height of the element
+*/
 void PressureEvolution::SetBounds(int x, int y, int w, int h) {
 
 	chart->SetBounds(7, 5, w - 15, h - 60);
@@ -151,6 +162,9 @@ void PressureEvolution::SetBounds(int x, int y, int w, int h) {
 
 }
 
+/**
+* \brief Rebuilds combo and calls refreshviews
+*/
 void PressureEvolution::Refresh() {
 	//Rebuilds combo and calls refreshviews
 
@@ -181,8 +195,11 @@ void PressureEvolution::Refresh() {
 	refreshChart();
 }
 
-
-
+/**
+* \brief Calls refreshChart if needed
+* \param appTime current time of the applicaiton
+* \param force if chart should be refreshed no matter what
+*/
 void PressureEvolution::Update(float appTime, bool force) {
 	//Calls refreshChart if needed
 	if (!IsVisible() || IsIconic()) return;
@@ -200,6 +217,9 @@ void PressureEvolution::Update(float appTime, bool force) {
 
 }
 
+/**
+* \brief refreshes chart values
+*/
 void PressureEvolution::refreshChart() {
 	//refreshes chart values
 
@@ -276,6 +296,10 @@ void PressureEvolution::refreshChart() {
 	worker->ReleaseHits();
 }
 
+/**
+* \brief Adds a view to the chart for a specific facet
+* \param facetId Id of the facet that should be added
+*/
 void PressureEvolution::addView(size_t facetId) {
 
 	Geometry *geom = worker->GetGeometry();
@@ -311,6 +335,10 @@ void PressureEvolution::addView(size_t facetId) {
 	Refresh();
 }
 
+/**
+* \brief Removes a view from the chart with a specific ID
+* \param viewId Id of the view that should be removed
+*/
 void PressureEvolution::remView(size_t viewId) {
 
 	chart->GetY1Axis()->RemoveDataView(views[viewId]);
@@ -319,6 +347,9 @@ void PressureEvolution::remView(size_t viewId) {
 
 }
 
+/**
+* \brief Resets view
+*/
 void PressureEvolution::Reset() {
 
 	chart->GetY1Axis()->ClearDataView();
@@ -328,6 +359,11 @@ void PressureEvolution::Reset() {
 	Refresh();
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void PressureEvolution::ProcessMessage(GLComponent *src, int message) {
 	Geometry *geom = worker->GetGeometry();
 	switch (message) {
