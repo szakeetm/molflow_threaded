@@ -268,7 +268,7 @@ void PressureEvolution::refreshChart() {
 				break;
 			}
 			case 3: {//Particle density
-				scaleY = 1.0 / nbDes / (f->GetArea() / 1E-4);
+				scaleY = 1.0 / nbDes / (f->GetArea() * 1E-4);
 				scaleY *= worker->wp.totalDesorbedMolecules / worker->wp.timeWindowSize;
 				scaleY *= f->DensityCorrection();
 				for (size_t m = 1; m <= Min(worker->moments.size(), (size_t)10000); m++) { //max 10000 points
@@ -279,7 +279,7 @@ void PressureEvolution::refreshChart() {
 				break;
 			}
 			case 4: {//Imp.rate
-				scaleY = 1.0 / nbDes / (f->GetArea() / 1E-4);
+				scaleY = 1.0 / nbDes / (f->GetArea() * 1E-4);
 				scaleY *= worker->wp.totalDesorbedMolecules / worker->wp.timeWindowSize;
 				for (size_t m = 1; m <= Min(worker->moments.size(), (size_t)10000); m++) { //max 10000 points
 					//FacetHitBuffer* facetHits = (FacetHitBuffer*)(buffer + f->sh.hitOffset + m * sizeof(FacetHitBuffer));

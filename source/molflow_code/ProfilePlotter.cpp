@@ -366,7 +366,7 @@ void ProfilePlotter::refreshViews() {
 					break;
 
 				case 1: //Pressure
-					scaleY = 1.0 / (f->GetArea() / (double)PROFILE_SIZE*1E-4)* worker->wp.gasMass / 1000 / 6E23 * 0.0100; //0.01: Pa->mbar
+					scaleY = 1.0 / (f->GetArea() * 1E-4 / (double)PROFILE_SIZE)* worker->wp.gasMass / 1000 / 6E23 * 0.0100; //0.01: Pa->mbar
 					scaleY *= worker->GetMoleculesPerTP(worker->displayedMoment);
 
 					for (int j = 0; j < PROFILE_SIZE; j++)

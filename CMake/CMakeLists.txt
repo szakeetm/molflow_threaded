@@ -12,6 +12,7 @@ endif(NOT CMAKE_BUILD_TYPE)
 # Defines Flags for Windows and Linux. #
 ########################################
 
+# https://docs.microsoft.com/en-us/cpp/build/reference/compiler-options-listed-alphabetically?view=vs-2019
 if(MSVC)
     #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
     set(CMAKE_GENERATOR_PLATFORM x64)
