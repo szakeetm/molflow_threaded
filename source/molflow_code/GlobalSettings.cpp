@@ -281,7 +281,7 @@ void GlobalSettings::Update() {
 }
 
 /**
-* \brief Function to update the valuthread information table in the global settings window.
+* \brief Function to update the thread information table in the global settings window.
 */
 void GlobalSettings::SMPUpdate() {
 	int time = SDL_GetTicks();

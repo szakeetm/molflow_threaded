@@ -238,11 +238,9 @@ void Viewer3DSettings::Refresh(Geometry *s,GeometryViewer *v) {
 }
 
 /**
-* \brief Sets positions and sizes of the window
-* \param x x-coordinate of the element
-* \param y y-coordinate of the element
-* \param w width of the element
-* \param h height of the element
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
 */
 void Viewer3DSettings::ProcessMessage(GLComponent *src,int message) {
 

@@ -144,8 +144,7 @@ void Simulation::ConstructFacetTmpVars() {
 * \param index process index
 * \return status if successful
 */
-int Simulation::mainLoop(int index)
-{
+int Simulation::mainLoop(int index) {
 	bool eos = false;
 	prIdx = index;
 

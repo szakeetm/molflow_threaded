@@ -1,0 +1,85 @@
+cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
+
+################### Variables. ####################
+# Change if you want modify path or other values. #
+###################################################
+
+set(PROJECT_NAME compress)
+# Output Variables
+set(OUTPUT_DEBUG ../../bin/win/debug/)
+set(OUTPUT_REL ../../bin/win/)
+# Folders files
+set(CPP_DIR_1 ../../source/shared_code/compress)
+set(CPP_DIR_2 ../../source/shared_code)
+set(HEADER_DIR_1 ../../source/shared_code)
+
+############## CMake Project ################
+#        The main options of project        #
+#############################################
+
+project(${PROJECT_NAME} CXX)
+
+# Definition of Macros
+add_definitions(
+        -D_MBCS
+        -D_CRT_SECURE_NO_WARNINGS
+)
+
+############## Artefacts Output #################
+# Defines outputs , depending Debug or Release. #
+#################################################
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_DEBUG}")
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_DEBUG}")
+    set(CMAKE_EXECUTABLE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_DEBUG}")
+else()
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
+    set(CMAKE_EXECUTABLE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
+endif()
+
+################# Flags ################
+# Defines Flags for Windows and Linux. #
+########################################
+
+#[[if(MSVC)
+    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++17")
+    set(CMAKE_GENERATOR_PLATFORM x64)
+    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /mwindows")
+    #set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mwindows")
+    # main vs WinMain
+    # https://stackoverflow.com/questions/2752792/whats-the-equivalent-of-gccs-mwindows-option-in-cmake
+    #set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /subsystem:windows /ENTRY:mainCRTStartup")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /W3 /EHsc")
+   set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /W3 /EHsc")
+endif(MSVC)
+if(NOT MSVC)
+   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+   if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+       set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+   endif()
+endif(NOT MSVC)]]
+
+################ Files ################
+#   --   Add files to project.   --   #
+#######################################
+
+file(GLOB SRC_FILES
+        ${CPP_DIR_1}/*.cpp
+        ${CPP_DIR_2}/file.cpp
+        ${HEADER_DIR_1}/file.h
+        )
+
+
+
+# Add executable to build.
+add_executable(${PROJECT_NAME}
+        ${SRC_FILES}
+        )
+
+target_include_directories(${PROJECT_NAME} PRIVATE
+        ${HEADER_DIR_1}
+        )
+
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)

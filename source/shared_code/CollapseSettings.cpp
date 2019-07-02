@@ -52,6 +52,9 @@ extern MolFlow *mApp;
 extern SynRad*mApp;
 #endif
 
+/**
+* \brief Constructor with initialisation for the CollapseSettings window (Facet/Collapse)
+*/
 CollapseSettings::CollapseSettings():GLWindow() {
 
 	int wD = 270;
@@ -120,6 +123,11 @@ CollapseSettings::CollapseSettings():GLWindow() {
 
 }
 
+/**
+* \brief Constructor with initialisation for the CollapseSettings window (Facet/Collapse)
+* \param geom geometry used for the settings
+* \brief w Worker handle
+*/
 void CollapseSettings::SetGeometry(Geometry *geom,Worker *w) {
 
 	char tmp[512];
@@ -137,6 +145,11 @@ void CollapseSettings::SetGeometry(Geometry *geom,Worker *w) {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void CollapseSettings::ProcessMessage(GLComponent *src,int message) {
 	double vT,fT,lT;
 

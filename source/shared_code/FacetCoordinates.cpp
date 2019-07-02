@@ -61,6 +61,9 @@ struct line {
 	Vector3d coord;
 };
 
+/**
+* \brief Constructor with initialisation for the FacetCoordinates window (Facet/Facet coordinates)
+*/
 FacetCoordinates::FacetCoordinates():GLWindow() {
 
   int wD = 405;
@@ -132,6 +135,9 @@ FacetCoordinates::FacetCoordinates():GLWindow() {
 
 }
 
+/**
+* \brief Set title of the window with the lowest selected facet id
+*/
 void FacetCoordinates::GetSelected() {
 
   selFacet = NULL;
@@ -149,6 +155,9 @@ void FacetCoordinates::GetSelected() {
 
 }
 
+/**
+* \brief Update table data from selected Facet
+*/
 void FacetCoordinates::UpdateFromSelection() {
 
   
@@ -172,6 +181,10 @@ void FacetCoordinates::UpdateFromSelection() {
 
 }
 
+/**
+* \brief Displays window with selected facet data
+* \param w Worker handle
+*/
 void FacetCoordinates::Display(Worker *w) {
 
   worker = w;
@@ -180,6 +193,11 @@ void FacetCoordinates::Display(Worker *w) {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void FacetCoordinates::ProcessMessage(GLComponent *src,int message) {
 
   Geometry *geom = worker->GetGeometry();
@@ -265,12 +283,19 @@ void FacetCoordinates::ProcessMessage(GLComponent *src,int message) {
 
 }
 
+/**
+* \brief Update ID of the vertex to be inserted to vertexId
+* \param vertexId ID of the vertex
+*/
 void FacetCoordinates::UpdateId(int vertexId) {
 	char tmp[64];
 	sprintf(tmp,"%d",vertexId+1);
 	insertIdText->SetText(tmp);
 }
 
+/**
+* \brief Rebuild list with the buffered data
+*/
 void FacetCoordinates::RebuildList() {
 	facetListC->SetSize(5,(int)lines.size());
 	
@@ -303,6 +328,10 @@ void FacetCoordinates::RebuildList() {
 		removePosButton->SetEnabled(selRow);
 }
 
+/**
+* \brief Remove row from table with ID rowId
+* \param rowId ID of the row to be removed
+*/
 void FacetCoordinates::RemoveRow(size_t rowId){
 	if (rowId < lines.size()) {
 		lines.erase(lines.begin() + rowId);
@@ -319,6 +348,11 @@ void FacetCoordinates::RemoveRow(size_t rowId){
 	}
 }
 
+/**
+* \brief Insert vertex data into the table
+* \param rowId ID of the row where new vertex should be added
+* \param vertexId ID of the vertex to be added
+*/
 void FacetCoordinates::InsertVertex(size_t rowId,size_t vertexId){
 	line newLine;
 	newLine.vertexId=vertexId;
@@ -333,6 +367,9 @@ void FacetCoordinates::InsertVertex(size_t rowId,size_t vertexId){
 	facetListC->ScrollToVisible(rowId,0);
 }
 
+/**
+* \brief Apply changes to the geometry made in the table
+*/
 void FacetCoordinates::ApplyChanges(){
 	
 	Geometry *geom = worker->GetGeometry();

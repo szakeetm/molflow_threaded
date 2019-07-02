@@ -4,8 +4,12 @@
 #include "MolflowGeometry.h"
 #include "Facet_shared.h"
 
-GlobalSimuState& GlobalSimuState::operator=(const GlobalSimuState & src)
-{
+/**
+* \brief Assign operator
+* \param src reference to source object
+* \return address of this
+*/
+GlobalSimuState& GlobalSimuState::operator=(const GlobalSimuState & src) {
 	//Copy all but mutex
 	facetStates = src.facetStates;
 	globalHistograms = src.globalHistograms;
@@ -14,8 +18,10 @@ GlobalSimuState& GlobalSimuState::operator=(const GlobalSimuState & src)
 	return *this;
 }
 
-void GlobalSimuState::clear()
-{
+/**
+* \brief Clears simulation state
+*/
+void GlobalSimuState::clear() {
 	LockMutex(mutex);
 	globalHits = GlobalHitBuffer();
 	globalHistograms.clear();
@@ -23,6 +29,10 @@ void GlobalSimuState::clear()
 	ReleaseMutex(mutex);
 }
 
+/**
+* \brief Constructs the 'dpHit' structure to hold all results, zero-init
+* \param w Worker handle
+*/
 void GlobalSimuState::Resize(Worker& w) { //Constructs the 'dpHit' structure to hold all results, zero-init
 	LockMutex(mutex);
 	size_t nbF = w.GetGeometry()->GetNbFacet();
@@ -44,6 +54,10 @@ void GlobalSimuState::Resize(Worker& w) { //Constructs the 'dpHit' structure to 
 	initialized = true;
 	ReleaseMutex(mutex);
 }
+
+/**
+* \brief zero-init for all structures
+*/
 void GlobalSimuState::Reset() {
 	LockMutex(mutex);
 	for (auto& h : globalHistograms) {
@@ -67,6 +81,11 @@ void GlobalSimuState::Reset() {
 	ReleaseMutex(mutex);
 }
 
+/**
+* \brief += operator, with simple += of underlying structures
+* \param rhs reference object on the right hand
+* \return address of this (lhs)
+*/
 FacetHitBuffer& FacetHitBuffer::operator+=(const FacetHitBuffer& rhs) {
 	this->nbDesorbed+=rhs.nbDesorbed;
 	 this->nbMCHit+=rhs.nbMCHit;
@@ -78,23 +97,34 @@ FacetHitBuffer& FacetHitBuffer::operator+=(const FacetHitBuffer& rhs) {
 	 return *this;
 }
 
-void FacetHistogramBuffer::Resize(const HistogramParams& params)
-{
+/**
+* \brief Resize histograms according to sizes in params
+* \param params contains data about sizes
+*/
+void FacetHistogramBuffer::Resize(const HistogramParams& params) {
 	nbHitsHistogram = std::vector<double>(params.recordBounce ? params.GetBounceHistogramSize() : 0);
 	distanceHistogram = std::vector<double>(params.recordDistance ? params.GetDistanceHistogramSize() : 0);
 	timeHistogram = std::vector<double>(params.recordTime ? params.GetTimeHistogramSize() : 0);
 }
 
-FacetHistogramBuffer& FacetHistogramBuffer::operator+=(const FacetHistogramBuffer & rhs)
-{
+/**
+* \brief += operator, with simple += of underlying structures
+* \param rhs reference object on the right hand
+* \return address of this (lhs)
+*/
+FacetHistogramBuffer& FacetHistogramBuffer::operator+=(const FacetHistogramBuffer & rhs) {
 	this->nbHitsHistogram += rhs.nbHitsHistogram;
 	this->distanceHistogram += rhs.distanceHistogram;
 	this->timeHistogram += rhs.timeHistogram;
 	return *this;
 }
 
-FacetMomentSnapshot& FacetMomentSnapshot::operator+=(const FacetMomentSnapshot & rhs)
-{
+/**
+* \brief += operator, with simple += of underlying structures
+* \param rhs reference object on the right hand
+* \return address of this (lhs)
+*/
+FacetMomentSnapshot& FacetMomentSnapshot::operator+=(const FacetMomentSnapshot & rhs) {
 	this->hits += rhs.hits;
 	this->profile += rhs.profile;
 	this->texture += rhs.texture;
@@ -103,14 +133,22 @@ FacetMomentSnapshot& FacetMomentSnapshot::operator+=(const FacetMomentSnapshot &
 	return *this;
 }
 
-FacetMomentSnapshot& FacetMomentSnapshot::operator+(const FacetMomentSnapshot & rhs)
-{
+/**
+* \brief + operator, simply calls implemented +=
+* \param rhs reference object on the right hand
+* \return address of this (lhs)
+*/
+FacetMomentSnapshot& FacetMomentSnapshot::operator+(const FacetMomentSnapshot & rhs) {
 	*this += rhs;
 	return *this;
 }
 
-FacetState& FacetState::operator+=(const FacetState & rhs)
-{
+/**
+* \brief += operator, with simple += of underlying structures
+* \param rhs reference object on the right hand
+* \return address of this (lhs)
+*/
+FacetState& FacetState::operator+=(const FacetState & rhs) {
 	this->recordedAngleMapPdf += rhs.recordedAngleMapPdf;
 	this->momentResults += rhs.momentResults;
 	return *this;
