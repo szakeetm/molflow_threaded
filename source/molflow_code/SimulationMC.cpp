@@ -1465,12 +1465,12 @@ double Simulation::GetOpacityAt(SubprocessFacet *f, double time) {
 
 void Simulation::TreatMovingFacet() {
 	Vector3d localVelocityToAdd;
-	if (worker->wp.motionType == 1) {
-		localVelocityToAdd = worker->wp.motionVector2;
+	if (worker->wp.motionType == 1) { //Translation
+		localVelocityToAdd = worker->wp.motionVector2; //Fixed translational vector
 	}
-	else if (worker->wp.motionType == 2) {
-		Vector3d distanceVector = 0.01*(currentParticle.position - worker->wp.motionVector1); //distance from base, with cm->m conversion
-		localVelocityToAdd = CrossProduct(worker->wp.motionVector2, distanceVector);
+	else if (worker->wp.motionType == 2) { //Rotation
+		Vector3d distanceVector = 0.01*(currentParticle.position - worker->wp.motionVector1); //distance from base, with cm->m conversion, motionVector1 is rotation base point
+		localVelocityToAdd = CrossProduct(worker->wp.motionVector2, distanceVector); //motionVector2 is rotation axis
 	}
 	Vector3d oldVelocity, newVelocity;
 	oldVelocity = currentParticle.direction*currentParticle.velocity;

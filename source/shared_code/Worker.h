@@ -177,7 +177,7 @@ public:
 
   std::vector<Parameter> parameters;
   int displayedMoment;
-  void InsertParametersBeforeCatalog(const std::vector<Parameter>& newParams);
+  size_t InsertParametersBeforeCatalog(const std::vector<Parameter>& newParams);
 
   std::vector<std::vector<std::pair<double, double>>> CDFs; //cumulative distribution function for each temperature
   std::vector<std::vector<std::pair<double, double>>> IDs; //integrated distribution function for each time-dependent desorption type

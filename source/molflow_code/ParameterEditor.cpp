@@ -210,9 +210,10 @@ void ParameterEditor::ProcessMessage(GLComponent *src,int message) {
 					UpdateUserValues();
 					Plot();
 				} else if (selectorCombo->GetSelectedIndex() == 0) { //new Param
-					work->parameters.push_back(tempParam);
+					//work->parameters.push_back(tempParam); //Inserted newly defined parameter as last
+					size_t insertPos = work->InsertParametersBeforeCatalog({ tempParam }); //Inserts before catalog
 					UpdateCombo();
-					selectorCombo->SetSelectedIndex((int)work->parameters.size()); //Set to newly added parameter
+					selectorCombo->SetSelectedIndex((int)insertPos); //Set to newly added parameter
 					deleteButton->SetEnabled(true);
 					UpdateUserValues();
 					Plot();

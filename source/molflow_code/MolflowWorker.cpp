@@ -917,11 +917,12 @@ void Worker::StartStop(float appTime , size_t sMode) {
 
 }
 
-void Worker::InsertParametersBeforeCatalog(const std::vector<Parameter>& newParams)
+size_t Worker::InsertParametersBeforeCatalog(const std::vector<Parameter>& newParams)
 {
-	auto iter = parameters.begin();
-	for (; iter != parameters.end() && !iter->fromCatalog; iter++);
-	parameters.insert(iter, newParams.begin(), newParams.end()); //Insert to front (before catalog parameters)
+	size_t index = 0;
+	for (; index != parameters.size() && parameters[index].fromCatalog==false; index++);
+	parameters.insert(parameters.begin()+index, newParams.begin(), newParams.end()); //Insert to front (before catalog parameters)
+	return index; //returns insert position
 }
 
 /* //Moved to worker_shared.cpp
