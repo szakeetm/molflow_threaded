@@ -5,9 +5,15 @@ cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
 ###################################################
 
 set(PROJECT_NAME compress)
+IF (WIN32)
+    set(OS_NAME "win")
+ELSE()
+    set(OS_NAME "linux")
+ENDIF()
+
 # Output Variables
-set(OUTPUT_DEBUG ../../bin/win/debug/)
-set(OUTPUT_REL ../../bin/win/)
+set(OUTPUT_DEBUG ../../bin/${OS_NAME}/debug/)
+set(OUTPUT_REL ../../bin/${OS_NAME}/release/)
 # Folders files
 set(CPP_DIR_1 ../../source/shared_code/compress)
 set(CPP_DIR_2 ../../source/shared_code)
@@ -39,6 +45,12 @@ else()
     set(CMAKE_EXECUTABLE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
 endif()
 
+# Messages
+message("${PROJECT_NAME}: MAIN PROJECT: ${CMAKE_PROJECT_NAME}")
+message("${PROJECT_NAME}: CURR PROJECT: ${CMAKE_CURRENT_SOURCE_DIR}")
+message("${PROJECT_NAME}: CURR BIN DIR: ${CMAKE_CURRENT_BINARY_DIR}")
+
+
 ################# Flags ################
 # Defines Flags for Windows and Linux. #
 ########################################
@@ -67,11 +79,12 @@ endif(NOT MSVC)]]
 
 file(GLOB SRC_FILES
         ${CPP_DIR_1}/*.cpp
-        ${CPP_DIR_2}/file.cpp
-        ${HEADER_DIR_1}/file.h
+        ${CPP_DIR_2}/File.cpp
+        ${HEADER_DIR_1}/File.h
         )
 
 
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY}) #to build executable in main folder
 
 # Add executable to build.
 add_executable(${PROJECT_NAME}
@@ -81,5 +94,8 @@ add_executable(${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${HEADER_DIR_1}
         )
-
+target_link_directories(${PROJECT_NAME} PRIVATE
+        ${HEADER_DIR_1}
+        )
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+target_link_libraries(${PROJECT_NAME} stdc++fs)

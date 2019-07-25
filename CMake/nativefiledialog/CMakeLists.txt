@@ -7,10 +7,17 @@ cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
 # Project
 set(PROJECT_NAME nativefiledialog)
 
+IF (WIN32)
+    set(OS_NAME "win")
+ELSE()
+    set(OS_NAME "linux")
+ENDIF()
+
 # Output Variables
-set(OUTPUT_DEBUG ../../lib/win/debug/)
-set(OUTPUT_REL ../../lib/win/release/)
+set(OUTPUT_DEBUG ../../lib/${OS_NAME}/debug/)
+set(OUTPUT_REL ../../lib/${OS_NAME}/release/)
 # Folders files
+
 set(CPP_DIR_1 ../../source/shared_code/NativeFileDialog/molflow_wrapper)
 set(CPP_DIR_2 ../../source/shared_code/NativeFileDialog)
 set(HEADER_DIR_1 ../../source/shared_code/NativeFileDialog/molflow_wrapper)
@@ -46,14 +53,25 @@ message("${PROJECT_NAME}: CURR BIN DIR: ${CMAKE_CURRENT_BINARY_DIR}")
 ############################################################
 
 # Source Files
-file(GLOB SRC_FILES
-        ${CPP_DIR_1}/nfd_wrapper.cpp
-        ${CPP_DIR_2}/nfd_common.c
-        ${CPP_DIR_2}/nfd_win.cpp
-        ${HEADER_DIR_1}/nfd_wrapper.h
-        ${HEADER_DIR_2}/nfd.h
-        ${HEADER_DIR_2}/nfd_common.h
-        )
+IF (WIN32)
+    file(GLOB SRC_FILES
+            ${CPP_DIR_1}/nfd_wrapper.cpp
+            ${CPP_DIR_2}/nfd_common.c
+            ${CPP_DIR_2}/nfd_win.cpp
+            ${HEADER_DIR_1}/nfd_wrapper.h
+            ${HEADER_DIR_2}/nfd.h
+            ${HEADER_DIR_2}/nfd_common.h
+            )
+ELSE()
+    file(GLOB SRC_FILES
+            ${CPP_DIR_1}/nfd_wrapper.cpp
+            ${CPP_DIR_2}/nfd_common.c
+            ${CPP_DIR_2}/nfd_gtk.c
+            ${HEADER_DIR_1}/nfd_wrapper.h
+            ${HEADER_DIR_2}/nfd.h
+            ${HEADER_DIR_2}/nfd_common.h
+            )
+ENDIF()
 
 add_library(${PROJECT_NAME} STATIC ${SRC_FILES})
 
@@ -66,6 +84,14 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 # Defines Flags for Windows and Linux                      #
 ############################################################
 
+# Setup CMake to use GTK+, tell the compiler where to look for headers
+# and to the linker where to look for libraries
+INCLUDE_DIRECTORIES(${GTK3_INCLUDE_DIRS})
+LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
+
+# Add other flags to the compiler
+ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
+target_link_libraries(${PROJECT_NAME} ${GTK3_LIBRARIES} )
 # Preprocessor definitions
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(${PROJECT_NAME} PRIVATE

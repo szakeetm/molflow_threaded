@@ -2,6 +2,17 @@ cmake_minimum_required(VERSION 3.12.2)
 
 project(molflow)
 
+
+message("-- CMAKE_SYSTEM_INFO_FILE: ${CMAKE_SYSTEM_INFO_FILE}")
+message("-- CMAKE_SYSTEM_NAME:      ${CMAKE_SYSTEM_NAME}")
+message("-- CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
+message("-- CMAKE_SYSTEM:           ${CMAKE_SYSTEM}")
+
+string (REGEX MATCH "\\.el[1-9]" os_version_suffix ${CMAKE_SYSTEM})
+message("-- os_version_suffix:      ${os_version_suffix}")
+
+
+
 # Define Release by default.
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release")
@@ -36,8 +47,12 @@ endif(NOT MSVC)
 add_subdirectory(molflow_win)
 add_subdirectory(compress)
 add_subdirectory(pugixml)
-add_subdirectory(png_zlib_win_library)
 add_subdirectory(clipper)
 add_subdirectory(nativefiledialog)
 add_subdirectory(sdl_savepng)
 add_subdirectory(truncatedgaussian)
+
+IF (WIN32)
+    add_subdirectory(png_zlib_win_library)
+ENDIF(WIN32)
+

@@ -6,9 +6,15 @@ cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
 
 # Project
 set(PROJECT_NAME sdl_savepng)
+IF (WIN32)
+    set(OS_NAME "win")
+ELSE()
+    set(OS_NAME "linux")
+ENDIF()
+
 # Output Variables
-set(OUTPUT_DEBUG ../../lib/win/debug/)
-set(OUTPUT_REL ../../lib/win/release/)
+set(OUTPUT_DEBUG ../../lib/${OS_NAME}/debug/)
+set(OUTPUT_REL ../../lib/${OS_NAME}/release/)
 # Folders files
 set(CPP_DIR_1 ../../source/shared_code/SDL_SavePNG)
 set(HEADER_DIR_1 ../../source/shared_code/SDL_SavePNG)
@@ -52,8 +58,16 @@ file(GLOB SRC_FILES
 # Add library to build.
 add_library(${PROJECT_NAME} STATIC ${SRC_FILES})
 
-target_include_directories(${PROJECT_NAME} PRIVATE
-        ${HEADER_DIR_1}
-        ${HEADER_DIR_2}
-        ${HEADER_DIR_3}
-        )
+
+# Source Files
+IF (WIN32)
+    target_include_directories(${PROJECT_NAME} PRIVATE
+            ${HEADER_DIR_1}
+            ${HEADER_DIR_2}
+            ${HEADER_DIR_3}
+            )
+ELSE()
+    target_include_directories(${PROJECT_NAME} PRIVATE
+            ${HEADER_DIR_1}
+            )
+ENDIF()

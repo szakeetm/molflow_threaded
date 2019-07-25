@@ -9,9 +9,15 @@ cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
 #set(DEPENDENCIES_DIR ${PROJECT_DIR}/dependencies)
 set(PROJECT_NAME png_zlib_win_library)
 
+IF (WIN32)
+    set(OS_NAME "win")
+ELSE()
+    set(OS_NAME "linux")
+ENDIF()
+
 # Output Variables
-set(OUTPUT_DEBUG ../../lib/win/debug/)
-set(OUTPUT_REL ../../lib/win/release/)
+set(OUTPUT_DEBUG ../../lib/${OS_NAME}/debug/)
+set(OUTPUT_REL ../../lib/${OS_NAME}/release/)
 # Folders files
 set(C_DIR_1 ../../include/windows_only/zlib/)
 set(HEADER_DIR_1 ../../include/windows_only/zlib/)

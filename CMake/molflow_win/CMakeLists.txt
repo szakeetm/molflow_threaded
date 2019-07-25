@@ -5,26 +5,47 @@ cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
 ###################################################
 
 set(PROJECT_NAME molflow)
+
+IF (WIN32)
+    set(OS_NAME "win")
+ELSE()
+    set(OS_NAME "linux")
+ENDIF()
+
 # Output Variables
-set(OUTPUT_DEBUG ../../bin/win/debug/)
-set(OUTPUT_REL ../../bin/win/release/)
+set(OUTPUT_DEBUG ../../bin/${OS_NAME}/debug/)
+set(OUTPUT_REL ../../bin/${OS_NAME}/release/)
+
 # Folders files
 set(CPP_DIR_1 ../../source/molflow_code)
 set(CPP_DIR_2 ../../source/shared_code)
 set(CPP_DIR_3 ../../source/shared_code/GLApp)
 set(CPP_DIR_4 ../../source/shared_code/GLApp/GLChart)
-set(CPP_DIR_5 ../../source/shared_code/windows_only)
 set(HEADER_DIR_1 ../../source/molflow_code)
 set(HEADER_DIR_2 ../../source/shared_code)
 set(HEADER_DIR_3 ../../source/shared_code/GLApp)
 set(HEADER_DIR_4 ../../source/shared_code/GLApp/GLChart)
 set(HEADER_DIR_5 ../../include/)
-set(HEADER_DIR_6 ../../include/windows_only)
-set(HEADER_DIR_7 ../../include/windows_only/png)
-set(LINK_DIR_1 ../../lib/win)
-set(LINK_DIR_2 ../../lib/win/release)
-set(DLL_DIR ../../lib/win/dll)
 set(IMAGE_DIR ../../images)
+
+IF (WIN32)
+    # set stuff for windows
+
+    set(CPP_DIR_5 ../../source/shared_code/windows_only)
+    set(HEADER_DIR_6 ../../include/windows_only)
+    set(HEADER_DIR_7 ../../include/windows_only/png)
+    set(LINK_DIR_1 ../../lib/win)
+    set(LINK_DIR_2 ../../lib/win/release)
+    set(DLL_DIR ../../lib/win/dll)
+ELSE()
+    # set stuff for other systems
+
+    set(CPP_DIR_5 "")
+    set(HEADER_DIR_6 "")
+    set(HEADER_DIR_7 "")
+    set(LINK_DIR_1 ../../lib/linux_debian)
+ENDIF()
+
 
 
 ############## CMake Project ################
@@ -35,11 +56,11 @@ project(${PROJECT_NAME} CXX)
 
 # Definition of Macros
 add_definitions(
-   -DCURL_STATICLIB 
-   -D_MBCS 
-   -DMOLFLOW 
-   -D_CRT_SECURE_NO_WARNINGS 
-   -D_CRT_NONSTDC_NO_DEPRECATE 
+        -DCURL_STATICLIB
+        -D_MBCS
+        -DMOLFLOW
+        -D_CRT_SECURE_NO_WARNINGS
+        -D_CRT_NONSTDC_NO_DEPRECATE
 )
 
 ############## Artefacts Output #################
@@ -47,14 +68,19 @@ add_definitions(
 #################################################
 
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_DEBUG}")
-  set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_DEBUG}")
-  set(CMAKE_EXECUTABLE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_DEBUG}")
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_DEBUG}")
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_DEBUG}")
+    set(CMAKE_EXECUTABLE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_DEBUG}")
 else()
-  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
-  set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
-  set(CMAKE_EXECUTABLE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
+    set(CMAKE_EXECUTABLE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
 endif()
+
+# Messages
+message("${PROJECT_NAME}: MAIN PROJECT: ${CMAKE_PROJECT_NAME}")
+message("${PROJECT_NAME}: CURR PROJECT: ${CMAKE_CURRENT_SOURCE_DIR}")
+message("${PROJECT_NAME}: CURR BIN DIR: ${CMAKE_CURRENT_BINARY_DIR}")
 
 ################# Flags ################
 # Defines Flags for Windows and Linux. #
@@ -83,16 +109,16 @@ endif(NOT MSVC)]]
 #######################################
 
 file(GLOB SRC_FILES
-    ${CPP_DIR_1}/*.cpp
-    ${CPP_DIR_2}/*.cpp
-    ${CPP_DIR_3}/*.cpp
-    ${CPP_DIR_4}/*.cpp
-    ${CPP_DIR_5}/*.cpp
-    ${HEADER_DIR_1}/*.h
-    ${HEADER_DIR_2}/*.h
-    ${HEADER_DIR_3}/*.h
-    ${HEADER_DIR_4}/*.h
-)
+        ${CPP_DIR_1}/*.cpp
+        ${CPP_DIR_2}/*.cpp
+        ${CPP_DIR_3}/*.cpp
+        ${CPP_DIR_4}/*.cpp
+        ${CPP_DIR_5}/*.cpp
+        ${HEADER_DIR_1}/*.h
+        ${HEADER_DIR_2}/*.h
+        ${HEADER_DIR_3}/*.h
+        ${HEADER_DIR_4}/*.h
+        )
 
 
 
@@ -108,9 +134,7 @@ set(EXECUTABLE_OUTPUT_PATH ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY}) #to build execu
 #message(${EXECUTABLE_OUTPUT_PATH})
 
 # Add executable to build.
-add_executable(${PROJECT_NAME} WIN32
-   ${SRC_FILES}
-)
+add_executable(${PROJECT_NAME} WIN32 ${SRC_FILES})
 
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${HEADER_DIR_1}
@@ -140,12 +164,84 @@ if(MSVC)
     target_link_libraries(${PROJECT_NAME} bzip2.lib clipper.lib libcurl_a_x64.lib SDL2.lib SDL2main.lib libgsl.lib libgslcblas.lib lzma.lib png_zlib_win_library.lib pugixml.lib ZipLib.lib zlib.lib nativefiledialog.lib sdl_savepng.lib truncatedgaussian.lib opengl32.lib user32.lib shell32.lib ole32.lib )
     target_link_libraries(${PROJECT_NAME} pugixml clipper nativefiledialog sdl_savepng truncatedgaussian png_zlib_win_library)
 endif(MSVC)
+if(NOT MSVC)
+    # Use the package PkgConfig to detect GTK+ headers/library files
+    FIND_PACKAGE(PkgConfig REQUIRED)
+    PKG_CHECK_MODULES(GTK3 REQUIRED gtk+-3.0)
 
-file(GLOB DLL_FILES
-        ${DLL_DIR}/*.dll
-)
+    # Setup CMake to use GTK+, tell the compiler where to look for headers
+    # and to the linker where to look for libraries
+    INCLUDE_DIRECTORIES(${GTK3_INCLUDE_DIRS})
+    LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
 
-file(REMOVE_RECURSE ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY})
+    # Add other flags to the compiler
+    ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
 
-file(COPY ${DLL_FILES} ${IMAGE_DIR}
+
+    find_package(OpenGL REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${OPENGL_INCLUDE_DIRS})
+
+    find_package(SDL2 REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
+
+
+    find_package(PNG REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${PNG_INCLUDE_DIRS})
+
+    find_package(GSL REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${GSL_INCLUDE_DIRS})
+
+    find_package(CURL REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${CURL_INCLUDE_DIRS})
+
+    set(THREADS_PREFER_PTHREAD_FLAG ON)
+    find_package(Threads REQUIRED)
+
+    find_package(X11 REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${X11_INCLUDE_DIRS})
+
+    #GSLCBLAS or BLAS?
+    #find_package(GSLCBLAS REQUIRED)
+    #target_include_directories(${PROJECT_NAME} PRIVATE ${GSLCBLAS_INCLUDE_DIRS})
+
+    #find_package(stdc++fs REQUIRED)
+    #target_include_directories(${PROJECT_NAME} PRIVATE ${stdc++fs_INCLUDE_DIRS})
+
+
+    target_link_libraries(${PROJECT_NAME} ${GTK3_LIBRARIES} )
+    target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} ${PNG_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} ${GSL_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} ${CURL_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} Threads::Threads)
+    target_link_libraries(${PROJECT_NAME} ${X11_LIBRARIES})
+    #target_link_libraries(${PROJECT_NAME} ${GSLCBLAS_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} stdc++fs)
+
+
+    # Your-external "mylib", add GLOBAL if the imported library is located in directories above the current.
+    add_library( libzip SHARED IMPORTED GLOBAL)
+    # You can define two import-locations: one for debug and one for release.
+    get_filename_component(ABS_LINK_DIR_1 "${LINK_DIR_1}" REALPATH)
+    set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip.so )
+    target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
+
+    target_link_libraries(${PROJECT_NAME} pugixml clipper nativefiledialog sdl_savepng truncatedgaussian)
+
+
+endif(NOT MSVC)
+
+# Clear previous build to prevent remaining (old) files
+# file(REMOVE_RECURSE ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY})
+
+IF (WIN32)
+    file(GLOB DLL_FILES
+            ${DLL_DIR}/*.dll
+            )
+    file(COPY ${DLL_FILES}
+            DESTINATION ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY})
+ENDIF()
+
+file(COPY ${IMAGE_DIR}
         DESTINATION ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY})
