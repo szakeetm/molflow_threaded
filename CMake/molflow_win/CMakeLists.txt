@@ -12,6 +12,12 @@ ELSE()
     set(OS_NAME "linux")
 ENDIF()
 
+IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(MY_BUILD_TYPE "debug")
+ELSE()
+    set(MY_BUILD_TYPE "release")
+ENDIF()
+
 # Output Variables
 set(OUTPUT_DEBUG ../../bin/${OS_NAME}/debug/)
 set(OUTPUT_REL ../../bin/${OS_NAME}/release/)
@@ -35,7 +41,7 @@ IF (WIN32)
     set(HEADER_DIR_6 ../../include/windows_only)
     set(HEADER_DIR_7 ../../include/windows_only/png)
     set(LINK_DIR_1 ../../lib/win)
-    set(LINK_DIR_2 ../../lib/win/release)
+    set(LINK_DIR_2 ../../lib/win/${MY_BUILD_TYPE})
     set(DLL_DIR ../../lib/win/dll)
 ELSE()
     # set stuff for other systems
@@ -160,7 +166,8 @@ if(MSVC)
     # Add Whole Program Optimization and Link Time Code Generation
     set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "/GL")
     set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/LTCG")
-
+    message(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
+    link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
     target_link_libraries(${PROJECT_NAME} bzip2.lib clipper.lib libcurl_a_x64.lib SDL2.lib SDL2main.lib libgsl.lib libgslcblas.lib lzma.lib png_zlib_win_library.lib pugixml.lib ZipLib.lib zlib.lib nativefiledialog.lib sdl_savepng.lib truncatedgaussian.lib opengl32.lib user32.lib shell32.lib ole32.lib )
     target_link_libraries(${PROJECT_NAME} pugixml clipper nativefiledialog sdl_savepng truncatedgaussian png_zlib_win_library)
 endif(MSVC)

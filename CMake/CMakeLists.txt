@@ -1,7 +1,8 @@
-cmake_minimum_required(VERSION 3.12.2)
+cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
 
 project(molflow)
 
+option(USE_CLANG "build application with clang" OFF) # OFF is the default
 
 message("-- CMAKE_SYSTEM_INFO_FILE: ${CMAKE_SYSTEM_INFO_FILE}")
 message("-- CMAKE_SYSTEM_NAME:      ${CMAKE_SYSTEM_NAME}")
@@ -11,13 +12,18 @@ message("-- CMAKE_SYSTEM:           ${CMAKE_SYSTEM}")
 string (REGEX MATCH "\\.el[1-9]" os_version_suffix ${CMAKE_SYSTEM})
 message("-- os_version_suffix:      ${os_version_suffix}")
 
-
+#list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 
 # Define Release by default.
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release")
     message(STATUS "Build type not specified: Use Release by default.")
 endif(NOT CMAKE_BUILD_TYPE)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    MESSAGE("Adding Debug flag...")
+    ADD_DEFINITIONS(-DDEBUG)
+endif()
+message(STATUS "Build type used: " ${CMAKE_BUILD_TYPE})
 
 ################# Flags ################
 # Defines Flags for Windows and Linux. #

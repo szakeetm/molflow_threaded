@@ -1542,7 +1542,7 @@ FileReader* Worker::ExtractFrom7zAndOpen(const std::string & fileName, const std
 #else
 	cmd << "./7za x -t7z -aoa \"" << fileName << "\" -otmp";
 #endif
-	
+
 #ifdef _WIN32
 	cmd << "&&popd\"";
 #endif

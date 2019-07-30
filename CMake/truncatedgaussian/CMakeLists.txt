@@ -61,13 +61,25 @@ file(GLOB SRC_FILES
 # Add library to build.
 add_library(${PROJECT_NAME} STATIC ${SRC_FILES})
 
-target_include_directories(${PROJECT_NAME} PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}/../../include/windows_only"
-        )
+
 
 target_include_directories(${PROJECT_NAME} PRIVATE
         ${HEADER_DIR_1}
         )
+
+if(MSVC)
+    target_include_directories(${PROJECT_NAME} PUBLIC
+            "${CMAKE_CURRENT_SOURCE_DIR}/../../include/windows_only"
+            )
+endif(MSVC)
+if(NOT MSVC)
+
+    find_package(GSL REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${GSL_INCLUDE_DIRS})
+
+    target_link_libraries(${PROJECT_NAME} ${GSL_LIBRARIES})
+
+endif(NOT MSVC)
 
 
 
@@ -77,16 +89,17 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 # Preprocessor definitions
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_compile_definitions(${PROJECT_NAME} PRIVATE
-            )
+    target_compile_definitions(${PROJECT_NAME} PRIVATE)
     if(MSVC)
-        target_compile_options(${PROJECT_NAME} PRIVATE  /W3 /MD /Od /EHsc)
+        target_compile_options(${PROJECT_NAME} PRIVATE  /W3 /MDd /Od /EHsc)
+        #for .pdb debugging files
+        set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Zi")
+        set(CMAKE_SHARED_LINKER_FLAGS_DEBUG "${CMAKE_SHARED_LINKER_FLAGS_DEBUG} /DEBUG:FULL /OPT:REF /OPT:ICF")
     endif()
 endif()
 
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
-    target_compile_definitions(${PROJECT_NAME} PRIVATE
-            )
+    target_compile_definitions(${PROJECT_NAME} PRIVATE)
     if(MSVC)
         target_compile_options(${PROJECT_NAME} PRIVATE  /W3 /GL /Oi /Gy /EHsc)
     endif()
