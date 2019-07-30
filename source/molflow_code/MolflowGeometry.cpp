@@ -46,6 +46,9 @@ extern MolFlow *mApp;
 extern SynRad*mApp;
 #endif
 
+/**
+* \brief Basic constructor that initializes a clean (none) geometry
+*/
 MolflowGeometry::MolflowGeometry() {
 
 	texAutoScaleIncludeConstantFlow = true;
@@ -54,6 +57,10 @@ MolflowGeometry::MolflowGeometry() {
 
 }
 
+/**
+* \brief Calculates the memory size for the whole geometry
+* \return calculated memory usage for the whole geometry
+*/
 size_t MolflowGeometry::GetGeometrySize() {
 
 	Worker  *work = &mApp->worker;
@@ -100,6 +107,11 @@ size_t MolflowGeometry::GetGeometrySize() {
 	return memoryUsage;
 }
 
+/**
+* \brief Builds a shared buffer for the geometry and copies necessary values into it (TODO: check if it unused)
+* \param buffer buffer
+* \param ontheflyParams parameters that can be changed without restarting the simulation
+*/
 void MolflowGeometry::CopyGeometryBuffer(BYTE *buffer, const OntheflySimulationParams& ontheflyParams) {
 
 	// Build shared buffer for geometry (see Shared.h)
@@ -257,6 +269,10 @@ void MolflowGeometry::CopyGeometryBuffer(BYTE *buffer, const OntheflySimulationP
 	}
 }
 
+/**
+* \brief Serializes data of the complete geometry into a cereal binary archive
+* \param outputarchive reference to the binary archive
+*/
 void MolflowGeometry::SerializeForLoader(cereal::BinaryOutputArchive& outputArchive) {
 	outputArchive(
 		CEREAL_NVP(sh),
@@ -272,6 +288,11 @@ void MolflowGeometry::SerializeForLoader(cereal::BinaryOutputArchive& outputArch
 	}
 }
 
+/**
+* \brief Compute number of bytes allocated from the hits size of all facets
+* \param moments vector containing all moments
+* \return calculated size of memory usage from all facet hits in the geometry
+*/
 size_t MolflowGeometry::GetHitsSize(std::vector<double> *moments) {
 
 	// Compute number of bytes allocated
@@ -284,6 +305,10 @@ size_t MolflowGeometry::GetHitsSize(std::vector<double> *moments) {
 	return memoryUsage;
 }
 
+/**
+* \brief Compute the maximal (surface) element number (TODO: check if unused)
+* \return max element number
+*/
 size_t MolflowGeometry::GetMaxElemNumber() {
 
 	size_t nbElem = 0;
@@ -311,8 +336,13 @@ size_t MolflowGeometry::GetMaxElemNumber() {
 
 }*/
 
-// Testing purpose function, construct a PIPE
-
+/**
+* \brief Testing purpose function, construct a PIPE
+* \param L length
+* \param R radius
+* \param s sticking value
+* \param step number of facets used to construct the circular hull
+*/
 void  MolflowGeometry::BuildPipe(double L, double R, double s, int step) {
 	Clear();
 
@@ -394,8 +424,12 @@ void  MolflowGeometry::BuildPipe(double L, double R, double s, int step) {
 
 }
 
-// File handling
-
+/**
+* \brief File handling for inserting a SYN geometry + initialisation
+* \param file name of the input file
+* \param prg GLProgress (TODO: which is never used)
+* \param newStr newStructure if a super structure will be used or not
+*/
 void MolflowGeometry::InsertSYN(FileReader *file, GLProgress *prg, bool newStr) {
 
 	int structId = viewStruct;
@@ -407,6 +441,13 @@ void MolflowGeometry::InsertSYN(FileReader *file, GLProgress *prg, bool newStr) 
 	//AdjustProfile();
 
 }
+
+/**
+* \brief Inserting the SYN geometry
+* \param file name of the input file
+* \param strIdx struct ID
+* \param newStruct if a super structure will be used or not
+*/
 void MolflowGeometry::InsertSYNGeom(FileReader *file, size_t strIdx, bool newStruct) {
 
 	UnselectAll();
@@ -614,6 +655,15 @@ void MolflowGeometry::InsertSYNGeom(FileReader *file, size_t strIdx, bool newStr
 	//return result;
 }
 
+/**
+* \brief For saving profile data (simulation) into GEO format
+* \param file name of the output file
+* \param results results from the simulation
+* \param super TODO: check if truly unused
+* \param saveSelected prevents profile from being saved?
+* \param crashSave prevents profile from being saved?
+* TODO: Function doesn't seem to cancel properly
+*/
 void MolflowGeometry::SaveProfileGEO(FileWriter *file, GlobalSimuState& results, int super, bool saveSelected, bool crashSave) {
 
 	file->Write("profiles {\n");
@@ -655,6 +705,12 @@ void MolflowGeometry::SaveProfileGEO(FileWriter *file, GlobalSimuState& results,
 	SAFE_FREE(profileFacet);
 }
 
+/**
+* \brief For loading profile data (simulation) from GEO format
+* \param file name of the input file
+* \param results results from the simulation
+* \param version version of the GEO description
+*/
 void MolflowGeometry::LoadProfileGEO(FileReader *file, GlobalSimuState& results, int version) {
 
 	LockMutex(results.mutex);
@@ -691,6 +747,13 @@ void MolflowGeometry::LoadProfileGEO(FileReader *file, GlobalSimuState& results,
 	ReleaseMutex(results.mutex);
 }
 
+/**
+* \brief For loading geometry data from GEO format
+* \param file name of the input file
+* \param prg GLProgress window
+* \param version version of the GEO description
+* \param worker thread worker that executes the task
+*/
 void MolflowGeometry::LoadGEO(FileReader *file, GLProgress *prg, int *version, Worker *worker) {
 
 	//mApp->ClearAllSelections();
@@ -982,6 +1045,13 @@ void MolflowGeometry::LoadGEO(FileReader *file, GLProgress *prg, int *version, W
 
 }
 
+/**
+* \brief For loading geometry data from SYN format
+* \param file name of the input file
+* \param prg GLProgress window
+* \param version version of the SYN description
+* \param worker thread worker that executes the task
+*/
 void MolflowGeometry::LoadSYN(FileReader *file, GLProgress *prg, int *version, Worker *worker) {
 
 	//mApp->ClearAllSelections();
@@ -1225,6 +1295,13 @@ void MolflowGeometry::LoadSYN(FileReader *file, GLProgress *prg, int *version, W
 
 }
 
+/**
+* \brief For loading texture data from GEO format
+* \param file name of the input file
+* \param prg GLProgress window
+* \param results simulation results describing the texture
+* \param version version of the GEO description
+*/
 bool MolflowGeometry::LoadTexturesGEO(FileReader *file, GLProgress *prg, GlobalSimuState& results, int version) {
 
 	if (file->SeekFor("{textures}")) {
@@ -1370,6 +1447,15 @@ bool MolflowGeometry::LoadTexturesGEO(FileReader *file, GLProgress *prg, GlobalS
 
 }
 
+/**
+* \brief For saving the geometry data into GEO format
+* \param file name of the output file
+* \param prg GLProgress window
+* \param results simulation results describing the texture
+* \param worker thread worker handling this task
+* \param saveSelected if a selection is to be saved
+* \param crashSave if crash save is enabled
+*/
 void MolflowGeometry::SaveGEO(FileWriter *file, GLProgress *prg, GlobalSimuState& results, Worker *worker,
 	bool saveSelected, bool crashSave) {
 
@@ -1633,6 +1719,12 @@ void MolflowGeometry::SaveGEO(FileWriter *file, GLProgress *prg, GlobalSimuState
 
 }
 
+/**
+* \brief For saving the geometry data into TXT format
+* \param file name of the output file
+* \param results simulation results describing the texture
+* \param saveSelected if a selection is to be saved
+*/
 void MolflowGeometry::SaveTXT(FileWriter *file, GlobalSimuState& results, bool saveSelected) {
 
 	if (!IsLoaded()) throw Error("Nothing to save !");
@@ -1706,6 +1798,15 @@ void MolflowGeometry::SaveTXT(FileWriter *file, GlobalSimuState& results, bool s
 
 }
 
+/**
+* \brief For exporting textures depending on the texture mode
+* \param file name of the output file
+* \param grouping if facets should be grouped for the output
+* \param mode texture mode; which type of data describes it
+* \param results simulation results describing the texture
+* \param saveSelected if a selection is to be saved (TODO: chefk if actually used)
+* \param sMode simulation mode
+*/
 void MolflowGeometry::ExportTextures(FILE *file, int grouping, int mode, GlobalSimuState& results, bool saveSelected, size_t sMode) {
 
 
@@ -1851,6 +1952,13 @@ void MolflowGeometry::ExportTextures(FILE *file, int grouping, int mode, GlobalS
 
 }
 
+/**
+* \brief For exporting profile data (simulation)
+* \param file name of the output file
+* \param isTXT if TXT output will be used
+* \param results simulation results describing the texture
+* \param worker thread worker handling the task
+*/
 void MolflowGeometry::ExportProfiles(FILE *file, int isTXT, GlobalSimuState& results, Worker *worker) {
 
 	char sep = isTXT ? '\t' : ',';
@@ -1993,6 +2101,18 @@ void MolflowGeometry::ImportDesorption_DES(FileReader *file) {
 }
 */
 
+/**
+* \brief For importing desorption data from a SYN file
+* \param file name of the input file
+* \param source what the source to calculate the dose is
+* \param time time to calculate the dose
+* \param mode mode used for outgassing calculation
+* \param eta0 coefficient for outgassing calculation in mode==1
+* \param alpha exponent for outgassing calculation in mode==1
+* \param cutoffdose cutoff dose for outgassing calculation in mode==1
+* \param convDistr distribution for outgassing calculation in mode==2
+* \param prg GLProgress window where visualising of the import progress is shown
+*/
 void MolflowGeometry::ImportDesorption_SYN(
 	FileReader *file, const size_t &source, const double &time,
 	const size_t &mode, const double &eta0, const double &alpha, const double &cutoffdose,
@@ -2205,6 +2325,15 @@ void MolflowGeometry::ImportDesorption_SYN(
 	//UpdateSelection();
 }
 
+/**
+* \brief To analyse desorption data from a SYN file
+* \param file name of the input file
+* \param progressDlg GLProgress dialog (TODO: but is it ever used?)
+* \param nbNewFacet number of facets in the file
+* \param nbTextured number of textured facets in the file
+* \param nbDifferent number that is only set to 0 but never used (TODO: check usage)
+* \param prg GLProgress window where visualising of the analysation progress is shown
+*/
 void MolflowGeometry::AnalyzeSYNfile(FileReader *file, GLProgress *progressDlg, size_t *nbNewFacet,
 	size_t *nbTextured, size_t *nbDifferent, GLProgress *prg) {
 	//init
@@ -2289,6 +2418,13 @@ void MolflowGeometry::AnalyzeSYNfile(FileReader *file, GLProgress *progressDlg, 
 
 }
 
+/**
+* \brief To save geometry data into a XML file
+* \param saveDoc xml output file
+* \param work thread worker handling the task
+* \param prg GLProgress window where visualising of the export progress is shown
+* \param saveSelected saveSelected if a selection is to be saved
+*/
 void MolflowGeometry::SaveXML_geometry(pugi::xml_node saveDoc, Worker *work, GLProgress *prg, bool saveSelected) {
 	//TiXmlDeclaration* decl = new TiXmlDeclaration("1.0")="")="");
 	//saveDoc->LinkEndChild(decl);
@@ -2445,6 +2581,15 @@ void MolflowGeometry::SaveXML_geometry(pugi::xml_node saveDoc, Worker *work, GLP
 	paramNode.append_attribute("nb") = nonCatalogParameters;
 }
 
+/**
+* \brief To save simulation data into a XML file
+* \param saveDoc xml output file
+* \param work thread worker handling the task
+* \param results simulation results
+* \param prg GLProgress window where visualising of the export progress is shown
+* \param saveSelected saveSelected if a selection is to be saved (TODO: check if necessary)
+* \return bool if saving is successfull (always is here)
+*/
 bool MolflowGeometry::SaveXML_simustate(xml_node saveDoc, Worker *work, GlobalSimuState& results, GLProgress *prg, bool saveSelected) {
 	//results is already mutex locked
 	xml_node resultNode = saveDoc.append_child("MolflowResults");
@@ -2609,6 +2754,12 @@ bool MolflowGeometry::SaveXML_simustate(xml_node saveDoc, Worker *work, GlobalSi
 	return true;
 }
 
+/**
+* \brief To load geometry data from a XML file
+* \param loadXML xml input file
+* \param work thread worker handling the task
+* \param progressDlg GLProgress window where visualising of the import progress is shown
+*/
 void MolflowGeometry::LoadXML_geom(pugi::xml_node loadXML, Worker *work, GLProgress *progressDlg) {
 	//mApp->ClearAllSelections();
 	//mApp->ClearAllViews();
@@ -2817,6 +2968,13 @@ void MolflowGeometry::LoadXML_geom(pugi::xml_node loadXML, Worker *work, GLProgr
 	}
 }
 
+/**
+* \brief To load geometry data from a XML file and insert into an existing structure
+* \param loadXML xml input file
+* \param work thread worker handling the task
+* \param progressDlg GLProgress window where visualising of the insert progress is shown
+* \param newStr if a new super structure is to be used
+*/
 void MolflowGeometry::InsertXML(pugi::xml_node loadXML, Worker *work, GLProgress *progressDlg, bool newStr) {
 	//mApp->ClearAllSelections();
 	//mApp->ClearAllViews();
@@ -3011,6 +3169,14 @@ void MolflowGeometry::InsertXML(pugi::xml_node loadXML, Worker *work, GLProgress
 	}
 }
 
+/**
+* \brief To load simulation data from a XML file
+* \param loadXML xml input file
+* \param results current simulation results
+* \param work thread worker handling the task
+* \param progressDlg GLProgress window where visualising of the load progress is shown
+* \return bool showing if loading was successful
+*/
 bool MolflowGeometry::LoadXML_simustate(pugi::xml_node loadXML, GlobalSimuState& results, Worker *work, GLProgress *progressDlg) {
 	if (!loadXML.child("MolflowResults")) return false; //simu state not saved with file
 	LockMutex(results.mutex);

@@ -6,11 +6,17 @@
 #include "Random.h"
 #include "GLApp/MathTools.h"
 
+/**
+* \brief Destructor for the SubProcessSuperStructure class deleting the ay tracing tree (aabbTree)
+*/
 SubProcessSuperStructure::~SubProcessSuperStructure()
 {
 	SAFE_DELETE(aabbTree);
 }
 
+/**
+* \brief Copies various states/parameters from worker to the simulation
+*/
 void Simulation::CopyMyStateFromControl() {
 	prState = PROCESS_READY;
 	prParam = 0;
@@ -33,9 +39,21 @@ void Simulation::CopyMyStateFromControl() {
 	}
 }
 
+/**
+* \brief Getter that returns the process state
+* \return process state
+*/
 size_t Simulation::GetMyState() {
 	return prState;
 }
+
+/**
+* \brief Sets local and master (worker) state (and status)
+* \param state new state
+* \param status new status
+* \param changeState if state should be changed for the worker
+* \param changeStatus if status should be changed for the worker
+*/
 
 void Simulation::SetLocalAndMasterState(size_t state, const std::string& status, bool changeState, bool changeStatus) {
 
@@ -47,12 +65,20 @@ void Simulation::SetLocalAndMasterState(size_t state, const std::string& status,
 	}
 }
 
+/**
+* \brief Sets error state for the simulation with error message
+* \param message error message
+*/
 void Simulation::SetErrorSub(const std::string& message) {
 	
 	SetLocalAndMasterState(PROCESS_ERROR, "Error: " + message + "\n");
 
 }
 
+/**
+* \brief Returns a string that contains various information about the simulation status
+* \return string of status
+*/
 std::string Simulation::GetMyStatusAsText() {
 
 	char ret[1024];
@@ -71,6 +97,9 @@ std::string Simulation::GetMyStatusAsText() {
 
 }
 
+/**
+* \brief Sets simulation state to ready
+*/
 void Simulation::SetReady() {
 
 	if (loadOK)
@@ -80,6 +109,10 @@ void Simulation::SetReady() {
 
 }
 
+/**
+* \brief Sets status from a string at the master worker
+* \param status string containing new status
+*/
 void Simulation::SetStatusStringAtMaster(const std::string& status ) {
 
 	if (LockMutex(worker->workerControl.mutex)) {
@@ -89,6 +122,9 @@ void Simulation::SetStatusStringAtMaster(const std::string& status ) {
 
 }
 
+/**
+* \brief Resizes the temporary particle log (log since last update)
+*/
 void Simulation::ResizeTmpLog() {
 	LockMutex(worker->logMutex);
 	myLogTarget = std::max((myOtfp.enableLogging ? myOtfp.logLimit : 0) - worker->log.size(),(size_t)0) / myOtfp.nbProcess;
@@ -96,13 +132,19 @@ void Simulation::ResizeTmpLog() {
 	tmpParticleLog.clear();tmpParticleLog.shrink_to_fit(); tmpParticleLog.reserve(myLogTarget);
 }
 
+/**
+* \brief Constructs facet temp vars for the intersect routine (ray tracing)
+*/
 void Simulation::ConstructFacetTmpVars() {
 	std::vector<SubProcessFacetTempVar>(worker->GetGeometry()->GetNbFacet()).swap(myTmpFacetVars);
 }
 
-
-int Simulation::mainLoop(int index)
-{
+/**
+* \brief Main loop of the simulation, listens to various state changes
+* \param index process index
+* \return status if successful
+*/
+int Simulation::mainLoop(int index) {
 	bool eos = false;
 	prIdx = index;
 
@@ -210,6 +252,9 @@ int Simulation::mainLoop(int index)
 	return 0;
 }
 
+/**
+* \brief Puts various variables to default state to 'clear' the simulation
+*/
 void Simulation::ClearSimulation() {
 	//Put everything to default state
 	//Even better would be to end thread and launch again
@@ -222,7 +267,10 @@ void Simulation::ClearSimulation() {
 }
 
 
-
+/**
+* \brief Function to register a transparent pass (counter facets that logs passing particles)
+* \param f subprocess facet
+*/
 void Simulation::RegisterTransparentPass(SubprocessFacet* f)
 {
 	double directionFactor = std::abs(Dot(currentParticle.direction, f->facetRef->sh.N));
@@ -242,6 +290,10 @@ void Simulation::RegisterTransparentPass(SubprocessFacet* f)
 	if (f->facetRef->sh.anglemapParams.record) RecordAngleMap(f);
 }
 
+/**
+* \brief Function that clears the previous simulation and loads parameters and memory structure
+* \return true if loading was successful
+*/
 bool Simulation::LoadSimulation() {
 	loadOK = false;
 	SetLocalAndMasterState(PROCESS_STARTING, "Clearing previous simulation");
@@ -256,6 +308,9 @@ bool Simulation::LoadSimulation() {
 	return loadOK = true;
 }
 
+/**
+* \brief Copies state and parameters from master (worker) into local thread
+*/
 void Simulation::CopyStateFromMaster() {
 	prState = PROCESS_READY;
 	prParam = 0;
@@ -277,11 +332,19 @@ void Simulation::CopyStateFromMaster() {
 	}
 }
 
+/**
+* \brief Starts the simulation by launching a particle from source
+* \return true if particle hit a facet
+*/
 bool Simulation::StartSimulation() {
 	StartFromSource();
 	return currentParticle.lastHitFacet != NULL;
 }
 
+/**
+* \brief Starts a MC simulation step with time measurement
+* \return true if particle will not be used anymore in the system (leak, desorption limit etc.)
+*/
 bool Simulation::SimulationRun() {
 	int nbStep = 1;
 	bool goOn;

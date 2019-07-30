@@ -47,6 +47,9 @@ extern SynRad*mApp;
 
 std::string fileFilters = "txt";
 
+/**
+* \brief Constructor with initialisation for Texture plotter window (Tools/Texture Plotter)
+*/
 TexturePlotter::TexturePlotter() :GLWindow() {
 
 	int wD = 500;
@@ -116,6 +119,9 @@ TexturePlotter::TexturePlotter() :GLWindow() {
 
 }
 
+/**
+* \brief Places all components (buttons, text etc.) at the right position inside the window
+*/
 void TexturePlotter::PlaceComponents() {
 
 	mapList->SetBounds(5, 5, width - 15, height - 80);
@@ -129,6 +135,13 @@ void TexturePlotter::PlaceComponents() {
 
 }
 
+/**
+* \brief Sets positions and sizes of the window
+* \param x x-coordinate of the element
+* \param y y-coordinate of the element
+* \param w width of the element
+* \param h height of the element
+*/
 void TexturePlotter::SetBounds(int x, int y, int w, int h) {
 
 	GLWindow::SetBounds(x, y, w, h);
@@ -136,6 +149,10 @@ void TexturePlotter::SetBounds(int x, int y, int w, int h) {
 
 }
 
+
+/**
+* \brief Sets selected facet ID in the title of the window
+*/
 void TexturePlotter::GetSelected() {
 
 	if (!worker) return;
@@ -161,6 +178,11 @@ void TexturePlotter::GetSelected() {
 
 }
 
+/**
+* \brief Updates table values if necessary
+* \param appTime curent time of the application
+* \param force if update should be forced
+*/
 void TexturePlotter::Update(float appTime, bool force) {
 
 	if (!IsVisible()) return;
@@ -178,6 +200,11 @@ void TexturePlotter::Update(float appTime, bool force) {
 
 }
 
+/**
+* \brief Update table values for selected facets (only shows facet with lowest ID) corresponding to the texture values
+* \param appTime curent time of the application
+* \param force if update should be forced
+*/
 void TexturePlotter::UpdateTable() {
 	size_t nbMoments = mApp->worker.moments.size();
 	size_t facetHitsSize = (1 + nbMoments) * sizeof(FacetHitBuffer);
@@ -511,6 +538,10 @@ void TexturePlotter::UpdateTable() {
 	if (autoSizeOnUpdate->GetState()) mapList->AutoSizeColumn();
 }
 
+/**
+* \brief Displays the window
+* \param w Worker handle
+*/
 void TexturePlotter::Display(Worker *w) {
 
 	worker = w;
@@ -519,12 +550,18 @@ void TexturePlotter::Display(Worker *w) {
 
 }
 
+/**
+* \brief Closes the window
+*/
 void TexturePlotter::Close() {
 	worker = NULL;
 	if (selFacet) selFacet->UnselectElem();
 	mapList->Clear();
 }
 
+/**
+* \brief Saves table values to a file
+*/
 void TexturePlotter::SaveFile() {
 
 	if (!selFacet) return;
@@ -566,6 +603,11 @@ void TexturePlotter::SaveFile() {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void TexturePlotter::ProcessMessage(GLComponent *src, int message) {
 
 	switch (message) {

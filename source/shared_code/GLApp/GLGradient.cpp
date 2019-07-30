@@ -22,6 +22,17 @@ unsigned long rainbowCol[] = { 0x000000,   //Black
 						  0x800090,   //Purple 1
 						  0xF00080 };  //Purple 2
 
+//diverging colormap from Moreland
+/*unsigned long divergingcol[] = { 0xb2182b,   //black
+							0xd6604d,   //red
+							0xf4a582,   //orange
+						  0xfddbc7,   //yellow
+						  0xf7f7f7,   //green
+						0xd1e5f0,   //light blue
+						0x92c5de,   //dark blue
+						  0x4393c3,   //purple 1
+						  0x2166ac };  //purple 2*/
+
 std::vector<int> colorMap = GLGradient::GenerateColorMap(); //Global variable
 
 GLGradient::GLGradient(int compId) :GLComponent(compId) {

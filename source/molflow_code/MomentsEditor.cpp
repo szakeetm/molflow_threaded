@@ -37,6 +37,10 @@ static const char *flName[] = { "#","Time (s)","Nb" };
 static const int   flAligns[] = { ALIGN_CENTER,ALIGN_LEFT,ALIGN_CENTER };
 static const int   fEdits[] = { 0,EDIT_STRING,0 };
 
+/**
+* \brief Constructor for initial creation of the window
+* \param w vector GUI worker in charge for this window
+*/
 MomentsEditor::MomentsEditor(Worker *w) :GLWindow() {
 
 	int wD = 220;
@@ -138,6 +142,11 @@ MomentsEditor::MomentsEditor(Worker *w) :GLWindow() {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void MomentsEditor::ProcessMessage(GLComponent *src, int message) {
 	switch (message) {
 	case MSG_BUTTON:
@@ -214,6 +223,9 @@ void MomentsEditor::ProcessMessage(GLComponent *src, int message) {
 	GLWindow::ProcessMessage(src, message);
 }
 
+/**
+* \brief Rebuilds the moment list
+*/
 void MomentsEditor::RebuildList() {
 
 	momentsList->SetSize(3, userMoments.size() + 1);
@@ -250,6 +262,11 @@ void MomentsEditor::Refresh() {
 	RebuildList();
 }
 
+/**
+* \brief Adds a time series to moments and returns the number of elements
+* \param newMoments vector of new moments that should be inserted
+* \return amount of new moments
+*/
 int MomentsEditor::AddMoment(std::vector<double> newMoments) {
 	int nb = (int)newMoments.size();
 	for (int i = 0; i < nb; i++)
@@ -257,6 +274,11 @@ int MomentsEditor::AddMoment(std::vector<double> newMoments) {
 	return nb;
 }
 
+/**
+* \brief Parses a user input and returns a vector of time moments
+* \param userInput string of the form "%lf,%lf,%lf" for beginning, interval step, ending of the moment series
+* \return message Type of the source (button)
+*/
 std::vector<double> MomentsEditor::ParseMoment(std::string userInput) {
 	std::vector<double> parsedResult;
 	double begin, interval, end;
@@ -275,6 +297,9 @@ std::vector<double> MomentsEditor::ParseMoment(std::string userInput) {
 	return parsedResult;
 }
 
+/**
+* \brief Pasting into the moments table from clipboard
+*/
 void MomentsEditor::PasteClipboard() {
 
 	momentsList->PasteClipboardText(true, false);

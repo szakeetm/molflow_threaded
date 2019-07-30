@@ -43,7 +43,13 @@ extern SynRad*mApp;
 #endif
 
 
-
+/**
+* \brief Processes events like button clicks for the advanced facet parameters panel.
+* \param results contains all simulation results/states (like hits)
+* \param renderRegularTexture bool value
+* \param renderDirectionTexture bool value
+* \param sMode which simulation mode was used (monte carlo / angular coefficient)
+*/
 void MolflowGeometry::BuildFacetTextures(GlobalSimuState& results, bool renderRegularTexture, bool renderDirectionTexture,size_t sMode) {
 	//results should already be mutex locked
 

@@ -59,6 +59,9 @@ const char* profType[] = {
 	"Tan. velocity [m/s]"
 };
 
+/**
+* \brief Constructor with initialisation for Profile plotter window (Tools/Profile Plotter)
+*/
 ProfilePlotter::ProfilePlotter() :GLWindow() {
 
 	int wD = 650;
@@ -145,6 +148,13 @@ ProfilePlotter::ProfilePlotter() :GLWindow() {
 
 }
 
+/**
+* \brief Sets positions and sizes of all UI elements
+* \param x x-coordinate of the element
+* \param y y-coordinate of the element
+* \param w width of the element
+* \param h height of the element
+*/
 void ProfilePlotter::SetBounds(int x, int y, int w, int h) {
 	
 	chart->SetBounds(7, 5, w - 15, h - 110);
@@ -166,6 +176,9 @@ void ProfilePlotter::SetBounds(int x, int y, int w, int h) {
 
 }
 
+/**
+* \brief Refreshes all window components (combo, chart, values)
+*/
 void ProfilePlotter::Refresh() {
 
 	if (!worker) return;
@@ -203,6 +216,11 @@ void ProfilePlotter::Refresh() {
 
 }
 
+
+/**
+* \brief Displays window with refreshed values
+* \param w worker handle
+*/
 void ProfilePlotter::Display(Worker *w) {
 
 	
@@ -212,6 +230,11 @@ void ProfilePlotter::Display(Worker *w) {
 
 }
 
+/**
+* \brief Refreshes the view if needed
+* \param appTime current time of the applicaiton
+* \param force if view should be refreshed no matter what
+*/
 void ProfilePlotter::Update(float appTime, bool force) {
 
 	if (!IsVisible() || IsIconic()) return;
@@ -229,6 +252,9 @@ void ProfilePlotter::Update(float appTime, bool force) {
 
 }
 
+/**
+* \brief Creates a plot from the expression given in the textbox of the form f(x)=EXPRESSION (e.g. 2*x+50)
+*/
 void ProfilePlotter::plot() {
 
 	GLParser *parser = new GLParser();
@@ -302,6 +328,9 @@ void ProfilePlotter::plot() {
 
 }
 
+/**
+* \brief Refreshes view by updating the data for the plot
+*/
 void ProfilePlotter::refreshViews() {
 
 	// Lock during update
@@ -337,7 +366,7 @@ void ProfilePlotter::refreshViews() {
 					break;
 
 				case 1: //Pressure
-					scaleY = 1.0 / (f->GetArea() / (double)PROFILE_SIZE*1E-4)* worker->wp.gasMass / 1000 / 6E23 * 0.0100; //0.01: Pa->mbar
+					scaleY = 1.0 / (f->GetArea() * 1E-4 / (double)PROFILE_SIZE)* worker->wp.gasMass / 1000 / 6E23 * 0.0100; //0.01: Pa->mbar
 					scaleY *= worker->GetMoleculesPerTP(worker->displayedMoment);
 
 					for (int j = 0; j < PROFILE_SIZE; j++)
@@ -407,6 +436,10 @@ void ProfilePlotter::refreshViews() {
 	worker->ReleaseHits();
 }
 
+/**
+* \brief Adds view/plot for a specific facet
+* \param facet specific facet ID
+*/
 void ProfilePlotter::addView(int facet) {
 
 	char tmp[128];
@@ -443,6 +476,10 @@ void ProfilePlotter::addView(int facet) {
 
 }
 
+/**
+* \brief Removes view/plot for a specific facet
+* \param facet specific facet ID
+*/
 void ProfilePlotter::remView(int facet) {
 
 	Geometry *geom = worker->GetGeometry();
@@ -464,6 +501,9 @@ void ProfilePlotter::remView(int facet) {
 
 }
 
+/**
+* \brief Resets the whole chart
+*/
 void ProfilePlotter::Reset() {
 
 	chart->GetY1Axis()->ClearDataView();
@@ -472,6 +512,11 @@ void ProfilePlotter::Reset() {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void ProfilePlotter::ProcessMessage(GLComponent *src, int message) {
 	Geometry *geom = worker->GetGeometry();
 
@@ -544,6 +589,10 @@ void ProfilePlotter::ProcessMessage(GLComponent *src, int message) {
 
 }
 
+/**
+* \brief Adds views to the plotter if loaded form a file (XML)
+* \param views vector containing the ids of the views
+*/
 void ProfilePlotter::SetViews(std::vector<int> views) {
 	Reset();
 	for (int view : views)
@@ -552,6 +601,10 @@ void ProfilePlotter::SetViews(std::vector<int> views) {
 	//Refresh(); //Commented out: at this point, simulation results are not yet loaded
 }
 
+/**
+* \brief Create and return a vector of view IDs
+* \return vector containing the IDs of the views
+*/
 std::vector<int> ProfilePlotter::GetViews() {
 	std::vector<int>v;
 	v.reserve(nbView);
@@ -560,16 +613,27 @@ std::vector<int> ProfilePlotter::GetViews() {
 	return v;
 }
 
-
-
+/**
+* \brief Returns bool for active/inactive logarithmic scaling
+* \return bool that expresses if Y axis is logarithmically scaled
+*/
 bool ProfilePlotter::IsLogScaled() {
 	return chart->GetY1Axis()->GetScale();
 }
+
+/**
+* \brief Sets type of scale (logarithmic or not)
+* \param bool that expresses if Y axis should be logarithmically scaled or not
+*/
 void ProfilePlotter::SetLogScaled(bool logScale){
 	chart->GetY1Axis()->SetScale(logScale);
 	logYToggle->SetState(logScale);
 }
 
+/**
+* \brief Sets worker handle for loading views before the full geometry
+* \param w worker handle
+*/
 void ProfilePlotter::SetWorker(Worker *w) { //for loading views before the full geometry
 
 	worker = w;

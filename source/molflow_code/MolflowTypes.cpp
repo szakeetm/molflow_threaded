@@ -19,6 +19,11 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 */
 #include "MolflowTypes.h"
 
+/**
+* \brief Overloaded += operator summing up all parts of a ProfileSlice: this += rhs
+* \param rhs reference to a ProfileSlice right hand side
+* \return reference of the lhs ProfileSlice
+*/
 ProfileSlice& ProfileSlice::operator+=(const ProfileSlice& rhs)
 {
 	this->countEquiv += rhs.countEquiv;
@@ -26,12 +31,23 @@ ProfileSlice& ProfileSlice::operator+=(const ProfileSlice& rhs)
 	this->sum_1_per_ort_velocity += rhs.sum_1_per_ort_velocity;
 	return *this;
 }
+
+/**
+* \brief Overloaded + operator summing up all parts of a ProfileSlice: lhs + rhs
+* \param rhs reference to a ProfileSlice right hand side
+* \return reference of the lhs ProfileSlice
+*/
 ProfileSlice& ProfileSlice::operator+(const ProfileSlice& rhs)
 {
 	*this += rhs;
 	return *this;
 }
 
+/**
+* \brief Overloaded += operator summing up all parts of a TextureCell: this += rhs
+* \param rhs reference to a TextureCell right hand side
+* \return reference of the lhs TextureCell
+*/
 TextureCell& TextureCell::operator+=(const TextureCell& rhs)
 {
 	this->countEquiv += rhs.countEquiv;
@@ -40,6 +56,11 @@ TextureCell& TextureCell::operator+=(const TextureCell& rhs)
 	return *this;
 }
 
+/**
+* \brief Overloaded + operator summing up all parts of a TextureCell: lhs + rhs
+* \param rhs reference to a TextureCell right hand side
+* \return reference of the lhs TextureCell
+*/
 TextureCell& TextureCell::operator+(const TextureCell& rhs)
 {
 	*this += rhs;

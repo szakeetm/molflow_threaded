@@ -1,5 +1,9 @@
 #include "Simulation.h"
 
+/**
+* \brief Initialises local facet on load
+* \param nbStruct size of subprocess structures
+*/
 void SubprocessFacet::InitializeOnLoad(size_t nbStruct) {
 
 	InitializeLinkAndVolatile(nbStruct);
@@ -60,9 +64,11 @@ bool SubprocessFacet::InitializeProfile()
 }
 
 */
-
-bool SubprocessFacet::InitializeTexture()
-{
+/**
+* \brief Initialise Texture of local facet
+* \return true if texturing complete
+*/
+bool SubprocessFacet::InitializeTexture() {
 	//Textures
 	if (facetRef->sh.isTextured) {
 		size_t nbE = facetRef->sh.texWidth*facetRef->sh.texHeight;
@@ -90,8 +96,10 @@ bool SubprocessFacet::InitializeTexture()
 	return true;
 }
 
-void SubprocessFacet::InitializeAngleMap()
-{
+/**
+* \brief Initialise angle map of local facet if desorption type is DES_ANGLEMAP
+*/
+void SubprocessFacet::InitializeAngleMap() {
 	if (facetRef->sh.desorbType == DES_ANGLEMAP) { //Generate mode
 		if (facetRef->angleMapCache.empty()) throw Error(("Facet " + std::to_string(globalId + 1) + ": should generate by angle map but has none recorded.").c_str());
 		else generatingAngleMap.pdf = facetRef->angleMapCache; //Copy from interface cache, and now construct generator CDFs
@@ -164,8 +172,10 @@ void SubprocessFacet::InitializeAngleMap()
 	}
 }
 
-void SubprocessFacet::InitializeOutgassingMap()
-{
+/**
+* \brief Initialise and precalc actual outgassing map width and height for faster generation
+*/
+void SubprocessFacet::InitializeOutgassingMap() {
 	if (facetRef->sh.useOutgassingFile) {
 		//Precalc actual outgassing map width and height for faster generation:
 		outgassingMapWidthD = facetRef->sh.U.Norme() * facetRef->sh.outgassingFileRatio;
@@ -178,8 +188,11 @@ void SubprocessFacet::InitializeOutgassingMap()
 	}
 }
 
-void SubprocessFacet::InitializeLinkAndVolatile(size_t nbStruct)
-{
+/**
+* \brief Initialise Link or volatile facet, overides facet settings
+* \param nbStruct subprocess structure size
+*/
+void SubprocessFacet::InitializeLinkAndVolatile(size_t nbStruct) {
 	if (facetRef->sh.superDest) {
 		// Link or volatile facet, overides facet settings
 		// Must be full opaque and 0 sticking

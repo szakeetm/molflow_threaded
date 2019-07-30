@@ -43,6 +43,10 @@ extern MolFlow *mApp;
   static const int   flAligns[] = { ALIGN_LEFT,ALIGN_LEFT };
   static const int   fEdits[] = { EDIT_STRING,EDIT_STRING };
 
+/**
+* \brief Constructor with initialisation for Parameter editor window (Time/Edit parameters)
+* \param w worker handle
+*/
 ParameterEditor::ParameterEditor(Worker *w):GLWindow() {
 
   int wD = 700;
@@ -179,6 +183,9 @@ ParameterEditor::ParameterEditor(Worker *w):GLWindow() {
   
 }
 
+/**
+* \brief Refreshes parameter window
+*/
 void ParameterEditor::Refresh()
 {
 	UpdateCombo();
@@ -190,6 +197,11 @@ void ParameterEditor::Refresh()
 	}
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void ParameterEditor::ProcessMessage(GLComponent *src,int message) {
   switch(message) {
     case MSG_BUTTON:
@@ -309,6 +321,9 @@ void ParameterEditor::PrepareForNewParam() {
 	nameField->SetText("Param"+std::to_string(work->parameters.size()+1));
 }
 
+/**
+* \brief Updates selector field for defined parameter lists in editor
+*/
 void ParameterEditor::UpdateCombo() {
 	selectorCombo->SetSize((int)work->parameters.size()+1);
 	selectorCombo->SetValueAt(0, "New...");
@@ -322,6 +337,9 @@ void ParameterEditor::UpdateCombo() {
 	if (selectorCombo->GetSelectedIndex()==0) PrepareForNewParam(); //If "New..." selected
 }
 
+/**
+* \brief Pastes values from clipboard into the table
+*/
 void ParameterEditor::PasteFromClipboard() {
 	list->PasteClipboardText(true,false,0); //Paste clipboard text, allow adding more rows, have one extra line in the end
 	//Fill uservalues vector with pasted text
@@ -335,6 +353,9 @@ void ParameterEditor::PasteFromClipboard() {
 	RebuildList();
 }
 
+/**
+* \brief Loads data from a CSV file into the table
+*/
 void ParameterEditor::LoadCSV() {
 
 	std::string fn = NFD_OpenFile_Cpp("csv", "");
@@ -376,10 +397,16 @@ void ParameterEditor::LoadCSV() {
 	RebuildList();
 }
 
+/**
+* \brief Copies values from the table into the clipboard
+*/
 void ParameterEditor::CopyToClipboard() {
 	list->CopyAllToClipboard();
 }
 
+/**
+* \brief Creates plot from parameter values
+*/
 void ParameterEditor::Plot() {
 	dataView->Reset();
 	for (size_t i = 0; i < tempParam.GetSize(); i++) {
@@ -388,6 +415,11 @@ void ParameterEditor::Plot() {
 	dataView->CommitChange();
 }
 
+/**
+* \brief Rebuilds list of parameter values
+* \param autoSize if number of columns/rows should be set automatically
+* \param refillValues if table values should be refilled with existing userValues
+*/
 void ParameterEditor::RebuildList(bool autoSize, bool refillValues) {
 
 	if (autoSize) list->SetSize(2, userValues.size()+1);
@@ -409,6 +441,10 @@ void ParameterEditor::RebuildList(bool autoSize, bool refillValues) {
 	}
 }
 
+/**
+* \brief Checks for valid input for the parameter list name and table input
+* \return bool for wether the input was valid or not
+*/
 bool ParameterEditor::ValidateInput() {
 	//Validate name
 	std::string tempName = nameField->GetText();
@@ -482,6 +518,9 @@ bool ParameterEditor::ValidateInput() {
 	return true;
 }
 
+/**
+* \brief Updates vector of user values
+*/
 void ParameterEditor::UpdateUserValues() {
 	userValues = std::vector<std::pair<std::string, std::string>>();
 	//nameField->SetText("");

@@ -45,6 +45,11 @@ extern MolFlow *mApp;
 extern SynRad*mApp;
 #endif
 
+/**
+* \brief Constructor with initialisation for the AddVertex window (Vertex/Add new)
+* \param g pointer to the Geometry
+* \param w Worker handle
+*/
 AddVertex::AddVertex(Geometry *g,Worker *w):GLWindow() {
 
   int wD = 335;
@@ -110,6 +115,11 @@ AddVertex::AddVertex(Geometry *g,Worker *w):GLWindow() {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void AddVertex::ProcessMessage(GLComponent *src,int message) {
 
   double X,Y,Z;
