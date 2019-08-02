@@ -32,7 +32,7 @@ set(HEADER_DIR_2 ../../source/shared_code)
 set(HEADER_DIR_3 ../../source/shared_code/GLApp)
 set(HEADER_DIR_4 ../../source/shared_code/GLApp/GLChart)
 set(HEADER_DIR_5 ../../include/)
-set(IMAGE_DIR ../../images)
+set(COPY_DIR ../../copy_to_build/)
 
 IF (WIN32)
     # set stuff for windows
@@ -40,16 +40,24 @@ IF (WIN32)
     set(CPP_DIR_5 ../../source/shared_code/windows_only)
     set(HEADER_DIR_6 ../../include/windows_only)
     set(HEADER_DIR_7 ../../include/windows_only/png)
-    set(LINK_DIR_1 ../../lib/win)
-    set(LINK_DIR_2 ../../lib/win/${MY_BUILD_TYPE})
-    set(DLL_DIR ../../lib/win/dll)
+    set(LINK_DIR_1 ../../lib/win/${MY_BUILD_TYPE})
+    set(LINK_DIR_2 ../../lib_external/win)
+    set(LINK_DIR_3 ../../lib_external/win/${MY_BUILD_TYPE})
+    set(DLL_DIR ../../lib_external/win/dll)
 ELSE()
     # set stuff for other systems
 
     set(CPP_DIR_5 "")
     set(HEADER_DIR_6 "")
     set(HEADER_DIR_7 "")
-    set(LINK_DIR_1 ../../lib/linux_debian)
+    set(HEADER_DIR_8 "")
+
+    # link to fedora libraries if EL Linux (Red Hat Enterprise Linux) has been detected
+    IF(os_version_suffix STREQUAL ".el7")
+        set(LINK_DIR_1 ../../lib_external/linux_fedora)
+    ELSE()
+        set(LINK_DIR_1 ../../lib_external/linux_debian)
+    ENDIF()
 ENDIF()
 
 
@@ -110,6 +118,16 @@ if(NOT MSVC)
    endif()
 endif(NOT MSVC)]]
 
+if(MSVC)
+
+endif(MSVC)
+if(NOT MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    endif()
+endif(NOT MSVC)
+
 ################ Files ################
 #   --   Add files to project.   --   #
 #######################################
@@ -131,6 +149,7 @@ file(GLOB SRC_FILES
 # set the path to the library folder
 link_directories(${LINK_DIR_1}
         ${LINK_DIR_2}
+        ${LINK_DIR_3}
         )
 
 #find_library(PROTOBUF_LIBRARY bzip2 HINTS ${LINK_DIR_2})
@@ -150,6 +169,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
         ${HEADER_DIR_5}
         ${HEADER_DIR_6}
         ${HEADER_DIR_7}
+        ${HEADER_DIR_8}
         )
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
@@ -166,6 +186,9 @@ if(MSVC)
     # Add Whole Program Optimization and Link Time Code Generation
     set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_FLAGS "/GL")
     set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/LTCG")
+
+    # Add Windows Console output
+    set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:CONSOLE ${LINK_FLAGS}")
     message(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
     link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
     target_link_libraries(${PROJECT_NAME} bzip2.lib clipper.lib libcurl_a_x64.lib SDL2.lib SDL2main.lib libgsl.lib libgslcblas.lib lzma.lib png_zlib_win_library.lib pugixml.lib ZipLib.lib zlib.lib nativefiledialog.lib sdl_savepng.lib truncatedgaussian.lib opengl32.lib user32.lib shell32.lib ole32.lib )
@@ -190,7 +213,6 @@ if(NOT MSVC)
 
     find_package(SDL2 REQUIRED)
     target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
-
 
     find_package(PNG REQUIRED)
     target_include_directories(${PROJECT_NAME} PRIVATE ${PNG_INCLUDE_DIRS})
@@ -224,15 +246,33 @@ if(NOT MSVC)
     target_link_libraries(${PROJECT_NAME} Threads::Threads)
     target_link_libraries(${PROJECT_NAME} ${X11_LIBRARIES})
     #target_link_libraries(${PROJECT_NAME} ${GSLCBLAS_LIBRARIES})
-    target_link_libraries(${PROJECT_NAME} stdc++fs)
-
 
     # Your-external "mylib", add GLOBAL if the imported library is located in directories above the current.
-    add_library( libzip SHARED IMPORTED GLOBAL)
+    add_library( libzip STATIC IMPORTED GLOBAL)
     # You can define two import-locations: one for debug and one for release.
     get_filename_component(ABS_LINK_DIR_1 "${LINK_DIR_1}" REALPATH)
-    set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip.so )
-    target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
+
+    # other static libraries need to be built with similar settings for clang (here: libc++)
+    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+
+        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip.a )
+        target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
+
+    else()
+
+        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip.a )
+        target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
+
+    endif()
+
+    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+        target_link_libraries(${PROJECT_NAME} c++fs)
+    else()
+        target_link_libraries(${PROJECT_NAME} stdc++fs)
+    endif()
+
+
+
 
     target_link_libraries(${PROJECT_NAME} pugixml clipper nativefiledialog sdl_savepng truncatedgaussian)
 
@@ -250,5 +290,5 @@ IF (WIN32)
             DESTINATION ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY})
 ENDIF()
 
-file(COPY ${IMAGE_DIR}
+file(COPY ${COPY_DIR}
         DESTINATION ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY})

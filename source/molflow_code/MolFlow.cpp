@@ -74,6 +74,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include "ParticleLogger.h"
 #include "HistogramSettings.h"
 #include "HistogramPlotter.h"
+#include "MolflowCLI.h"
 
 
 
@@ -176,6 +177,10 @@ MolFlow *mApp;
 //INT WINAPI WinMain(HINSTANCE hInst, HINSTANCE, LPSTR, INT) //Can be replaced with main() if including SDL2Main.lib
 int main(int argc, char* argv[])
 {
+
+    MolflowCLI *cli = new MolflowCLI();
+    //cli->RunMolflow();
+    delete cli;
 
 	MolFlow *mApp = new MolFlow();
 

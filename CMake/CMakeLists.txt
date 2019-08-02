@@ -50,6 +50,15 @@ if(NOT MSVC)
     endif()
 endif(NOT MSVC)
 
+option(USE_PROFILING "disable optimisation for profiling the application" OFF) # OFF is the default
+if(USE_PROFILING)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
+endif(USE_PROFILING)
+
+
+
+
 add_subdirectory(molflow_win)
 add_subdirectory(compress)
 add_subdirectory(pugixml)

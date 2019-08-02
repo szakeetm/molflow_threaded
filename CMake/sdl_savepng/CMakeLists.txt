@@ -15,8 +15,6 @@ ENDIF()
 # Output Variables
 set(OUTPUT_DEBUG ../../lib/${OS_NAME}/debug/)
 set(OUTPUT_REL ../../lib/${OS_NAME}/release/)
-get_filename_component(ABS_OUT_DIR "${OUTPUT_DEBUG}" REALPATH)
-
 
 # Folders files
 set(CPP_DIR_1 ../../source/shared_code/SDL_SavePNG)

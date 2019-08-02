@@ -105,7 +105,11 @@ if(MSVC)
 
 endif(MSVC)
 if(NOT MSVC)
-    target_link_libraries(${PROJECT_NAME} stdc++fs)
+    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+        target_link_libraries(${PROJECT_NAME} c++fs)
+    else()
+        target_link_libraries(${PROJECT_NAME} stdc++fs)
+    endif()
 endif(NOT MSVC)
 
 # Preprocessor definitions

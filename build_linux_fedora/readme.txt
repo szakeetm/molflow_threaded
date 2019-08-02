@@ -10,6 +10,15 @@ To build it:
 
 (Scripts below call $GCC8DIR/bin/g++ for compiling and $GCC8DIR/lib64/libstdc++fs.a for linking)
 
+or try
+
+yum install centos-release-scl
+yum install devtoolset-8-gcc devtoolset-8-gcc-c++
+scl enable devtoolset-8 -- bash
+
+and add this to ~/.bashrc
+source scl_source enable devtoolset-8
+
 To compile (cpp -> o) run ./compile_linux_fedora.sh (will write files in intermediary/linux_fedora)
 To link (o -> binary) run ./link_linux_fedora.sh (will write files in bin/linux_fedora)
 To clean o files: ./clean_linux_fedora.sh
