@@ -45,6 +45,7 @@ GNU General Public License for more details.
 #include "ZipUtils/zip.h"
 #include "ZipUtils/unzip.h"
 #include "File.h" //File utils (Get extension, etc)
+#include "SuperFacet.h"
 
 /*
 //Leak detection

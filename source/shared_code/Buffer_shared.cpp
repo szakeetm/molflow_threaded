@@ -3,6 +3,7 @@
 #include "Worker.h"
 #include "MolflowGeometry.h"
 #include "Facet_shared.h"
+#include "SuperFacet.h"
 
 /**
 * \brief Assign operator

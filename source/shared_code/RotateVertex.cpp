@@ -42,6 +42,8 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
 #ifdef MOLFLOW
 #include "MolFlow.h"
+#include "SuperFacet.h"
+
 #endif
 
 #ifdef SYNRAD

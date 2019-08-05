@@ -43,6 +43,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #endif
 
 #include "ASELoader.h"
+#include "SuperFacet.h"
 //#include <algorithm>
 #include <list>
 

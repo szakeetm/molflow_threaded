@@ -32,6 +32,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include <math.h>
 #include "GLApp/GLToolkit.h"
 #include "GLApp/MathTools.h"
+#include "SuperFacet.h"
 #include <sstream>
 
 using namespace pugi;
@@ -663,27 +664,6 @@ void Facet::RenderSelectedElem() {
 }
 
 /**
-* \brief Fill vertex array
-* \param v Array of vertices
-*/
-void Facet::FillVertexArray(InterfaceVertex *v) {
-
-	int nb = 0;
-	for (size_t i = 0;i < sh.texHeight*sh.texWidth;i++) {
-		if (cellPropertiesIds[i] != -2) {
-			for (size_t j = 0; j < GetMeshNbPoint(i); j++) {
-				Vector2d p = GetMeshPoint(i, j);
-				v[nb].x = sh.O.x + sh.U.x*p.u + sh.V.x*p.v;
-				v[nb].y = sh.O.y + sh.U.y*p.u + sh.V.y*p.v;
-				v[nb].z = sh.O.z + sh.U.z*p.u + sh.V.z*p.v;
-				nb++;
-			}
-		}
-	}
-
-}
-
-/**
 * \brief Get Texture Swap size
 * \param useColormap if a colormap is used or not
 * \return texture swap size
@@ -729,40 +709,6 @@ size_t Facet::GetTexSwapSizeForRatio(double ratio, bool useColor) {
 }
 
 /**
-* \brief Get number of texture cells
-* \return number of texture cells
-*/
-size_t Facet::GetNbCell() {
-	return sh.texHeight * sh.texWidth;
-}
-
-/**
-* \brief Get number of cells calculated with a size ratio
-* \param ratio ratio used for size conversion
-* \return number of texture cells
-*/
-size_t Facet::GetNbCellForRatio(double ratio) {
-
-	double nU = sh.U.Norme();
-	double nV = sh.V.Norme();
-	double width = nU*ratio;
-	double height = nV*ratio;
-
-	bool dimOK = (width*height > 0.0000001);
-
-	if (dimOK) {
-		int iwidth = (int)ceil(width);
-		int iheight = (int)ceil(height);
-		return iwidth*iheight;
-	}
-	else {
-
-		return 0;
-	}
-
-}
-
-/**
 * \brief Revert vertex order
 */
 void Facet::SwapNormal() {
@@ -802,208 +748,6 @@ void Facet::ShiftVertex(const int& offset) {
 	*/
 
 	std::rotate(indices.begin(), indices.begin() + offset, indices.end());
-}
-
-/**
-* \brief Detect non visible edge (for polygon which contains holes)
-*/
-void Facet::InitVisibleEdge() {
-
-	// Detect non visible edge (for polygon which contains holes)
-	std::fill(visible.begin(), visible.end(), true);
-
-	for (int i = 0;i < sh.nbIndex;i++) {
-
-		size_t p11 = GetIndex(i);
-		size_t p12 = GetIndex(i + 1);
-
-		for (size_t j = i + 1;j < sh.nbIndex;j++) {
-
-			size_t p21 = GetIndex((int)j);
-			size_t p22 = GetIndex((int)j + 1);
-
-			if ((p11 == p22 && p12 == p21) || (p11 == p21 && p12 == p22)) {
-				// Invisible edge found
-				visible[i] = false;
-				visible[j] = false;
-			}
-		}
-	}
-}
-
-/**
-* \brief Get vertex index from buffer for an idx
-* \param idx index
-* \return vertex index
-*/
-size_t Facet::GetIndex(int idx) {
-	if (idx < 0) {
-		return indices[(sh.nbIndex + idx) % sh.nbIndex];
-	}
-	else {
-		return indices[idx % sh.nbIndex];
-	}
-}
-
-/**
-* \brief Get vertex index from buffer for an idx
-* \param idx index
-* \return vertex index
-*/
-size_t Facet::GetIndex(size_t idx) {
-		return indices[idx % sh.nbIndex];
-}
-
-/**
-* \brief Calculate mesh area and consider the usage of 2 sided meshes
-* \param index cell index
-* \param correct2sides if correction for 2 sided meshes should be applied (use factor 2)
-* \return mesh area
-*/
-double Facet::GetMeshArea(size_t index,bool correct2sides) {
-	if (!cellPropertiesIds) return -1.0f;
-	if (cellPropertiesIds[index] == -1) {
-		return ((correct2sides && sh.is2sided) ? 2.0 : 1.0) / (tRatio*tRatio);
-	}
-	else if (cellPropertiesIds[index] == -2) {
-		return 0.0;
-	}
-	else {
-		return ((correct2sides && sh.is2sided) ? 2.0 : 1.0) * meshvector[cellPropertiesIds[index]].area;
-	}
-}
-
-/**
-* \brief Get number of mesh points depending on if its describing a full element, outside of polygon or not
-* \param index of mesh
-* \return number of mesh points
-*/
-size_t Facet::GetMeshNbPoint(size_t index) {
-	size_t nbPts;
-	if (cellPropertiesIds[index] == -1) nbPts = 4;
-	else if (cellPropertiesIds[index] == -2) nbPts = 0;
-	else nbPts = meshvector[cellPropertiesIds[index]].nbPoints;
-	return nbPts;
-}
-
-/**
-* \brief Get the uv coordinate of a point in a mesh
-* \param index of mesh
-* \param pointId id of the point in the mesh
-* \return Vector for mesh point
-*/
-Vector2d Facet::GetMeshPoint(size_t index, size_t pointId) {
-	Vector2d result;
-	if (!cellPropertiesIds) {
-		result.u = 0.0;
-		result.v = 0.0;
-		return result;
-	}
-	else {
-		int id = cellPropertiesIds[index];
-		if (id == -2) {
-			result.u = 0.0;
-			result.v = 0.0;
-			return result;
-		}
-		else if (id != -1) {
-			if (pointId < meshvector[id].nbPoints)
-				return meshvector[id].points[pointId];
-			else {
-				result.u = 0.0;
-				result.v = 0.0;
-				return result;
-			}
-
-		}
-
-		else { //full elem
-			double iw = 1.0 / (double)sh.texWidthD;
-			double ih = 1.0 / (double)sh.texHeightD;
-			double sx = (double)(index%sh.texWidth);
-			double sy = (double)(index / sh.texWidth);
-			if (pointId == 0) {
-				double u0 = sx * iw;
-				double v0 = sy * ih;
-				result.u = u0;
-				result.v = v0;
-				return result;
-			}
-			else if (pointId == 1) {
-				double u1 = (sx + 1.0) * iw;
-				double v0 = sy * ih;
-				result.u = u1;
-				result.v = v0;
-				return result;
-			}
-			else if (pointId == 2) {
-				double u1 = (sx + 1.0) * iw;
-				double v1 = (sy + 1.0) * ih;
-				result.u = u1;
-				result.v = v1;
-				return result;
-			}
-			else if (pointId == 3) {
-				double u0 = sx * iw;
-				double v1 = (sy + 1.0) * ih;
-				result.u = u0;
-				result.v = v1;
-				return result;
-			}
-			else {
-				result.u = 0.0;
-				result.v = 0.0;
-				return result;
-			}
-		}
-	}
-}
-
-/**
-* \brief Get the uv coordinate of the central point in a mesh
-* \param index of mesh
-* \return Vector for point in the center of a mesh
-*/
-Vector2d Facet::GetMeshCenter(size_t index) {
-	Vector2d result;
-	if (!cellPropertiesIds) {
-		result.u = 0.0;
-		result.v = 0.0;
-		return result;
-	}
-	if (cellPropertiesIds[index] != -1) {
-		if (cellPropertiesIds[index] == -2) {
-			result.u = 0.0;
-			result.v = 0.0;
-			return result;
-		}
-		else {
-			result.u = meshvector[cellPropertiesIds[index]].uCenter;
-			result.v = meshvector[cellPropertiesIds[index]].vCenter;
-			return result;
-		}
-	}
-	else {
-		double iw = 1.0 / (double)sh.texWidthD;
-		double ih = 1.0 / (double)sh.texHeightD;
-		double sx = (double)(index%sh.texWidth);
-		double sy = (double)(index / sh.texWidth);
-		double u0 = sx * iw;
-		double v0 = sy * ih;
-		double u1 = (sx + 1.0) * iw;
-		double v1 = (sy + 1.0) * ih;
-		result.u = (float)(u0 + u1) / 2.0f;
-		result.v = (float)(v0 + v1) / 2.0f;
-		return result;
-	}
-}
-
-/**
-* \brief Get calculated area of a facet (depends on one or double sided)
-* \return facet area
-*/
-double Facet::GetArea() {
-	return sh.area*(sh.is2sided ? 2.0 : 1.0);
 }
 
 /**

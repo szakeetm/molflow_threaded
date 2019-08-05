@@ -75,6 +75,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include "HistogramSettings.h"
 #include "HistogramPlotter.h"
 #include "MolflowCLI.h"
+#include "SuperFacet.h"
 
 
 

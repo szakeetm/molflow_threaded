@@ -1,4 +1,5 @@
 #include "Simulation.h"
+#include "SuperFacet.h"
 
 /**
 * \brief Initialises local facet on load

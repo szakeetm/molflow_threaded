@@ -27,6 +27,7 @@ using namespace pugi;
 #include "GLApp/GLToolkit.h"
 #include "GLApp/MathTools.h" //IS_ZERO
 #include "GLApp/GLMessageBox.h"
+#include "SuperFacet.h"
 #include <cstring>
 #include <math.h>
 #include <cereal/types/vector.hpp>
@@ -647,41 +648,6 @@ void Facet::SaveGEO(FileWriter *file, int idx) {
 }
 
 /**
-* \brief Calculates the geometry size for a single facet which is necessary for loader dataport
-* \return calculated size of the facet geometry
-*/
-size_t Facet::GetGeometrySize()  { //for loader dataport
-
-	size_t s = sizeof(FacetProperties)
-		+ (sh.nbIndex * sizeof(size_t)) //indices
-		+ (sh.nbIndex * sizeof(Vector2d));
-
-	// Size of the 'element area' array passed to the geometry buffer
-	if (sh.isTextured) s += sizeof(double)*sh.texWidth*sh.texHeight; //incbuff
-	if (sh.useOutgassingFile ) s += sizeof(double)*sh.outgassingMapWidth*sh.outgassingMapHeight;
-	s += sizeof(size_t)*angleMapCache.size();
-	return s;
-
-}
-
-/**
-* \brief Calculates the hits size for a single facet which is necessary for hits dataport
-* \param nbMoments amount of moments
-* \return calculated size of the facet hits
-*/
-size_t Facet::GetHitsSize(size_t nbMoments)  { //for hits dataport
-
-	return   (1 + nbMoments)*(
-		sizeof(FacetHitBuffer) +
-		+(sh.texWidth*sh.texHeight * sizeof(TextureCell))
-		+ (sh.isProfile ? (PROFILE_SIZE * sizeof(ProfileSlice)) : 0)
-		+ (sh.countDirection ? (sh.texWidth*sh.texHeight * sizeof(DirectionCell)) : 0)
-		+ sh.facetHistogramParams.GetDataSize()
-		) + sizeof(size_t)*angleMapCache.size();
-
-}
-
-/**
 * \brief Calculates the RAM size for the texture of a single facet
 * \param nbMoments amount of moments
 * \return calculated size of the texture RAM usage
@@ -1102,42 +1068,6 @@ void  Facet::SaveXML_geom(pugi::xml_node f) {
 	} //end angle map
 }
 
-
-/**
-* \brief Function that retrieves the angle map as a String
-* \param formatId ID that describes the seperator for the angle map string
-* \return string describing the angle map
-*/
-std::string Facet::GetAngleMap(size_t formatId)
-{
-	std::stringstream result; result << std::setprecision(8);
-	char separator;
-	if (formatId == 1)
-		separator = ',';
-	else if (formatId == 2)
-		separator = '\t';
-	else return "";
-	//First row: phi labels
-	result << "Theta below / Phi to the right" << separator; //A1 cell
-	for (size_t i = 0; i < sh.anglemapParams.phiWidth; i++)
-		result << -PI + (0.5 + (double)i) / ((double)sh.anglemapParams.phiWidth)*2.0*PI << separator;
-	result << "\n";
-
-	//Actual table
-	for (size_t row = 0; row < (sh.anglemapParams.thetaLowerRes + sh.anglemapParams.thetaHigherRes); row++) {
-		//First column: theta label
-		if (row < sh.anglemapParams.thetaLowerRes)
-			result << ((double)row + 0.5) / (double)sh.anglemapParams.thetaLowerRes*sh.anglemapParams.thetaLimit << separator;
-		else
-			result << sh.anglemapParams.thetaLimit + (0.5 + (double)(row-sh.anglemapParams.thetaLowerRes)) / (double)sh.anglemapParams.thetaHigherRes *(PI/2.0-sh.anglemapParams.thetaLimit) << separator;
-		//Value
-		for (size_t col = 0; col < sh.anglemapParams.phiWidth; col++) {
-			result << angleMapCache[row * sh.anglemapParams.phiWidth + col] << separator;
-		}
-		result << "\n";
-	}
-	return result.str();
-}
 
 /**
 * \brief Function that imports an angle map from a table

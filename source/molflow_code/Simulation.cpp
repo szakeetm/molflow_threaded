@@ -5,6 +5,7 @@
 #include <thread>
 #include "Random.h"
 #include "GLApp/MathTools.h"
+#include "SuperFacet.h"
 
 /**
 * \brief Destructor for the SubProcessSuperStructure class deleting the ay tracing tree (aabbTree)

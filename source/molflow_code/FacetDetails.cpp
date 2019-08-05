@@ -25,6 +25,8 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include "Facet_shared.h"
 
 #include "MolFlow.h"
+#include "SuperFacet.h"
+
 extern MolFlow *mApp;
 
 typedef struct {

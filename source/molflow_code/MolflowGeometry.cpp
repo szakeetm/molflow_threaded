@@ -22,6 +22,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include "Facet_shared.h"
 #include "GLApp/MathTools.h"
 #include "ProfilePlotter.h"
+#include "SuperFacet.h"
 #include <iomanip>
 
 #include <cereal/types/vector.hpp>

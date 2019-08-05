@@ -29,6 +29,8 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include "MolFlow.h"
 #include "MolflowGeometry.h" //Explode command is Molflow-specific
 #include "Facet_shared.h"
+#include "SuperFacet.h"
+
 extern MolFlow *mApp;
 
 //static const char *fileFilters = "Text files\0*.txt";

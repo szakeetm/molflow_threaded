@@ -25,6 +25,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include "PugiXML/pugixml.hpp"
 using namespace pugi;
 #include "GLApp/GLToolkit.h"
+#include "SuperFacet.h"
 #include <cereal/archives/binary.hpp>
 
 #ifdef SYNRAD
@@ -36,21 +37,9 @@ struct NeighborFacet {
 	double angleDiff;
 };
 
-class CellProperties {
-public:
-	//Old C-style array to save memory
-	Vector2d* points;
-	size_t nbPoints;
-	double   area;     // Area of element
-	float   uCenter;  // Center coordinates
-	float   vCenter;  // Center coordinates
-					  //int     elemId;   // Element index (MESH array)
-					  //int full;
-};
-
 class FacetGroup; //forward declaration as it's the return value of Explode()
 
-class Facet { //Interface facet
+class Facet : public SuperFacet { //Interface facet
 
 	typedef struct {
 		size_t u;
@@ -76,29 +65,19 @@ public:
 	void  UnselectElem();
 	void  SelectElem(size_t u, size_t v, size_t width, size_t height);
 	void  RenderSelectedElem();
-	void  FillVertexArray(InterfaceVertex *v);
-	size_t GetTexSwapSize(bool useColormap);
+
+    size_t GetTexSwapSize(bool useColormap);
 	size_t GetTexSwapSizeForRatio(double ratio, bool useColor);
-	size_t GetNbCell();
-	size_t GetNbCellForRatio(double ratio);
-	void  SwapNormal();
+
+    void  SwapNormal();
 	void  ShiftVertex(const int& offset = 1);
-	void  InitVisibleEdge();
-	size_t   GetIndex(int idx);
-	size_t   GetIndex(size_t idx);
-	double GetMeshArea(size_t index, bool correct2sides = false);
-	size_t GetMeshNbPoint(size_t index);
-	Vector2d GetMeshPoint(size_t index, size_t pointId);
-	Vector2d GetMeshCenter(size_t index);
-	double GetArea();
-	bool  IsTXTLinkFacet();
+
+    bool  IsTXTLinkFacet();
 	Vector3d GetRealCenter();
 	void  UpdateFlags();
 	FacetGroup Explode();
 
-	//Different implementation within Molflow/Synrad
-	size_t GetGeometrySize();
-	void  LoadTXT(FileReader *file);
+    void  LoadTXT(FileReader *file);
 	void  SaveTXT(FileWriter *file);
 	void  LoadGEO(FileReader *file, int version, size_t nbVertex);
 	bool  IsCoplanarAndEqual(Facet *f, double threshold);
@@ -111,13 +90,13 @@ public:
 	void  LoadXML(pugi::xml_node f, size_t nbVertex, bool isMolflowFile, bool& ignoreSumMismatch, size_t vertexOffset = 0);
 	void  SaveGEO(FileWriter *file, int idx);
 	void  SaveXML_geom(pugi::xml_node f);
-	size_t GetHitsSize(size_t nbMoments);
-	size_t GetTexRamSize(size_t nbMoments);
+
+    size_t GetTexRamSize(size_t nbMoments);
 	size_t GetTexRamSizeForRatio(double ratio, bool useMesh, bool countDir, size_t nbMoments);
 	void  BuildTexture(std::vector<TextureCell>& texBuffer, int textureMode, double min, double max, bool useColorMap, double dCoeff1, double dCoeff2, double dCoeff3, bool doLog, size_t m);
 	double GetSmooth(int i, int j, TextureCell *texBuffer, int textureMode, double scaleF);
 	void Sum_Neighbor(const int& i, const int& j, const double& weight, TextureCell *texBuffer, const int& textureMode, const double& scaleF, double *sum, double *totalWeight);
-	std::string GetAngleMap(size_t formatId); //formatId: 1=CSV 2=TAB-separated
+    //formatId: 1=CSV 2=TAB-separated
 	void ImportAngleMap(const std::vector<std::vector<std::string>>& table);
 	double DensityCorrection();
 #endif
@@ -134,16 +113,10 @@ public:
 #endif
 
 
-	std::vector<size_t>   indices;      // Indices (Reference to geometry vertex)
+    // Indices (Reference to geometry vertex)
 	std::vector<Vector2d> vertices2;    // Vertices (2D plane space, UV coordinates)
 
-	//C-style arrays to save memory (textures can be huge):
-	int      *cellPropertiesIds;      // -1 if full element, -2 if outside polygon, otherwise index in meshvector
-	CellProperties* meshvector;
-	size_t meshvectorsize;
-
-	FacetProperties sh;
-	FacetHitBuffer facetHitCache;
+    FacetHitBuffer facetHitCache;
 	FacetHistogramBuffer facetHistogramCache; //contains empty vectors when facet doesn't have it
 	DirectionCell   *dirCache;    // Direction field cache
 
@@ -157,15 +130,14 @@ public:
 	//int sign; // +1: convex second vertex, -1: concave second vertex, 0: nin simple or null
 	size_t texDimH;         // Texture dimension (a power of 2)
 	size_t texDimW;         // Texture dimension (a power of 2)
-	double tRatio;       // Texture sample per unit
+    // Texture sample per unit
 	bool	textureVisible; //Draw the texture?
 	bool  collinear;      //All vertices are on a line (non-simple)
 	bool	volumeVisible;	//Draw volume?
 	bool    hasMesh;     // Has texture
 	bool textureError;   // Disable rendering if the texture has an error
 
-	// GUI stuff
-	std::vector<bool>  visible;         // Edge visible flag
+    // Edge visible flag
 	bool   selected;        // Selected flag
 	TEXTURE_SELECTION    selectedElem;    // Selected mesh element
 	GLint  glElem;          // Surface elements boundaries
@@ -178,7 +150,7 @@ public:
 
 #ifdef MOLFLOW
 	std::vector<double> outgassingMap; //outgassing map cell values (loaded from file)
-	std::vector<size_t> angleMapCache; //Stores either the recorded or the generating angle map. Worker::Update reads results here. A better implementation would be to separate recorded and generating angle maps
+    //Stores either the recorded or the generating angle map. Worker::Update reads results here. A better implementation would be to separate recorded and generating angle maps
 	bool hasOutgassingFile; //true if a desorption file was loaded and had info about this facet
 	double totalFlux;
 	double totalDose;

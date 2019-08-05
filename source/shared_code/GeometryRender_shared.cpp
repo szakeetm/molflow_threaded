@@ -40,6 +40,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include "FacetCoordinates.h"
 #include "VertexCoordinates.h"
 #include "Facet_shared.h"
+#include "SuperFacet.h"
 
 #ifdef MOLFLOW
 extern MolFlow *mApp;

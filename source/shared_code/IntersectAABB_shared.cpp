@@ -28,6 +28,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include <algorithm> //std::min
 #include "Simulation.h"
 #include "Worker.h"
+#include "SuperFacet.h"
 #include <tuple>
 
 // AABB tree stuff

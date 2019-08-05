@@ -45,6 +45,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
 //#include <direct.h>
 #include "File.h" //File utils (Get extension, etc)
+#include "SuperFacet.h"
 
 /*
 //Leak detection

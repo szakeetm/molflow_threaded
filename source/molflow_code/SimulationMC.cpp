@@ -28,6 +28,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include <tuple> //std::tie
 #include "Worker.h"
 #include "MolflowGeometry.h"
+#include "SuperFacet.h"
 
 
 // Compute area of all the desorption facet
