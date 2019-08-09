@@ -59,9 +59,11 @@ def load_from_file():
     pyautogui.press(['l'])
     pyautogui.keyUp('ctrl')
 
+    # delay because sometimes the window loads too slow
     time.sleep(0.5)
+
     global load_file
-    pyautogui.typewrite(load_file, interval=0.01)
+    pyautogui.typewrite(load_file, interval=0.005)
     pyautogui.press('enter')
 
     #mf_location = pyautogui.locateOnScreen(IMAGE_LOCATION+'mf_testfile.png')
@@ -129,8 +131,10 @@ def save_to_file():
     checkExist(mf_location, "Couldn't find save as menu")
     pyautogui.click(pyautogui.center(mf_location))
 
+    # delay because sometimes the window loads too slow
+    time.sleep(0.5)
 
-    pyautogui.typewrite(save_file, interval=0.01)
+    pyautogui.typewrite(save_file, interval=0.005)
     pyautogui.press('enter')
 
 def start_test():

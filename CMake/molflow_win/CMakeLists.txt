@@ -255,12 +255,12 @@ if(NOT MSVC)
     # other static libraries need to be built with similar settings for clang (here: libc++)
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 
-        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip.a )
+        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_clang.a )
         target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
 
     else()
 
-        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip.a )
+        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_gcc.a )
         target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
 
     endif()

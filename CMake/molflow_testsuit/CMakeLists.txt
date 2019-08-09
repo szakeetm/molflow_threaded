@@ -1,5 +1,5 @@
 # see for tutorial: https://www.jetbrains.com/help/clion/unit-testing-tutorial.html#adding-framework
-
+# adapt to extern loading gtest: https://cliutils.gitlab.io/modern-cmake/chapters/testing/googletest.html
 cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
 
 ################### Variables. ####################
