@@ -31,4 +31,4 @@ lib/win/debug/pugixml*
 lib/win/debug/sdl_savepng*
 lib/win/debug/truncatedgaussian*
 
-molflow_tests/venv/
+**/venv
