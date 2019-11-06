@@ -1,0 +1,1726 @@
+<?xml version="1.0"?>
+<Geometry>
+	<Vertices nb="20">
+		<Vertex id="0" x="1" y="0" z="0" />
+		<Vertex id="1" x="1" y="0" z="10" />
+		<Vertex id="2" x="0.80901699437494745" y="0.58778525229247314" z="0" />
+		<Vertex id="3" x="0.80901699437494745" y="0.58778525229247314" z="10" />
+		<Vertex id="4" x="0.30901699437494745" y="0.95105651629515353" z="0" />
+		<Vertex id="5" x="0.30901699437494745" y="0.95105651629515353" z="10" />
+		<Vertex id="6" x="-0.30901699437494734" y="0.95105651629515364" z="0" />
+		<Vertex id="7" x="-0.30901699437494734" y="0.95105651629515364" z="10" />
+		<Vertex id="8" x="-0.80901699437494734" y="0.58778525229247325" z="0" />
+		<Vertex id="9" x="-0.80901699437494734" y="0.58778525229247325" z="10" />
+		<Vertex id="10" x="-1" y="1.2246467991473532e-16" z="0" />
+		<Vertex id="11" x="-1" y="1.2246467991473532e-16" z="10" />
+		<Vertex id="12" x="-0.80901699437494756" y="-0.58778525229247303" z="0" />
+		<Vertex id="13" x="-0.80901699437494756" y="-0.58778525229247303" z="10" />
+		<Vertex id="14" x="-0.30901699437494756" y="-0.95105651629515353" z="0" />
+		<Vertex id="15" x="-0.30901699437494756" y="-0.95105651629515353" z="10" />
+		<Vertex id="16" x="0.30901699437494723" y="-0.95105651629515364" z="0" />
+		<Vertex id="17" x="0.30901699437494723" y="-0.95105651629515364" z="10" />
+		<Vertex id="18" x="0.80901699437494734" y="-0.58778525229247336" z="0" />
+		<Vertex id="19" x="0.80901699437494734" y="-0.58778525229247336" z="10" />
+	</Vertices>
+	<Facets nb="12">
+		<Facet id="0">
+			<Sticking constValue="1" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="1" parameterId="-1" desType="2" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="10">
+				<Indice id="0" vertex="0" />
+				<Indice id="1" vertex="2" />
+				<Indice id="2" vertex="4" />
+				<Indice id="3" vertex="6" />
+				<Indice id="4" vertex="8" />
+				<Indice id="5" vertex="10" />
+				<Indice id="6" vertex="12" />
+				<Indice id="7" vertex="14" />
+				<Indice id="8" vertex="16" />
+				<Indice id="9" vertex="18" />
+			</Indices>
+		</Facet>
+		<Facet id="1">
+			<Sticking constValue="1" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="10">
+				<Indice id="0" vertex="19" />
+				<Indice id="1" vertex="17" />
+				<Indice id="2" vertex="15" />
+				<Indice id="3" vertex="13" />
+				<Indice id="4" vertex="11" />
+				<Indice id="5" vertex="9" />
+				<Indice id="6" vertex="7" />
+				<Indice id="7" vertex="5" />
+				<Indice id="8" vertex="3" />
+				<Indice id="9" vertex="1" />
+			</Indices>
+		</Facet>
+		<Facet id="2">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="0" />
+				<Indice id="1" vertex="1" />
+				<Indice id="2" vertex="3" />
+				<Indice id="3" vertex="2" />
+			</Indices>
+		</Facet>
+		<Facet id="3">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="true" texDimX="20" texDimY="1.2360679774997894" countDes="0" countAbs="0" countRefl="1" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="2" />
+				<Indice id="1" vertex="3" />
+				<Indice id="2" vertex="5" />
+				<Indice id="3" vertex="4" />
+			</Indices>
+		</Facet>
+		<Facet id="4">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="4" />
+				<Indice id="1" vertex="5" />
+				<Indice id="2" vertex="7" />
+				<Indice id="3" vertex="6" />
+			</Indices>
+		</Facet>
+		<Facet id="5">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="6" />
+				<Indice id="1" vertex="7" />
+				<Indice id="2" vertex="9" />
+				<Indice id="3" vertex="8" />
+			</Indices>
+		</Facet>
+		<Facet id="6">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="8" />
+				<Indice id="1" vertex="9" />
+				<Indice id="2" vertex="11" />
+				<Indice id="3" vertex="10" />
+			</Indices>
+		</Facet>
+		<Facet id="7">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="10" />
+				<Indice id="1" vertex="11" />
+				<Indice id="2" vertex="13" />
+				<Indice id="3" vertex="12" />
+			</Indices>
+		</Facet>
+		<Facet id="8">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="12" />
+				<Indice id="1" vertex="13" />
+				<Indice id="2" vertex="15" />
+				<Indice id="3" vertex="14" />
+			</Indices>
+		</Facet>
+		<Facet id="9">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="14" />
+				<Indice id="1" vertex="15" />
+				<Indice id="2" vertex="17" />
+				<Indice id="3" vertex="16" />
+			</Indices>
+		</Facet>
+		<Facet id="10">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="16" />
+				<Indice id="1" vertex="17" />
+				<Indice id="2" vertex="19" />
+				<Indice id="3" vertex="18" />
+			</Indices>
+		</Facet>
+		<Facet id="11">
+			<Sticking constValue="0" parameterId="-1" />
+			<Opacity constValue="1" parameterId="-1" is2sided="0" />
+			<Outgassing constValue="0" parameterId="-1" desType="0" desExponent="0" hasOutgassingFile="0" useOutgassingFile="0" />
+			<Temperature value="293.14999999999998" accFactor="1" />
+			<Reflection diffusePart="1" specularPart="0" cosineExponent="0" type="0" enableSojournTime="0" sojournFreq="10000000000000" sojournE="100" />
+			<Structure inStructure="0" linksTo="0" />
+			<Teleport target="0" />
+			<Motion isMoving="0" />
+			<Recordings>
+				<Profile type="0" name="none" />
+				<Texture hasMesh="false" texDimX="0" texDimY="0" countDes="0" countAbs="0" countRefl="0" countTrans="0" countDir="0" countAC="0" />
+			</Recordings>
+			<ViewSettings textureVisible="1" volumeVisible="1" />
+			<Indices nb="4">
+				<Indice id="0" vertex="18" />
+				<Indice id="1" vertex="19" />
+				<Indice id="2" vertex="1" />
+				<Indice id="3" vertex="0" />
+			</Indices>
+		</Facet>
+	</Facets>
+	<Structures nb="1">
+		<Structure id="0" name="Pipe" />
+	</Structures>
+</Geometry>
+<Interface>
+	<Selections nb="0" />
+	<Views nb="0" />
+	<Formulas nb="1">
+		<Formula id="0" name="Trans.prob." expression="A2/SUMDES" />
+	</Formulas>
+</Interface>
+<MolflowSimuSettings>
+	<Gas mass="28" enableDecay="0" halfLife="1" />
+	<TimeSettings timeWindow="1e-10" useMaxwellDistr="1" calcConstFlow="1">
+		<UserMoments nb="0" />
+	</TimeSettings>
+	<Motion type="0" />
+	<Parameters nb="0" />
+</MolflowSimuSettings>
+<MolflowResults>
+	<Moments nb="1">
+		<Moment id="0" time="Constant flow">
+			<Global>
+				<Hits totalHit="1241" totalHitEquiv="1241" totalDes="100" totalAbsEquiv="100" totalDist_total="2175.2608512326137" totalDist_fullHitsOnly="2175.2608512326137" totalLeak="0" maxDesorption="100" />
+				<Hit_Cache nb="1341">
+					<Hit id="0" posX="0.71332888393641891" posY="0.52782320013938855" posZ="0" type="1" />
+					<Hit id="1" posX="-0.87857846911734372" posY="-0.37369704665616832" posZ="3.6192334645323903" type="3" />
+					<Hit id="2" posX="0.54023197295879322" posY="0.78306900124214096" posZ="3.9538116519765838" type="3" />
+					<Hit id="3" posX="0.88603269988105082" posY="0.35075528335240092" posZ="3.6767580008530083" type="3" />
+					<Hit id="4" posX="-0.89189623294902609" posY="-0.33270918415941086" posZ="4.5539971284685814" type="3" />
+					<Hit id="5" posX="0.85117577458253413" posY="-0.45803386850019268" posZ="4.5351348789000019" type="3" />
+					<Hit id="6" posX="-0.10015903795529746" posY="-0.95105651629515364" posZ="5.6369819427075054" type="3" />
+					<Hit id="7" posX="0.66095305410523497" posY="0.69536000176246504" posZ="4.1228161139545429" type="3" />
+					<Hit id="8" posX="-0.18131395134569939" posY="0.95105651629515364" posZ="4.9282654912400252" type="3" />
+					<Hit id="9" posX="-0.047917970486461015" posY="-0.95105651629515364" posZ="5.3732616667158206" type="3" />
+					<Hit id="10" posX="0.91376128319524752" posY="0.26541547897710616" posZ="4.6180880884446749" type="3" />
+					<Hit id="11" posX="-0.65948237446676972" posY="-0.69642851306488163" posZ="4.1756442329115329" type="3" />
+					<Hit id="12" posX="0.83138324210206616" posY="0.51894901987433595" posZ="4.5382034713643407" type="3" />
+					<Hit id="13" posX="-0.45727040176872924" posY="-0.84334411090186656" posZ="4.8004192710628732" type="3" />
+					<Hit id="14" posX="-0.34340083842046465" posY="0.92607519131978122" posZ="4.0637535020138378" type="3" />
+					<Hit id="15" posX="0.67495778133771844" posY="0.68518497183495075" posZ="3.7743176300435302" type="3" />
+					<Hit id="16" posX="0.88848396299077392" posY="0.34321107123432126" posZ="4.0855607696199634" type="3" />
+					<Hit id="17" posX="-0.86224832175738664" posY="0.42395607234555255" posZ="5.9245185929566482" type="3" />
+					<Hit id="18" posX="0.93397313276470428" posY="0.20320980230132468" posZ="4.7067981606670157" type="3" />
+					<Hit id="19" posX="0.655065354712004" posY="-0.69963766576375841" posZ="4.8992814551169426" type="3" />
+					<Hit id="20" posX="0.89776879332668469" posY="-0.31463530176402321" posZ="4.9726874074727467" type="3" />
+					<Hit id="21" posX="-0.90060486325063738" posY="-0.30590677604879601" posZ="4.2256200433744322" type="3" />
+					<Hit id="22" posX="0.35635969286917657" posY="-0.91666003244856031" posZ="5.1821044024518521" type="3" />
+					<Hit id="23" posX="-0.6285186450200535" posY="-0.71892497933357247" posZ="5.8695955622548279" type="3" />
+					<Hit id="24" posX="0.82198641260320127" posY="0.54786948732463536" posZ="5.5360650945797358" type="3" />
+					<Hit id="25" posX="-0.17775730379449373" posY="-0.95105651629515375" posZ="5.5021321721113425" type="3" />
+					<Hit id="26" posX="-0.83730601282921502" posY="-0.50072060591292655" posZ="5.5189779945692772" type="3" />
+					<Hit id="27" posX="-0.2964479785430626" posY="-0.95105651629515353" posZ="4.7837869362818948" type="3" />
+					<Hit id="28" posX="-0.39774216491571879" posY="0.8865939065927545" posZ="4.9309500438089735" type="3" />
+					<Hit id="29" posX="0.54551993312625324" posY="-0.77922707329408303" posZ="4.983379670891539" type="3" />
+					<Hit id="30" posX="-0.37995310134247251" posY="0.89951841781210862" posZ="3.2311197278733053" type="3" />
+					<Hit id="31" posX="0.41206766100101844" posY="-0.87618582445201032" posZ="4.5005641789344182" type="3" />
+					<Hit id="32" posX="-0.97541960456097099" posY="-0.075650678379957648" posZ="4.1731925038161046" type="3" />
+					<Hit id="33" posX="0.99356632097863129" posY="-0.019800828007535978" posZ="5.6858828011575842" type="3" />
+					<Hit id="34" posX="0.99656678551721523" posY="0.010566347693258479" posZ="5.7337936738687389" type="3" />
+					<Hit id="35" posX="-0.7444281759411292" posY="-0.63471177571825843" posZ="4.5909310206429632" type="3" />
+					<Hit id="36" posX="0.16904876051375683" posY="-0.95105651629515364" posZ="5.3833749572782974" type="3" />
+					<Hit id="37" posX="0.80926362739043922" posY="0.58702619392097066" posZ="5.9930319531826948" type="3" />
+					<Hit id="38" posX="-0.50301644457665806" posY="-0.81010766531395229" posZ="7.3140328162651187" type="3" />
+					<Hit id="39" posX="0.38965965676678005" posY="-0.89246619249590842" posZ="6.4433905241371479" type="3" />
+					<Hit id="40" posX="-0.83074103443401204" posY="-0.52092553184175538" posZ="7.7081840137077755" type="3" />
+					<Hit id="41" posX="0.30125138228100146" posY="0.95105651629515342" posZ="8.8784103172294344" type="3" />
+					<Hit id="42" posX="-0.93844935853936073" posY="0.18943339592598518" posZ="7.2634670181035697" type="3" />
+					<Hit id="43" posX="-0.28347357773416637" posY="-0.95105651629515353" posZ="6.9041457425725348" type="3" />
+					<Hit id="44" posX="0.95711743537480154" posY="0.13197896317882762" posZ="8.7445674352249725" type="3" />
+					<Hit id="45" posX="-0.90301332779620358" posY="0.29849428436703751" posZ="8.6935899441592159" type="3" />
+					<Hit id="46" posX="0.92052621680074909" posY="0.24459515418937094" posZ="8.2134173377719524" type="3" />
+					<Hit id="47" posX="-0.83101584262132611" posY="0.52007975920777727" posZ="7.7788826751015474" type="3" />
+					<Hit id="48" posX="0.44557466888012742" posY="-0.85184155824162677" posZ="3.735703054685775" type="3" />
+					<Hit id="49" posX="0.81235526656306134" posY="0.57751110693650509" posZ="1.813929121852405" type="3" />
+					<Hit id="50" posX="-0.86261162792012946" posY="-0.42283793094952693" posZ="2.310467545798172" type="3" />
+					<Hit id="51" posX="0.56208830638407781" posY="-0.76718944550240642" posZ="2.5457059306967076" type="3" />
+					<Hit id="52" posX="-0.23266590725053438" posY="0.95105651629515342" posZ="3.9338681672403615" type="3" />
+					<Hit id="53" posX="-0.13145890279860245" posY="-0.95105651629515342" posZ="4.9152819621723989" type="3" />
+					<Hit id="54" posX="-0.48867077291201944" posY="0.82053040587111381" posZ="4.4932168839183566" type="3" />
+					<Hit id="55" posX="-0.63185269907399433" posY="-0.71650264727271584" posZ="5.9842011634681125" type="3" />
+					<Hit id="56" posX="0.98717785157351834" posY="0.039462515123399489" posZ="1.1115670563392372" type="3" />
+					<Hit id="57" posX="0.76037044383211594" posY="-0.62312904010260262" posZ="0.8461472197847828" type="3" />
+					<Hit id="58" posX="0.9186566235781245" posY="0.25034917047185601" posZ="0.63642475138281673" type="3" />
+					<Hit id="59" posX="0.35395632351546058" posY="-0.91840618249454031" posZ="1.455145296327893" type="3" />
+					<Hit id="60" posX="-0.41733112011336893" posY="-0.8723616975624704" posZ="0.97588205172150144" type="3" />
+					<Hit id="61" posX="-0.93550454341986922" posY="0.19849660493926957" posZ="1.6477603984878164" type="3" />
+					<Hit id="62" posX="0.58851086940095976" posY="0.74799232977174035" posZ="3.2039514007928709" type="3" />
+					<Hit id="63" posX="-0.90928167984021036" posY="-0.27920228047597817" posZ="3.1346402472456538" type="3" />
+					<Hit id="64" posX="-0.25973646843279985" posY="-0.95105651629515353" posZ="3.4590623487697618" type="3" />
+					<Hit id="65" posX="-0.046331334729036389" posY="0.95105651629515331" posZ="2.7373166412950893" type="3" />
+					<Hit id="66" posX="-0.38811295359790265" posY="0.89358993812629872" posZ="2.9242808325353855" type="3" />
+					<Hit id="67" posX="-0.6277561597145449" posY="-0.71947895733500367" posZ="3.5602467138557934" type="3" />
+					<Hit id="68" posX="-0.60394248607165668" posY="0.73678060398460266" posZ="2.8188642034559166" type="3" />
+					<Hit id="69" posX="0.86852967835436989" posY="0.4046240445558924" posZ="1.6664385650912852" type="3" />
+					<Hit id="70" posX="-0.091571432576342482" posY="0.95105651629515364" posZ="1.7926098355035189" type="3" />
+					<Hit id="71" posX="0.89038657922219855" posY="0.33735542058130341" posZ="2.200841267852359" type="3" />
+					<Hit id="72" posX="-0.74607995204601885" posY="-0.63351169013131325" posZ="3.1431377198109423" type="3" />
+					<Hit id="73" posX="0.9882822736566399" posY="0.036063453460083661" posZ="3.5523243348305291" type="3" />
+					<Hit id="74" posX="-0.72348074157110465" posY="-0.64993097764068297" posZ="2.0653118143404461" type="3" />
+					<Hit id="75" posX="-0.97404205079346229" posY="0.079890352931792474" posZ="3.114962418631011" type="3" />
+					<Hit id="76" posX="-0.22357111052657763" posY="-0.95105651629515364" posZ="3.1710156613685583" type="3" />
+					<Hit id="77" posX="0.54364036675484995" posY="-0.7805926581971161" posZ="3.3515892447930398" type="3" />
+					<Hit id="78" posX="-0.63298319353829524" posY="0.71568129496672683" posZ="5.0400346703430872" type="3" />
+					<Hit id="79" posX="0.88590501879162797" posY="-0.35114824533932598" posZ="2.195988004910872" type="3" />
+					<Hit id="80" posX="-0.631905703713457" posY="0.71646413714796497" posZ="0.60677575793962624" type="3" />
+					<Hit id="81" posX="-0.76737442881072537" posY="-0.61804034715013212" posZ="0.37285579528113622" type="3" />
+					<Hit id="82" posX="-0.4207850474875256" posY="-0.60749429734690519" posZ="5.5511151231257827e-17" type="2" />
+					<Hit id="83" posX="0.1664302384415749" posY="0.75786061182854592" posZ="0" type="1" />
+					<Hit id="84" posX="0.18838466766381884" posY="0.95105651629515353" posZ="0.51195736330051478" type="3" />
+					<Hit id="85" posX="-0.68061442519058057" posY="-0.68107517951006613" posZ="1.8692401740321851" type="3" />
+					<Hit id="86" posX="0.15071869531731852" posY="0.95105651629515331" posZ="1.9319557389639475" type="3" />
+					<Hit id="87" posX="0.56855171998765486" posY="-0.76249350064331922" posZ="1.1517347668661322" type="3" />
+					<Hit id="88" posX="-0.90483205629489794" posY="0.29289681360801356" posZ="3.4649099591997996" type="3" />
+					<Hit id="89" posX="0.89376993643100433" posY="0.32694251779937994" posZ="3.5247485689100748" type="3" />
+					<Hit id="90" posX="-0.96086105503192121" posY="0.1204572865906639" posZ="4.7934926630242414" type="3" />
+					<Hit id="91" posX="0.94558817093348391" posY="-0.16746239054561202" posZ="6.9988949431421066" type="3" />
+					<Hit id="92" posX="-0.043433442019492396" posY="0.95105651629515342" posZ="7.3721641461183731" type="3" />
+					<Hit id="93" posX="-0.86440564209899018" posY="-0.41731652304578759" posZ="7.0563428286914771" type="3" />
+					<Hit id="94" posX="-0.019064093454973285" posY="0.95105651629515364" posZ="6.6747359646828581" type="3" />
+					<Hit id="95" posX="-0.79081704728016533" posY="-0.60100828786427973" posZ="5.9160957289375204" type="3" />
+					<Hit id="96" posX="-0.96897572217520511" posY="0.095482909114122716" posZ="6.9223341490318653" type="3" />
+					<Hit id="97" posX="-0.99462843487593278" posY="-0.016531977551206403" posZ="6.9945152934096724" type="3" />
+					<Hit id="98" posX="-0.45042554496255094" posY="0.84831719046966214" posZ="8.0037741272305531" type="3" />
+					<Hit id="99" posX="0.49203091699508594" posY="0.81808911829454067" posZ="7.4988270248467748" type="3" />
+					<Hit id="100" posX="0.74129259541000159" posY="-0.63698990832410818" posZ="5.390776151284757" type="3" />
+					<Hit id="101" posX="0.81943238481635428" posY="0.55572997659770285" posZ="5.5392135616460711" type="3" />
+					<Hit id="102" posX="-0.44479748040705713" posY="0.85240621871958822" posZ="5.2958611167843532" type="3" />
+					<Hit id="103" posX="-0.99814887108565353" posY="0.0056971889848728141" posZ="6.1636145663305468" type="3" />
+					<Hit id="104" posX="0.87055327386699088" posY="-0.39839605796079613" posZ="8.2060288635186112" type="3" />
+					<Hit id="105" posX="-0.8734545327433566" posY="0.38946690127992167" posZ="9.5290704461849991" type="3" />
+					<Hit id="106" posX="0.97826034744433976" posY="-0.066907770774465136" posZ="7.8813688923184886" type="3" />
+					<Hit id="107" posX="0.24790994538661182" posY="0.9510565162951532" posZ="8.3980059772584212" type="3" />
+					<Hit id="108" posX="0.81577238822629405" posY="0.56699428784904893" posZ="8.2735600596952903" type="3" />
+					<Hit id="109" posX="-0.48439355388728977" posY="-0.82363798739417338" posZ="9.3066017484308023" type="3" />
+					<Hit id="110" posX="-0.22817731307504413" posY="-0.95105651629515353" posZ="9.2927746543522467" type="3" />
+					<Hit id="111" posX="0.99275802781244904" posY="0.022288498578306837" posZ="8.8939633978576644" type="3" />
+					<Hit id="112" posX="0.23032195902370267" posY="-0.95105651629515375" posZ="9.0854439516891805" type="3" />
+					<Hit id="113" posX="0.9834629034943948" posY="0.050895949667979834" posZ="8.0798479840148136" type="3" />
+					<Hit id="114" posX="0.65377852730880948" posY="-0.70057260059838211" posZ="8.1829958023148723" type="3" />
+					<Hit id="115" posX="-0.71188874846284045" posY="0.65835305361818164" posZ="7.9659833666079916" type="3" />
+					<Hit id="116" posX="-0.8422155393245212" posY="0.48561063704299706" posZ="7.7077847896170963" type="3" />
+					<Hit id="117" posX="0.99613201881177194" posY="0.01190442202511427" posZ="6.5294582426135541" type="3" />
+					<Hit id="118" posX="-0.40493573302892383" posY="-0.88136747343040822" posZ="8.5439671984148653" type="3" />
+					<Hit id="119" posX="0.38317965350935135" posY="-0.89717419044404378" posZ="8.5926265681222453" type="3" />
+					<Hit id="120" posX="0.2610210633019695" posY="0.95105651629515342" posZ="8.4429134270795547" type="3" />
+					<Hit id="121" posX="0.9691859820708435" posY="-0.094835795694788061" posZ="9.3286225650199643" type="3" />
+					<Hit id="122" posX="0.3327787291749853" posY="0.044999462930800538" posZ="10" type="2" />
+					<Hit id="123" posX="0.013024484130026548" posY="0.066990220210495555" posZ="0" type="1" />
+					<Hit id="124" posX="-0.5296789968450758" posY="-0.7907361871857812" posZ="0.59511851028853302" type="3" />
+					<Hit id="125" posX="0.082622406126672043" posY="-0.61108791415950137" posZ="0" type="2" />
+					<Hit id="126" posX="0.43074830961108157" posY="-0.13538190126249861" posZ="0" type="1" />
+					<Hit id="127" posX="-0.37045569131907363" posY="-0.90641869010001264" posZ="2.0375336627625136" type="3" />
+					<Hit id="128" posX="0.83900515131454212" posY="0.49549119536925534" posZ="2.4527714684038404" type="3" />
+					<Hit id="129" posX="0.38787725949750301" posY="-0.89376117991383897" posZ="3.5672745931839023" type="3" />
+					<Hit id="130" posX="-0.84945820654445936" posY="-0.46331999937495483" posZ="4.6715744212421919" type="3" />
+					<Hit id="131" posX="0.87481240366760082" posY="-0.38528780429076626" posZ="4.7361417055250001" type="3" />
+					<Hit id="132" posX="0.53887619142971155" posY="0.78405403418170316" posZ="5.0362425983003796" type="3" />
+					<Hit id="133" posX="0.062913303070248783" posY="0.95105651629515364" posZ="4.9979630096782754" type="3" />
+					<Hit id="134" posX="-0.33565950640957265" posY="-0.93169959824910364" posZ="4.2638096633704317" type="3" />
+					<Hit id="135" posX="-0.61586791627248161" posY="0.72811627177894334" posZ="4.2495308669737497" type="3" />
+					<Hit id="136" posX="0.82256712784652719" posY="-0.54608222958046504" posZ="4.4506820937913059" type="3" />
+					<Hit id="137" posX="-0.85411845791067442" posY="-0.44897722046605654" posZ="5.9621361181679582" type="3" />
+					<Hit id="138" posX="0.93836748502840917" posY="0.18968537668277291" posZ="5.5945569183840007" type="3" />
+					<Hit id="139" posX="-0.87886057903536208" posY="0.37282880160580817" posZ="6.1223200510228377" type="3" />
+					<Hit id="140" posX="-0.10061547000347493" posY="0.95105651629515342" posZ="5.9856310439001827" type="3" />
+					<Hit id="141" posX="-0.83818364075437823" posY="0.49801954489588635" posZ="6.3068518972752621" type="3" />
+					<Hit id="142" posX="0.93903835257677104" posY="0.18762065867355548" posZ="5.1401040600623045" type="3" />
+					<Hit id="143" posX="-0.6312939512286847" posY="0.71690860134476508" posZ="8.5734035948264946" type="3" />
+					<Hit id="144" posX="0.77498089772265166" posY="0.61251392399766691" posZ="7.7117875612345008" type="3" />
+					<Hit id="145" posX="-0.53740120024069504" posY="0.083992742229602957" posZ="10" type="2" />
+					<Hit id="146" posX="0.1971955731463364" posY="-0.77770627301027617" posZ="0" type="1" />
+					<Hit id="147" posX="0.88154671024696885" posY="-0.36456173979715423" posZ="0.037062079020133185" type="3" />
+					<Hit id="148" posX="-0.80763440202813175" posY="-0.58878976443132913" posZ="0.96017466719703204" type="3" />
+					<Hit id="149" posX="-0.69534438154614786" posY="0.67037323978208363" posZ="1.1975785651266153" type="3" />
+					<Hit id="150" posX="0.35130429977776634" posY="0.92033299052525475" posZ="1.3819735087731728" type="3" />
+					<Hit id="151" posX="-0.73815057778070703" posY="-0.6392727177555334" posZ="2.0455184568076299" type="3" />
+					<Hit id="152" posX="0.54555914237077785" posY="0.77919858611044501" posZ="0.51933236083276957" type="3" />
+					<Hit id="153" posX="-0.99526756502247637" posY="0.014564937221077323" posZ="0.87213871181043245" type="3" />
+					<Hit id="154" posX="0.91254963973666825" posY="-0.26914453410250111" posZ="1.7213704504150462" type="3" />
+					<Hit id="155" posX="-0.85126546430584205" posY="0.45775783191531477" posZ="1.619821819432385" type="3" />
+					<Hit id="156" posX="0.70736412879042831" posY="-0.66164038223323907" posZ="1.681817106392552" type="3" />
+					<Hit id="157" posX="0.18007534626426247" posY="0.9510565162951532" posZ="3.7713134806453921" type="3" />
+					<Hit id="158" posX="0.78892539927508476" posY="-0.60238265058798768" posZ="3.8752086986747347" type="3" />
+					<Hit id="159" posX="0.085414752646651215" posY="-0.95105651629515364" posZ="3.6687898222802167" type="3" />
+					<Hit id="160" posX="-0.10222956637074096" posY="0.95105651629515342" posZ="5.3472869006853898" type="3" />
+					<Hit id="161" posX="-0.37924057768189878" posY="-0.90003609655372574" posZ="4.4335045943216391" type="3" />
+					<Hit id="162" posX="0.35690658450178703" posY="0.91626269241925895" posZ="5.199135941481936" type="3" />
+					<Hit id="163" posX="-0.86991910972310282" posY="0.4003478145063073" posZ="4.7808999479056702" type="3" />
+					<Hit id="164" posX="-0.62961487832218177" posY="-0.71812851921896081" posZ="3.1923921452336459" type="3" />
+					<Hit id="165" posX="0.87389324668510571" posY="0.38811667860387189" posZ="0.3564610657473759" type="3" />
+					<Hit id="166" posX="-0.26801458064269679" posY="0.42878717000785632" posZ="5.5511151231257827e-17" type="2" />
+					<Hit id="167" posX="0.7683324452008059" posY="0.50111401187749816" posZ="0" type="1" />
+					<Hit id="168" posX="-0.32276760653850445" posY="-0.94106611177222144" posZ="3.6170152716366286" type="3" />
+					<Hit id="169" posX="0.62616851608157142" posY="0.72063244795367587" posZ="5.7807436715221074" type="3" />
+					<Hit id="170" posX="-0.87670665509203649" posY="0.37945789786650985" posZ="5.4199298628007453" type="3" />
+					<Hit id="171" posX="0.70162784238837206" posY="0.66580803825715162" posZ="4.6392305425853442" type="3" />
+					<Hit id="172" posX="0.73701343066424874" posY="-0.64009890349623899" posZ="4.6739900251055575" type="3" />
+					<Hit id="173" posX="-0.86326254254752743" posY="-0.42083462171667707" posZ="5.3662351535216661" type="3" />
+					<Hit id="174" posX="0.50380809386481451" posY="-0.80953249843884167" posZ="3.0826143105378283" type="3" />
+					<Hit id="175" posX="-0.93613856616114288" posY="0.19654528358625756" posZ="3.9054816830075367" type="3" />
+					<Hit id="176" posX="-0.2612146505471411" posY="-0.95105651629515386" posZ="3.5742993685450264" type="3" />
+					<Hit id="177" posX="-0.57400538330429796" posY="0.75853118231035577" posZ="3.7064636238699999" type="3" />
+					<Hit id="178" posX="0.11352250718899193" posY="-0.95105651629515386" posZ="2.5804629440422913" type="3" />
+					<Hit id="179" posX="0.8434084363609422" posY="-0.48193927747245952" posZ="2.789923207158802" type="3" />
+					<Hit id="180" posX="-0.3545219419909349" posY="0.91799523661748217" posZ="2.3150172398624465" type="3" />
+					<Hit id="181" posX="0.82731287786506824" posY="-0.53147631287685071" posZ="2.6558759595509995" type="3" />
+					<Hit id="182" posX="-0.43436583444572396" posY="0.85998525314759178" posZ="2.8051159741635865" type="3" />
+					<Hit id="183" posX="-0.69405817709396433" posY="-0.67130772201630506" posZ="3.963871154289448" type="3" />
+					<Hit id="184" posX="0.88557708541647584" posY="0.35215752048932236" posZ="2.4058587863522947" type="3" />
+					<Hit id="185" posX="0.24256053179648696" posY="0.95105651629515364" posZ="2.8406732377932005" type="3" />
+					<Hit id="186" posX="-0.048727802344307569" posY="-0.95105651629515364" posZ="2.4866148128155938" type="3" />
+					<Hit id="187" posX="0.4580575326444995" posY="0.84277222684551334" posZ="0.2254304677569956" type="3" />
+					<Hit id="188" posX="-0.052248493808670748" posY="0.64111196599355935" posZ="-2.7755575615628914e-17" type="2" />
+					<Hit id="189" posX="-0.81576497847702556" posY="-0.45395110447325648" posZ="0" type="1" />
+					<Hit id="190" posX="0.26572426038155728" posY="0.95105651629515386" posZ="1.6068601787845314" type="3" />
+					<Hit id="191" posX="0.8806357873742745" posY="-0.36736527212608183" posZ="0.8503006799889673" type="3" />
+					<Hit id="192" posX="0.090922889271242369" posY="0.95105651629515342" posZ="1.7464004614693081" type="3" />
+					<Hit id="193" posX="-0.65239655572981847" posY="-0.70157666172301392" posZ="4.2704043350940744" type="3" />
+					<Hit id="194" posX="-0.86549464218539063" posY="0.41396492540789009" posZ="5.037626226607256" type="3" />
+					<Hit id="195" posX="0.78994636738987789" posY="0.60164087383285292" posZ="7.4733536134183325" type="3" />
+					<Hit id="196" posX="-0.83007902042532256" posY="0.5229630014576766" posZ="6.181840804827587" type="3" />
+					<Hit id="197" posX="0.34906363066272839" posY="-0.92196093192851813" posZ="6.7359391525910244" type="3" />
+					<Hit id="198" posX="-0.12659580178516833" posY="0.95105651629515331" posZ="0.24806078977353341" type="3" />
+					<Hit id="199" posX="-0.93044341781796813" posY="-0.21407314788381704" posZ="1.0744181237220451" type="3" />
+					<Hit id="200" posX="0.93318846582284665" posY="-0.20562475883044729" posZ="1.5431876554856734" type="3" />
+					<Hit id="201" posX="-0.93695631361415721" posY="0.19402851571254826" posZ="3.1664345341534252" type="3" />
+					<Hit id="202" posX="-0.65272806911025483" posY="-0.70133580315352373" posZ="3.6308764048068194" type="3" />
+					<Hit id="203" posX="0.52192789319144151" posY="0.79636769362912463" posZ="3.7367525653789713" type="3" />
+					<Hit id="204" posX="-0.23609240798019593" posY="0.95105651629515364" posZ="4.2773766506594635" type="3" />
+					<Hit id="205" posX="-0.84497995058411357" posY="-0.47710265401936836" posZ="3.9184302698734865" type="3" />
+					<Hit id="206" posX="0.85978857663929809" posY="-0.43152638940114335" posZ="4.8521233959032495" type="3" />
+					<Hit id="207" posX="-0.84203424907138058" posY="0.48616859107053739" posZ="3.7072013051809281" type="3" />
+					<Hit id="208" posX="-0.39250467718840398" posY="-0.18319482432416828" posZ="4.4408920985006262e-16" type="2" />
+					<Hit id="209" posX="0.095600422712121658" posY="0.54017125407723587" posZ="0" type="1" />
+					<Hit id="210" posX="-0.6590040325824168" posY="0.69677604878679" posZ="2.4229644255815872" type="3" />
+					<Hit id="211" posX="-0.29469113974504052" posY="-0.95105651629515342" posZ="2.0953168921791616" type="3" />
+					<Hit id="212" posX="0.95157545666406618" posY="0.14903541982023305" posZ="3.2345328882290652" type="3" />
+					<Hit id="213" posX="-0.84801466675970238" posY="-0.46776275800575906" posZ="1.8010183165586222" type="3" />
+					<Hit id="214" posX="-0.098937196815281903" posY="0.95105651629515386" posZ="2.7700019882168476" type="3" />
+					<Hit id="215" posX="0.8824965299186317" posY="0.36163849543039239" posZ="3.0477472495269553" type="3" />
+					<Hit id="216" posX="-0.98685631973463239" posY="0.040452088370617922" posZ="2.7211324087857642" type="3" />
+					<Hit id="217" posX="-0.95314300177044642" posY="-0.14421101205254702" posZ="2.7187202103125161" type="3" />
+					<Hit id="218" posX="0.073689150443556062" posY="0.95105651629515342" posZ="2.5417804772050649" type="3" />
+					<Hit id="219" posX="0.19293317170488247" posY="-0.95105651629515342" posZ="1.8676622671314076" type="3" />
+					<Hit id="220" posX="-0.14926275824681715" posY="0.95105651629515342" posZ="3.018375919848955" type="3" />
+					<Hit id="221" posX="-0.84371506704333088" posY="-0.48099556526927811" posZ="2.114134188358423" type="3" />
+					<Hit id="222" posX="-0.14031805546594622" posY="-0.95105651629515353" posZ="3.0586180362861795" type="3" />
+					<Hit id="223" posX="-0.88961649309459379" posY="0.33972550197844009" posZ="1.0625518428465628" type="3" />
+					<Hit id="224" posX="-0.054923573737932219" posY="0.95105651629515375" posZ="3.000962529450355" type="3" />
+					<Hit id="225" posX="-0.83798397131650437" posY="-0.49863406423770773" posZ="2.8410330666186314" type="3" />
+					<Hit id="226" posX="0.99567398878829894" posY="0.013314093487887368" posZ="2.470110088879991" type="3" />
+					<Hit id="227" posX="0.99321189420548694" posY="-0.020891641452376951" posZ="2.438117123571899" type="3" />
+					<Hit id="228" posX="-0.97471636584743082" posY="0.077815024591324278" posZ="3.9150746360152673" type="3" />
+					<Hit id="229" posX="-0.26583713003901177" posY="0.95105651629515364" posZ="3.3360856537790244" type="3" />
+					<Hit id="230" posX="-0.3361813523151978" posY="0.93132045500560157" posZ="3.2719700678239305" type="3" />
+					<Hit id="231" posX="-0.35699399465119219" posY="-0.91619918522833643" posZ="2.9248766010767335" type="3" />
+					<Hit id="232" posX="0.62504114669991628" posY="0.721451529754219" posZ="2.8237329252681791" type="3" />
+					<Hit id="233" posX="-0.37047829072888538" posY="-0.90640227066767665" posZ="3.992086436917524" type="3" />
+					<Hit id="234" posX="0.26454712955279092" posY="0.66486581068703221" posZ="4.4408920985006262e-16" type="2" />
+					<Hit id="235" posX="-0.13468536611526472" posY="-0.92985838918661146" posZ="0" type="1" />
+					<Hit id="236" posX="0.50746243282538217" posY="0.39768878790354178" posZ="10" type="2" />
+					<Hit id="237" posX="0.22120021132964562" posY="0.10281922748070732" posZ="0" type="1" />
+					<Hit id="238" posX="-0.83542112834252369" posY="0.50652168386709318" posZ="0.99750742711406326" type="3" />
+					<Hit id="239" posX="0.70636050606499801" posY="-0.66236955682533694" posZ="0.94957282685158195" type="3" />
+					<Hit id="240" posX="-0.7097155249785565" posY="-0.65993199290237381" posZ="1.6874613221593722" type="3" />
+					<Hit id="241" posX="0.57336644805724868" posY="0.75899539593997833" posZ="1.3935866483963788" type="3" />
+					<Hit id="242" posX="0.9799792893794893" posY="-0.06161741147929567" posZ="1.1742794348946579" type="3" />
+					<Hit id="243" posX="0.030041306761397601" posY="0.95105651629515353" posZ="1.9403692227934477" type="3" />
+					<Hit id="244" posX="-0.98622869387419665" posY="-0.042383722148786052" posZ="2.9740382787293171" type="3" />
+					<Hit id="245" posX="0.55973857888081269" posY="-0.76889662246275248" posZ="3.7943353498254471" type="3" />
+					<Hit id="246" posX="-0.38914964580140721" posY="0.89283673715200118" posZ="6.7325749905857979" type="3" />
+					<Hit id="247" posX="-0.98800145801576544" posY="-0.036927715134984274" posZ="7.1822238935543874" type="3" />
+					<Hit id="248" posX="-0.65483295195360491" posY="0.69980651625136125" posZ="7.4942824978401612" type="3" />
+					<Hit id="249" posX="-0.019737577156924035" posY="-0.95105651629515353" posZ="8.5890256182576561" type="3" />
+					<Hit id="250" posX="0.89515340920485809" posY="0.32268462641915818" posZ="8.7174546813283271" type="3" />
+					<Hit id="251" posX="-0.88577755631430932" posY="-0.35154053450737854" posZ="8.3739125574327691" type="3" />
+					<Hit id="252" posX="-0.73035033043347308" posY="0.64493992918226017" posZ="8.1868076426407921" type="3" />
+					<Hit id="253" posX="-0.83269533655346273" posY="0.51491080838205394" posZ="8.0726487389599164" type="3" />
+					<Hit id="254" posX="-0.96983583207948287" posY="-0.092835763021565598" posZ="8.2272293383589812" type="3" />
+					<Hit id="255" posX="-0.71051854342264442" posY="0.65934856585197121" posZ="8.13772038957684" type="3" />
+					<Hit id="256" posX="0.78225310335768228" posY="0.60723035733141706" posZ="8.1920069568839367" type="3" />
+					<Hit id="257" posX="-0.87163154222603723" posY="-0.39507748918350138" posZ="9.2038047156615335" type="3" />
+					<Hit id="258" posX="-0.15995890500887899" posY="0.72608364937449843" posZ="10" type="2" />
+					<Hit id="259" posX="0.43527901941545677" posY="-0.32404440466676737" posZ="0" type="1" />
+					<Hit id="260" posX="0.98460979103225732" posY="0.047366192773708293" posZ="0.16810722679645448" type="3" />
+					<Hit id="261" posX="0.92009439005706073" posY="-0.24592418024933144" posZ="0.21462988653543855" type="3" />
+					<Hit id="262" posX="0.7122035061336387" posY="-0.22362150431015038" posZ="0" type="2" />
+					<Hit id="263" posX="0.48854231188579256" posY="-0.64597041241194431" posZ="0" type="1" />
+					<Hit id="264" posX="-0.60778514971635866" posY="0.7339887454259062" posZ="0.050232798434853822" type="3" />
+					<Hit id="265" posX="-0.60313530553726513" posY="0.39162748363922723" posZ="-6.9388939039072284e-18" type="2" />
+					<Hit id="266" posX="-0.35129151266752479" posY="0.34777160190268119" posZ="0" type="1" />
+					<Hit id="267" posX="-0.072761326741155041" posY="0.95105651629515364" posZ="0.080007663893368178" type="3" />
+					<Hit id="268" posX="-0.040648390141162928" posY="0.83249912989080643" posZ="0" type="2" />
+					<Hit id="269" posX="-0.19536715913170744" posY="-0.86476656877293401" posZ="0" type="1" />
+					<Hit id="270" posX="-0.83753030462054057" posY="-0.50003030675924087" posZ="0.93532019580216308" type="3" />
+					<Hit id="271" posX="0.44380333158224705" posY="-0.85312851011997914" posZ="0.46076352116227781" type="3" />
+					<Hit id="272" posX="0.95579879715259519" posY="0.136037314326801" posZ="6.4524256562264775" type="3" />
+					<Hit id="273" posX="-0.33473534336223376" posY="0.93237104200580667" posZ="7.210830842437292" type="3" />
+					<Hit id="274" posX="0.11224194442971935" posY="-0.95105651629515364" posZ="6.8004077129558551" type="3" />
+					<Hit id="275" posX="-0.97042964031857903" posY="0.091008209179859856" posZ="6.7536210027428005" type="3" />
+					<Hit id="276" posX="-0.014378576952217226" posY="-0.95105651629515364" posZ="5.7104979289669258" type="3" />
+					<Hit id="277" posX="-0.88378673489494708" posY="-0.35766765281520452" posZ="5.313575509851745" type="3" />
+					<Hit id="278" posX="-0.94152908926635503" posY="0.17995495936858275" posZ="5.2086917063992271" type="3" />
+					<Hit id="279" posX="0.42614182036358716" posY="-0.86596034912917896" posZ="6.0142607692434868" type="3" />
+					<Hit id="280" posX="0.12194663676538059" posY="0.95105651629515342" posZ="4.7845446213060825" type="3" />
+					<Hit id="281" posX="0.44817558108756705" posY="0.84995188491131368" posZ="4.8649955718849132" type="3" />
+					<Hit id="282" posX="-0.9006944913316276" posY="0.30563092917946377" posZ="5.4443509320121475" type="3" />
+					<Hit id="283" posX="-0.14788947817524078" posY="0.95105651629515353" posZ="4.7674132979956543" type="3" />
+					<Hit id="284" posX="0.43562678002278665" posY="-0.85906912256035539" posZ="4.4088266163720062" type="3" />
+					<Hit id="285" posX="0.74115662883901323" posY="0.63708869382031852" posZ="2.7982008627517585" type="3" />
+					<Hit id="286" posX="0.84066516612963493" posY="0.49038219510137671" posZ="2.78833515959569" type="3" />
+					<Hit id="287" posX="-0.60782911158602126" posY="-0.73395680525798546" posZ="3.2194951070422029" type="3" />
+					<Hit id="288" posX="0.10689380208866506" posY="0.95105651629515364" posZ="3.418062836051468" type="3" />
+					<Hit id="289" posX="0.852821694352763" posY="-0.45296824831984872" posZ="3.3455539741466001" type="3" />
+					<Hit id="290" posX="-0.56765087180615292" posY="0.76314800515845693" posZ="3.2214538233656427" type="3" />
+					<Hit id="291" posX="-0.38330558874532128" posY="-0.8970826931393372" posZ="3.5362821040927281" type="3" />
+					<Hit id="292" posX="-0.37107964380031011" posY="0.90596536208694012" posZ="1.5340006485452902" type="3" />
+					<Hit id="293" posX="0.0010496907678333445" posY="0.95105651629515364" posZ="1.418873344548" type="3" />
+					<Hit id="294" posX="0.3868453339036354" posY="-0.89451091774352087" posZ="0.57035107094659998" type="3" />
+					<Hit id="295" posX="0.86506150882037525" posY="-0.41529797283479969" posZ="1.3736561375113381" type="3" />
+					<Hit id="296" posX="-0.43064474149468235" posY="0.86268878542718475" posZ="0.094818807988868103" type="3" />
+					<Hit id="297" posX="-0.9365456242350173" posY="-0.19529248765361973" posZ="0.21545924629984933" type="3" />
+					<Hit id="298" posX="0.087947534515713799" posY="-0.95105651629515342" posZ="0.086812329389097526" type="3" />
+					<Hit id="299" posX="-0.72248543313566804" posY="0.65065411154750952" posZ="0.086054178361533049" type="3" />
+					<Hit id="300" posX="-0.65913793284544731" posY="0.60698887242465782" posZ="0" type="2" />
+					<Hit id="301" posX="-0.55321030706619201" posY="0.10003137435855464" posZ="0" type="1" />
+					<Hit id="302" posX="0.26873837386741006" posY="0.95105651629515342" posZ="4.4121924179884102" type="3" />
+					<Hit id="303" posX="-0.8286866309841967" posY="-0.52724833551796868" posZ="3.8641662989892813" type="3" />
+					<Hit id="304" posX="0.94601232522623024" posY="-0.16615697786160405" posZ="4.3905907244146505" type="3" />
+					<Hit id="305" posX="-0.19109756994422966" posY="0.95105651629515364" posZ="4.645292363680892" type="3" />
+					<Hit id="306" posX="0.72980779075705526" posY="-0.64533410733030805" posZ="1.907568570321081" type="3" />
+					<Hit id="307" posX="0.77228113636479545" posY="0.61447541543961504" posZ="2.1170420891176649" type="3" />
+					<Hit id="308" posX="-0.84696238118740608" posY="-0.47100135998802184" posZ="1.2139176567699621" type="3" />
+					<Hit id="309" posX="0.52110437888210526" posY="-0.79696601179727811" posZ="2.7961387316589517" type="3" />
+					<Hit id="310" posX="0.76778319889407598" posY="0.6177433583004015" posZ="3.2335328515166979" type="3" />
+					<Hit id="311" posX="-0.84137485085345598" posY="0.48819801011028796" posZ="2.7366772225452394" type="3" />
+					<Hit id="312" posX="0.075464061851346687" posY="0.95105651629515364" posZ="1.9612705877526426" type="3" />
+					<Hit id="313" posX="0.99262512948067794" posY="-0.022697517586116711" posZ="1.9791861130647905" type="3" />
+					<Hit id="314" posX="-0.83922593204269635" posY="-0.49481170215689102" posZ="0.84801894768087172" type="3" />
+					<Hit id="315" posX="0.31469398896067136" posY="-0.94693193829736888" posZ="2.3731471266270581" type="3" />
+					<Hit id="316" posX="-0.38683722666122167" posY="0.89451680799991973" posZ="2.4837200144371021" type="3" />
+					<Hit id="317" posX="0.98082052708934642" posY="-0.059028348028818067" posZ="2.7685621162894853" type="3" />
+					<Hit id="318" posX="-0.44144036426515054" posY="-0.85484530636813638" posZ="4.1728256444154654" type="3" />
+					<Hit id="319" posX="0.1603304987037576" posY="0.95105651629515353" posZ="3.7502169740850353" type="3" />
+					<Hit id="320" posX="0.70368702375598868" posY="-0.66431195542070187" posZ="5.2128163693701" type="3" />
+					<Hit id="321" posX="0.21040712247063936" posY="0.95105651629515331" posZ="4.8857941509254061" type="3" />
+					<Hit id="322" posX="0.85153645939729361" posY="-0.45692379478370004" posZ="5.4534596533400199" type="3" />
+					<Hit id="323" posX="-0.28534728696233835" posY="0.95105651629515375" posZ="7.6721814567603239" type="3" />
+					<Hit id="324" posX="-0.365274312448711" posY="0.91018318220303973" posZ="7.6886594203829617" type="3" />
+					<Hit id="325" posX="-0.86513914363561961" posY="-0.41505903744200978" posZ="7.6522915851123567" type="3" />
+					<Hit id="326" posX="0.49715254910329165" posY="0.81436803475513142" posZ="8.0959285865976387" type="3" />
+					<Hit id="327" posX="0.96299943855246561" posY="-0.1138760188333181" posZ="8.1092747418094522" type="3" />
+					<Hit id="328" posX="-0.97518544186909439" posY="-0.076371357041765592" posZ="4.8890821354182084" type="3" />
+					<Hit id="329" posX="0.82949961468220024" posY="-0.5247462289746303" posZ="5.1539393438734855" type="3" />
+					<Hit id="330" posX="-0.81207560688523506" posY="0.57837181092296208" posZ="5.9466482399938814" type="3" />
+					<Hit id="331" posX="-0.80212586153656784" posY="0.59279195336569024" posZ="5.949480447008713" type="3" />
+					<Hit id="332" posX="-0.81222300237552458" posY="0.57791817424904446" posZ="5.9945313001373757" type="3" />
+					<Hit id="333" posX="0.18007509711302361" posY="0.95105651629515353" posZ="4.9418443291620893" type="3" />
+					<Hit id="334" posX="-0.26444360253188209" posY="-0.95105651629515353" posZ="3.3853445645099143" type="3" />
+					<Hit id="335" posX="0.1856263427950009" posY="0.95105651629515375" posZ="5.1596448456907451" type="3" />
+					<Hit id="336" posX="0.356649798080796" posY="-0.91644925867472271" posZ="5.3068950856003871" type="3" />
+					<Hit id="337" posX="-0.92439891090865223" posY="-0.2326762272889612" posZ="5.2736250421207274" type="3" />
+					<Hit id="338" posX="-0.18145973274926497" posY="0.95105651629515353" posZ="4.2291613337721765" type="3" />
+					<Hit id="339" posX="0.83672654632074817" posY="-0.50250402044637987" posZ="3.7237736971267501" type="3" />
+					<Hit id="340" posX="-0.95798191798988663" posY="-0.1293183592662065" posZ="3.7120965943134441" type="3" />
+					<Hit id="341" posX="0.49845051008698238" posY="-0.81342501090078878" posZ="6.3250096998403711" type="3" />
+					<Hit id="342" posX="-0.88199477230043899" posY="-0.36318274659155664" posZ="6.3643189542623375" type="3" />
+					<Hit id="343" posX="0.8634966301387238" posY="-0.42011417419099339" posZ="5.8017000086172592" type="3" />
+					<Hit id="344" posX="0.78823548661053877" posY="-0.60288390147938964" posZ="6.0367187151618618" type="3" />
+					<Hit id="345" posX="-0.70275750460510844" posY="0.66498729061441142" posZ="4.3545250715716017" type="3" />
+					<Hit id="346" posX="0.70060056823880701" posY="0.66655439661473115" posZ="4.5452424760326071" type="3" />
+					<Hit id="347" posX="-0.60807993168519814" posY="-0.73377457378905575" posZ="6.4442049872457812" type="3" />
+					<Hit id="348" posX="-0.71378477018153552" posY="0.65697551320552816" posZ="6.5269398082896339" type="3" />
+					<Hit id="349" posX="0.62516528384222825" posY="0.72136133884102482" posZ="5.8672684547849006" type="3" />
+					<Hit id="350" posX="-0.33911604944702312" posY="-0.9291882727325157" posZ="7.436411758219589" type="3" />
+					<Hit id="351" posX="-0.86715275520313506" posY="-0.40886177827040227" posZ="7.4314886546167171" type="3" />
+					<Hit id="352" posX="0.78562589488939305" posY="-0.60477988084553269" posZ="4.8122867943239367" type="3" />
+					<Hit id="353" posX="-0.69235046625885621" posY="0.67254844656354673" posZ="6.7904620264805846" type="3" />
+					<Hit id="354" posX="0.055073378530489103" posY="-0.95105651629515342" posZ="3.5014063858098408" type="3" />
+					<Hit id="355" posX="-0.57108292140417849" posY="0.7606544751672677" posZ="3.5552497406019721" type="3" />
+					<Hit id="356" posX="0.87685267052863602" posY="-0.37900850856111434" posZ="4.7840726659552528" type="3" />
+					<Hit id="357" posX="-0.076583141650245934" posY="-0.95105651629515353" posZ="5.6228477671620176" type="3" />
+					<Hit id="358" posX="0.82754757676722079" posY="0.53075398392950446" posZ="5.1235845015666417" type="3" />
+					<Hit id="359" posX="-0.748780565984971" posY="0.63154957925294075" posZ="4.9792820411857059" type="3" />
+					<Hit id="360" posX="-0.075335652918220752" posY="-0.95105651629515353" posZ="5.1605617530896435" type="3" />
+					<Hit id="361" posX="0.59157513043844023" posY="0.74576601381110053" posZ="7.709658939386836" type="3" />
+					<Hit id="362" posX="0.62611185812626668" posY="-0.72067361236775451" posZ="8.0859086691221993" type="3" />
+					<Hit id="363" posX="-0.83262682232046215" posY="-0.51512167350902338" posZ="6.4648879688686263" type="3" />
+					<Hit id="364" posX="0.79969953509203051" posY="-0.59455478271447093" posZ="4.3813266423470809" type="3" />
+					<Hit id="365" posX="-0.22912159502933116" posY="-0.95105651629515353" posZ="6.0008738340236345" type="3" />
+					<Hit id="366" posX="0.21511640614698269" posY="0.95105651629515375" posZ="5.4230469119978011" type="3" />
+					<Hit id="367" posX="-0.83814598688180519" posY="-0.49813543159961593" posZ="5.392178974820955" type="3" />
+					<Hit id="368" posX="-0.20202766560549024" posY="0.95105651629515375" posZ="5.2223953555075369" type="3" />
+					<Hit id="369" posX="0.4796018590125537" posY="0.82711935750189491" posZ="5.6586125108315963" type="3" />
+					<Hit id="370" posX="0.71209087095601631" posY="-0.65820620303102295" posZ="5.6428535401193569" type="3" />
+					<Hit id="371" posX="0.064120250146629365" posY="0.95105651629515364" posZ="5.3259097987509829" type="3" />
+					<Hit id="372" posX="-0.62776941169834866" posY="-0.71946932920518969" posZ="6.0389416734601671" type="3" />
+					<Hit id="373" posX="-0.98751085686053108" posY="0.038437630233768227" posZ="6.6583646511837058" type="3" />
+					<Hit id="374" posX="0.89738627129641158" posY="0.31581258351920205" posZ="5.7675340279910214" type="3" />
+					<Hit id="375" posX="0.1849418873427584" posY="0.95105651629515364" posZ="5.5607446086892773" type="3" />
+					<Hit id="376" posX="0.94197207306957831" posY="0.17859159541016723" posZ="6.387561947576911" type="3" />
+					<Hit id="377" posX="-0.93376571808721198" posY="0.20384815903961168" posZ="6.1602105416102271" type="3" />
+					<Hit id="378" posX="-0.98210516914702661" posY="-0.055074626316731934" posZ="6.1954942189801647" type="3" />
+					<Hit id="379" posX="0.9321260591919347" posY="0.20889451022819044" posZ="6.0398673781433798" type="3" />
+					<Hit id="380" posX="-0.62075010162283406" posY="-0.7245691564923078" posZ="7.627571632568241" type="3" />
+					<Hit id="381" posX="0.91920012164647336" posY="0.24867645541441208" posZ="8.1631162472810175" type="3" />
+					<Hit id="382" posX="-0.91607584368971362" posY="0.25829199424749005" posZ="8.3302891958837488" type="3" />
+					<Hit id="383" posX="0.49290344811267861" posY="-0.81745518733060163" posZ="6.8883737998688765" type="3" />
+					<Hit id="384" posX="-0.39024325321625619" posY="0.89204218485617093" posZ="7.6591068931049247" type="3" />
+					<Hit id="385" posX="0.44251789919026818" posY="-0.85406243141962712" posZ="7.62311143523924" type="3" />
+					<Hit id="386" posX="-0.38287852332795536" posY="-0.89739297432729426" posZ="7.1725919838680934" type="3" />
+					<Hit id="387" posX="0.81285575512366004" posY="0.57597076153300619" posZ="8.8658362403100455" type="3" />
+					<Hit id="388" posX="0.41543419110264701" posY="0.13130854095130429" posZ="10" type="2" />
+					<Hit id="389" posX="-0.55147586445903385" posY="-0.16250787159831398" posZ="0" type="1" />
+					<Hit id="390" posX="-0.71420701177588786" posY="-0.65666873673013804" posZ="1.0672410224236386" type="3" />
+					<Hit id="391" posX="-0.32326800031206221" posY="0.94070255441498252" posZ="0.66969670330606257" type="3" />
+					<Hit id="392" posX="0.81876075803381854" posY="0.55779703128944003" posZ="1.3759919973887291" type="3" />
+					<Hit id="393" posX="-0.76404972924098002" posY="0.48025857605664468" posZ="2.2204460492503131e-16" type="2" />
+					<Hit id="394" posX="0.51692297727996628" posY="-0.54104212643013083" posZ="0" type="1" />
+					<Hit id="395" posX="0.84172699182527311" posY="-0.48711423163856116" posZ="0.288049225983455" type="3" />
+					<Hit id="396" posX="0.55442743347988366" posY="0.12107428459749892" posZ="0" type="2" />
+					<Hit id="397" posX="0.41792665991464384" posY="-0.3130272481256291" posZ="0" type="1" />
+					<Hit id="398" posX="0.93599798737365725" posY="-0.19697794060617782" posZ="0.71118689151904257" type="3" />
+					<Hit id="399" posX="-0.89449446432031587" posY="0.32471265024222062" posZ="0.049218288056443571" type="3" />
+					<Hit id="400" posX="-0.0078156869396126538" posY="-0.95105651629515342" posZ="0.52366571712194221" type="3" />
+					<Hit id="401" posX="0.15837741840951514" posY="0.95105651629515342" posZ="0.48134737749518414" type="3" />
+					<Hit id="402" posX="-0.31151124393596502" posY="-0.94924433791361573" posZ="0.39596552001624485" type="3" />
+					<Hit id="403" posX="0.46972633972345795" posY="-0.83429434225156018" posZ="0.39328623669711604" type="3" />
+					<Hit id="404" posX="-0.88309340314747797" posY="-0.35980150852019072" posZ="0.91769361311134656" type="3" />
+					<Hit id="405" posX="-0.73725577060755465" posY="-0.16955398950332082" posZ="0" type="2" />
+					<Hit id="406" posX="0.093693731296225491" posY="0.46827800054736746" posZ="0" type="1" />
+					<Hit id="407" posX="0.88417301273835025" posY="0.35647881185578734" posZ="1.690435902406328" type="3" />
+					<Hit id="408" posX="0.63846857523808964" posY="-0.55194295120030101" posZ="0" type="2" />
+					<Hit id="409" posX="-0.3832272980490441" posY="-0.88175845015542387" posZ="0" type="1" />
+					<Hit id="410" posX="0.52298415318539304" posY="-0.79560027582288784" posZ="1.8745402376604297" type="3" />
+					<Hit id="411" posX="-0.83257997343979129" posY="-0.51526585953779802" posZ="2.7084575124336165" type="3" />
+					<Hit id="412" posX="-0.086221136940383913" posY="0.53322275246640138" posZ="-4.4408920985006262e-16" type="2" />
+					<Hit id="413" posX="0.7568328075813594" posY="0.49493269419530406" posZ="0" type="1" />
+					<Hit id="414" posX="0.83269642606881478" posY="0.5149074551985916" posZ="0.068535360771634551" type="3" />
+					<Hit id="415" posX="0.78337398520717016" posY="0.60641598899889471" posZ="0.015674265872712277" type="3" />
+					<Hit id="416" posX="0.76588973055266119" posY="0.59245313543500999" posZ="0" type="2" />
+					<Hit id="417" posX="0.46755464962217985" posY="0.46473896320919367" posZ="0" type="1" />
+					<Hit id="418" posX="0.94645342584167147" posY="-0.16479940975922153" posZ="0.11912561334248194" type="3" />
+					<Hit id="419" posX="0.32369329560907811" posY="0.21347435563607831" posZ="1.3877787807814457e-17" type="2" />
+					<Hit id="420" posX="0.12184036112236718" posY="0.3930013095940858" posZ="0" type="1" />
+					<Hit id="421" posX="0.82512744588654197" posY="0.53820238089877837" posZ="0.52463589867671512" type="3" />
+					<Hit id="422" posX="0.29421895772890549" posY="0.87090939888925778" posZ="0" type="2" />
+					<Hit id="423" posX="-0.47843257405363793" posY="0.78823255707677897" posZ="0" type="1" />
+					<Hit id="424" posX="0.61479558340670204" posY="-0.72889536721011017" posZ="0.51782518346492179" type="3" />
+					<Hit id="425" posX="0.015964053801987288" posY="0.93945780261314882" posZ="0" type="2" />
+					<Hit id="426" posX="0.43133849558098258" posY="0.82461765732920589" posZ="0" type="1" />
+					<Hit id="427" posX="0.51514557788786763" posY="-0.80129533413551224" posZ="2.4901905285262238" type="3" />
+					<Hit id="428" posX="-0.34187573101338209" posY="0.92718324671080277" posZ="0.44349391967250851" type="3" />
+					<Hit id="429" posX="0.02853434880832928" posY="0.54279509387948521" posZ="0" type="2" />
+					<Hit id="430" posX="0.43139281443993388" posY="0.13365427346584347" posZ="0" type="1" />
+					<Hit id="431" posX="-0.88832978280650421" posY="0.34368558904920593" posZ="2.0238282027581196" type="3" />
+					<Hit id="432" posX="0.94347301364778691" posY="0.17397217530233683" posZ="0.96221896387381722" type="3" />
+					<Hit id="433" posX="-0.8684380970280392" posY="0.40490590289625256" posZ="2.7149646819814111" type="3" />
+					<Hit id="434" posX="-0.19761807268911613" posY="0.95105651629515364" posZ="2.6621027655207121" type="3" />
+					<Hit id="435" posX="-0.53817822537703974" posY="-0.7845611362020728" posZ="2.9348861959232919" type="3" />
+					<Hit id="436" posX="0.38492389670438676" posY="-0.89590692358366653" posZ="3.3429658679235112" type="3" />
+					<Hit id="437" posX="-0.12737246286245019" posY="0.9510565162951532" posZ="4.4668692101990661" type="3" />
+					<Hit id="438" posX="0.82687255626240075" posY="0.53283148342444431" posZ="4.6618857214582059" type="3" />
+					<Hit id="439" posX="0.77952089683514691" posY="-0.60921542156533248" posZ="4.4542797585732412" type="3" />
+					<Hit id="440" posX="-0.56269518472525026" posY="-0.76674852257821946" posZ="3.3279242286286497" type="3" />
+					<Hit id="441" posX="0.53965286102193744" posY="0.78348975069274218" posZ="3.613368190444981" type="3" />
+					<Hit id="442" posX="0.8650848395977222" posY="-0.41522616808544932" posZ="3.7574478705015197" type="3" />
+					<Hit id="443" posX="-0.11334862286214875" posY="-0.95105651629515364" posZ="3.9070630307497507" type="3" />
+					<Hit id="444" posX="-0.98481634770612414" posY="0.046730476699054502" posZ="3.6233510648379053" type="3" />
+					<Hit id="445" posX="0.82644659193036418" posY="-0.53414246683657807" posZ="3.0538330119766925" type="3" />
+					<Hit id="446" posX="-0.99031011426053295" posY="-0.029822401817466426" posZ="3.6007484219171815" type="3" />
+					<Hit id="447" posX="0.9831678134731624" posY="0.051804143368311101" posZ="3.9089522277115556" type="3" />
+					<Hit id="448" posX="0.67144316254107084" posY="-0.68773849186044234" posZ="3.355289168054266" type="3" />
+					<Hit id="449" posX="-0.96677378016008841" posY="0.10225978980386308" posZ="1.502035226712251" type="3" />
+					<Hit id="450" posX="0.12339947301535914" posY="0.95105651629515375" posZ="2.1723931888531851" type="3" />
+					<Hit id="451" posX="-0.37761981368577169" posY="-0.90121365052477287" posZ="1.4694870674506" type="3" />
+					<Hit id="452" posX="0.98179223994301534" posY="-0.056037723376219484" posZ="0.64534930939312507" type="3" />
+					<Hit id="453" posX="0.60101027664580631" posY="0.31771975726804202" posZ="0" type="2" />
+					<Hit id="454" posX="0.7503940331455965" posY="0.10049305060137365" posZ="0" type="1" />
+					<Hit id="455" posX="-0.85568953954247862" posY="-0.44414192839229355" posZ="1.3479419835246869" type="3" />
+					<Hit id="456" posX="0.96483701116284837" posY="-0.10822055186197904" posZ="1.0467355794107043" type="3" />
+					<Hit id="457" posX="0.35758943471545124" posY="-0.91576657269877448" posZ="1.1547112913910929" type="3" />
+					<Hit id="458" posX="0.35363374210910448" posY="-0.1950604439289455" posZ="2.2204460492503131e-16" type="2" />
+					<Hit id="459" posX="-0.25374570356620918" posY="0.12649705457232557" posZ="0" type="1" />
+					<Hit id="460" posX="0.23129955731476276" posY="-0.9510565162951532" posZ="0.84671806146099193" type="3" />
+					<Hit id="461" posX="0.47315174302342666" posY="-0.38045540495688268" posZ="0" type="2" />
+					<Hit id="462" posX="0.02166500874405064" posY="0.21981504961760812" posZ="0" type="1" />
+					<Hit id="463" posX="0.84233756784014757" posY="0.48523507188938847" posZ="0.15634816595493795" type="3" />
+					<Hit id="464" posX="0.25966418867777041" posY="0.095716198425352617" posZ="0" type="2" />
+					<Hit id="465" posX="0.38930386147230267" posY="-0.7398243599419847" posZ="0" type="1" />
+					<Hit id="466" posX="-0.62953290402779383" posY="0.71818807703003662" posZ="1.9279057953376644" type="3" />
+					<Hit id="467" posX="0.76177180970457281" posY="0.62211088819896709" posZ="4.6763643054253716" type="3" />
+					<Hit id="468" posX="0.9813967540430647" posY="-0.057254903819681568" posZ="4.9008647063428983" type="3" />
+					<Hit id="469" posX="0.99614492866115145" posY="0.011864689594210331" posZ="4.8724695979793378" type="3" />
+					<Hit id="470" posX="-0.90250571307727578" posY="0.30005656183070717" posZ="3.222352164162043" type="3" />
+					<Hit id="471" posX="-0.3707515803280208" posY="-0.90620371415144341" posZ="2.6871825260195212" type="3" />
+					<Hit id="472" posX="-0.14243257209184126" posY="0.95105651629515386" posZ="2.0336050356678168" type="3" />
+					<Hit id="473" posX="-0.59705753024746988" posY="-0.74178281719431238" posZ="2.1262395526544449" type="3" />
+					<Hit id="474" posX="0.12017206991383278" posY="0.95105651629515386" posZ="3.2493236594590207" type="3" />
+					<Hit id="475" posX="-0.34921963407222173" posY="-0.92184758881700768" posZ="2.3125697800390661" type="3" />
+					<Hit id="476" posX="0.89650226857130777" posY="0.31853326415307159" posZ="1.06696139154138" type="3" />
+					<Hit id="477" posX="-0.68630344166726798" posY="-0.67694186709722948" posZ="4.4427568045855903" type="3" />
+					<Hit id="478" posX="0.72803659225391515" posY="0.64662095836837896" posZ="2.5321006413128417" type="3" />
+					<Hit id="479" posX="0.25284147220300895" posY="-0.9510565162951542" posZ="2.0031223775883014" type="3" />
+					<Hit id="480" posX="0.97303010404651236" posY="0.083004804775378083" posZ="3.4950433537916967" type="3" />
+					<Hit id="481" posX="-0.90361657808545393" posY="-0.29663767088301585" posZ="2.148126990840149" type="3" />
+					<Hit id="482" posX="0.71009348554411877" posY="0.65965738847758382" posZ="3.120366436288688" type="3" />
+					<Hit id="483" posX="0.72181540454855686" posY="-0.65114091581102551" posZ="2.8519800839725558" type="3" />
+					<Hit id="484" posX="-0.042200237938519791" posY="-0.95105651629515364" posZ="3.7619708836886594" type="3" />
+					<Hit id="485" posX="-0.05690343162462369" posY="0.95105651629515364" posZ="2.0135294121302447" type="3" />
+					<Hit id="486" posX="-0.83878807260627242" posY="0.40349899980414761" posZ="0" type="2" />
+					<Hit id="487" posX="0.015352258419969456" posY="0.18345974350169864" posZ="0" type="1" />
+					<Hit id="488" posX="0.40582028809354015" posY="-0.88072480655760188" posZ="2.1714914233466183" type="3" />
+					<Hit id="489" posX="-0.40482338061724893" posY="-0.88144910223561379" posZ="2.3652648040597497" type="3" />
+					<Hit id="490" posX="0.5816288582760647" posY="0.75299240353218255" posZ="0.79835249641363926" type="3" />
+					<Hit id="491" posX="-0.25753191562732991" posY="-0.95105651629515353" posZ="1.4839830448924074" type="3" />
+					<Hit id="492" posX="0.67395368656660126" posY="-0.68591448938831512" posZ="0.77877936537123027" type="3" />
+					<Hit id="493" posX="-0.57640658225871466" posY="0.7567866091517701" posZ="0.67935181509867903" type="3" />
+					<Hit id="494" posX="-0.0080642455828947579" posY="0.064317134329293535" posZ="0" type="2" />
+					<Hit id="495" posX="0.024118808534116409" posY="-0.7100513831000933" posZ="0" type="1" />
+					<Hit id="496" posX="0.20278708908052681" posY="-0.95105651629515364" posZ="0.11046215956042239" type="3" />
+					<Hit id="497" posX="-0.32664543549374192" posY="0.93824870411991101" posZ="3.2404104675493537" type="3" />
+					<Hit id="498" posX="0.48962395768391165" posY="-0.81983787659728713" posZ="1.9753113278815062" type="3" />
+					<Hit id="499" posX="-0.80106626606100484" posY="0.59356179454116886" posZ="2.4096486372969932" type="3" />
+					<Hit id="500" posX="0.75032861928710104" posY="-0.63042485269332427" posZ="1.3085909464279057" type="3" />
+					<Hit id="501" posX="-0.91602625399691595" posY="0.2584446156286283" posZ="1.6648466780193278" type="3" />
+					<Hit id="502" posX="0.88773109157448982" posY="0.34552817119782897" posZ="1.0687900846953982" type="3" />
+					<Hit id="503" posX="-0.88973416210667589" posY="0.33936335399711848" posZ="0.48547322910515411" type="3" />
+					<Hit id="504" posX="0.79306187130884309" posY="0.47887172387882249" posZ="5.5511151231257827e-17" type="2" />
+					<Hit id="505" posX="-0.77213235661340174" posY="0.44092212798253094" posZ="0" type="1" />
+					<Hit id="506" posX="-0.98412224720716357" posY="-0.048866698377850959" posZ="0.97258855481692552" type="3" />
+					<Hit id="507" posX="0.32286695595264492" posY="0.71403047786842833" posZ="1.1102230246251565e-16" type="2" />
+					<Hit id="508" posX="0.67453902970099777" posY="0.62736539917522294" posZ="0" type="1" />
+					<Hit id="509" posX="0.48329665067844912" posY="0.82443493422450198" posZ="0.40119711637223521" type="3" />
+					<Hit id="510" posX="-0.84660460930911752" posY="0.47210246860789579" posZ="1.2776210870565667" type="3" />
+					<Hit id="511" posX="0.89351710931717587" posY="0.32772063964536102" posZ="2.967599033941855" type="3" />
+					<Hit id="512" posX="-0.3933570131536519" posY="-0.88977990583965394" posZ="2.8655325220263834" type="3" />
+					<Hit id="513" posX="0.018497249358923662" posY="-0.95105651629515364" posZ="3.0675720685604397" type="3" />
+					<Hit id="514" posX="-0.89612862878654198" posY="0.31968320916747817" posZ="2.3056719512537081" type="3" />
+					<Hit id="515" posX="-0.15403687069777783" posY="0.95105651629515364" posZ="2.465027894873332" type="3" />
+					<Hit id="516" posX="-0.77854753336726801" posY="-0.60992261151995297" posZ="1.7149545350062767" type="3" />
+					<Hit id="517" posX="-0.66795764388765311" posY="0.69027086939430604" posZ="1.8775206954372294" type="3" />
+					<Hit id="518" posX="0.54550944073727647" posY="-0.77923469646089449" posZ="2.5469400035033662" type="3" />
+					<Hit id="519" posX="0.29347427122394049" posY="0.95105651629515386" posZ="3.8622360823645172" type="3" />
+					<Hit id="520" posX="0.87917293883090641" posY="-0.37186745700538659" posZ="4.3356807375689508" type="3" />
+					<Hit id="521" posX="-0.9157628064411667" posY="0.25925542383386713" posZ="2.1744761664714192" type="3" />
+					<Hit id="522" posX="0.74574576148790617" posY="-0.63375449378423998" posZ="2.9527540306052358" type="3" />
+					<Hit id="523" posX="-0.78984812116875247" posY="0.60171225389071614" posZ="1.6512960279498965" type="3" />
+					<Hit id="524" posX="0.4619863267739468" posY="-0.83991779082669205" posZ="2.1418294089514442" type="3" />
+					<Hit id="525" posX="-0.33383815293472041" posY="-0.93302288900711439" posZ="2.2851059992359297" type="3" />
+					<Hit id="526" posX="-0.78167395277232576" posY="0.60765113486179767" posZ="1.9058803680035388" type="3" />
+					<Hit id="527" posX="-0.61170299974007114" posY="-0.73114226076533262" posZ="1.2474152608448681" type="3" />
+					<Hit id="528" posX="-0.84580275162129537" posY="-0.47457033281286287" posZ="1.0694842534702682" type="3" />
+					<Hit id="529" posX="0.74159391216736581" posY="0.63677098888548256" posZ="2.6419539905916043" type="3" />
+					<Hit id="530" posX="-0.091782173622271368" posY="0.95105651629515353" posZ="2.9368996716704383" type="3" />
+					<Hit id="531" posX="0.014642227165559754" posY="-0.95105651629515331" posZ="1.9702029297597843" type="3" />
+					<Hit id="532" posX="-0.67210850605730244" posY="0.68725509150016706" posZ="2.2702266567648675" type="3" />
+					<Hit id="533" posX="0.66096870830590482" posY="0.45928787310120278" posZ="-4.4408920985006262e-16" type="2" />
+					<Hit id="534" posX="-0.030019117713202204" posY="0.80335447698993723" posZ="0" type="1" />
+					<Hit id="535" posX="-0.29132867888379232" posY="0.95105651629515364" posZ="1.871159695347137" type="3" />
+					<Hit id="536" posX="-0.32102102713232722" posY="0.94233507598934774" posZ="1.8501832423749569" type="3" />
+					<Hit id="537" posX="-0.90603753299952516" posY="0.28918673779973414" posZ="2.7673437356542014" type="3" />
+					<Hit id="538" posX="0.90471770353978376" posY="0.29324875519985893" posZ="3.3667703386554484" type="3" />
+					<Hit id="539" posX="-0.94392978132806338" posY="0.17256638893243542" posZ="2.6613625160030971" type="3" />
+					<Hit id="540" posX="0.31821843325768606" posY="-0.94437127962800171" posZ="2.9339747697745762" type="3" />
+					<Hit id="541" posX="-0.89566731231407903" posY="-0.32110299528020658" posZ="2.1673504323839268" type="3" />
+					<Hit id="542" posX="-0.64186251166347352" posY="0.70923009272909565" posZ="2.2933348107235632" type="3" />
+					<Hit id="543" posX="0.2023124541040926" posY="0.95071221684739937" posZ="-4.4408920985006262e-16" type="2" />
+					<Hit id="544" posX="0.52830136651363147" posY="-0.26732413870987681" posZ="0" type="1" />
+					<Hit id="545" posX="0.35954314013985833" posY="0.9143471226207478" posZ="1.431405342376703" type="3" />
+					<Hit id="546" posX="-0.58387879162106515" posY="-0.75135773127186245" posZ="1.5109928066679199" type="3" />
+					<Hit id="547" posX="-0.02591826499844363" posY="0.95105651629515409" posZ="2.4032038637991064" type="3" />
+					<Hit id="548" posX="-0.53023093545871491" posY="0.79033518031012417" posZ="2.8920899377972247" type="3" />
+					<Hit id="549" posX="0.39083970076017205" posY="-0.89160884034979238" posZ="4.9360600864425503" type="3" />
+					<Hit id="550" posX="0.54624147974810966" posY="0.77870283898736581" posZ="6.2397262809495588" type="3" />
+					<Hit id="551" posX="0.72587219974478689" posY="-0.64819348157355661" posZ="4.6861872705293521" type="3" />
+					<Hit id="552" posX="-0.57931931798347958" posY="-0.7546703827748874" posZ="4.5991988810341784" type="3" />
+					<Hit id="553" posX="0.96224319822791926" posY="0.11620348723032148" posZ="3.2923677021134243" type="3" />
+					<Hit id="554" posX="-0.67245028930016948" posY="-0.6870067714388649" posZ="4.221902243238004" type="3" />
+					<Hit id="555" posX="0.57797965769768223" posY="0.75564370294559924" posZ="6.8915965296456712" type="3" />
+					<Hit id="556" posX="-0.18876395275330504" posY="-0.95105651629515375" posZ="7.2658937878914314" type="3" />
+					<Hit id="557" posX="0.96847225027897477" posY="0.097032436280580447" posZ="5.0632400874518986" type="3" />
+					<Hit id="558" posX="-0.27059321269284375" posY="-0.95105651629515353" posZ="5.7270840355893684" type="3" />
+					<Hit id="559" posX="-0.86662044803807847" posY="-0.41050005126901767" posZ="5.8721809867004975" type="3" />
+					<Hit id="560" posX="-0.13061607843439371" posY="0.95105651629515353" posZ="5.6682878984909975" type="3" />
+					<Hit id="561" posX="0.3575850714213597" posY="-0.91576974281749413" posZ="2.9608291136427276" type="3" />
+					<Hit id="562" posX="-0.98966377098927261" posY="-0.031811641862788398" posZ="1.1473271203023732" type="3" />
+					<Hit id="563" posX="0.48039839831689379" posY="0.82654063782206377" posZ="1.6978185109084896" type="3" />
+					<Hit id="564" posX="-0.13073711301903868" posY="-0.95105651629515353" posZ="1.627798834610356" type="3" />
+					<Hit id="565" posX="0.43054329830689186" posY="0.86276248821729096" posZ="2.8059251420679372" type="3" />
+					<Hit id="566" posX="-0.81882620660842986" posY="0.5575956012888259" posZ="1.3945544321311729" type="3" />
+					<Hit id="567" posX="-0.26287485017864509" posY="0.95105651629515364" posZ="1.3886934143434773" type="3" />
+					<Hit id="568" posX="-0.9281713502289789" posY="-0.22106585289779845" posZ="1.9008190604266653" type="3" />
+					<Hit id="569" posX="0.91068988513894544" posY="-0.27486827021109755" posZ="1.494452474863865" type="3" />
+					<Hit id="570" posX="-0.91103169227604763" posY="-0.27381629601235041" posZ="4.5730112061213806" type="3" />
+					<Hit id="571" posX="-0.49726879119120643" posY="0.81428357993471723" posZ="4.8824200160139748" type="3" />
+					<Hit id="572" posX="-0.9160685196704319" posY="0.25831453526106007" posZ="5.4514499782139012" type="3" />
+					<Hit id="573" posX="0.92311369451424174" posY="0.23663171662774468" posZ="6.182998632883173" type="3" />
+					<Hit id="574" posX="-0.81264366983535097" posY="-0.57662349293331139" posZ="6.0147569269305485" type="3" />
+					<Hit id="575" posX="-0.92855362398748253" posY="0.21988933524455756" posZ="6.8971053090258607" type="3" />
+					<Hit id="576" posX="0.64659990709879755" posY="0.70578817347335454" posZ="6.6015429179614129" type="3" />
+					<Hit id="577" posX="-0.2951122207930158" posY="-0.95105651629515353" posZ="7.4582359326595293" type="3" />
+					<Hit id="578" posX="-0.84646602892633527" posY="0.47252897517055914" posZ="7.9480294049899118" type="3" />
+					<Hit id="579" posX="0.38624131075273094" posY="-0.89494976625055245" posZ="6.8648788861168173" type="3" />
+					<Hit id="580" posX="-0.50085496646094918" posY="-0.81167807108836809" posZ="5.9751559938048855" type="3" />
+					<Hit id="581" posX="-0.83297822672996347" posY="0.51404016194300894" posZ="8.1647932014221549" type="3" />
+					<Hit id="582" posX="0.10810870021932739" posY="-0.95105651629515375" posZ="7.4772337526460948" type="3" />
+					<Hit id="583" posX="-0.24263052155912185" posY="0.95105651629515375" posZ="7.1667658652026711" type="3" />
+					<Hit id="584" posX="0.86588562032312888" posY="-0.41276161842997749" posZ="7.4850372977453592" type="3" />
+					<Hit id="585" posX="-0.074300897156000301" posY="0.9510565162951542" posZ="6.4435779367361006" type="3" />
+					<Hit id="586" posX="-0.056925060268840963" posY="-0.95105651629515353" posZ="7.1988776893208133" type="3" />
+					<Hit id="587" posX="0.012013215488976645" posY="0.95105651629515375" posZ="6.8865115348721009" type="3" />
+					<Hit id="588" posX="0.19910955819544451" posY="-0.95105651629515353" posZ="6.4639153695769043" type="3" />
+					<Hit id="589" posX="0.99911467771665363" posY="0.0027247418165492476" posZ="5.6268255783578232" type="3" />
+					<Hit id="590" posX="-0.34959233199854556" posY="0.92157680792343322" posZ="6.1146428213049049" type="3" />
+					<Hit id="591" posX="-0.69347929107795792" posY="-0.67172830732580135" posZ="5.5477507904178802" type="3" />
+					<Hit id="592" posX="-0.92205414813005326" posY="0.23989266509123564" posZ="4.8806539019072037" type="3" />
+					<Hit id="593" posX="-0.19941612757938143" posY="-0.95105651629515364" posZ="4.2195321024381656" type="3" />
+					<Hit id="594" posX="-0.38769868328610779" posY="-0.89389092312590779" posZ="4.4485928910255934" type="3" />
+					<Hit id="595" posX="-0.16870490473165914" posY="0.95105651629515342" posZ="6.0554546380048597" type="3" />
+					<Hit id="596" posX="0.92172120715965766" posY="-0.24091735203467302" posZ="4.7219581486332416" type="3" />
+					<Hit id="597" posX="-0.77932290180717056" posY="-0.60935927337349072" posZ="3.8054013044633002" type="3" />
+					<Hit id="598" posX="-0.19385444402640717" posY="0.95105651629515364" posZ="4.7012284464155929" type="3" />
+					<Hit id="599" posX="-0.83210271299024463" posY="-0.51673471616631295" posZ="5.0046193504686123" type="3" />
+					<Hit id="600" posX="0.58527369834268927" posY="0.75034427221600186" posZ="6.1014484934047637" type="3" />
+					<Hit id="601" posX="0.27170820633810305" posY="-0.95105651629515409" posZ="5.5732911025887635" type="3" />
+					<Hit id="602" posX="0.50426486966033723" posY="0.80920063139763143" posZ="8.1751315313304218" type="3" />
+					<Hit id="603" posX="-0.94202500479429985" posY="0.17842868831239755" posZ="6.4355244402744951" type="3" />
+					<Hit id="604" posX="0.31870231037202801" posY="-0.94401972232610398" posZ="6.9118435371090037" type="3" />
+					<Hit id="605" posX="-0.025508007569984614" posY="0.9510565162951532" posZ="6.6952851397621052" type="3" />
+					<Hit id="606" posX="-0.1697720720449068" posY="-0.95105651629515386" posZ="5.7012145993959216" type="3" />
+					<Hit id="607" posX="0.50594865885611418" posY="0.80797728693870297" posZ="4.7510335217986794" type="3" />
+					<Hit id="608" posX="-0.065141911080481951" posY="-0.95105651629515364" posZ="2.6130673671783495" type="3" />
+					<Hit id="609" posX="0.90539246221073277" posY="-0.29117206154671349" posZ="2.7686151660360458" type="3" />
+					<Hit id="610" posX="-0.84666195862951965" posY="-0.47192596554862443" posZ="7.5707431056082237" type="3" />
+					<Hit id="611" posX="-0.66845587902982262" posY="-0.68990888037457321" posZ="7.4495574982919504" type="3" />
+					<Hit id="612" posX="0.99996938515108524" posY="9.4222816498512607e-05" posZ="5.4231080280811961" type="3" />
+					<Hit id="613" posX="-0.050654107593795517" posY="-0.95105651629515375" posZ="3.6062677451719316" type="3" />
+					<Hit id="614" posX="-0.62213827660153631" posY="0.72356058833396719" posZ="3.6013584718142937" type="3" />
+					<Hit id="615" posX="0.91648026660919435" posY="-0.25704730848614887" posZ="3.2266795078021877" type="3" />
+					<Hit id="616" posX="-0.7942694879209099" posY="0.59849994291336528" posZ="4.8247551060035434" type="3" />
+					<Hit id="617" posX="0.4508778386562865" posY="-0.84798857986601472" posZ="4.4135244790941437" type="3" />
+					<Hit id="618" posX="-0.81027642060565663" posY="-0.58390913691593216" posZ="3.3243371192469451" type="3" />
+					<Hit id="619" posX="-0.80704103727344945" posY="-0.58922086916022565" posZ="3.3260664958583464" type="3" />
+					<Hit id="620" posX="-0.98168644539850825" posY="0.056363325504171224" posZ="2.6690519634358543" type="3" />
+					<Hit id="621" posX="-0.20999415523354692" posY="-0.95105651629515353" posZ="2.8815672430961108" type="3" />
+					<Hit id="622" posX="0.87314660423649482" posY="0.39041460777611758" posZ="2.1728737590367948" type="3" />
+					<Hit id="623" posX="0.69377687799100296" posY="-0.67151209777769594" posZ="2.4660026034768388" type="3" />
+					<Hit id="624" posX="-0.96369230036237119" posY="0.11174360944743389" posZ="3.4410311108851372" type="3" />
+					<Hit id="625" posX="0.2933681280298801" posY="-0.95105651629515353" posZ="0.35386462417520947" type="3" />
+					<Hit id="626" posX="-0.50444722726794733" posY="0.80906814084039691" posZ="0.2257509677336593" type="3" />
+					<Hit id="627" posX="-0.23593608106123787" posY="0.24574894862341445" posZ="0" type="2" />
+					<Hit id="628" posX="0.31443316134989663" posY="0.13074923114950851" posZ="0" type="1" />
+					<Hit id="629" posX="-0.54260158830708616" posY="0.78134737491659179" posZ="0.50470184126299966" type="3" />
+					<Hit id="630" posX="-0.98741361939097971" posY="-0.038736896393003262" posZ="0.27572265767848481" type="3" />
+					<Hit id="631" posX="0.21123695602071302" posY="0.95105651629515342" posZ="0.34165647498067914" type="3" />
+					<Hit id="632" posX="0.38728043547178409" posY="0.89419479795025925" posZ="0.47688794338911189" type="3" />
+					<Hit id="633" posX="-0.39270939856472203" posY="0.89025042538026833" posZ="0.72123188489568224" type="3" />
+					<Hit id="634" posX="0.26898741727548853" posY="0.012901887618632979" posZ="0" type="2" />
+					<Hit id="635" posX="-0.14841769384186931" posY="0.2817293940713943" posZ="0" type="1" />
+					<Hit id="636" posX="-0.6977550467823902" posY="-0.66862178896716939" posZ="0.52856737028857192" type="3" />
+					<Hit id="637" posX="0.24043824543459746" posY="-0.64770697288122014" posZ="-1.1102230246251565e-16" type="2" />
+					<Hit id="638" posX="0.3836561015388571" posY="0.44987988441431959" posZ="0" type="1" />
+					<Hit id="639" posX="0.68729696683550789" posY="0.67622002880985976" posZ="0.24485764268272014" type="3" />
+					<Hit id="640" posX="0.92232760234195932" posY="-0.23905105956508155" posZ="1.8446318048395662" type="3" />
+					<Hit id="641" posX="-0.83340679350757374" posY="0.51272116902697784" posZ="1.4126050838851252" type="3" />
+					<Hit id="642" posX="0.91826473253355489" posY="0.25155528708809366" posZ="1.8678391196653521" type="3" />
+					<Hit id="643" posX="-0.57849219064932345" posY="-0.75527132595922741" posZ="1.1704850850118138" type="3" />
+					<Hit id="644" posX="0.84961031062114833" posY="0.4628518711621914" posZ="0.93893537948959949" type="3" />
+					<Hit id="645" posX="-0.073166186511756326" posY="-0.95105651629515409" posZ="2.7964540783654739" type="3" />
+					<Hit id="646" posX="0.53145539134418929" posY="0.78944556103566077" posZ="1.8578623307653275" type="3" />
+					<Hit id="647" posX="-0.92660753964690867" posY="-0.22587876698149745" posZ="1.7754321836268867" type="3" />
+					<Hit id="648" posX="0.87104582617574877" posY="0.39688013782893306" posZ="1.3402284887898706" type="3" />
+					<Hit id="649" posX="-0.95799295812188978" posY="0.12928438123369113" posZ="1.108658104071657" type="3" />
+					<Hit id="650" posX="0.93439983400245663" posY="0.20189655092660364" posZ="0.56212893898803085" type="3" />
+					<Hit id="651" posX="0.58744523202060617" posY="-0.74876656064799929" posZ="0.95581961117170178" type="3" />
+					<Hit id="652" posX="-0.67228651072879309" posY="0.68712576353614596" posZ="2.2122302797876632" type="3" />
+					<Hit id="653" posX="-0.10785474366122272" posY="0.95105651629515364" posZ="2.5791012057173335" type="3" />
+					<Hit id="654" posX="-0.10544310318771061" posY="-0.95105651629515386" posZ="4.4573312365816449" type="3" />
+					<Hit id="655" posX="0.044074520252175176" posY="0.95105651629515342" posZ="4.6992468027552166" type="3" />
+					<Hit id="656" posX="0.8885571015336583" posY="-0.34298597394495256" posZ="7.0680094649993883" type="3" />
+					<Hit id="657" posX="-0.8949860490371101" posY="-0.32319970805221654" posZ="7.0870620505183588" type="3" />
+					<Hit id="658" posX="0.14504622001888301" posY="0.95105651629515331" posZ="7.409809430433012" type="3" />
+					<Hit id="659" posX="-0.66788001625165894" posY="-0.69032726917320419" posZ="7.2688646892496349" type="3" />
+					<Hit id="660" posX="0.87842330410563241" posY="0.37417459545825771" posZ="6.745982885714195" type="3" />
+					<Hit id="661" posX="-0.71280303772478115" posY="0.65768878358648308" posZ="6.6971786651093597" type="3" />
+					<Hit id="662" posX="0.91205426692439495" posY="0.27066913485159833" posZ="6.4852659853317922" type="3" />
+					<Hit id="663" posX="-0.44734279899805496" posY="-0.85055693651590492" posZ="6.8719332142142182" type="3" />
+					<Hit id="664" posX="-0.39329191086779203" posY="0.88982720541900151" posZ="7.3763205486721279" type="3" />
+					<Hit id="665" posX="0.39404961957084461" posY="-0.88927669782239471" posZ="6.433531811394225" type="3" />
+					<Hit id="666" posX="-0.73356391573871893" posY="0.64260512279062598" posZ="6.2420193948600815" type="3" />
+					<Hit id="667" posX="0.95509417549785469" posY="0.13820591679353444" posZ="5.7562340966215197" type="3" />
+					<Hit id="668" posX="0.039427534638836192" posY="-0.95105651629515375" posZ="6.129409997624335" type="3" />
+					<Hit id="669" posX="0.61459532332015188" posY="0.72904086467965079" posZ="6.6750968985637078" type="3" />
+					<Hit id="670" posX="-0.81897676685359067" posY="-0.55713222450094124" posZ="4.8265816445257625" type="3" />
+					<Hit id="671" posX="0.6168911144894994" posY="0.72737287475970069" posZ="5.5859445019408431" type="3" />
+					<Hit id="672" posX="-0.89462633374349243" posY="0.32430679788945294" posZ="5.829518175176803" type="3" />
+					<Hit id="673" posX="0.18498735993773197" posY="0.95105651629515353" posZ="3.9188885801816067" type="3" />
+					<Hit id="674" posX="-0.50693893599153239" posY="-0.80725780848531048" posZ="4.8372790757479533" type="3" />
+					<Hit id="675" posX="0.40839460950294426" posY="-0.87885445257291495" posZ="5.405475196620575" type="3" />
+					<Hit id="676" posX="-0.73838353909403498" posY="0.63910346145402097" posZ="7.3758646320387049" type="3" />
+					<Hit id="677" posX="0.91866645549008163" posY="0.25031891095828679" posZ="9.460868159027072" type="3" />
+					<Hit id="678" posX="0.075324882092506873" posY="-0.047587518384783534" posZ="10" type="2" />
+					<Hit id="679" posX="-0.067744371445307427" posY="-0.38171821070242523" posZ="0" type="1" />
+					<Hit id="680" posX="-0.12377218943620023" posY="-0.95105651629515364" posZ="0.47903865066199519" type="3" />
+					<Hit id="681" posX="0.89774994171269795" posY="-0.31469332106604042" posZ="2.6169775410403169" type="3" />
+					<Hit id="682" posX="-0.31616139890000627" posY="0.94586580257042463" posZ="1.591722297151108" type="3" />
+					<Hit id="683" posX="0.37688809978204385" posY="-0.90174527179416353" posZ="2.9325191633890975" type="3" />
+					<Hit id="684" posX="0.23809051848210527" posY="-0.95105651629515364" posZ="2.8659970347362544" type="3" />
+					<Hit id="685" posX="-0.31129968757677173" posY="0.94939804260563987" posZ="1.3057121280336357" type="3" />
+					<Hit id="686" posX="0.86326730798304463" posY="0.42081995521423754" posZ="0.52620570315287074" type="3" />
+					<Hit id="687" posX="-0.94260729436921542" posY="-0.1766365852738111" posZ="0.12784995009497424" type="3" />
+					<Hit id="688" posX="-0.71807980582752673" posY="0.013112367280840614" posZ="0" type="2" />
+					<Hit id="689" posX="0.12008435891241243" posY="0.72041236034533151" posZ="0" type="1" />
+					<Hit id="690" posX="-0.13516041206752993" posY="0.95105651629515364" posZ="0.15948611523742134" type="3" />
+					<Hit id="691" posX="0.23539889149969562" posY="0.67186475015687241" posZ="0" type="2" />
+					<Hit id="692" posX="-0.59396498766800621" posY="0.19161938655732708" posZ="0" type="1" />
+					<Hit id="693" posX="-0.81526402689302069" posY="0.56855886315540061" posZ="4.2504787837491271" type="3" />
+					<Hit id="694" posX="0.58752306918390929" posY="0.74871000863860004" posZ="2.5553637982456565" type="3" />
+					<Hit id="695" posX="-0.17266429722944376" posY="-0.95105651629515409" posZ="2.9661717996527877" type="3" />
+					<Hit id="696" posX="0.25968023855924127" posY="0.95105651629515342" posZ="3.2261953208238197" type="3" />
+					<Hit id="697" posX="-0.70320516191250682" posY="-0.66466204854261446" posZ="3.1244920670476466" type="3" />
+					<Hit id="698" posX="0.92628202810718552" posY="-0.22688058848846365" posZ="3.1390796017115603" type="3" />
+					<Hit id="699" posX="0.0083577534436276579" posY="-0.95105651629515386" posZ="3.0443986277297883" type="3" />
+					<Hit id="700" posX="0.82426746021889885" posY="0.5408491446302901" posZ="2.1948266612620584" type="3" />
+					<Hit id="701" posX="0.1857447384178833" posY="0.95105651629515364" posZ="2.4319040355273396" type="3" />
+					<Hit id="702" posX="-0.16086585077126281" posY="-0.95105651629515364" posZ="3.0982312832400929" type="3" />
+					<Hit id="703" posX="-0.8312861000289572" posY="0.51924799243351072" posZ="3.8636282249275178" type="3" />
+					<Hit id="704" posX="0.22763963238806506" posY="-0.95105651629515386" posZ="3.9124869673654015" type="3" />
+					<Hit id="705" posX="-0.86284870513439282" posY="0.42210828231014741" posZ="4.439902230667065" type="3" />
+					<Hit id="706" posX="-0.91438547027820072" posY="-0.26349442866778305" posZ="4.3696438789773939" type="3" />
+					<Hit id="707" posX="0.15329309370971689" posY="0.95105651629515353" posZ="4.8127677820730579" type="3" />
+					<Hit id="708" posX="-0.52497272233953751" posY="0.7941554957625222" posZ="5.7496270733479165" type="3" />
+					<Hit id="709" posX="0.36092258029442581" posY="0.91334490068361618" posZ="6.0961256265599486" type="3" />
+					<Hit id="710" posX="0.67522543222017872" posY="-0.68499051208618533" posZ="4.840169974176173" type="3" />
+					<Hit id="711" posX="-0.072292003059654442" posY="0.95105651629515375" posZ="2.1514622233952023" type="3" />
+					<Hit id="712" posX="0.95116067512209568" posY="-0.15031198614347951" posZ="2.0103627183608346" type="3" />
+					<Hit id="713" posX="-0.5413784002483718" posY="0.78223607306099574" posZ="1.6829555608414304" type="3" />
+					<Hit id="714" posX="0.16792032328291207" posY="-0.95105651629515353" posZ="0.96276943616531252" type="3" />
+					<Hit id="715" posX="0.91647075567746294" posY="0.25707658012416179" posZ="1.9261978747140924" type="3" />
+					<Hit id="716" posX="0.72194713491191953" posY="-0.65104520809981292" posZ="1.594931908566501" type="3" />
+					<Hit id="717" posX="-0.20463663636053253" posY="0.6193209617177714" posZ="0" type="2" />
+					<Hit id="718" posX="0.13148844980594865" posY="0.59430868757609512" posZ="0" type="1" />
+					<Hit id="719" posX="-0.03321057114496978" posY="0.95105651629515364" posZ="0.73486297121742861" type="3" />
+					<Hit id="720" posX="-0.051152078719088931" posY="-0.89379212312659551" posZ="1.1102230246251565e-16" type="2" />
+					<Hit id="721" posX="-0.25986760980935697" posY="0.71840201579427121" posZ="0" type="1" />
+					<Hit id="722" posX="-0.13654032205492528" posY="0.95105651629515364" posZ="0.11306325996685067" type="3" />
+					<Hit id="723" posX="-0.47576718290314007" posY="0.59836032619127966" posZ="-1.3877787807814457e-17" type="2" />
+					<Hit id="724" posX="-0.33061803108814702" posY="-0.56263137405072616" posZ="0" type="1" />
+					<Hit id="725" posX="-0.8001133757107608" posY="0.59425410990514693" posZ="0.83780654780621178" type="3" />
+					<Hit id="726" posX="0.77902038965577014" posY="0.6095790613167219" posZ="1.0852821569093376" type="3" />
+					<Hit id="727" posX="-0.94726557097882358" posY="-0.16229988404081275" posZ="1.289301449807535" type="3" />
+					<Hit id="728" posX="-0.6733644725425697" posY="-0.68634257843487123" posZ="1.410746187409142" type="3" />
+					<Hit id="729" posX="0.89555110913525027" posY="-0.32146063189065571" posZ="0.93599911974855077" type="3" />
+					<Hit id="730" posX="0.13277417160111205" posY="0.95105651629515364" posZ="0.79443428590032217" type="3" />
+					<Hit id="731" posX="0.6001845277508675" posY="-0.73951092052312717" posZ="0.56448858584192085" type="3" />
+					<Hit id="732" posX="-0.70843839517324692" posY="0.66085988201971491" posZ="2.9446189462649555" type="3" />
+					<Hit id="733" posX="-0.60065024160179992" posY="0.036085068994462621" posZ="4.4408920985006262e-16" type="2" />
+					<Hit id="734" posX="0.075609730404357145" posY="-0.20114901639714156" posZ="0" type="1" />
+					<Hit id="735" posX="0.59596896835384017" posY="0.74257370370440023" posZ="1.5750591059103649" type="3" />
+					<Hit id="736" posX="-0.49051428628376692" posY="-0.15107886153329542" posZ="2.2204460492503131e-16" type="2" />
+					<Hit id="737" posX="0.13445264805160118" posY="0.2085986484192095" posZ="0" type="1" />
+					<Hit id="738" posX="0.83527097977719011" posY="0.50698379363475077" posZ="5.1408601237272809" type="3" />
+					<Hit id="739" posX="-0.95509861684572861" posY="0.1381922477302997" posZ="4.793173955855603" type="3" />
+					<Hit id="740" posX="0.894669467047844" posY="-0.32417404722874543" posZ="4.8505893816810737" type="3" />
+					<Hit id="741" posX="-0.82537501932508228" posY="-0.5374404282027414" posZ="5.0861122750064816" type="3" />
+					<Hit id="742" posX="-0.54849700729936779" posY="0.77706410229828871" posZ="3.1802167277001363" type="3" />
+					<Hit id="743" posX="0.7953750019173762" posY="-0.59769673997962669" posZ="4.9554080395548441" type="3" />
+					<Hit id="744" posX="-0.73040212927171844" posY="0.64490229512337338" posZ="6.2810486108930279" type="3" />
+					<Hit id="745" posX="-0.93949119401677916" posY="-0.18622695602869033" posZ="6.3117246627105832" type="3" />
+					<Hit id="746" posX="0.78794322356236934" posY="0.60309624301324927" posZ="6.105923097714645" type="3" />
+					<Hit id="747" posX="0.88009596286427327" posY="0.36902668113347636" posZ="6.028499447853207" type="3" />
+					<Hit id="748" posX="0.13543363867162361" posY="-0.95105651629515364" posZ="5.6010076028077842" type="3" />
+					<Hit id="749" posX="0.89027651452070455" posY="-0.33769416490111548" posZ="6.0331359410944616" type="3" />
+					<Hit id="750" posX="-0.99296156590024043" posY="-0.021662072756322481" posZ="7.9778250960740946" type="3" />
+					<Hit id="751" posX="0.23733272245157799" posY="0.95105651629515353" posZ="7.0237420995464568" type="3" />
+					<Hit id="752" posX="0.15757292345922946" posY="-0.95105651629515353" posZ="6.7285116443600703" type="3" />
+					<Hit id="753" posX="-0.86435548494708081" posY="-0.4174708908864907" posZ="7.2577363645993112" type="3" />
+					<Hit id="754" posX="0.11497748222471305" posY="0.95105651629515353" posZ="8.1728849431533259" type="3" />
+					<Hit id="755" posX="0.2053536136969823" posY="-0.95105651629515353" posZ="7.9249338051152165" type="3" />
+					<Hit id="756" posX="-0.63922453858921258" posY="0.71114669235527972" posZ="7.4434745794254997" type="3" />
+					<Hit id="757" posX="-0.8218515862408251" posY="0.5482844402004976" posZ="7.4305622445240775" type="3" />
+					<Hit id="758" posX="0.065578332836659814" posY="-0.95105651629515386" posZ="6.6170121085253051" type="3" />
+					<Hit id="759" posX="-0.272151956542449" posY="0.95105651629515342" posZ="7.0015823638269072" type="3" />
+					<Hit id="760" posX="-0.13339404913137737" posY="-0.9510565162951532" posZ="6.8074443075159072" type="3" />
+					<Hit id="761" posX="-0.97803829003574116" posY="-0.067591193205217115" posZ="6.89620568662935" type="3" />
+					<Hit id="762" posX="0.9497923798916672" posY="0.15452316584816519" posZ="7.3151450247346554" type="3" />
+					<Hit id="763" posX="-0.59573461155404406" posY="0.74274397388617952" posZ="4.2737956661728411" type="3" />
+					<Hit id="764" posX="0.70015603356750478" posY="-0.16529356774541115" posZ="10" type="2" />
+					<Hit id="765" posX="-0.025313484255943264" posY="0.15860766874149734" posZ="0" type="1" />
+					<Hit id="766" posX="-0.53587470366462531" posY="-0.78623474269032589" posZ="0.57308209132385646" type="3" />
+					<Hit id="767" posX="-0.85653506782070288" posY="-0.44153965993018718" posZ="0.67976448474178142" type="3" />
+					<Hit id="768" posX="0.14412679051094646" posY="0.95105651629515331" posZ="1.9437423525617472" type="3" />
+					<Hit id="769" posX="-0.83556692156489953" posY="-0.50607297846675559" posZ="3.4296205915009255" type="3" />
+					<Hit id="770" posX="0.32119311809188922" posY="0.94221004458854074" posZ="3.5806400584044482" type="3" />
+					<Hit id="771" posX="-0.83421511786718061" posY="-0.51023340245271831" posZ="1.962259733798968" type="3" />
+					<Hit id="772" posX="0.14328449661723019" posY="0.43677900927640734" posZ="2.2204460492503131e-16" type="2" />
+					<Hit id="773" posX="0.74676417109543669" posY="-0.62477669119214863" posZ="0" type="1" />
+					<Hit id="774" posX="-0.37941557374407697" posY="-0.61216912154037151" posZ="10.000000000000002" type="2" />
+					<Hit id="775" posX="0.066930547023622" posY="-0.14703289655365048" posZ="0" type="1" />
+					<Hit id="776" posX="0.22215420624959081" posY="-0.95105651629515342" posZ="1.0257334548759875" type="3" />
+					<Hit id="777" posX="-0.70056121254794035" posY="0.11218582736474758" posZ="-2.2204460492503131e-16" type="2" />
+					<Hit id="778" posX="0.75764168291496481" posY="0.35056826730978152" posZ="0" type="1" />
+					<Hit id="779" posX="-0.8479211136898317" posY="0.46805068474875133" posZ="0.074788395130756899" type="3" />
+					<Hit id="780" posX="-0.79173393452883445" posY="0.47238232286541371" posZ="0" type="2" />
+					<Hit id="781" posX="0.46142150100847279" posY="-0.064960845121549565" posZ="0" type="1" />
+					<Hit id="782" posX="0.31049041200439531" posY="-0.94998601572584673" posZ="0.30067613256762749" type="3" />
+					<Hit id="783" posX="-0.36271013714478451" posY="-0.39435441404722393" posZ="0" type="2" />
+					<Hit id="784" posX="0.68750955065281727" posY="0.069467783593875343" posZ="0" type="1" />
+					<Hit id="785" posX="-0.071036523545051855" posY="-0.95105651629515364" posZ="4.0721638303256738" type="3" />
+					<Hit id="786" posX="0.96079271078696471" posY="0.1206676285482271" posZ="3.3465779959207653" type="3" />
+					<Hit id="787" posX="0.42199080571521241" posY="0.86897623780559674" posZ="1.6046180845374645" type="3" />
+					<Hit id="788" posX="0.93721447515245748" posY="-0.19323397619618987" posZ="0.34362940814633069" type="3" />
+					<Hit id="789" posX="-0.74603918523364199" posY="0.63354130895423655" posZ="0.96343601296709491" type="3" />
+					<Hit id="790" posX="-0.94721472128856143" posY="-0.16245638329540169" posZ="1.3650656550008136" type="3" />
+					<Hit id="791" posX="0.82643392981119856" posY="0.53418143683227859" posZ="1.2914099860641741" type="3" />
+					<Hit id="792" posX="-0.92901180021870122" posY="0.21847921380061114" posZ="1.1721161878998643" type="3" />
+					<Hit id="793" posX="-0.78553348457199812" posY="-0.6048470208711465" posZ="1.7546287572897534" type="3" />
+					<Hit id="794" posX="-0.65966332419272111" posY="0.69629704539354664" posZ="2.1810447563957438" type="3" />
+					<Hit id="795" posX="-0.58505519659350202" posY="-0.62366913378653921" posZ="-4.4408920985006262e-16" type="2" />
+					<Hit id="796" posX="-0.75823355654056934" posY="-0.36644666386635294" posZ="0" type="1" />
+					<Hit id="797" posX="-0.24326517966687733" posY="-0.95105651629515364" posZ="0.34531150292959267" type="3" />
+					<Hit id="798" posX="0.017911858714924067" posY="-0.48014439473678627" posZ="-5.5511151231257827e-17" type="2" />
+					<Hit id="799" posX="-0.56181016845676579" posY="-0.0035857457483229327" posZ="0" type="1" />
+					<Hit id="800" posX="-0.91243296350805125" posY="0.26950362661049504" posZ="0.28790407882302971" type="3" />
+					<Hit id="801" posX="-0.64850830516996572" posY="0.022278940267274033" posZ="0" type="2" />
+					<Hit id="802" posX="0.068882416380006362" posY="-0.76188518633537949" posZ="0" type="1" />
+					<Hit id="803" posX="-0.51082638809699266" posY="0.80443340920510975" posZ="0.8804365698838591" type="3" />
+					<Hit id="804" posX="0.61567815235024981" posY="0.72825414333872596" posZ="1.2934659953074172" type="3" />
+					<Hit id="805" posX="0.57767357227692406" posY="-0.75586608702098212" posZ="0.97151654889310679" type="3" />
+					<Hit id="806" posX="0.73648983885123509" posY="0.64047931521570911" posZ="1.1804219028632557" type="3" />
+					<Hit id="807" posX="-0.86028215661497831" posY="0.43000730643571117" posZ="2.8751462164657777" type="3" />
+					<Hit id="808" posX="0.46227109465036764" posY="0.83971089485386274" posZ="3.4346336485741098" type="3" />
+					<Hit id="809" posX="-0.85791668436254631" posY="-0.43728748144466656" posZ="3.8703795044520115" type="3" />
+					<Hit id="810" posX="0.3516876136482856" posY="0.9200544966967481" posZ="3.4036524591280157" type="3" />
+					<Hit id="811" posX="-0.32137735263103084" posY="-0.94207619036072665" posZ="3.7607110489456641" type="3" />
+					<Hit id="812" posX="-0.30643689403403984" posY="-0.95105651629515353" posZ="3.7601573452865735" type="3" />
+					<Hit id="813" posX="0.83445856379502459" posY="-0.50948415292840088" posZ="3.2481005870824218" type="3" />
+					<Hit id="814" posX="-0.98406927591538507" posY="0.049029727250501476" posZ="5.6060725621176646" type="3" />
+					<Hit id="815" posX="-0.091953864527810292" posY="-0.95105651629515353" posZ="5.4363665104322676" type="3" />
+					<Hit id="816" posX="-0.95811368316121359" posY="0.12891282776764024" posZ="4.6343289225613251" type="3" />
+					<Hit id="817" posX="-0.60550618667762124" posY="-0.73564450899330136" posZ="6.0329204954619877" type="3" />
+					<Hit id="818" posX="0.018690907246236677" posY="0.95105651629515353" posZ="6.8201380041149147" type="3" />
+					<Hit id="819" posX="-0.93148248474873363" posY="-0.21087522869697695" posZ="7.4851313284380465" type="3" />
+					<Hit id="820" posX="-0.69735656579635819" posY="-0.66891130235012342" posZ="7.3895576555397202" type="3" />
+					<Hit id="821" posX="-0.25502571751987851" posY="0.95105651629515342" posZ="5.7114881498308767" type="3" />
+					<Hit id="822" posX="0.87297074051988988" posY="-0.39095586064149801" posZ="6.5307864198063399" type="3" />
+					<Hit id="823" posX="-0.86995559347330897" posY="0.40023552906892323" posZ="7.0359673250893202" type="3" />
+					<Hit id="824" posX="-0.71692330404275939" posY="0.654695234879764" posZ="7.0082501496076191" type="3" />
+					<Hit id="825" posX="-0.64946044922493695" posY="-0.70370986796556345" posZ="7.2514139332882417" type="3" />
+					<Hit id="826" posX="-0.70080861515210902" posY="0.66640324168439713" posZ="5.7579190098880471" type="3" />
+					<Hit id="827" posX="0.48135859228181899" posY="-0.82584301607141175" posZ="5.7957355196532783" type="3" />
+					<Hit id="828" posX="0.24061128524797928" posY="0.95105651629515331" posZ="4.4927672457404331" type="3" />
+					<Hit id="829" posX="0.31879273197563895" posY="0.94395402718563004" posZ="4.3665708893357005" type="3" />
+					<Hit id="830" posX="-0.37227344049511968" posY="-0.90509801801836864" posZ="2.8379721995486173" type="3" />
+					<Hit id="831" posX="0.77916955624683115" posY="0.60947068544455829" posZ="2.2125919860702057" type="3" />
+					<Hit id="832" posX="0.92869935216798161" posY="-0.21944083002253345" posZ="2.5041263778389937" type="3" />
+					<Hit id="833" posX="-0.97866860640182951" posY="-0.065651278902094573" posZ="2.1798598011336909" type="3" />
+					<Hit id="834" posX="-0.97153682736419222" posY="0.087600637837002643" posZ="2.2835379674422605" type="3" />
+					<Hit id="835" posX="0.95965519082520756" posY="-0.1241685550077351" posZ="1.2927957408070889" type="3" />
+					<Hit id="836" posX="-0.60436458799447967" posY="0.73647392898651898" posZ="2.4991806354965203" type="3" />
+					<Hit id="837" posX="-0.9974378937754621" posY="-0.007885352147754765" posZ="2.9996059436800824" type="3" />
+					<Hit id="838" posX="0.62802900429546515" posY="0.71928072414342936" posZ="2.2813775098037237" type="3" />
+					<Hit id="839" posX="0.059311363461644562" posY="-0.95105651629515386" posZ="4.230604552991605" type="3" />
+					<Hit id="840" posX="-0.2583924018465581" posY="0.95105651629515364" posZ="4.3879200649982479" type="3" />
+					<Hit id="841" posX="0.5480396635084922" posY="-0.77739638201227912" posZ="6.2859512406709204" type="3" />
+					<Hit id="842" posX="-0.95743065674930838" posY="-0.13101496691101577" posZ="6.7283704432766367" type="3" />
+					<Hit id="843" posX="0.0026507778251187997" posY="-0.95105651629515353" posZ="7.6155459018695471" type="3" />
+					<Hit id="844" posX="-0.87479023619271179" posY="-0.38535602876329333" posZ="7.1229972267635837" type="3" />
+					<Hit id="845" posX="0.5790931283979317" posY="-0.7548347191281799" posZ="5.956637252918072" type="3" />
+					<Hit id="846" posX="0.01752663045439562" posY="0.95105651629515364" posZ="5.8194574431939596" type="3" />
+					<Hit id="847" posX="0.96770740631126639" posY="-0.09938638396850541" posZ="5.4884842619527552" type="3" />
+					<Hit id="848" posX="0.78716757090377054" posY="-0.60365978765668171" posZ="5.4167076582547971" type="3" />
+					<Hit id="849" posX="-0.067009392825924441" posY="0.95105651629515353" posZ="6.9787734273508732" type="3" />
+					<Hit id="850" posX="-0.90609404600129384" posY="-0.28901280866455481" posZ="3.4973362821237926" type="3" />
+					<Hit id="851" posX="0.63313133088301998" posY="0.71557366688579827" posZ="2.284276055753736" type="3" />
+					<Hit id="852" posX="0.29450675905288437" posY="-0.34400979684234045" posZ="4.4408920985006262e-16" type="2" />
+					<Hit id="853" posX="-0.65887427762433126" posY="-0.5855090794392962" posZ="0" type="1" />
+					<Hit id="854" posX="-0.71133769068616259" posY="-0.65875342052832619" posZ="0.31533554284758369" type="3" />
+					<Hit id="855" posX="-0.84408015864731589" posY="-0.47987192885013336" posZ="0.43244702026872001" type="3" />
+					<Hit id="856" posX="0.9126222361181604" posY="-0.26892110541432396" posZ="1.7800303117382439" type="3" />
+					<Hit id="857" posX="-0.37675950606657094" posY="-0.90183870059728855" posZ="2.4622944620018243" type="3" />
+					<Hit id="858" posX="0.089711011581398936" posY="0.9510565162951532" posZ="1.899870019959438" type="3" />
+					<Hit id="859" posX="0.51570986406918173" posY="-0.80088535622682255" posZ="2.2430886706643549" type="3" />
+					<Hit id="860" posX="-0.44100694231203486" posY="0.85516020584964592" posZ="1.7048442950296765" type="3" />
+					<Hit id="861" posX="0.86596259044214197" posY="-0.41252472876183766" posZ="1.0385098634537562" type="3" />
+					<Hit id="862" posX="-0.56865019793530514" posY="-0.76242195222628084" posZ="1.2819585117788526" type="3" />
+					<Hit id="863" posX="0.66773347280086726" posY="-0.69043373922240514" posZ="2.822069630789743" type="3" />
+					<Hit id="864" posX="0.64828966056298065" posY="0.70456049571978085" posZ="2.4410860009214845" type="3" />
+					<Hit id="865" posX="-0.80215120699192832" posY="-0.59277353881447969" posZ="2.1074075449314251" type="3" />
+					<Hit id="866" posX="0.035612445840278451" posY="0.95105651629515364" posZ="0.1820482843706992" type="3" />
+					<Hit id="867" posX="0.24432733472124438" posY="0.66902627917305724" posZ="2.7755575615628914e-17" type="2" />
+					<Hit id="868" posX="0.83617411157904054" posY="0.37925588495350837" posZ="0" type="1" />
+					<Hit id="869" posX="0.85860446025946358" posY="0.43517072488945829" posZ="0.045890689866592296" type="3" />
+					<Hit id="870" posX="0.17789556578918231" posY="0.47323115849267072" posZ="0" type="2" />
+					<Hit id="871" posX="0.74679044743162215" posY="0.069277809188075495" posZ="0" type="1" />
+					<Hit id="872" posX="-0.96477011670399404" posY="-0.10842643183672412" posZ="0.68448905677058014" type="3" />
+					<Hit id="873" posX="-0.28984061124127325" posY="0.95105651629515386" posZ="0.78799566589397951" type="3" />
+					<Hit id="874" posX="-0.31195391076705903" posY="0.9489227216350884" posZ="0.78640301278388536" type="3" />
+					<Hit id="875" posX="0.96746001487906885" posY="-0.10014777650661832" posZ="0.48443874156244954" type="3" />
+					<Hit id="876" posX="-0.18362861609438341" posY="0.77692976837532557" posZ="-5.5511151231257827e-17" type="2" />
+					<Hit id="877" posX="0.063549662508106231" posY="0.86796401625392328" posZ="0" type="1" />
+					<Hit id="878" posX="0.81582660821257724" posY="0.56682741588987939" posZ="0.49553855586695361" type="3" />
+					<Hit id="879" posX="0.94290330504872266" posY="-0.17572555807866352" posZ="1.1749515611501697" type="3" />
+					<Hit id="880" posX="0.0277389290672716" posY="0.95105651629515331" posZ="2.7420216767214551" type="3" />
+					<Hit id="881" posX="-0.83912379860936881" posY="-0.49512603654323672" posZ="0.45637132072741649" type="3" />
+					<Hit id="882" posX="0.96680517554371914" posY="0.10216316474851816" posZ="1.9316946074432855" type="3" />
+					<Hit id="883" posX="0.085127030593965425" posY="-0.95105651629515342" posZ="2.0681913045870677" type="3" />
+					<Hit id="884" posX="-0.75303323044131609" posY="-0.30561484009134632" posZ="0" type="2" />
+					<Hit id="885" posX="0.24019059519454522" posY="-0.93920128913851719" posZ="0" type="1" />
+					<Hit id="886" posX="-0.96678869026842429" posY="0.10221390120889862" posZ="1.630292800274153" type="3" />
+					<Hit id="887" posX="0.13857635136046309" posY="-0.95105651629515353" posZ="2.0921854963569047" type="3" />
+					<Hit id="888" posX="0.86847989309028872" posY="0.40477726784354762" posZ="2.1004988383766152" type="3" />
+					<Hit id="889" posX="0.31455490088434712" posY="-0.94703299169995658" posZ="2.4375273796837122" type="3" />
+					<Hit id="890" posX="-0.55615991698265577" posY="0.77149667252511545" posZ="2.1045658670579437" type="3" />
+					<Hit id="891" posX="-0.20327939966883685" posY="-0.95105651629515353" posZ="2.0875806717769816" type="3" />
+					<Hit id="892" posX="-0.81455973198389398" posY="-0.57072646000253646" posZ="1.7555814979194628" type="3" />
+					<Hit id="893" posX="0.69382233013747707" posY="0.67147907486029335" posZ="3.6987207133126025" type="3" />
+					<Hit id="894" posX="-0.83116837483917738" posY="0.51961031331200602" posZ="2.3937983698786325" type="3" />
+					<Hit id="895" posX="0.5324844739980592" posY="-0.50028425884427863" posZ="0" type="2" />
+					<Hit id="896" posX="-0.77165405395511255" posY="0.37043038199689049" posZ="0" type="1" />
+					<Hit id="897" posX="-0.65096218018112773" posY="-0.70261879656026849" posZ="0.12991854955909526" type="3" />
+					<Hit id="898" posX="-0.68444966275776487" posY="-0.53052638848267308" posZ="0" type="2" />
+					<Hit id="899" posX="-0.62663435479218255" posY="0.52165272205108781" posZ="0" type="1" />
+					<Hit id="900" posX="-0.79950947927086524" posY="0.5946928663512423" posZ="0.031256701828569121" type="3" />
+					<Hit id="901" posX="0.34768105399009119" posY="0.92296543267941678" posZ="0.36927401590462999" type="3" />
+					<Hit id="902" posX="0.12314883370435578" posY="0.42367490019781451" posZ="0" type="2" />
+					<Hit id="903" posX="-0.30508410076910208" posY="-0.35273843452665776" posZ="0" type="1" />
+					<Hit id="904" posX="-0.60211302933996169" posY="0.73810978210332467" posZ="0.092582902569344011" type="3" />
+					<Hit id="905" posX="0.95306879781877796" posY="-0.14443938833299097" posZ="2.9584556372373516" type="3" />
+					<Hit id="906" posX="-0.90094380287818865" posY="0.30486362713698584" posZ="1.6450357407036171" type="3" />
+					<Hit id="907" posX="0.34780083747452495" posY="0.92287840488382322" posZ="1.834747460999673" type="3" />
+					<Hit id="908" posX="0.44802622000957237" posY="-0.85006040208650524" posZ="3.3840415551863954" type="3" />
+					<Hit id="909" posX="-0.97744487077572084" posY="0.069417549892423769" posZ="2.904602042937753" type="3" />
+					<Hit id="910" posX="0.44251206682529998" posY="0.85406666888081595" posZ="2.9810432860961908" type="3" />
+					<Hit id="911" posX="-0.58096360611591358" posY="-0.75347573751837971" posZ="0.67292828586842157" type="3" />
+					<Hit id="912" posX="-0.41495916671839983" posY="0.87408502257836218" posZ="0.41790521122441193" type="3" />
+					<Hit id="913" posX="-0.24371885175556215" posY="-0.95105651629515353" posZ="1.1216422869729066" type="3" />
+					<Hit id="914" posX="0.57185914951118888" posY="0.76009051243609138" posZ="1.0998173327267007" type="3" />
+					<Hit id="915" posX="-0.92289686907909707" posY="0.23729903669993091" posZ="0.41247628280514492" type="3" />
+					<Hit id="916" posX="0.87876077871118063" posY="-0.37313595542054656" posZ="0.94214441383125513" type="3" />
+					<Hit id="917" posX="-0.9944069582232844" posY="-0.017213612598931116" posZ="1.6750168847577722" type="3" />
+					<Hit id="918" posX="-0.99638966650515404" posY="0.011111463960799716" posZ="1.7043170319175054" type="3" />
+					<Hit id="919" posX="-0.98456168271696209" posY="-0.047514254943693948" posZ="1.785148894316384" type="3" />
+					<Hit id="920" posX="0.59376575626928219" posY="-0.74417443098204705" posZ="2.3838681666933623" type="3" />
+					<Hit id="921" posX="0.84509686143651352" posY="-0.47674283941361928" posZ="2.378907128369208" type="3" />
+					<Hit id="922" posX="0.059973784010613485" posY="0.66620019430979127" posZ="-4.4408920985006262e-16" type="2" />
+					<Hit id="923" posX="0.78405883011064625" posY="0.48509473687418209" posZ="0" type="1" />
+					<Hit id="924" posX="-0.5253848772499522" posY="0.79385604769197982" posZ="0.36570710804588202" type="3" />
+					<Hit id="925" posX="-0.072483317405246606" posY="0.95105651629515364" posZ="0.31048300718650179" type="3" />
+					<Hit id="926" posX="0.51815115140006851" posY="0.79911165715785193" posZ="0.52235759474759358" type="3" />
+					<Hit id="927" posX="-0.34865627869552263" posY="0.6640125978633894" posZ="0" type="2" />
+					<Hit id="928" posX="-0.64256908806147561" posY="-0.59246698648967111" posZ="0" type="1" />
+					<Hit id="929" posX="0.93376156485082218" posY="0.20386094138687605" posZ="1.7405772360240033" type="3" />
+					<Hit id="930" posX="-0.7629874095638931" posY="-0.62122770320413401" posZ="2.5827998381250197" type="3" />
+					<Hit id="931" posX="0.12090546988125439" posY="-0.95105651629515364" posZ="2.5098113207443093" type="3" />
+					<Hit id="932" posX="0.94044554301439953" posY="0.18328977182999462" posZ="2.4467910925643555" type="3" />
+					<Hit id="933" posX="-0.74015112865821286" posY="0.63781923246358718" posZ="0.71771830875055498" type="3" />
+					<Hit id="934" posX="0.12472800707052711" posY="-0.54823511196191665" posZ="0" type="2" />
+					<Hit id="935" posX="-0.051561021073895263" posY="-0.70731149059729348" posZ="0" type="1" />
+					<Hit id="936" posX="-0.49844025271416631" posY="-0.81343246331836494" posZ="0.58952278927359392" type="3" />
+					<Hit id="937" posX="0.89268667754988984" posY="0.3302764458242835" posZ="0.86554289453065869" type="3" />
+					<Hit id="938" posX="0.17075106790968597" posY="-0.95105651629515364" posZ="4.4192623017911856" type="3" />
+					<Hit id="939" posX="-0.92406444239049357" posY="-0.23370561554100056" posZ="4.8667145123732904" type="3" />
+					<Hit id="940" posX="0.62802353695225688" posY="0.7192846964007853" posZ="4.246962657851479" type="3" />
+					<Hit id="941" posX="-0.48114981222253528" posY="-0.82599470366348116" posZ="5.441990053568059" type="3" />
+					<Hit id="942" posX="0.41834905949563161" posY="0.87162212131032479" posZ="5.4085111076356798" type="3" />
+					<Hit id="943" posX="0.85247120395583886" posY="0.45404694684440067" posZ="4.5580416968388553" type="3" />
+					<Hit id="944" posX="-0.81052199813670422" posY="-0.58315332699152833" posZ="2.3146752841062712" type="3" />
+					<Hit id="945" posX="0.89010334095786048" posY="-0.33822713832455364" posZ="1.1940140031930879" type="3" />
+					<Hit id="946" posX="-0.34158849136893177" posY="0.92739193852822588" posZ="0.8506130225338393" type="3" />
+					<Hit id="947" posX="0.24687717202641724" posY="-0.41305994814456137" posZ="0" type="2" />
+					<Hit id="948" posX="0.67010034819407727" posY="-0.48407800046149307" posZ="0" type="1" />
+					<Hit id="949" posX="0.78922461330213678" posY="-0.6021652588723585" posZ="0.033515196265051235" type="3" />
+					<Hit id="950" posX="0.81331958828367446" posY="-0.54029633543050859" posZ="6.9388939039072284e-18" type="2" />
+					<Hit id="951" posX="-0.68544517458881904" posY="0.64109009125289329" posZ="0" type="1" />
+					<Hit id="952" posX="-0.73383736602057026" posY="-0.64240644953156589" posZ="0.57505697916795939" type="3" />
+					<Hit id="953" posX="0.88158046482640617" posY="-0.36445785388371577" posZ="1.7295602933299643" type="3" />
+					<Hit id="954" posX="-0.041283903910166675" posY="0.95105651629515364" posZ="1.0425755191885724" type="3" />
+					<Hit id="955" posX="0.47615615577787707" posY="-0.82962280744077277" posZ="1.9669985797224672" type="3" />
+					<Hit id="956" posX="0.13064110905399473" posY="-0.95105651629515364" posZ="1.8995826965826841" type="3" />
+					<Hit id="957" posX="0.76277923007311954" posY="0.62137895445763913" posZ="2.0540382285765033" type="3" />
+					<Hit id="958" posX="-0.83110354340062598" posY="0.51980984396312724" posZ="1.9570114669505425" type="3" />
+					<Hit id="959" posX="0.97846741516340363" posY="0.066270481864422137" posZ="0.27292808738563901" type="3" />
+					<Hit id="960" posX="-0.84874176043475424" posY="0.46552499377206663" posZ="1.2606979186786818" type="3" />
+					<Hit id="961" posX="0.81963051733866221" posY="0.55512018739561675" posZ="1.900735862007308" type="3" />
+					<Hit id="962" posX="-0.024260711075854147" posY="-0.95105651629515375" posZ="2.5676271645034738" type="3" />
+					<Hit id="963" posX="-0.89573364238230857" posY="0.32089885232119653" posZ="3.755877485281605" type="3" />
+					<Hit id="964" posX="0.30568979906660676" posY="-0.95105651629515353" posZ="5.864862459292036" type="3" />
+					<Hit id="965" posX="0.79247909805600769" posY="0.59980073729192596" posZ="4.6261385117208693" type="3" />
+					<Hit id="966" posX="-0.8828209699297429" posY="0.36063997174939399" posZ="6.007892500143674" type="3" />
+					<Hit id="967" posX="0.84129323519122678" posY="0.48844919729030634" posZ="6.3663461074452794" type="3" />
+					<Hit id="968" posX="-0.96603554935118008" posY="-0.10453183061107418" posZ="4.2101829126835515" type="3" />
+					<Hit id="969" posX="0.92167087250369861" posY="0.24107226617666905" posZ="4.1689843510579285" type="3" />
+					<Hit id="970" posX="-0.6063865760377547" posY="0.73500486868196102" posZ="4.0697960843151524" type="3" />
+					<Hit id="971" posX="-0.053547610249621069" posY="-0.95105651629515342" posZ="4.3361866792046584" type="3" />
+					<Hit id="972" posX="0.21211669773692049" posY="0.95105651629515386" posZ="0.61936560084450232" type="3" />
+					<Hit id="973" posX="0.47712024437569739" posY="-0.82892235607369136" posZ="0.33348773670433962" type="3" />
+					<Hit id="974" posX="-0.85802292129157287" posY="-0.43696051779716255" posZ="0.54395015040345185" type="3" />
+					<Hit id="975" posX="0.9873252974176423" posY="0.039008723476314122" posZ="1.2413227249024998" type="3" />
+					<Hit id="976" posX="-0.01908648551629577" posY="0.95105651629515353" posZ="3.1605364906022499" type="3" />
+					<Hit id="977" posX="0.80321262723627607" posY="-0.5920023718668751" posZ="2.776147288521158" type="3" />
+					<Hit id="978" posX="-0.96402887034549134" posY="0.11070775355127815" posZ="0.40221594104478875" type="3" />
+					<Hit id="979" posX="-0.67179062644844079" posY="-0.27488691161541801" posZ="5.5511151231257827e-17" type="2" />
+					<Hit id="980" posX="-0.87255921804249115" posY="0.37637967895774249" posZ="0" type="1" />
+					<Hit id="981" posX="-0.87802621397002789" posY="0.37539671323138191" posZ="0.0029038926186137027" type="3" />
+					<Hit id="982" posX="0.74959208831112867" posY="-0.63095997377056101" posZ="0.16555267152882103" type="3" />
+					<Hit id="983" posX="-0.50658482754869327" posY="0.80751508332855859" posZ="0.50877719239574448" type="3" />
+					<Hit id="984" posX="-0.14681816420587535" posY="0.3462020522523297" posZ="0" type="2" />
+					<Hit id="985" posX="0.18051068077516197" posY="-0.95025989227863994" posZ="0" type="1" />
+					<Hit id="986" posX="0.17818945314427526" posY="-0.95105651629515364" posZ="0.0016755996796403905" type="3" />
+					<Hit id="987" posX="0.18870549817743931" posY="-0.94289033462984861" posZ="0" type="2" />
+					<Hit id="988" posX="-0.82463740043409373" posY="0.37611344815792691" posZ="0" type="1" />
+					<Hit id="989" posX="0.70032265843946018" posY="0.6667563099029058" posZ="1.2449154044535442" type="3" />
+					<Hit id="990" posX="-0.88114988075262191" posY="-0.36578305539897127" posZ="1.7771008266426724" type="3" />
+					<Hit id="991" posX="0.93937334467011202" posY="0.18658965902279534" posZ="4.1313748412607429" type="3" />
+					<Hit id="992" posX="-0.36230181337299494" posY="-0.91234282919600385" posZ="3.9481300469812628" type="3" />
+					<Hit id="993" posX="-0.99072444584025998" posY="0.02854722033560908" posZ="3.9534152198063728" type="3" />
+					<Hit id="994" posX="0.21714319226673195" posY="-0.95105651629515364" posZ="3.4611760991241431" type="3" />
+					<Hit id="995" posX="0.87568093621687038" posY="-0.38261473596237838" posZ="3.8644188964610744" type="3" />
+					<Hit id="996" posX="-0.8478429721415236" posY="0.46829117970554823" posZ="2.1324312621233261" type="3" />
+					<Hit id="997" posX="0.89688807883939725" posY="0.31734586224249967" posZ="1.0837491818805298" type="3" />
+					<Hit id="998" posX="-0.3445869459384111" posY="0.92521343376520626" posZ="4.5171703480161991" type="3" />
+					<Hit id="999" posX="-0.013720603212678484" posY="0.95105651629515364" posZ="4.9446117839711476" type="3" />
+					<Hit id="1000" posX="0.76711446891871904" posY="-0.61822921906725026" posZ="4.7122013205724445" type="3" />
+					<Hit id="1001" posX="-0.20422637113529174" posY="0.95105651629515409" posZ="4.8029201286336498" type="3" />
+					<Hit id="1002" posX="-0.94119218357323198" posY="0.18099184847388838" posZ="5.3934355665130358" type="3" />
+					<Hit id="1003" posX="-0.12541942543250273" posY="0.95105651629515364" posZ="5.0853255145745235" type="3" />
+					<Hit id="1004" posX="-0.99637150652116835" posY="0.011167354644548211" posZ="8.5748784364914794" type="3" />
+					<Hit id="1005" posX="-0.63104972248549318" posY="-0.7170860439132547" posZ="8.5660937650346316" type="3" />
+					<Hit id="1006" posX="0.13417505477041702" posY="0.95105651629515386" posZ="9.7111183846012867" type="3" />
+					<Hit id="1007" posX="0.3869127218103946" posY="0.58879650433689867" posZ="10" type="2" />
+					<Hit id="1008" posX="-0.35732089070765349" posY="-0.47338573954089441" posZ="0" type="1" />
+					<Hit id="1009" posX="-0.80856108861206089" posY="-0.58811648721797294" posZ="1.5765693929335205" type="3" />
+					<Hit id="1010" posX="0.3304582350073797" posY="-0.93547854312249479" posZ="1.7381377196749721" type="3" />
+					<Hit id="1011" posX="0.28260829371339974" posY="-0.95105651629515364" posZ="1.7420037907890884" type="3" />
+					<Hit id="1012" posX="0.010190860818157066" posY="0.95105651629515386" posZ="1.2466039452846305" type="3" />
+					<Hit id="1013" posX="0.47655114011229061" posY="0.82933583452392567" posZ="1.4807395782339214" type="3" />
+					<Hit id="1014" posX="0.077981592608735606" posY="0.95105651629515353" posZ="1.1036005635575894" type="3" />
+					<Hit id="1015" posX="0.88087798180814969" posY="-0.36661987430414833" posZ="1.8395682480235831" type="3" />
+					<Hit id="1016" posX="-0.85083174123081384" posY="-0.45909269428302174" posZ="1.5889760018672194" type="3" />
+					<Hit id="1017" posX="0.44666860780226869" posY="-0.851046765091651" posZ="0.94931460078989749" type="3" />
+					<Hit id="1018" posX="-0.79592413581135479" posY="-0.59729777085208258" posZ="3.5652778766692466" type="3" />
+					<Hit id="1019" posX="0.92321811596641445" posY="-0.23631034044346599" posZ="2.9031557874536968" type="3" />
+					<Hit id="1020" posX="0.96089159052961692" posY="0.12036330799210676" posZ="2.9281997748545123" type="3" />
+					<Hit id="1021" posX="0.75817691202865034" posY="-0.62472273424435243" posZ="1.8573764265433963" type="3" />
+					<Hit id="1022" posX="-0.84062222484957427" posY="0.49051435477208516" posZ="1.5672551884608794" type="3" />
+					<Hit id="1023" posX="0.84707166649363885" posY="0.47066501440017466" posZ="1.447939459525851" type="3" />
+					<Hit id="1024" posX="0.63619079485158481" posY="-0.55538380571986923" posZ="2.2204460492503131e-16" type="2" />
+					<Hit id="1025" posX="-0.40204959191255674" posY="0.23455122971328618" posZ="0" type="1" />
+					<Hit id="1026" posX="-0.88010219521765087" posY="0.36900749992208826" posZ="0.42813650108439255" type="3" />
+					<Hit id="1027" posX="-0.79910866563925487" posY="-0.59498407450041146" posZ="0.61966407095706633" type="3" />
+					<Hit id="1028" posX="0.85293318355468462" posY="-0.45262511983852288" posZ="0.46302131077481029" type="3" />
+					<Hit id="1029" posX="-0.69546118946495683" posY="0.26823180402804497" posZ="-5.5511151231257827e-17" type="2" />
+					<Hit id="1030" posX="0.62330779284583959" posY="-0.15465661530582472" posZ="0" type="1" />
+					<Hit id="1031" posX="-0.50421401697492396" posY="-0.80923757803624718" posZ="1.5632269478042609" type="3" />
+					<Hit id="1032" posX="0.94264185988698135" posY="0.17653020354882876" posZ="0.31748761213570131" type="3" />
+					<Hit id="1033" posX="-0.034045990128029446" posY="0.95105651629515353" posZ="1.6717818533347235" type="3" />
+					<Hit id="1034" posX="-0.82052480148541729" posY="0.55236786379959169" posZ="0.39386656886407456" type="3" />
+					<Hit id="1035" posX="0.83224389739833826" posY="-0.51630019523781812" posZ="1.4610665005418579" type="3" />
+					<Hit id="1036" posX="-0.97225168044113641" posY="0.085400546290592794" posZ="2.6500636030848179" type="3" />
+					<Hit id="1037" posX="0.60131174968426049" posY="-0.73869194585001696" posZ="4.4104367964159525" type="3" />
+					<Hit id="1038" posX="-0.44903739483987481" posY="0.84932574056904242" posZ="1.3911606333219431" type="3" />
+					<Hit id="1039" posX="-0.89136958177968273" posY="-0.3343300497931323" posZ="0.50319123628011586" type="3" />
+					<Hit id="1040" posX="-0.4264470264712536" posY="-0.86573860391215263" posZ="0.42196975936332465" type="3" />
+					<Hit id="1041" posX="0.90717835893199861" posY="0.28567563660857775" posZ="0.75932047561494342" type="3" />
+					<Hit id="1042" posX="-0.88658672259148474" posY="0.34905017677727618" posZ="1.3727400093768514" type="3" />
+					<Hit id="1043" posX="0.88249171792661407" posY="0.36165330521900524" posZ="2.080147736870007" type="3" />
+					<Hit id="1044" posX="-0.54487265865951784" posY="0.77969734572145843" posZ="2.5845788842093023" type="3" />
+					<Hit id="1045" posX="0.58029778763727302" posY="0.75395948295904403" posZ="2.6785773974217166" type="3" />
+					<Hit id="1046" posX="0.80986921898110542" posY="-0.58516237465212473" posZ="2.710168884838219" type="3" />
+					<Hit id="1047" posX="0.41780457598272736" posY="0.87201771173824738" posZ="1.7544966091227048" type="3" />
+					<Hit id="1048" posX="0.41397234851242198" posY="-0.214245666954611" posZ="2.2204460492503131e-16" type="2" />
+					<Hit id="1049" posX="-0.042686186882577193" posY="-0.2110419042399086" posZ="0" type="1" />
+					<Hit id="1050" posX="-0.90502235452257973" posY="0.29231113588552432" posZ="1.039793425645595" type="3" />
+					<Hit id="1051" posX="0.59452649492472465" posY="-0.74362172199617071" posZ="3.1418862078507424" type="3" />
+					<Hit id="1052" posX="-0.40739147104323292" posY="-0.87958327532537295" posZ="6.2993635874058462" type="3" />
+					<Hit id="1053" posX="-0.71013264582145319" posY="0.65962893687069224" posZ="6.593659613364613" type="3" />
+					<Hit id="1054" posX="-0.97728673154832912" posY="-0.069904252389149213" posZ="7.0763102112922915" type="3" />
+					<Hit id="1055" posX="-0.71853430261462581" posY="-0.65352477590474722" posZ="7.3823182471793514" type="3" />
+					<Hit id="1056" posX="-0.61542892621185918" posY="0.72843521672735767" posZ="7.2232942848022752" type="3" />
+					<Hit id="1057" posX="0.44975649889577751" posY="0.84880328089036783" posZ="7.5048227329449952" type="3" />
+					<Hit id="1058" posX="-0.93755578096209125" posY="0.19218354492473788" posZ="8.1425423717164822" type="3" />
+					<Hit id="1059" posX="0.91585074708597458" posY="-0.25898477035909362" posZ="7.6626839077298747" type="3" />
+					<Hit id="1060" posX="-0.069560604670287463" posY="0.95105651629515375" posZ="8.3947652314083214" type="3" />
+					<Hit id="1061" posX="-0.66982225944493279" posY="-0.68891614689356218" posZ="8.8927591051954593" type="3" />
+					<Hit id="1062" posX="-0.34945262185644127" posY="0.8376496155905141" posZ="10" type="2" />
+					<Hit id="1063" posX="-0.024904266174638257" posY="0.11556908359490259" posZ="0" type="1" />
+					<Hit id="1064" posX="0.16979012530827098" posY="-0.95105651629515342" posZ="1.870141015526225" type="3" />
+					<Hit id="1065" posX="-0.064366782066855976" posY="0.95105651629515342" posZ="3.1079817988328848" type="3" />
+					<Hit id="1066" posX="0.85899408426261636" posY="-0.43397158550926607" posZ="2.1705823912974314" type="3" />
+					<Hit id="1067" posX="-0.86729654161703362" posY="0.40841924919147787" posZ="2.8194322748772467" type="3" />
+					<Hit id="1068" posX="0.33036080121151834" posY="0.93554933291885323" posZ="1.8869117182693866" type="3" />
+					<Hit id="1069" posX="-0.91742073836234661" posY="0.2541528340542939" posZ="1.4107430780976755" type="3" />
+					<Hit id="1070" posX="-0.77950038548521117" posY="-0.60923032393336762" posZ="1.2791426015517098" type="3" />
+					<Hit id="1071" posX="-0.82084233822106467" posY="0.55139058621584125" posZ="1.447954123167041" type="3" />
+					<Hit id="1072" posX="-0.26715007147891501" posY="0.1649646177937667" posZ="-2.2204460492503131e-16" type="2" />
+					<Hit id="1073" posX="0.22812845490564704" posY="-0.62522260090324866" posZ="0" type="1" />
+					<Hit id="1074" posX="-0.3699777810777457" posY="-0.90676591221490721" posZ="1.1638045208549956" type="3" />
+					<Hit id="1075" posX="0.67300842156761853" posY="-0.088251582047376931" posZ="2.2204460492503131e-16" type="2" />
+					<Hit id="1076" posX="-0.68617814000875677" posY="-0.64655472822010629" posZ="0" type="1" />
+					<Hit id="1077" posX="-0.67789012104833968" posY="-0.68305450232862541" posZ="0.083009996855538504" type="3" />
+					<Hit id="1078" posX="-0.7374384685187837" posY="-0.16648295237930366" posZ="0" type="2" />
+					<Hit id="1079" posX="-0.41578795423365622" posY="-0.78465598752362342" posZ="0" type="1" />
+					<Hit id="1080" posX="-0.85463104019678238" posY="-0.447399654402654" posZ="0.63961150307614234" type="3" />
+					<Hit id="1081" posX="0.52571217945346971" posY="-0.79361824872161457" posZ="0.30170805846618481" type="3" />
+					<Hit id="1082" posX="0.17966058688247005" posY="-0.28726735526526914" posZ="0" type="2" />
+					<Hit id="1083" posX="-0.034763021207238509" posY="0.77663146781958581" posZ="0" type="1" />
+					<Hit id="1084" posX="-0.90548188475541214" posY="0.290896847253101" posZ="1.1343782119473422" type="3" />
+					<Hit id="1085" posX="-0.65345889403884638" posY="-0.61108868342499845" posZ="2.2204460492503131e-16" type="2" />
+					<Hit id="1086" posX="0.66920567795442198" posY="0.27668245002314396" posZ="0" type="1" />
+					<Hit id="1087" posX="0.95143103778444194" posY="0.14947989542850995" posZ="1.6807965790879116" type="3" />
+					<Hit id="1088" posX="-0.96772884951007176" posY="-0.099320388588556241" posZ="1.8063399125201993" type="3" />
+					<Hit id="1089" posX="0.89404919769714031" posY="0.060040981387263631" posZ="0" type="2" />
+					<Hit id="1090" posX="0.72114283027824433" posY="0.075826366869547857" posZ="0" type="1" />
+					<Hit id="1091" posX="0.83894540951308672" posY="0.49567506172807535" posZ="0.36827667188986013" type="3" />
+					<Hit id="1092" posX="0.41393882610991228" posY="0.21497515511036625" posZ="5.5511151231257827e-17" type="2" />
+					<Hit id="1093" posX="0.34801858806454145" posY="0.77547157053270388" posZ="0" type="1" />
+					<Hit id="1094" posX="0.48531693309264912" posY="0.82296711313200444" posZ="0.14938537789170309" type="3" />
+					<Hit id="1095" posX="0.98253504816238535" posY="-0.05375159474818525" posZ="0.065875479060309591" type="3" />
+					<Hit id="1096" posX="0.7586250978903295" posY="-0.11185923426288648" posZ="0" type="2" />
+					<Hit id="1097" posX="-0.59632368582003603" posY="-0.51839392974026888" posZ="0" type="1" />
+					<Hit id="1098" posX="-0.002237831753494679" posY="0.95105651629515386" posZ="2.0538093048773702" type="3" />
+					<Hit id="1099" posX="0.71305050413651472" posY="-0.65750898871410612" posZ="1.6461088296621669" type="3" />
+					<Hit id="1100" posX="-0.82593580923912668" posY="-0.53571449431647267" posZ="3.4523940366464356" type="3" />
+					<Hit id="1101" posX="0.7729269620857282" posY="-0.61400619558767755" posZ="3.7737375227873056" type="3" />
+					<Hit id="1102" posX="0.25073149457073673" posY="0.95105651629515353" posZ="3.4627080827898524" type="3" />
+					<Hit id="1103" posX="0.023990411102174702" posY="-0.95105651629515375" posZ="3.1785255733497477" type="3" />
+					<Hit id="1104" posX="-0.93125204788094995" posY="0.21158444045131308" posZ="5.9858000464206658" type="3" />
+					<Hit id="1105" posX="-0.00046777593381475135" posY="-0.95105651629515375" posZ="6.5000694330746276" type="3" />
+					<Hit id="1106" posX="0.77355078324110071" posY="-0.6135529629884301" posZ="6.544250712709152" type="3" />
+					<Hit id="1107" posX="-0.59228081552487433" posY="0.74525330358442721" posZ="7.4444648457179454" type="3" />
+					<Hit id="1108" posX="-0.83315346632611642" posY="-0.51350082992286816" posZ="7.7034862882026278" type="3" />
+					<Hit id="1109" posX="0.30526033078905868" posY="0.95105651629515353" posZ="8.5968819400191858" type="3" />
+					<Hit id="1110" posX="-0.32395368937446101" posY="-0.94020437215016173" posZ="7.818555596965699" type="3" />
+					<Hit id="1111" posX="-0.2131450633835964" posY="0.95105651629515375" posZ="8.7105978354151077" type="3" />
+					<Hit id="1112" posX="-0.89437332036549866" posY="0.32508549299758926" posZ="8.7183592575688884" type="3" />
+					<Hit id="1113" posX="0.66681792081907321" posY="0.69109892667377815" posZ="8.628549507463152" type="3" />
+					<Hit id="1114" posX="0.9807170781279837" posY="0.059346731194141245" posZ="7.3790968851841532" type="3" />
+					<Hit id="1115" posX="-0.4999662761423207" posY="-0.81232374239907812" posZ="6.7980944545089148" type="3" />
+					<Hit id="1116" posX="-0.31166847309389711" posY="0.94913010424373523" posZ="7.1523159222865793" type="3" />
+					<Hit id="1117" posX="0.82892492068557677" posY="0.52651495522695047" posZ="6.2133330928948434" type="3" />
+					<Hit id="1118" posX="-0.3364420410652541" posY="-0.93113105354211301" posZ="5.5094867736316866" type="3" />
+					<Hit id="1119" posX="0.64235917571678092" posY="0.7088692451722366" posZ="4.9871802399148928" type="3" />
+					<Hit id="1120" posX="0.88736253820030075" posY="-0.34666246185014116" posZ="4.4476444666632604" type="3" />
+					<Hit id="1121" posX="-0.84608357040123328" posY="0.4737060614769194" posZ="3.9687433908447756" type="3" />
+					<Hit id="1122" posX="0.87140002783166448" posY="-0.39579001722368223" posZ="3.6929564999267273" type="3" />
+					<Hit id="1123" posX="-0.05966060446893684" posY="0.95105651629515398" posZ="3.1922515168159702" type="3" />
+					<Hit id="1124" posX="-0.99764150740901525" posY="0.0072586938198238027" posZ="3.5008980293728706" type="3" />
+					<Hit id="1125" posX="0.80015163846991832" posY="-0.5942263103833807" posZ="3.1999639259790591" type="3" />
+					<Hit id="1126" posX="-0.36185138584842225" posY="0.91267008394839033" posZ="4.1582120931746331" type="3" />
+					<Hit id="1127" posX="0.8733239228359686" posY="0.38986887724168151" posZ="3.7550645196563983" type="3" />
+					<Hit id="1128" posX="0.16205749693987703" posY="0.95105651629515353" posZ="3.1538774828701905" type="3" />
+					<Hit id="1129" posX="-0.2803331441087466" posY="-0.95105651629515353" posZ="4.4940234529401204" type="3" />
+					<Hit id="1130" posX="-0.40418075305859852" posY="-0.88191599848664171" posZ="4.4677435534525882" type="3" />
+					<Hit id="1131" posX="0.99050720270817227" posY="0.029215825946799168" posZ="1.4606976610577194" type="3" />
+					<Hit id="1132" posX="-0.66102080248870387" posY="-0.69531077968067101" posZ="0.77804699725527848" type="3" />
+					<Hit id="1133" posX="0.98691780349612523" posY="0.040262860810066692" posZ="0.99565040096242952" type="3" />
+					<Hit id="1134" posX="0.69819134583140741" posY="-0.66126920962970026" posZ="0" type="2" />
+					<Hit id="1135" posX="0.77117176127030862" posY="0.46000220816804632" posZ="0" type="1" />
+					<Hit id="1136" posX="0.070505373222303103" posY="-0.95105651629515364" posZ="3.2723951307031451" type="3" />
+					<Hit id="1137" posX="0.77761756170509111" posY="0.61059827548236445" posZ="3.8577749875301155" type="3" />
+					<Hit id="1138" posX="-0.96385211733975873" posY="-0.11125174336716681" posZ="2.6627945853298747" type="3" />
+					<Hit id="1139" posX="0.007833183144814293" posY="0.95105651629515375" posZ="2.69154821044966" type="3" />
+					<Hit id="1140" posX="0.95690041456209562" posY="-0.13264688456131635" posZ="2.7841792096533169" type="3" />
+					<Hit id="1141" posX="0.38735386320310272" posY="0.89414144958072128" posZ="2.9890720663985717" type="3" />
+					<Hit id="1142" posX="0.95598655460665549" posY="-0.13545945630145828" posZ="3.3901257810968106" type="3" />
+					<Hit id="1143" posX="-0.84262330684945841" posY="0.48435565764450428" posZ="5.0755467431424091" type="3" />
+					<Hit id="1144" posX="-0.63272106747001633" posY="0.71587174070303017" posZ="5.1747158332952283" type="3" />
+					<Hit id="1145" posX="0.18802661257156217" posY="-0.95105651629515342" posZ="5.0107873035219734" type="3" />
+					<Hit id="1146" posX="0.99971743300150762" posY="0.00086965179940934334" posZ="5.060700652609543" type="3" />
+					<Hit id="1147" posX="-0.37829738073059305" posY="-0.90072136925113444" posZ="2.7811042023756687" type="3" />
+					<Hit id="1148" posX="0.7423153473943408" posY="0.63624683551188488" posZ="3.2236068033198881" type="3" />
+					<Hit id="1149" posX="0.9609042682013067" posY="-0.12032429013065715" posZ="2.9334069134340912" type="3" />
+					<Hit id="1150" posX="-0.32242404047887807" posY="-0.94131572712571965" posZ="4.5299422748182403" type="3" />
+					<Hit id="1151" posX="0.51646408516030062" posY="0.80033738252860565" posZ="4.6601000508401311" type="3" />
+					<Hit id="1152" posX="-0.85055796476191303" posY="0.45993529161422436" posZ="1.9943419643747626" type="3" />
+					<Hit id="1153" posX="0.06556584993005854" posY="0.95105651629515364" posZ="3.3690010869345213" type="3" />
+					<Hit id="1154" posX="-0.96639544886008799" posY="-0.10342417381747082" posZ="1.1082943153785658" type="3" />
+					<Hit id="1155" posX="0.41383979885238109" posY="0.87489829093750748" posZ="1.2301738603217367" type="3" />
+					<Hit id="1156" posX="-0.62770645767175737" posY="-0.71951506798281761" posZ="0.61313415479070243" type="3" />
+					<Hit id="1157" posX="0.43857485744554225" posY="-0.85692721893687118" posZ="1.3958950413328377" type="3" />
+					<Hit id="1158" posX="-0.078155430045995566" posY="0.29281176831029831" posZ="0" type="2" />
+					<Hit id="1159" posX="-0.48321470308990799" posY="0.53183685693331761" posZ="0" type="1" />
+					<Hit id="1160" posX="-0.28158275728343052" posY="0.95105651629515375" posZ="0.20792724080159275" type="3" />
+					<Hit id="1161" posX="-0.60036217812551063" posY="-0.739381849970833" posZ="1.3337283579662458" type="3" />
+					<Hit id="1162" posX="0.34545406644021925" posY="-0.92458343384373753" posZ="1.2740772404296963" type="3" />
+					<Hit id="1163" posX="0.21963940347090657" posY="0.95105651629515386" posZ="0.80563817090300771" type="3" />
+					<Hit id="1164" posX="0.64328155274235832" posY="0.7081990990362993" posZ="1.0327940074543367" type="3" />
+					<Hit id="1165" posX="0.36192380576519567" posY="-0.91261746779897968" posZ="2.8483019182415314" type="3" />
+					<Hit id="1166" posX="0.97719082743730756" posY="0.07019941489278847" posZ="2.224906186721217" type="3" />
+					<Hit id="1167" posX="-0.99824780786302969" posY="-0.0053926928939220103" posZ="3.3947308233059976" type="3" />
+					<Hit id="1168" posX="0.37212785413718041" posY="0.90520379269890894" posZ="2.5771159903454723" type="3" />
+					<Hit id="1169" posX="-0.2094910326388707" posY="-0.95105651629515364" posZ="1.7336147673924356" type="3" />
+					<Hit id="1170" posX="-0.84774555729778711" posY="-0.46859099176639363" posZ="0.43472996181940737" type="3" />
+					<Hit id="1171" posX="0.024015886872726933" posY="-0.15542572553928319" posZ="0" type="2" />
+					<Hit id="1172" posX="0.53806839473776324" posY="-0.65266293957013211" posZ="0" type="1" />
+					<Hit id="1173" posX="0.72571497124522688" posY="-0.64830771476510141" posZ="0.091097186621479503" type="3" />
+					<Hit id="1174" posX="-0.10224825692496453" posY="0.95105651629515375" posZ="0.96798869897552697" type="3" />
+					<Hit id="1175" posX="-0.38813850210732986" posY="-0.89357137604767323" posZ="0.5139667674203694" type="3" />
+					<Hit id="1176" posX="0.96948529491586455" posY="0.093914605479202606" posZ="0.59161528815759734" type="3" />
+					<Hit id="1177" posX="0.70271063435538594" posY="-0.53059128680017154" posZ="0" type="2" />
+					<Hit id="1178" posX="-0.48922668446565987" posY="-0.60989494929769617" posZ="0" type="1" />
+					<Hit id="1179" posX="-0.46627641934802821" posY="-0.83680085612254207" posZ="0.30307861530209007" type="3" />
+					<Hit id="1180" posX="-0.1859636374128566" posY="-0.3620906935208475" posZ="0" type="2" />
+					<Hit id="1181" posX="-0.65760654585563838" posY="-0.32977941977650893" posZ="0" type="1" />
+					<Hit id="1182" posX="-0.834940848998597" posY="-0.50799983169714269" posZ="0.058219922198662538" type="3" />
+					<Hit id="1183" posX="0.21213078177942779" posY="-0.95105651629515364" posZ="0.35488106508948902" type="3" />
+					<Hit id="1184" posX="0.022850038571648856" posY="0.95105651629515364" posZ="0.92151410812064527" type="3" />
+					<Hit id="1185" posX="0.013747743541518937" posY="-0.023310389404702536" posZ="0" type="2" />
+					<Hit id="1186" posX="0.79375206704412782" posY="-0.28070743252724273" posZ="0" type="1" />
+					<Hit id="1187" posX="-0.64711669858425602" posY="0.70541270248105825" posZ="3.3922441402681796" type="3" />
+					<Hit id="1188" posX="-0.53852075308692604" posY="-0.78431227525382041" posZ="3.8293713863396781" type="3" />
+					<Hit id="1189" posX="-0.82042791957865258" posY="0.552666035649091" posZ="2.1091318337009985" type="3" />
+					<Hit id="1190" posX="0.93957056696434593" posY="-0.18598267121466761" posZ="2.2617907736943494" type="3" />
+					<Hit id="1191" posX="-0.98185148068764105" posY="0.055855399111754911" posZ="3.1136515136137315" type="3" />
+					<Hit id="1192" posX="0.45207539293764842" posY="-0.84711850575101" posZ="2.5186298682137997" type="3" />
+					<Hit id="1193" posX="0.68409436748070873" posY="0.67854685344128374" posZ="1.9792582867482489" type="3" />
+					<Hit id="1194" posX="0.1186711412763829" posY="-0.95105651629515431" posZ="1.1859469915305358" type="3" />
+					<Hit id="1195" posX="-0.38412609505677442" posY="0.89648656040956998" posZ="1.0905179582039888" type="3" />
+					<Hit id="1196" posX="-0.24563945868828355" posY="0.95105651629515364" posZ="1.2222184140740082" type="3" />
+					<Hit id="1197" posX="-0.83826725514707856" posY="-0.49776220625600254" posZ="0.75274724143579896" type="3" />
+					<Hit id="1198" posX="0.50340519324942512" posY="0.80982522287048186" posZ="2.3311086212119396" type="3" />
+					<Hit id="1199" posX="-0.76031516235738683" posY="-0.62316920444500412" posZ="0.45808953945119679" type="3" />
+					<Hit id="1200" posX="-0.83419328354825406" posY="-0.51030060157662394" posZ="0.46547700387353458" type="3" />
+					<Hit id="1201" posX="-0.29784587730395184" posY="-0.24428308913189289" posZ="0" type="2" />
+					<Hit id="1202" posX="-0.13431433652336278" posY="-0.018479632539162461" posZ="0" type="1" />
+					<Hit id="1203" posX="0.65128486909208327" posY="0.7023843493431432" posZ="2.7125918662295514" type="3" />
+					<Hit id="1204" posX="-0.83338854072636004" posY="0.51277734531122654" posZ="3.3197588608534279" type="3" />
+					<Hit id="1205" posX="0.91638272970529411" posY="0.25734749620955039" posZ="4.1219701945075435" type="3" />
+					<Hit id="1206" posX="-0.63012000175776273" posY="0.71776152556111916" posZ="3.3231745441965987" type="3" />
+					<Hit id="1207" posX="0.60845408109732657" posY="-0.73350273832931578" posZ="1.2346722768233893" type="3" />
+					<Hit id="1208" posX="0.60651284054934707" posY="0.73491313214451126" posZ="0.88855303193552504" type="3" />
+					<Hit id="1209" posX="0.7844966305459995" posY="-0.44639333010191207" posZ="0" type="2" />
+					<Hit id="1210" posX="0.33745046325306038" posY="0.74699635288259392" posZ="0" type="1" />
+					<Hit id="1211" posX="0.79669815844397929" posY="0.59673541049184198" posZ="0.40757501762907228" type="3" />
+					<Hit id="1212" posX="-0.81466365379482875" posY="0.5704066215558693" posZ="0.13021156174468346" type="3" />
+					<Hit id="1213" posX="-0.7852056228694223" posY="0.60508522634137218" posZ="0.09169740209006505" type="3" />
+					<Hit id="1214" posX="-0.71878470547953921" posY="0.57424460129731858" posZ="0" type="2" />
+					<Hit id="1215" posX="0.60582894033202328" posY="-0.54117091644329829" posZ="0" type="1" />
+					<Hit id="1216" posX="0.50673026148393452" posY="-0.80740941938959088" posZ="0.93832626337916469" type="3" />
+					<Hit id="1217" posX="-0.044799496557628937" posY="0.95105651629515364" posZ="1.8698546678987096" type="3" />
+					<Hit id="1218" posX="0.71324808911752802" posY="-0.65736543482250465" posZ="3.6418449113389038" type="3" />
+					<Hit id="1219" posX="-0.67634369632222169" posY="0.68417804565850915" posZ="5.2124899191066207" type="3" />
+					<Hit id="1220" posX="0.1809043413332081" posY="0.95105651629515364" posZ="4.324992303218532" type="3" />
+					<Hit id="1221" posX="0.89599256392380788" posY="0.32010197375550398" posZ="3.978531484346751" type="3" />
+					<Hit id="1222" posX="-0.9681595934545747" posY="0.097994695041822538" posZ="4.0048332355701364" type="3" />
+					<Hit id="1223" posX="-0.96426330179845288" posY="-0.10998624772790191" posZ="4.2269481474840775" type="3" />
+					<Hit id="1224" posX="0.33090266929798429" posY="-0.93515564270946727" posZ="8.046979766320085" type="3" />
+					<Hit id="1225" posX="-0.87302081230821027" posY="-0.39080175552290775" posZ="9.6199360002769083" type="3" />
+					<Hit id="1226" posX="0.76960981305682552" posY="0.61641624542890749" posZ="5.2707863442595499" type="3" />
+					<Hit id="1227" posX="0.82848197608758467" posY="0.52787819852407203" posZ="5.1904870983790943" type="3" />
+					<Hit id="1228" posX="0.67953152270866568" posY="-0.68186195421686036" posZ="4.7693211812973635" type="3" />
+					<Hit id="1229" posX="-0.97463337971281694" posY="0.078070429651639128" posZ="4.2182376011475693" type="3" />
+					<Hit id="1230" posX="0.65823873907092489" posY="0.69733206706929529" posZ="5.2053656182904326" type="3" />
+					<Hit id="1231" posX="0.93612339872905481" posY="-0.19659196414229607" posZ="5.1509379293234341" type="3" />
+					<Hit id="1232" posX="-0.57703645700206441" posY="0.75632897836340984" posZ="5.9193621878969545" type="3" />
+					<Hit id="1233" posX="-0.56884425346398459" posY="-0.76228096263190059" posZ="5.7252821652217678" type="3" />
+					<Hit id="1234" posX="0.90938859251262483" posY="-0.27887323710417272" posZ="6.1479693290254973" type="3" />
+					<Hit id="1235" posX="0.55858559809572927" posY="-0.76973431203708864" posZ="5.8725578527877236" type="3" />
+					<Hit id="1236" posX="-0.26497429403998984" posY="0.95105651629515375" posZ="8.152987815322879" type="3" />
+					<Hit id="1237" posX="0.49108588393057606" posY="-0.81877572500627804" posZ="7.6211020154382281" type="3" />
+					<Hit id="1238" posX="0.3986742048302534" posY="0.88591673995704656" posZ="9.3506142975786268" type="3" />
+					<Hit id="1239" posX="0.22630955851149459" posY="0.95105651629515353" posZ="9.218329151792803" type="3" />
+					<Hit id="1240" posX="0.4579479410549705" posY="-0.72501158467845495" posZ="10" type="2" />
+					<Hit id="1241" posX="-0.0059390928085232275" posY="-0.43605202965760126" posZ="0" type="1" />
+					<Hit id="1242" posX="-0.42626429069865202" posY="-0.86587136922233565" posZ="0.65757061928458638" type="3" />
+					<Hit id="1243" posX="-0.75461365321988749" posY="0.62731159330720843" posZ="3.2413864294557122" type="3" />
+					<Hit id="1244" posX="0.96803423616598616" posY="-0.098380505105175708" posZ="3.5012823894541825" type="3" />
+					<Hit id="1245" posX="-0.9145129832114085" posY="-0.26310198421247377" posZ="5.1502358033963258" type="3" />
+					<Hit id="1246" posX="0.91094719952297409" posY="0.27407633796749542" posZ="3.516527231009007" type="3" />
+					<Hit id="1247" posX="0.58766813126489281" posY="-0.74860461486756458" posZ="5.3052684428869679" type="3" />
+					<Hit id="1248" posX="0.26109101817213082" posY="-0.95105651629515364" posZ="5.275239411807422" type="3" />
+					<Hit id="1249" posX="-0.30652344661512015" posY="0.95105651629515364" posZ="5.4986802005502931" type="3" />
+					<Hit id="1250" posX="0.94993103450109206" posY="-0.15409643083938551" posZ="4.4055434480479949" type="3" />
+					<Hit id="1251" posX="0.85635013587950359" posY="0.44210882192111411" posZ="3.612298129961812" type="3" />
+					<Hit id="1252" posX="-0.58290153693077884" posY="-0.75206774836504808" posZ="4.9638079750235047" type="3" />
+					<Hit id="1253" posX="-0.64396283152838152" posY="0.70770412102482594" posZ="5.5100564799276874" type="3" />
+					<Hit id="1254" posX="0.33850500492654034" posY="-0.92963222256315026" posZ="5.252395453646689" type="3" />
+					<Hit id="1255" posX="0.28165066015891249" posY="-0.95105651629515364" posZ="5.325279560090272" type="3" />
+					<Hit id="1256" posX="0.99051674332259598" posY="0.029186462954853387" posZ="5.7193962933711457" type="3" />
+					<Hit id="1257" posX="-0.84805232578254774" posY="-0.46764685545112133" posZ="5.1583321440575602" type="3" />
+					<Hit id="1258" posX="-0.47610220384048213" posY="0.82966200581775862" posZ="3.7754428933774533" type="3" />
+					<Hit id="1259" posX="-0.95492116244370884" posY="-0.13873839622199513" posZ="4.7084305956948436" type="3" />
+					<Hit id="1260" posX="-0.59645844215641675" posY="-0.74221808017048385" posZ="4.3394074051718583" type="3" />
+					<Hit id="1261" posX="0.58047996945439251" posY="0.75382712012107733" posZ="4.0355330256756394" type="3" />
+					<Hit id="1262" posX="0.33945584273243806" posY="-0.92894139845993018" posZ="6.2515062014674312" type="3" />
+					<Hit id="1263" posX="0.97715280352231604" posY="0.070316440469976427" posZ="6.4139548444413075" type="3" />
+					<Hit id="1264" posX="0.48143683113805014" posY="-0.16929523946511055" posZ="0" type="2" />
+					<Hit id="1265" posX="0.1184755761502797" posY="0.56314509093652299" posZ="0" type="1" />
+					<Hit id="1266" posX="0.25989816947705602" posY="0.95105651629515353" posZ="0.32934864622111548" type="3" />
+					<Hit id="1267" posX="-0.84138085397341966" posY="-0.48817953440680439" posZ="1.5930808257040097" type="3" />
+					<Hit id="1268" posX="0.28563678989926455" posY="0.95105651629515353" posZ="3.6103543451193629" type="3" />
+					<Hit id="1269" posX="0.85351331747400805" posY="0.45083965122566327" posZ="3.2234462469876153" type="3" />
+					<Hit id="1270" posX="-0.32117730106893505" posY="-0.94222153632838357" posZ="2.7472651842711149" type="3" />
+					<Hit id="1271" posX="0.53675009042633159" posY="-0.78559873697949323" posZ="3.1827311177448947" type="3" />
+					<Hit id="1272" posX="-0.87094542719787227" posY="0.39718913411029244" posZ="3.2053987369191521" type="3" />
+					<Hit id="1273" posX="0.90927363902897884" posY="0.27922702754833162" posZ="3.3472302454937779" type="3" />
+					<Hit id="1274" posX="-0.080467916947598805" posY="-0.95105651629515331" posZ="3.1972054507563308" type="3" />
+					<Hit id="1275" posX="-0.9693873321843488" posY="-0.094216103765244252" posZ="3.7304305991867546" type="3" />
+					<Hit id="1276" posX="0.98779428111390299" posY="-0.03756534007513055" posZ="2.2488469379261398" type="3" />
+					<Hit id="1277" posX="-0.46012222587147533" posY="0.84127213940883105" posZ="1.2705927026292385" type="3" />
+					<Hit id="1278" posX="0.59806624412528009" posY="-0.74104994366349441" posZ="2.2867300097098289" type="3" />
+					<Hit id="1279" posX="-0.76042819642730508" posY="-0.62308708038609506" posZ="1.0511409716211579" type="3" />
+					<Hit id="1280" posX="0.39042003544017534" posY="-0.89191374505229859" posZ="0.65534448779460064" type="3" />
+					<Hit id="1281" posX="-0.70538564759382016" posY="-0.66307783296343348" posZ="0.28347154671210995" type="3" />
+					<Hit id="1282" posX="-0.4753377108992668" posY="-0.14403321850231132" posZ="0" type="2" />
+					<Hit id="1283" posX="0.45264723075572211" posY="0.43415866161360883" posZ="0" type="1" />
+					<Hit id="1284" posX="-0.88313885458284158" posY="-0.3596616233858313" posZ="1.6522560236759782" type="3" />
+					<Hit id="1285" posX="-0.098124876767148539" posY="0.95105651629515375" posZ="1.7046569963112037" type="3" />
+					<Hit id="1286" posX="0.22093712033948365" posY="-0.95105651629515331" posZ="0.65900134976686386" type="3" />
+					<Hit id="1287" posX="-0.95753412278470651" posY="0.13069653119721492" posZ="0.58291213465473146" type="3" />
+					<Hit id="1288" posX="0.91741013151292461" posY="-0.2541854785801409" posZ="1.5211117705789261" type="3" />
+					<Hit id="1289" posX="0.50825011054924041" posY="0.17693214934946433" posZ="-2.2204460492503131e-16" type="2" />
+					<Hit id="1290" posX="-0.33210182189334436" posY="0.091818807101243627" posZ="0" type="1" />
+					<Hit id="1291" posX="-0.78568735601600381" posY="-0.60473522672323088" posZ="0.79984668721660035" type="3" />
+					<Hit id="1292" posX="-0.57336183457895806" posY="0.75899874782815857" posZ="0.91927425863970402" type="3" />
+					<Hit id="1293" posX="0.68436193636672782" posY="-0.6783524532664198" posZ="2.5047075347594485" type="3" />
+					<Hit id="1294" posX="-0.40470988779035266" posY="0.88153155960097762" posZ="3.0513108208835429" type="3" />
+					<Hit id="1295" posX="-0.52620324609016988" posY="-0.7932614679259673" posZ="2.9943837257632397" type="3" />
+					<Hit id="1296" posX="0.47761337328278752" posY="-0.82856407695090173" posZ="2.7296391234703612" type="3" />
+					<Hit id="1297" posX="-0.88549373283910715" posY="-0.35241405334447151" posZ="0.71577817911745045" type="3" />
+					<Hit id="1298" posX="-0.46688250620476901" posY="-0.16453854043963059" posZ="-1.1102230246251565e-16" type="2" />
+					<Hit id="1299" posX="-0.79325959692393155" posY="0.19501251756538962" posZ="0" type="1" />
+					<Hit id="1300" posX="-0.66344942524840977" posY="-0.693546281961263" posZ="2.7293342761132564" type="3" />
+					<Hit id="1301" posX="0.33509829371580624" posY="0.93210734313838195" posZ="4.1079627519144228" type="3" />
+					<Hit id="1302" posX="-0.73030118768675045" posY="0.64497563347769715" posZ="4.0374294694147475" type="3" />
+					<Hit id="1303" posX="-0.27279564773637166" posY="-0.95105651629515331" posZ="5.0792994633903801" type="3" />
+					<Hit id="1304" posX="-0.74150903497577714" posY="0.6368326557748295" posZ="5.6282808343082564" type="3" />
+					<Hit id="1305" posX="0.58507114170112273" posY="-0.7504914382304303" posZ="6.4267576793665793" type="3" />
+					<Hit id="1306" posX="0.85286602944139722" posY="0.45283179894743986" posZ="5.8182536321609302" type="3" />
+					<Hit id="1307" posX="-0.5916511068478052" posY="0.74571081371857173" posZ="6.7257344614594619" type="3" />
+					<Hit id="1308" posX="0.20407654739596393" posY="-0.95105651629515342" posZ="5.8222578342178508" type="3" />
+					<Hit id="1309" posX="-0.92887689468871992" posY="0.21889441032930845" posZ="3.1243191503496597" type="3" />
+					<Hit id="1310" posX="0.44076585624807485" posY="-0.85533536512802266" posZ="3.3862315056444441" type="3" />
+					<Hit id="1311" posX="-0.33509369858522431" posY="0.93211068169617106" posZ="3.0402846632140541" type="3" />
+					<Hit id="1312" posX="0.73018876002266431" posY="0.64505731695697999" posZ="3.4317597796213613" type="3" />
+					<Hit id="1313" posX="-0.004665695364654332" posY="-0.95105651629515364" posZ="6.8149523580127465" type="3" />
+					<Hit id="1314" posX="0.15801679743225669" posY="0.95105651629515364" posZ="8.5452374052912052" type="3" />
+					<Hit id="1315" posX="0.70381105769030694" posY="-0.66422183949250391" posZ="5.3212224083159629" type="3" />
+					<Hit id="1316" posX="-0.92485054035394354" posY="0.23128625478028297" posZ="3.8821179415603426" type="3" />
+					<Hit id="1317" posX="-0.081848257621941811" posY="0.95105651629515364" posZ="6.7653250470843904" type="3" />
+					<Hit id="1318" posX="-0.9116107763963559" posY="-0.27203405834863781" posZ="5.6984920253336941" type="3" />
+					<Hit id="1319" posX="-0.70332696331305922" posY="-0.66457355464514256" posZ="5.6558226806549392" type="3" />
+					<Hit id="1320" posX="0.77176244986115461" posY="-0.61485226324321252" posZ="5.4086959866751609" type="3" />
+					<Hit id="1321" posX="-0.0093958534746032552" posY="0.95105651629515409" posZ="5.0532796521790155" type="3" />
+					<Hit id="1322" posX="-0.51561108438859649" posY="-0.80095712386566986" posZ="4.6155571329645655" type="3" />
+					<Hit id="1323" posX="0.3224267529493523" posY="0.94131375640056381" posZ="5.3354521013343357" type="3" />
+					<Hit id="1324" posX="0.77755243928536144" posY="-0.61064558968982485" posZ="2.7860867932062567" type="3" />
+					<Hit id="1325" posX="0.73264892840971618" posY="0.64326989999773243" posZ="2.1678250993745722" type="3" />
+					<Hit id="1326" posX="-0.86707966189609165" posY="-0.40908673633816695" posZ="5.6753509638465012" type="3" />
+					<Hit id="1327" posX="-0.30649828991298667" posY="0.95105651629515386" posZ="6.9585491521563592" type="3" />
+					<Hit id="1328" posX="-0.83654098514120701" posY="0.50307511903379243" posZ="7.7555563816807149" type="3" />
+					<Hit id="1329" posX="0.5720070132382874" posY="-0.75998308315000529" posZ="8.7416025910603388" type="3" />
+					<Hit id="1330" posX="-0.61850976312777262" posY="0.72619685768609787" posZ="7.9484705453172548" type="3" />
+					<Hit id="1331" posX="0.81514978132482241" posY="0.56891047485983992" posZ="3.296654992265295" type="3" />
+					<Hit id="1332" posX="0.59165510321045434" posY="-0.7457079101911499" posZ="2.5591479579429177" type="3" />
+					<Hit id="1333" posX="-0.85265412776622174" posY="0.4534839652446272" posZ="1.9912879473748033" type="3" />
+					<Hit id="1334" posX="0.70628355191745873" posY="0.095935494349943473" posZ="0" type="2" />
+					<Hit id="1335" posX="0.059168302125374383" posY="0.13085576504162705" posZ="0" type="1" />
+					<Hit id="1336" posX="0.785954887095901" posY="0.60454085401612245" posZ="1.5199358915087071" type="3" />
+					<Hit id="1337" posX="-0.74678954244297335" posY="-0.63299614253046144" posZ="1.2392606880505603" type="3" />
+					<Hit id="1338" posX="-0.075347892846141629" posY="-0.95105651629515364" posZ="1.444392070784386" type="3" />
+					<Hit id="1339" posX="0.80270062005336695" posY="0.59237436685990263" posZ="0.41704428735134957" type="3" />
+					<Hit id="1340" posX="-0.24696308001879064" posY="-0.42139619981047782" posZ="0" type="2" />
+				</Hit_Cache>
+				<Leak_Cache nb="0" />
+			</Global>
+			<FacetResults>
+				<Facet id="0">
+					<Hits nbHit="89" nbHitEquiv="89" nbDes="100" nbAbsEquiv="89" sum_v_ort="66882.733391144924" sum_1_per_v="2.3436475295766384" sum_v="0.39995826804224943" />
+				</Facet>
+				<Facet id="1">
+					<Hits nbHit="11" nbHitEquiv="11" nbDes="0" nbAbsEquiv="11" sum_v_ort="4103.7263167082137" sum_1_per_v="0.068297340402222684" sum_v="0.022515507821762953" />
+				</Facet>
+				<Facet id="2">
+					<Hits nbHit="117" nbHitEquiv="117" nbDes="0" nbAbsEquiv="0" sum_v_ort="86147.228918024339" sum_1_per_v="0.97034870260529693" sum_v="0.25724533964117879" />
+				</Facet>
+				<Facet id="3">
+					<Hits nbHit="106" nbHitEquiv="106" nbDes="0" nbAbsEquiv="0" sum_v_ort="76877.126410699129" sum_1_per_v="0.81104089801695978" sum_v="0.2143720131222708" />
+					<Texture width="20" height="2">
+						<count><![CDATA[
+7	4	9	7	8	9	6	6	3	8	4	4	3	3	2	3	3	1	0	0	
+2	0	2	2	0	2	1	1	2	0	2	0	1	0	0	0	0	0	1	0	
+]]></count>
+						<sum_1_per_v><![CDATA[
+0.077843732	0.021288813	0.09153268	0.066807111	0.045067597	0.060743753	0.043363952	0.057311441	0.022674402	0.055649007	0.048785422	0.021609451	0.015601355	0.011694828	0.024148069	0.015753935	0.016456016	0.0082522963	0	0	
+0.014751889	0	0.0092709868	0.010507199	0	0.015598869	0.0028365536	0.011412	0.012095608	0	0.014357869	0	0.005874728	0	0	0	0	0	0.0097513341	0	
+]]></sum_1_per_v>
+						<sum_v_ort><![CDATA[
+17193.502	14888.648	23397.455	17411.087	26791.529	24444.469	16524.515	14908.203	10491.731	24764.88	8296.069	12579.08	10074.271	13033.596	2966.7363	9911.3587	10032.352	2567.7591	0	0	
+21587.158	0	31870.541	28453.423	0	22054.152	23897.454	6238.2164	25190.846	0	21054.06	0	11585.444	0	0	0	0	0	8143.5514	0	
+]]></sum_v_ort>
+					</Texture>
+				</Facet>
+				<Facet id="4">
+					<Hits nbHit="129" nbHitEquiv="129" nbDes="0" nbAbsEquiv="0" sum_v_ort="96979.945449350547" sum_1_per_v="1.0638623314432532" sum_v="0.29571727547584603" />
+				</Facet>
+				<Facet id="5">
+					<Hits nbHit="116" nbHitEquiv="116" nbDes="0" nbAbsEquiv="0" sum_v_ort="85477.079328222258" sum_1_per_v="0.89819190718246633" sum_v="0.25990525026013783" />
+				</Facet>
+				<Facet id="6">
+					<Hits nbHit="120" nbHitEquiv="120" nbDes="0" nbAbsEquiv="0" sum_v_ort="88198.249861968798" sum_1_per_v="1.0077315990737705" sum_v="0.25600834554996948" />
+				</Facet>
+				<Facet id="7">
+					<Hits nbHit="114" nbHitEquiv="114" nbDes="0" nbAbsEquiv="0" sum_v_ort="81289.23679347719" sum_1_per_v="0.98823182636697349" sum_v="0.26145423572069637" />
+				</Facet>
+				<Facet id="8">
+					<Hits nbHit="123" nbHitEquiv="123" nbDes="0" nbAbsEquiv="0" sum_v_ort="88880.409210556245" sum_1_per_v="1.0214442597992583" sum_v="0.26761364583068575" />
+				</Facet>
+				<Facet id="9">
+					<Hits nbHit="102" nbHitEquiv="102" nbDes="0" nbAbsEquiv="0" sum_v_ort="77104.335798116721" sum_1_per_v="0.70374476795168472" sum_v="0.2126718272391197" />
+				</Facet>
+				<Facet id="10">
+					<Hits nbHit="125" nbHitEquiv="125" nbDes="0" nbAbsEquiv="0" sum_v_ort="91633.017186602709" sum_1_per_v="0.98737930617560066" sum_v="0.25975742837528298" />
+				</Facet>
+				<Facet id="11">
+					<Hits nbHit="89" nbHitEquiv="89" nbDes="0" nbAbsEquiv="0" sum_v_ort="67577.748766568082" sum_1_per_v="0.81592606548405355" sum_v="0.1903633582655293" />
+				</Facet>
+			</FacetResults>
+		</Moment>
+	</Moments>
+	<TextureMinMax>
+		<With_constant_flow>
+			<Pressure min="6.3472454560515321e+23" max="7.878081281802871e+24" />
+			<Density min="9.8876026765740461e+20" max="8.8988424089166414e+21" />
+			<Imp.rate min="8.1595426872779725e+18" max="9.05038773897322e+19" />
+		</With_constant_flow>
+		<Moments_only>
+			<Pressure min="0" max="0" />
+			<Density min="0" max="0" />
+			<Imp.rate min="0" max="0" />
+		</Moments_only>
+	</TextureMinMax>
+</MolflowResults>

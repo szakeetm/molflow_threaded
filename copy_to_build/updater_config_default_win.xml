@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<UpdaterConfigFile>
+	<ServerConfig>
+		<RemoteFeed url="https://molflow.web.cern.ch/sites/molflow.web.cern.ch/files/autoupdate.xml" />
+		<PublicWebsite url="https://molflow.web.cern.ch/" downloadsPage="https://molflow.web.cern.ch/content/downloads" />
+		<GoogleAnalytics projectId="UA-86802533-2" />
+	</ServerConfig>
+	<LocalConfig>
+		<Permission allowUpdateCheck="false" appLaunchedBeforeAsking="0" askAfterNbLaunches="3" />
+		<Branch name="molflow_public_win" />
+		<GoogleAnalytics cookie="" />
+		<SkippedVersions />
+	</LocalConfig>
+</UpdaterConfigFile>

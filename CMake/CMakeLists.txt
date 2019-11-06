@@ -69,5 +69,7 @@ add_subdirectory(truncatedgaussian)
 
 IF (WIN32)
     add_subdirectory(png_zlib_win_library)
+ELSE()
+    add_subdirectory(molflow_testsuit)
 ENDIF(WIN32)
 

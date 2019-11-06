@@ -9,7 +9,11 @@ set(PROJECT_NAME molflow)
 IF (WIN32)
     set(OS_NAME "win")
 ELSE()
-    set(OS_NAME "linux")
+    IF(os_version_suffix STREQUAL ".el7")
+        set(OS_NAME "linux_fedora")
+    ELSE()
+        set(OS_NAME "linux_debian")
+    ENDIF()
 ENDIF()
 
 IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -255,12 +259,12 @@ if(NOT MSVC)
     # other static libraries need to be built with similar settings for clang (here: libc++)
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 
-        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip.a )
+        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_clang.a )
         target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
 
     else()
 
-        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip.a )
+        set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_gcc.a )
         target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
 
     endif()
