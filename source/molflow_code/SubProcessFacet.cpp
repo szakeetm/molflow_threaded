@@ -173,7 +173,7 @@ void SubprocessFacet::InitializeOutgassingMap()
 		size_t nbE = facetRef->sh.outgassingMapWidth*facetRef->sh.outgassingMapHeight;
 		outgassingMapCdf = facetRef->outgassingMap; //init by copying pdf
 		for (size_t i = 1; i < nbE; i++) {
-			outgassingMapCdf[i] += outgassingMapCdf[i - 1] + facetRef->outgassingMap[i]; //Convert p.d.f to cumulative distr. 
+			outgassingMapCdf[i] = outgassingMapCdf[i - 1] + facetRef->outgassingMap[i]; //Convert p.d.f to cumulative distr. 
 		}
 	}
 }
