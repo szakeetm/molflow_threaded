@@ -36,6 +36,9 @@ typedef struct {
 
 } COLUMN;
 
+/**
+* \brief Values for the table headers for when a facet is opened in the window
+*/
 static COLUMN allColumn[] = {
   {"#"             , 40 , ALIGN_CENTER, 0} ,
   {"Sticking"      , 80 , ALIGN_CENTER, 0 } ,
@@ -88,6 +91,9 @@ static const char *ynStr[] = {
   "Yes"
 };
 
+/**
+* \brief Constructor for the FacetDetails window with default initialisation
+*/
 FacetDetails::FacetDetails():GLWindow() {
 
   int wD = 502;
@@ -211,6 +217,9 @@ FacetDetails::FacetDetails():GLWindow() {
 
 }
 
+/**
+* \brief Places the various components inside the window
+*/
 void FacetDetails::PlaceComponents() {
 
   // Show toggle panel
@@ -234,6 +243,13 @@ void FacetDetails::PlaceComponents() {
 
 }
 
+/**
+* \brief To set placement of window and its size and what's inside
+* \param x x position of window
+* \param y y position of window
+* \param w width of window
+* \param h height of window
+*/
 void FacetDetails::SetBounds(int x,int y,int w,int h) {
 
   GLWindow::SetBounds(x,y,w,h);
@@ -241,6 +257,11 @@ void FacetDetails::SetBounds(int x,int y,int w,int h) {
 
 }
 
+/**
+* \brief Gives a string which counts values corresponding to the facet settings
+* \param f Pointer to a facet
+* \return char pointer taking a string with the count value(s)
+*/
 char *FacetDetails::GetCountStr(Facet *f) {
   static char ret[128];
   strcpy(ret,"");
@@ -251,6 +272,13 @@ char *FacetDetails::GetCountStr(Facet *f) {
   return ret;
 }
 
+/**
+* \brief Prints table values inside the corresponding cell
+* \param idx Facet ID (local for table)
+* \param f Pointer to a facet
+* \param mode which kind of value has to be evaluated and printed
+* \return char pointer taking a string with the count value(s)
+*/
 char *FacetDetails::FormatCell(size_t idx,Facet *f,size_t mode) {
   static char ret[512];
   strcpy(ret,"");
@@ -376,6 +404,9 @@ char *FacetDetails::FormatCell(size_t idx,Facet *f,size_t mode) {
 
 }
 
+/**
+* \brief Prints table with header values and facet values
+*/
 void FacetDetails::UpdateTable() {
 
   Geometry *geom = worker->GetGeometry();
@@ -421,6 +452,9 @@ void FacetDetails::UpdateTable() {
 	}
 }
 
+/**
+* \brief Initial update of the table if it should be displayed
+*/
 void FacetDetails::Update() {
 
   if(!worker) return;
@@ -438,6 +472,10 @@ void FacetDetails::Update() {
 
 }
 
+/**
+* \brief Initial display function that renders the table
+* \param w Worker for this task
+*/
 void FacetDetails::Display(Worker *w) {
 
   worker = w;
@@ -446,6 +484,11 @@ void FacetDetails::Display(Worker *w) {
 
 }
 
+/**
+* \brief Processes events like button clicks for the advanced facet details window.
+* \param src the component that got used to call this event
+* \param message the type that triggered change (button, text change etc.)
+*/
 void FacetDetails::ProcessMessage(GLComponent *src,int message) {
 
   switch(message) {

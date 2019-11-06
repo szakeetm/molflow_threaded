@@ -42,6 +42,11 @@ extern MolFlow *mApp;
 extern SynRad*mApp;
 #endif
 
+/**
+* \brief Constructor with initialisation for the BuildIntersection window (Facet/Build intersection)
+* \param g pointer to the Geometry
+* \param w Worker handle
+*/
 BuildIntersection::BuildIntersection(Geometry *g, Worker *w) :GLWindow() {
 
 	int wD = 330;
@@ -82,10 +87,16 @@ BuildIntersection::BuildIntersection(Geometry *g, Worker *w) :GLWindow() {
 
 }
 
+/**
+* \brief Deconstructor that will destroy old undo facets
+*/
 BuildIntersection::~BuildIntersection() {
 	ClearUndoFacets();
 }
 
+/**
+* \brief Destroy old undo facets
+*/
 void BuildIntersection::ClearUndoFacets() {
 	//Destroy old undo facets
 	for (DeletedFacet delFacet : deletedFacetList)
@@ -94,6 +105,11 @@ void BuildIntersection::ClearUndoFacets() {
 	resultLabel->SetText("");
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void BuildIntersection::ProcessMessage(GLComponent *src, int message) {
 
 	switch (message) {

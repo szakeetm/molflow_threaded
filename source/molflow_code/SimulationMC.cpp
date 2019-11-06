@@ -123,6 +123,10 @@ void Simulation::CalcTotalOutgassing() {
 //	*phi = atan2(v, u); // -PI..PI
 //}
 
+/**
+* \brief Updates hit counters and various variables for an MC hit
+* \param timeout maximum wait time to get a a mutex
+*/
 void Simulation::UpdateMCHits(size_t timeout) {
 
 	SetLocalAndMasterState(0, "Waiting for 'hits' dataport access...", false, true);
@@ -376,9 +380,10 @@ void Simulation::UpdateMCHits(size_t timeout) {
 
 }
 
-
-
-
+/**
+* \brief Updates the log after MC hits have been gathered
+* \param timeout maximum wait time to get a a mutex
+*/
 void Simulation::UpdateLog(size_t timeout)
 {
 	if (tmpParticleLog.size()) {
@@ -396,8 +401,10 @@ void Simulation::UpdateLog(size_t timeout)
 	}
 }
 
-// Compute particle teleport
-
+/**
+* \brief Compute particle teleport
+* \param iFacet Facet related to the teleport event
+*/
 void Simulation::PerformTeleport(SubprocessFacet *iFacet) {
 
 
@@ -492,8 +499,10 @@ void Simulation::PerformTeleport(SubprocessFacet *iFacet) {
 	destination->sh.N.x, destination->sh.N.y, destination->sh.N.z));*/
 }
 
-// Perform nbStep simulation steps (a step is a bounce)
-
+/**
+* \brief Perform nbStep simulation steps (a step is a bounce)
+* \param nbStep number of steps to be performed
+*/
 bool Simulation::SimulationMCStep(size_t nbStep) {
 
 	// Perform simulation steps
@@ -584,16 +593,20 @@ bool Simulation::SimulationMCStep(size_t nbStep) {
 	return true;
 }
 
-void Simulation::IncreaseDistanceCounters(double distanceIncrement)
-{
+/**
+* \brief Increases distance counters by distanceIncrement
+* \param distanceIncrement amount that gets added to all distance counters
+*/
+void Simulation::IncreaseDistanceCounters(double distanceIncrement) {
 	myTmpResults.globalHits.distTraveled_total += distanceIncrement;
 	myTmpResults.globalHits.distTraveledTotal_fullHitsOnly += distanceIncrement;
 	currentParticle.distanceTraveled += distanceIncrement;
 }
 
-// Launch a ray from a source facet. The ray 
-// direction is chosen according to the desorption type.
-
+/**
+* \brief Launch a ray from a source facet. The ray direction is chosen according to the desorption type.
+* \return true if particle still in the system
+*/
 bool Simulation::StartFromSource() {
 	bool found = false;
 	bool foundInMap = false;
@@ -905,8 +918,13 @@ bool Simulation::StartFromSource() {
 	return true;
 }
 
-std::tuple<double, int, double> GeneratingAnglemap::GenerateThetaFromAngleMap(const AnglemapParams& anglemapParams, MersenneTwister& randomGenerator)
-{
+/**
+* \brief Generates theta angle (particle's incident angle) from angle map
+* \param anglemapParams parameters of the angle map
+* \param randomGenerator reference to the random number generator (Mersenne Twister)
+* \return tuple { theta, thetaLowerIndex, thetaOvershoot }
+*/
+std::tuple<double, int, double> GeneratingAnglemap::GenerateThetaFromAngleMap(const AnglemapParams& anglemapParams, MersenneTwister& randomGenerator) {
 	double lookupValue = randomGenerator.rnd();
 	int thetaLowerIndex = my_lower_bound(lookupValue, theta_CDF); //returns line number AFTER WHICH LINE lookup value resides in ( -1 .. size-2 )
 	double theta, thetaOvershoot;
@@ -954,8 +972,15 @@ std::tuple<double, int, double> GeneratingAnglemap::GenerateThetaFromAngleMap(co
 	return { theta, thetaLowerIndex, thetaOvershoot };
 }
 
-double GeneratingAnglemap::GeneratePhiFromAngleMap(const int & thetaLowerIndex, const double & thetaOvershoot, const AnglemapParams & anglemapParams, MersenneTwister& randomGenerator)
-{
+/**
+* \brief Generates phi angle (azimuth) from angle map
+* \param thetaLowerIndex lower index of theta angle of bin in CDF (cummulative distribution function)
+* \param thetaOvershoot corresponding to a weight of the previous and next lines
+* \param anglemapParams parameters of the angle map
+* \param randomGenerator reference to the random number generator (Mersenne Twister)
+* \return phi angle
+*/
+double GeneratingAnglemap::GeneratePhiFromAngleMap(const int & thetaLowerIndex, const double & thetaOvershoot, const AnglemapParams & anglemapParams, MersenneTwister& randomGenerator) {
 	double lookupValue = randomGenerator.rnd();
 	if (anglemapParams.phiWidth == 1) return -PI + 2.0 * PI * lookupValue; //special case, uniform phi distribution
 	int phiLowerIndex;
@@ -1044,8 +1069,13 @@ double GeneratingAnglemap::GeneratePhiFromAngleMap(const int & thetaLowerIndex, 
 	return phi;
 }
 
-double GeneratingAnglemap::GetTheta(const double& thetaIndex, const AnglemapParams& anglemapParams)
-{
+/**
+* \brief Converts from index to theta value
+* \param thetaIndex theta index 
+* \param anglemapParams parameters of the angle map
+* \return theta angle
+*/
+double GeneratingAnglemap::GetTheta(const double& thetaIndex, const AnglemapParams& anglemapParams) {
 	if ((size_t)(thetaIndex) < anglemapParams.thetaLowerRes) { // 0 < theta < limit
 		return anglemapParams.thetaLimit * (thetaIndex) / (double)anglemapParams.thetaLowerRes;
 	}
@@ -1054,17 +1084,26 @@ double GeneratingAnglemap::GetTheta(const double& thetaIndex, const AnglemapPara
 	}
 }
 
-double GeneratingAnglemap::GetPhi(const double & phiIndex, const AnglemapParams & anglemapParams)
-//makes phiIndex circular and converts from index to -pi...pi
-{
+/**
+* \brief makes phiIndex circular and converts from index to -pi...pi
+* \param phiIndex phi index
+* \param anglemapParams parameters of the angle map
+* \return phi angle
+*/
+double GeneratingAnglemap::GetPhi(const double & phiIndex, const AnglemapParams & anglemapParams) {
 	double width = (double)anglemapParams.phiWidth;
 	double correctedIndex = (phiIndex < width) ? phiIndex : phiIndex - width;
 	return -PI + 2.0 * PI * correctedIndex / width;
 }
 
-double GeneratingAnglemap::GetPhiPdfValue(const double & thetaIndex, const int & phiLowerIndex, const AnglemapParams& anglemapParams)
-//phiLowerIndex is circularized
-{
+/**
+* \brief Get phi value from probability density function; phiLowerIndex is circularized
+* \param thetaIndex theta index
+* \param phiLowerIndex lower index of the bin
+* \param anglemapParams parameters of the angle map
+* \return phi pdf value
+*/
+double GeneratingAnglemap::GetPhiPdfValue(const double & thetaIndex, const int & phiLowerIndex, const AnglemapParams& anglemapParams) {
 	if (thetaIndex < 0.5) {
 		return (double)pdf[IDX(phiLowerIndex, anglemapParams.phiWidth)];
 	}
@@ -1080,8 +1119,14 @@ double GeneratingAnglemap::GetPhiPdfValue(const double & thetaIndex, const int &
 	}
 }
 
-double GeneratingAnglemap::GetPhiCDFValue(const double & thetaIndex, const int & phiLowerIndex, const AnglemapParams& anglemapParams)
-{
+/**
+* \brief Get phi value from cummulative density function
+* \param thetaIndex theta index
+* \param phiLowerIndex lower index of the bin
+* \param anglemapParams parameters of the angle map
+* \return phi cdf value
+*/
+double GeneratingAnglemap::GetPhiCDFValue(const double & thetaIndex, const int & phiLowerIndex, const AnglemapParams& anglemapParams) {
 	if (thetaIndex < 0.5) {
 		return (phiLowerIndex < anglemapParams.phiWidth) ? phi_CDFs[phiLowerIndex] : 1.0 + phi_CDFs[0];
 	}
@@ -1098,6 +1143,12 @@ double GeneratingAnglemap::GetPhiCDFValue(const double & thetaIndex, const int &
 
 }
 
+/**
+* \brief Get phi value from cummulative density function
+* \param thetaIndex theta index
+* \param anglemapParams parameters of the angle map
+* \return phi cdf summed value
+*/
 double GeneratingAnglemap::GetPhiCDFSum(const double & thetaIndex, const AnglemapParams& anglemapParams)
 {
 	if (thetaIndex < 0.5) {
@@ -1115,6 +1166,10 @@ double GeneratingAnglemap::GetPhiCDFSum(const double & thetaIndex, const Anglema
 	}
 }
 
+/**
+* \brief Perform a bounce from a facet by logging the hit and sometimes relaunching it
+* \param iFacet facet corresponding to the bounce event
+*/
 /*inline*/ void Simulation::PerformBounce(SubprocessFacet *iFacet) {
 
 	bool revert = false;
@@ -1220,6 +1275,10 @@ double GeneratingAnglemap::GetPhiCDFSum(const double & thetaIndex, const Anglema
 	//sHandle->nbPHit++;
 }
 
+/**
+* \brief Perform a transparent pass (TODO: check if function can be deleted)
+* \param iFacet facet corresponding to the event
+*/
 void Simulation::PerformTransparentPass(SubprocessFacet *iFacet) { //disabled, caused finding hits with the same facet
 	/*double directionFactor = std::abs(DOT3(
 		currentParticle.direction.x, currentParticle.direction.y, currentParticle.direction.z,
@@ -1237,6 +1296,10 @@ void Simulation::PerformTransparentPass(SubprocessFacet *iFacet) { //disabled, c
 	sHandle->lastHit = iFacet;*/
 }
 
+/**
+* \brief Record absorption from molecule to facet by logging the hit 
+* \param iFacet facet corresponding to the absorption event
+*/
 void Simulation::RecordAbsorb(SubprocessFacet *iFacet) {
 	myTmpResults.globalHits.globalHits.nbMCHit++; //global	
 	myTmpResults.globalHits.globalHits.nbHitEquiv += currentParticle.oriRatio;
@@ -1254,8 +1317,11 @@ void Simulation::RecordAbsorb(SubprocessFacet *iFacet) {
 	if (/*iFacet->direction &&*/ iFacet->facetRef->sh.countDirection) RecordDirectionVector(iFacet, currentParticle.flightTime);
 }
 
-void Simulation::RecordHistograms(SubprocessFacet * iFacet)
-{
+/**
+* \brief Record results in appropriate global and facet histograms bins
+* \param iFacet facet corresponding to the histogram event
+*/
+void Simulation::RecordHistograms(SubprocessFacet * iFacet) {
 	//Record in global and facet histograms
 	for (size_t m = 0; m <= worker->moments.size(); m++) {
 		if (m == 0 || std::abs(currentParticle.flightTime - worker->moments[m - 1]) < worker->wp.timeWindowSize / 2.0) {
@@ -1288,12 +1354,23 @@ void Simulation::RecordHistograms(SubprocessFacet * iFacet)
 	}
 }
 
-Simulation::Simulation(Worker*  w)
-{
+/**
+* \brief Basic constructor of the simulation, linking the worker and the geometry
+* \param w worker handle
+*/
+Simulation::Simulation(Worker*  w) {
 	worker = w;
 	geom = w->GetMolflowGeometry();
 }
 
+/**
+* \brief Records a hit on the texture of the facet f
+* \param f facet corresponding to the texture change
+* \param time current simulation time
+* \param countHit if hits are counted
+* \param velocity_factor factor used to calculate the orthogonal velocity
+* \param ortSpeedFactor factor used to calculate the orthogonal velocity per area
+*/
 void Simulation::RecordHitOnTexture(SubprocessFacet *f, double time, bool countHit, double velocity_factor, double ortSpeedFactor) {
 
 	size_t tu = (size_t)(myTmpFacetVars[f->globalId].colU * f->facetRef->sh.texWidthD);
@@ -1310,6 +1387,11 @@ void Simulation::RecordHitOnTexture(SubprocessFacet *f, double time, bool countH
 	}
 }
 
+/**
+* \brief Records a hit on the driection vector of a facet f
+* \param f facet corresponding to the texture change
+* \param time current simulation time
+*/
 void Simulation::RecordDirectionVector(SubprocessFacet *f, double time) {
 	size_t tu = (size_t)(myTmpFacetVars[f->globalId].colU * f->facetRef->sh.texWidthD);
 	size_t tv = (size_t)(myTmpFacetVars[f->globalId].colV * f->facetRef->sh.texHeightD);
@@ -1321,9 +1403,16 @@ void Simulation::RecordDirectionVector(SubprocessFacet *f, double time) {
 			myTmpResults.facetStates[f->globalId].momentResults[m].direction[add].count++;
 		}
 	}
-
 }
 
+/**
+* \brief Records for a result profile of the facet f
+* \param f facet corresponding to the profile
+* \param time current simulation time
+* \param countHit if hits are counted
+* \param velocity_factor factor used to calculate the orthogonal velocity
+* \param ortSpeedFactor factor used to calculate the orthogonal velocity per area
+*/
 void Simulation::ProfileFacet(SubprocessFacet *f, double time, bool countHit, double velocity_factor, double ortSpeedFactor) {
 
 	size_t nbMoments = worker->moments.size();
@@ -1374,8 +1463,11 @@ void Simulation::ProfileFacet(SubprocessFacet *f, double time, bool countHit, do
 	}
 }
 
-void Simulation::LogHit(SubprocessFacet * f)
-{
+/**
+* \brief Logs a hiton the facet f
+* \param f facet corresponding to the hit
+*/
+void Simulation::LogHit(SubprocessFacet * f) {
 	if (myOtfp.enableLogging &&
 		myOtfp.logFacetId == f->globalId &&
 		tmpParticleLog.size() < myLogTarget) {
@@ -1390,6 +1482,10 @@ void Simulation::LogHit(SubprocessFacet * f)
 	}
 }
 
+/**
+* \brief Records the incident angle of the hit
+* \param collidedFacet facet corresponding to the hit
+*/
 void Simulation::RecordAngleMap(SubprocessFacet* collidedFacet) {
 	auto[inTheta, inPhi] = CartesianToPolar(currentParticle.direction, collidedFacet->facetRef->sh.nU, collidedFacet->facetRef->sh.nV, collidedFacet->facetRef->sh.N);
 	if (inTheta > PI / 2.0) inTheta = std::abs(PI - inTheta); //theta is originally respective to N, but we'd like the angle between 0 and PI/2
@@ -1419,6 +1515,10 @@ void Simulation::RecordAngleMap(SubprocessFacet* collidedFacet) {
 	}
 }
 
+/**
+* \brief Generates and sets a new velocity for a bounced particle
+* \param collidedFacet facet corresponding to the hit
+*/
 /*inline*/ void Simulation::UpdateVelocity(SubprocessFacet *collidedFacet) {
 	if (collidedFacet->facetRef->sh.accomodationFactor > 0.9999) { //speedup for the most common case: perfect thermalization
 		if (worker->wp.useMaxwellDistribution) currentParticle.velocity = GenerateRandomVelocity(collidedFacet->facetRef->sh.CDFid);
@@ -1435,6 +1535,11 @@ void Simulation::RecordAngleMap(SubprocessFacet* collidedFacet) {
 	}
 }
 
+/**
+* \brief Generates a new interpolated velocity value via the Mersenne Twister algorithm
+* \param CDFId ID of the cummulative distribution function
+* \return random velocity
+*/
 /*inline*/ double Simulation::GenerateRandomVelocity(int CDFId) {
 	//return FastLookupY(randomGenerator.rnd(),worker->CDFs[CDFId],false);
 	double r = randomGenerator.rnd();
@@ -1442,6 +1547,11 @@ void Simulation::RecordAngleMap(SubprocessFacet* collidedFacet) {
 	return v;
 }
 
+/**
+* \brief Generates the desorption time value with the Mersenne twister algorithm
+* \param src source facet
+* \return random desorption time
+*/
 double Simulation::GenerateDesorptionTime(SubprocessFacet *src) {
 	if (src->facetRef->sh.outgassing_paramId >= 0) { //time-dependent desorption
 		return InterpolateX(randomGenerator.rnd()*worker->IDs[src->facetRef->sh.IDid].back().second, worker->IDs[src->facetRef->sh.IDid], false, true); //allow extrapolate
@@ -1451,18 +1561,33 @@ double Simulation::GenerateDesorptionTime(SubprocessFacet *src) {
 	}
 }
 
+/**
+* \brief Gets constant or interpolated sticking value (time dependent)
+* \param f source facet
+* \param time simulation time
+* \return sticking value
+*/
 double Simulation::GetStickingAt(SubprocessFacet *f, double time) {
 	if (f->facetRef->sh.sticking_paramId == -1) //constant sticking
 		return f->facetRef->sh.sticking;
 	else return worker->parameters[f->facetRef->sh.sticking_paramId].InterpolateY(time, false);
 }
 
+/**
+* \brief Gets constant or interpolated sticking value (time dependent)
+* \param f source facet
+* \param time simulation time
+* \return opacity value
+*/
 double Simulation::GetOpacityAt(SubprocessFacet *f, double time) {
-	if (f->facetRef->sh.opacity_paramId == -1) //constant sticking
+	if (f->facetRef->sh.opacity_paramId == -1) //constant opacity
 		return f->facetRef->sh.opacity;
 	else return worker->parameters[f->facetRef->sh.opacity_paramId].InterpolateY(time, false);
 }
 
+/**
+* \brief Updates particle direction and velocity if we are dealing with a moving facet (translated or rotated)
+*/
 void Simulation::TreatMovingFacet() {
 	Vector3d localVelocityToAdd;
 	if (worker->wp.motionType == 1) { //Translation
@@ -1479,6 +1604,16 @@ void Simulation::TreatMovingFacet() {
 	currentParticle.velocity = newVelocity.Norme();
 }
 
+/**
+* \brief Increase facet counter on a hit, pass etc.
+* \param f source facet
+* \param time simulation time
+* \param hit amount of hits to add
+* \param desorb amount of desorptions to add
+* \param absorb amount of absorptions to add
+* \param sum_1_per_v reciprocals of orthogonal speed components to add
+* \param sum_v_ort orthogonal momentum change to add
+*/
 void Simulation::IncreaseFacetCounter(SubprocessFacet *f, double time, size_t hit, size_t desorb, size_t absorb, double sum_1_per_v, double sum_v_ort) {
 	size_t nbMoments = worker->moments.size();
 	for (size_t m = 0; m <= nbMoments; m++) {
@@ -1495,6 +1630,9 @@ void Simulation::IncreaseFacetCounter(SubprocessFacet *f, double time, size_t hi
 	}
 }
 
+/**
+* \brief Resets the simulation values
+*/
 void Simulation::ResetSimulation() {
 	currentParticle.lastHitFacet = NULL;
 	totalDesorbed = 0;
@@ -1504,6 +1642,11 @@ void Simulation::ResetSimulation() {
 	myLogTarget = 0;
 }
 
+/**
+* \brief Get id of the integrated desorption (ID) parameter
+* \param paramId ID of the parameter to look for
+* \return identifier
+*/
 int Simulation::GetIDId(int paramId) {
 
 	int i;
@@ -1512,6 +1655,10 @@ int Simulation::GetIDId(int paramId) {
 	return i;
 }
 
+/**
+* \brief Record a hit globally
+* \param type type of the hit (reflection, absorption, desorption, teleport etc.)
+*/
 void Simulation::RecordHit(const int &type) {
 	
 	if (myTmpResults.globalHits.hitCacheSize < HITCACHESIZE) {
@@ -1521,6 +1668,9 @@ void Simulation::RecordHit(const int &type) {
 	}
 }
 
+/**
+* \brief Record leak for debugging
+*/
 void Simulation::RecordLeakPos() {
 	// Source region check performed when calling this routine 
 	// Record leak for debugging

@@ -32,7 +32,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{37A9B34B-7668-4464-A7DD-9266C6AB19E5}</ProjectGuid>
     <RootNamespace>nativefiledialog</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

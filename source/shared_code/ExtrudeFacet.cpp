@@ -47,6 +47,11 @@ extern MolFlow *mApp;
 extern SynRad*mApp;
 #endif
 
+/**
+* \brief Constructor with initialisation for the ExtrudeFacet window (Facet/Extrude)
+* \param g pointer to the Geometry
+* \param w Worker handle
+*/
 ExtrudeFacet::ExtrudeFacet(Geometry *g, Worker *w) :GLWindow() {
 
 	int wD = 315;
@@ -348,6 +353,11 @@ ExtrudeFacet::ExtrudeFacet(Geometry *g, Worker *w) :GLWindow() {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void ExtrudeFacet::ProcessMessage(GLComponent *src, int message) {
 	double x0, y0, z0, dX, dY, dZ, dist, radiusLength, totalAngle, totalLength;
 	int noSteps;
@@ -659,12 +669,19 @@ void ExtrudeFacet::ProcessMessage(GLComponent *src, int message) {
 	GLWindow::ProcessMessage(src,message);
 }
 
+/**
+* \brief Toggles check boxes check status in the window
+* \param leaveChecked if checked boxes shouldn't be toggled
+*/
 void ExtrudeFacet::ClearToggles(GLToggle* leaveChecked) {
 	std::vector<GLToggle*> toggles = { towardsNormalCheckbox,againstNormalCheckbox,offsetCheckbox,curveTowardsNormalCheckbox,curveAgainstNormalCheckbox };
 	for (auto& toggle : toggles) 
 		toggle->SetState(toggle==leaveChecked);
 }
 
+/**
+* \brief Toggles enable/disable status of checkboxes, buttons etc.
+*/
 void ExtrudeFacet::EnableDisableControls() {
 	distanceTextbox->SetEditable(towardsNormalCheckbox->GetState() || againstNormalCheckbox->GetState());
 	dxText->SetEditable(offsetCheckbox->GetState() != 0);
@@ -692,6 +709,10 @@ void ExtrudeFacet::EnableDisableControls() {
 	facetNZbutton->SetEnabled(curveTowardsNormalCheckbox->GetState() || curveAgainstNormalCheckbox->GetState());
 }
 
+/**
+* \brief Checks if there is exactly one Vertex selected
+* \return return only selected vertex if it's the only selected
+*/
 std::optional<size_t> ExtrudeFacet::AssertOneVertexSelected() {
 	auto selectedVertices = geom->GetSelectedVertices();
 	if (selectedVertices.size()==0) {
@@ -705,6 +726,10 @@ std::optional<size_t> ExtrudeFacet::AssertOneVertexSelected() {
 	else return selectedVertices[0];
 }
 
+/**
+* \brief Checks if there is exactly one Facet selected
+* \return return only selected facet if it's the only selected
+*/
 std::optional<size_t> ExtrudeFacet::AssertOneFacetSelected() {
 	auto selectedFacets = geom->GetSelectedFacets();
 	if (selectedFacets.size() == 0) {

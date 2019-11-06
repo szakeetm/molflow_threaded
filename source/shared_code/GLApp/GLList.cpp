@@ -1419,7 +1419,7 @@ bool GLList::GetSelectionBox(size_t *row, size_t *col, size_t *rowLength, size_t
 		*col = Min(selectedCol, lastColSel);
 		*rowLength = Max((size_t)lastRowSel, selectedRows[0]) - Min((size_t)lastRowSel, selectedRows[0]) + 1;
 		*colLength = Max(lastColSel, selectedCol) - Min(lastColSel, selectedCol) + 1;
-		return *rowLength > 0 && colLength > 0;
+		return (*rowLength > 0) && (*colLength > 0);
 	}
 	return false;
 }

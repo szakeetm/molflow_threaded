@@ -691,5 +691,6 @@
     <None Include="..\..\source\shared_code\GLApp\GLFileBox.h.obsolete">
       <Filter>Source Files\shared_code\GLApp</Filter>
     </None>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

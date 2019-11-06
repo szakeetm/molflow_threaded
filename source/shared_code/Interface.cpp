@@ -499,7 +499,7 @@ void Interface::ExportSelection() {
 }
 
 // Name: UpdateModelParams()
-// Desc: Update displayed model parameter on geometry ghange
+// Desc: Update displayed model parameter on geometry change
 
 void Interface::UpdateModelParams() {
 

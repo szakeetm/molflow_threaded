@@ -63,6 +63,10 @@ static const int   plWidth[] = { 60,40,70,70,335 };
 static const char *plName[] = { "#","PID","Mem Usage","Mem Peak",/*"CPU",*/"Status" };
 static const int   plAligns[] = { ALIGN_LEFT,ALIGN_LEFT,ALIGN_LEFT,ALIGN_LEFT,ALIGN_LEFT };
 
+/**
+* \brief Constructor for the global settings window with initial setup.
+* \param worker Worker that handles the window.
+*/
 GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 
 	worker = w;
@@ -236,6 +240,9 @@ GlobalSettings::GlobalSettings(Worker *w) :GLWindow() {
 	//memset(lastCPULoad, 0, MAX_PROCESS*sizeof(float));
 }
 
+/**
+* \brief Function to change global settings values (may happen due to change or load of file etc.)
+*/
 void GlobalSettings::Update() {
 
 	char tmp[256];
@@ -273,6 +280,9 @@ void GlobalSettings::Update() {
 	nbProcText->SetText(tmp);
 }
 
+/**
+* \brief Function to update the thread information table in the global settings window.
+*/
 void GlobalSettings::SMPUpdate() {
 	int time = SDL_GetTicks();
 
@@ -355,6 +365,9 @@ void GlobalSettings::SMPUpdate() {
 
 }
 
+/**
+* \brief Function to apply changes to the number of processes.
+*/
 void GlobalSettings::RestartProc() {
 
 	int nbProc;
@@ -380,6 +393,11 @@ void GlobalSettings::RestartProc() {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void GlobalSettings::ProcessMessage(GLComponent *src, int message) {
 
 	switch (message) {
@@ -522,6 +540,9 @@ void GlobalSettings::ProcessMessage(GLComponent *src, int message) {
 	GLWindow::ProcessMessage(src, message);
 }
 
+/**
+* \brief Updates the values regarding outgassing (from memory and by calculation)
+*/
 void GlobalSettings::UpdateOutgassing() {
 	char tmp[128];
 	sprintf(tmp, "%g", worker->wp.gasMass);

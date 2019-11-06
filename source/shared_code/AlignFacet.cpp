@@ -46,6 +46,11 @@ extern MolFlow *mApp;
 extern SynRad*mApp;
 #endif
 
+/**
+* \brief Constructor with initialisation for the AlignFacet window (Facet/Align to)
+* \param g pointer to the Geometry
+* \param w Worker handle
+*/
 AlignFacet::AlignFacet(Geometry *g,Worker *w):GLWindow() {
 
 	int wD = 290;
@@ -120,6 +125,11 @@ AlignFacet::AlignFacet(Geometry *g,Worker *w):GLWindow() {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void AlignFacet::ProcessMessage(GLComponent *src,int message) {
 	switch(message) {
 	case MSG_BUTTON:
@@ -252,6 +262,9 @@ dirDestVertexId,
 	GLWindow::ProcessMessage(src,message);
 }
 
+/**
+* \brief Memorises current facet selection for the align process
+*/
 void AlignFacet::MemorizeSelection() {
 	memorizedSelection = geom->GetSelectedFacets();
 	oriPositions.clear();

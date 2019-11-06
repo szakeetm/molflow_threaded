@@ -29,6 +29,10 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 
 // Construction
 
+/**
+* \brief Constructor with a file handle f
+* \param f file handle
+*/
 ASELoader::ASELoader(FileReader *f) {
 
   this->f = f;
@@ -37,6 +41,9 @@ ASELoader::ASELoader(FileReader *f) {
 
 }
 
+/**
+* \brief Destructor with save free
+*/
 ASELoader::~ASELoader() {
 
   for(size_t i=0;i<nbObj;i++) {
@@ -52,6 +59,11 @@ ASELoader::~ASELoader() {
 /************************************************************/
 /* return the lexical classe of the next word               */
 /************************************************************/
+/**
+* \brief return the lexical classe of the next word
+* \param word char string to check the class for
+* \return integer describing the lexical class
+*/
 int ASELoader::class_lex(char *word) {
 
   int i,found=0;
@@ -86,6 +98,9 @@ int ASELoader::class_lex(char *word) {
 /***********************************/
 /* Load a ASE file (throw Error)   */
 /***********************************/
+/**
+* \brief Load a ASE file (throw Error)
+*/
 void ASELoader::Load()
 {
   char   *w;

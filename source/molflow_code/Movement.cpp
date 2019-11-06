@@ -41,6 +41,11 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 extern MolFlow *mApp;
 int    axisMode2;
 
+/**
+* \brief Constructor with basic initialisation for the movement window (Tools/moving parts)
+* \param g pointer to Geometry
+* \param w pointer to Worker handler
+*/
 Movement::Movement(Geometry *g,Worker *w):GLWindow() {
 
 	int wD = 537;
@@ -220,6 +225,11 @@ Movement::Movement(Geometry *g,Worker *w):GLWindow() {
 
 }
 
+/**
+* \brief Function for processing various inputs (button, check boxes etc.)
+* \param src Exact source of the call
+* \param message Type of the source (button)
+*/
 void Movement::ProcessMessage(GLComponent *src,int message) {
 
 	switch(message) {
@@ -401,6 +411,10 @@ void Movement::ProcessMessage(GLComponent *src,int message) {
 	GLWindow::ProcessMessage(src,message);
 }
 
+/**
+* \brief Updating GUI when checkboxes (for motion types) are toggled
+* \param src Exact source of the call (checkbox)
+*/
 void Movement::UpdateToggle(GLComponent *src) {
 
 	if (src == checkBox1) {
@@ -429,6 +443,9 @@ void Movement::UpdateToggle(GLComponent *src) {
 	}
 }
 
+/**
+* \brief Updates values in the GUI for the Movements window
+*/
 void Movement::Update() {
 	
 	mode = work->wp.motionType;
