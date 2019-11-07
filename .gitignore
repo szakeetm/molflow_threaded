@@ -5,6 +5,8 @@
 
 # blacklist folders
 
+build*/
+!build_mac/
 intermediary/*
 shipped/
 source_snapshots/
