@@ -1,3 +1,5 @@
+#blacklist all hidden files (start with . )but the root .gitignore
+
 .*
 !/.gitignore
 
@@ -8,27 +10,26 @@ shipped/
 source_snapshots/
 test/
 tmp/
+CMake/cmake-*
 
+# Ignore cmake generated directories and files.
+CMakeFiles
+CTestTestfile.cmake
+Makefile
+cmake_install.cmake
+
+!/additional_libraries/**/Makefile
 **/Screenshots/
 *.ilk
 *.exp
+*.bak
+*.obsolete
+
 molflow.cfg
 
-bin/*
+# 
+bin/
+lib/
 
-lib/linux/
-lib/win/release/clipper*
-lib/win/release/nativefiledialog*
-lib/win/release/png_zlib_win_library*
-lib/win/release/pugixml*
-lib/win/release/sdl_savepng*
-lib/win/release/truncatedgaussian*
-
-lib/win/debug/clipper*
-lib/win/debug/nativefiledialog*
-lib/win/debug/png_zlib_win_library*
-lib/win/debug/pugixml*
-lib/win/debug/sdl_savepng*
-lib/win/debug/truncatedgaussian*
 
 **/venv
