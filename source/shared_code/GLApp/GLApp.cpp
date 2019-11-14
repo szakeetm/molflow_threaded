@@ -251,7 +251,8 @@ void GLApplication::Exit() {
   SDL_GL_DeleteContext(mainContext);
   SDL_DestroyWindow(mainScreen);
   SDL_Quit();
-  _exit(0);
+  exit(0);
+  //_exit(0);
 
 }
 

@@ -9,7 +9,11 @@ set(PROJECT_NAME sdl_savepng)
 IF (WIN32)
     set(OS_NAME "win")
 ELSE()
-    set(OS_NAME "linux")
+    IF(os_version_suffix STREQUAL ".el7")
+        set(OS_NAME "linux_fedora")
+    ELSE()
+        set(OS_NAME "linux_debian")
+    ENDIF()
 ENDIF()
 
 # Output Variables

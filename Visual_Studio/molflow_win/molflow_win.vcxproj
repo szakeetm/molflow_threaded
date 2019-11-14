@@ -14,7 +14,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{8A89D94C-532B-4DF2-971A-4F5185DFA634}</ProjectGuid>
     <RootNamespace>molflowwin</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <ProjectName>molflow_win</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -66,7 +66,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;SDL2.lib;SDL2main.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\debug\;..\..\lib_external\win;..\..\lib_external\win\debug\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\debug\;..\..\lib_external\win;..\..\lib_external\win\debug\;</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -92,7 +92,7 @@
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <OptimizeReferences>false</OptimizeReferences>
       <AdditionalDependencies>bzip2.lib;clipper.lib;libcurl_a_x64.lib;SDL2.lib;SDL2main.lib;libgsl.lib;libgslcblas.lib;lzma.lib;png_zlib_win_library.lib;pugixml.lib;ZipLib.lib;zlib.lib;nativefiledialog.lib;sdl_savepng.lib;truncatedgaussian.lib;opengl32.lib;user32.lib;shell32.lib;ole32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\release\;..\..\lib_external\win;..\..\lib_external\win\release\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\..\lib\win;..\..\lib\win\release\;..\..\lib_external\win;..\..\lib_external\win\release\;</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
@@ -323,6 +323,7 @@
     <None Include="..\..\source\molflow_code\LICENSE" />
     <None Include="..\..\source\shared_code\GLApp\GLFileBox.cpp.obsolete" />
     <None Include="..\..\source\shared_code\GLApp\GLFileBox.h.obsolete" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
