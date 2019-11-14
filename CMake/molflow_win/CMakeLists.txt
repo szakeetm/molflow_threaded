@@ -41,7 +41,7 @@ set(HEADER_DIR_2 ../../source/shared_code)
 set(HEADER_DIR_3 ../../source/shared_code/GLApp)
 set(HEADER_DIR_4 ../../source/shared_code/GLApp/GLChart)
 set(HEADER_DIR_5 ../../include/)
-set(COPY_DIR ../../copy_to_build/)
+set(COPY_DIR ../../copy_to_build)
 
 IF (WIN32)
     # set stuff for windows
@@ -330,5 +330,35 @@ IF (WIN32)
             DESTINATION ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY})
 ENDIF()
 
-file(COPY ${COPY_DIR}
+set(COPY_FILES ${COPY_DIR}/desorption_yields
+        ${COPY_DIR}/images
+        ${COPY_DIR}/parameter_catalog)
+
+IF (WIN32)
+    set(COPY_FILES ${COPY_FILES}
+            ${COPY_DIR}/7za.exe
+            )
+ELSE()
+    set(COPY_FILES ${COPY_FILES}
+            ${COPY_DIR}/7za
+            )
+ENDIF()
+
+IF(APPLE OR (${OS_NAME} STREQUAL "linux_fedora"))
+    set(COPY_FILES ${COPY_FILES}
+            ${COPY_DIR}/launch_molflow.sh
+            )
+ENDIF()
+
+set(COPY_FILES ${COPY_FILES}
+        ${COPY_DIR}/updater_config_default_${OS_NAME}.xml
+        )
+
+file(COPY ${COPY_FILES}
         DESTINATION ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY})
+
+file(RENAME
+        ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY}/updater_config_default_${OS_NAME}.xml
+        ${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY}/updater_config.xml)
+
+message("COPIED: " ${COPY_FILES})

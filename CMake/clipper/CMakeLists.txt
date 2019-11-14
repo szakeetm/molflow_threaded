@@ -19,6 +19,11 @@ ELSE()
     ENDIF()
     set(OS_RELPATH "../..")
 ENDIF()
+
+# Output Variables
+set(OUTPUT_DEBUG ${OS_RELPATH}/lib/${OS_NAME}/debug/)
+set(OUTPUT_REL ${OS_RELPATH}/lib/${OS_NAME}/release/)
+
 # Folders files
 set(CPP_DIR_1 ../../source/shared_code/Clipper)
 set(HEADER_DIR_1 ../../source/shared_code/Clipper)
