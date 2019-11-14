@@ -8,23 +8,30 @@ cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
 set(PROJECT_NAME sdl_savepng)
 IF (WIN32)
     set(OS_NAME "win")
+	set(OS_RELPATH "../..")
+ELSEIF(APPLE)
+	set(OS_NAME "mac")
+	set(OS_RELPATH "..")
 ELSE()
     IF(os_version_suffix STREQUAL ".el7")
         set(OS_NAME "linux_fedora")
     ELSE()
         set(OS_NAME "linux_debian")
     ENDIF()
+	set(OS_RELPATH "../..")
 ENDIF()
 
 # Output Variables
-set(OUTPUT_DEBUG ../../lib/${OS_NAME}/debug/)
-set(OUTPUT_REL ../../lib/${OS_NAME}/release/)
+set(OUTPUT_DEBUG ${OS_RELPATH}/lib/${OS_NAME}/debug/)
+set(OUTPUT_REL ${OS_RELPATH}/lib/${OS_NAME}/release/)
 
 # Folders files
 set(CPP_DIR_1 ../../source/shared_code/SDL_SavePNG)
 set(HEADER_DIR_1 ../../source/shared_code/SDL_SavePNG)
-set(HEADER_DIR_2 ../../include/windows_only)
-set(HEADER_DIR_3 ../../include/windows_only/png)
+if(WIN32)
+	set(HEADER_DIR_2 ../../include/windows_only)
+	set(HEADER_DIR_3 ../../include/windows_only/png)
+endif()
 
 ############## CMake Project ################
 #        The main options of project        #
@@ -76,11 +83,37 @@ IF (WIN32)
             ${HEADER_DIR_2}
             ${HEADER_DIR_3}
             )
+ELSEIF(APPLE)
+	# apple linking against a shipped version of SDL2
+    target_include_directories(${PROJECT_NAME} PRIVATE
+            ${HEADER_DIR_1}
+            )
 
+    #find_package(SDL2 REQUIRED)
+    #target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
+    #set(LINK_DIR_2 ../../lib_external/mac/SDL2)
+    #get_filename_component(ABS_LINK_DIR_2 "${LINK_DIR_2}" REALPATH)
+    #add_library( libSDL2 STATIC IMPORTED GLOBAL)
+    #set_target_properties( libSDL2 PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_2}/libSDL2.a )
+    #target_link_libraries(${PROJECT_NAME} libSDL2) # from ./lib/
+    #message(${ABS_LINK_DIR_2}/libSDL2.a)
+
+    find_package(PNG REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${PNG_INCLUDE_DIRS})
+    target_link_libraries(${PROJECT_NAME} ${PNG_LIBRARIES})
 ELSE()
     target_include_directories(${PROJECT_NAME} PRIVATE
             ${HEADER_DIR_1}
             )
+
+    find_package(SDL2 REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
+
+    find_package(PNG REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${PNG_INCLUDE_DIRS})
+
+    target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
+    target_link_libraries(${PROJECT_NAME} ${PNG_LIBRARIES})
 ENDIF()
 
 ################# Flags ################

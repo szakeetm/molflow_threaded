@@ -9,17 +9,22 @@ set(PROJECT_NAME nativefiledialog)
 
 IF (WIN32)
     set(OS_NAME "win")
+	set(OS_RELPATH "../..")
+ELSEIF(APPLE)
+	set(OS_NAME "mac")
+	set(OS_RELPATH "..")
 ELSE()
     IF(os_version_suffix STREQUAL ".el7")
         set(OS_NAME "linux_fedora")
     ELSE()
         set(OS_NAME "linux_debian")
     ENDIF()
+	set(OS_RELPATH "../..")
 ENDIF()
 
 # Output Variables
-set(OUTPUT_DEBUG ../../lib/${OS_NAME}/debug/)
-set(OUTPUT_REL ../../lib/${OS_NAME}/release/)
+set(OUTPUT_DEBUG ${OS_RELPATH}/lib/${OS_NAME}/debug/)
+set(OUTPUT_REL ${OS_RELPATH}/lib/${OS_NAME}/release/)
 # Folders files
 
 set(CPP_DIR_1 ../../source/shared_code/NativeFileDialog/molflow_wrapper)
@@ -57,11 +62,21 @@ message("${PROJECT_NAME}: CURR BIN DIR: ${CMAKE_CURRENT_BINARY_DIR}")
 ############################################################
 
 # Source Files
+# win, cocoa or gtk
 IF (WIN32)
     file(GLOB SRC_FILES
             ${CPP_DIR_1}/nfd_wrapper.cpp
             ${CPP_DIR_2}/nfd_common.c
             ${CPP_DIR_2}/nfd_win.cpp
+            ${HEADER_DIR_1}/nfd_wrapper.h
+            ${HEADER_DIR_2}/nfd.h
+            ${HEADER_DIR_2}/nfd_common.h
+            )
+ELSEIF(APPLE)
+    file(GLOB SRC_FILES
+            ${CPP_DIR_1}/nfd_wrapper.cpp
+            ${CPP_DIR_2}/nfd_common.c
+            ${CPP_DIR_2}/nfd_cocoa.m
             ${HEADER_DIR_1}/nfd_wrapper.h
             ${HEADER_DIR_2}/nfd.h
             ${HEADER_DIR_2}/nfd_common.h
@@ -88,14 +103,21 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 # Defines Flags for Windows and Linux                      #
 ############################################################
 
-# Setup CMake to use GTK+, tell the compiler where to look for headers
-# and to the linker where to look for libraries
-INCLUDE_DIRECTORIES(${GTK3_INCLUDE_DIRS})
-LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
+IF (WIN32)
 
-# Add other flags to the compiler
-ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
-target_link_libraries(${PROJECT_NAME} ${GTK3_LIBRARIES} )
+ELSEIF(APPLE)
+    target_link_libraries(${PROJECT_NAME} "-framework AppKit")
+ELSE()
+    # Setup CMake to use GTK+, tell the compiler where to look for headers
+	# and to the linker where to look for libraries
+	INCLUDE_DIRECTORIES(${GTK3_INCLUDE_DIRS})
+	LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
+
+	# Add other flags to the compiler
+	ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
+	target_link_libraries(${PROJECT_NAME} ${GTK3_LIBRARIES})
+ENDIF()
+
 # Preprocessor definitions
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     target_compile_definitions(${PROJECT_NAME} PRIVATE)

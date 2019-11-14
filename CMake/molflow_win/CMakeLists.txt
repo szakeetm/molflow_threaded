@@ -8,12 +8,17 @@ set(PROJECT_NAME molflow)
 
 IF (WIN32)
     set(OS_NAME "win")
+	set(OS_RELPATH "../..")
+ELSEIF(APPLE)
+	set(OS_NAME "mac")
+	set(OS_RELPATH "..")
 ELSE()
     IF(os_version_suffix STREQUAL ".el7")
         set(OS_NAME "linux_fedora")
     ELSE()
         set(OS_NAME "linux_debian")
     ENDIF()
+	set(OS_RELPATH "../..")
 ENDIF()
 
 IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -48,6 +53,16 @@ IF (WIN32)
     set(LINK_DIR_2 ../../lib_external/win)
     set(LINK_DIR_3 ../../lib_external/win/${MY_BUILD_TYPE})
     set(DLL_DIR ../../lib_external/win/dll)
+ELSEIF(APPLE)
+	# set stuff for mac os
+
+    set(CPP_DIR_5 "")
+    set(HEADER_DIR_6 "../../include/mac_only")
+    set(HEADER_DIR_7 "")
+    set(HEADER_DIR_8 "")
+
+    set(LINK_DIR_1 ../../lib_external/mac)
+    set(LINK_DIR_2 ../../lib_external/mac/SDL2)
 ELSE()
     # set stuff for other systems
 
@@ -119,6 +134,8 @@ if(NOT MSVC)
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+   elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
+		set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
    endif()
 endif(NOT MSVC)]]
 
@@ -128,7 +145,9 @@ endif(MSVC)
 if(NOT MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+       set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
+		set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
     endif()
 endif(NOT MSVC)
 
@@ -199,24 +218,44 @@ if(MSVC)
     target_link_libraries(${PROJECT_NAME} pugixml clipper nativefiledialog sdl_savepng truncatedgaussian png_zlib_win_library)
 endif(MSVC)
 if(NOT MSVC)
-    # Use the package PkgConfig to detect GTK+ headers/library files
-    FIND_PACKAGE(PkgConfig REQUIRED)
-    PKG_CHECK_MODULES(GTK3 REQUIRED gtk+-3.0)
 
-    # Setup CMake to use GTK+, tell the compiler where to look for headers
-    # and to the linker where to look for libraries
-    INCLUDE_DIRECTORIES(${GTK3_INCLUDE_DIRS})
-    LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
+    find_package(SDL2 REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
 
-    # Add other flags to the compiler
-    ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
+	if(APPLE)
+		#link to self-build sdl shared lib
+		target_link_libraries(${PROJECT_NAME} "-framework AppKit")
+
+		add_library( libSDL2 SHARED IMPORTED GLOBAL)
+		get_filename_component(ABS_LINK_DIR_2 "${LINK_DIR_2}" REALPATH)
+		set_target_properties( libSDL2 PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_2}/libSDL2-2.0.dylib)
+		target_link_libraries(${PROJECT_NAME} libSDL2) # from ./lib/
+
+	else()
+		# Use the package PkgConfig to detect GTK+ headers/library files
+		FIND_PACKAGE(PkgConfig REQUIRED)
+		PKG_CHECK_MODULES(GTK3 REQUIRED gtk+-3.0)
+
+		# Setup CMake to use GTK+, tell the compiler where to look for headers
+		# and to the linker where to look for libraries
+		INCLUDE_DIRECTORIES(${GTK3_INCLUDE_DIRS})
+		LINK_DIRECTORIES(${GTK3_LIBRARY_DIRS})
+
+		# Add other flags to the compiler
+		ADD_DEFINITIONS(${GTK3_CFLAGS_OTHER})
+
+        target_link_libraries(${PROJECT_NAME} ${GTK3_LIBRARIES})
+
+		find_package(X11 REQUIRED)
+		target_include_directories(${PROJECT_NAME} PRIVATE ${X11_INCLUDE_DIRS})
+
+		target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
+	endif()
+    
 
 
     find_package(OpenGL REQUIRED)
     target_include_directories(${PROJECT_NAME} PRIVATE ${OPENGL_INCLUDE_DIRS})
-
-    find_package(SDL2 REQUIRED)
-    target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
 
     find_package(PNG REQUIRED)
     target_include_directories(${PROJECT_NAME} PRIVATE ${PNG_INCLUDE_DIRS})
@@ -230,8 +269,7 @@ if(NOT MSVC)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads REQUIRED)
 
-    find_package(X11 REQUIRED)
-    target_include_directories(${PROJECT_NAME} PRIVATE ${X11_INCLUDE_DIRS})
+    
 
     #GSLCBLAS or BLAS?
     #find_package(GSLCBLAS REQUIRED)
@@ -241,9 +279,7 @@ if(NOT MSVC)
     #target_include_directories(${PROJECT_NAME} PRIVATE ${stdc++fs_INCLUDE_DIRS})
 
 
-    target_link_libraries(${PROJECT_NAME} ${GTK3_LIBRARIES} )
     target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
-    target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
     target_link_libraries(${PROJECT_NAME} ${PNG_LIBRARIES})
     target_link_libraries(${PROJECT_NAME} ${GSL_LIBRARIES})
     target_link_libraries(${PROJECT_NAME} ${CURL_LIBRARIES})
@@ -262,6 +298,9 @@ if(NOT MSVC)
         set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_clang.a )
         target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
 
+	elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
+		set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_clang.a )
+        target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
     else()
 
         set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_gcc.a )
@@ -271,16 +310,13 @@ if(NOT MSVC)
 
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
         target_link_libraries(${PROJECT_NAME} c++fs)
+	elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
+        #don´t add anything for filesystem
     else()
         target_link_libraries(${PROJECT_NAME} stdc++fs)
     endif()
 
-
-
-
     target_link_libraries(${PROJECT_NAME} pugixml clipper nativefiledialog sdl_savepng truncatedgaussian)
-
-
 endif(NOT MSVC)
 
 # Clear previous build to prevent remaining (old) files
