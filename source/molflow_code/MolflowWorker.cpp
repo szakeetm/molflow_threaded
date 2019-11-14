@@ -1534,16 +1534,48 @@ void Worker::AnalyzeSYNfile(const char *fileName, size_t *nbFacet, size_t *nbTex
 FileReader* Worker::ExtractFrom7zAndOpen(const std::string & fileName, const std::string & geomName)
 {
 	std::ostringstream cmd;
-	std::string sevenZipName = "7za";
+	std::string sevenZipName;
 
 #ifdef _WIN32
 	//Necessary push/pop trick to support UNC (network) paths in Windows command-line
 	auto CWD = FileUtils::get_working_path();
 	cmd << "cmd /C \"pushd \"" << CWD << "\"&&";
-	cmd << "7za.exe x -t7z -aoa \"" << fileName << "\" -otmp";
-#else
-	cmd << "./7za x -t7z -aoa \"" << fileName << "\" -otmp";
 #endif
+
+
+
+
+
+
+
+#ifdef _WIN32
+	sevenZipName += "7za.exe";
+#else //Linux, MacOS
+	if (FileUtils::Exist("./7za")) {
+		sevenZipName = "./7za"; //use 7za binary shipped with Molflow
+	}
+	else if (FileUtils::Exist("/usr/bin/7za")) {
+		sevenZipName = "/usr/bin/7za"; //use p7zip installed system-wide
+	}
+	else
+	{
+		sevenZipName = "7za"; //so that Exist() check fails and we get an error message on the next command
+	}
+#endif
+	if (!FileUtils::Exist(sevenZipName)) {
+		throw Error("7-zip compressor not found, can't extract file.");
+	}
+
+
+
+
+
+
+
+
+
+
+	cmd << sevenZipName << " x -t7z -aoa \"" << fileName << "\" -otmp";
 
 #ifdef _WIN32
 	cmd << "&&popd\"";

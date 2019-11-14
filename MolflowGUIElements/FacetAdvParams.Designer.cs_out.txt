@@ -76,21 +76,13 @@ GLLabel	*label19;
 GLTextField	*angleMapThetaHighresText;
 GLLabel	*angleMapStatusLabel;
 GLTextField	*reflectionExponentBox;
-GLTitledPanel	*histogramPanel;
-GLLabel	*label22;
-GLLabel	*label21;
-GLLabel	*label18;
-GLTextField	*histogramHitBinSizeText;
-GLTextField	*histogramFlightDistanceLimitText;
-GLTextField	*histogramHitCountLimitText;
-GLToggle	*histogramRecordCheckbox;
 
 
 
 FacetAdvParams.cpp:
 
 int wD = 320;
-int hD = 745;
+int hD = 675;
 aPanel = new GLTitledPanel("Texture properties");
 aPanel->SetBounds(5,3,309,123);
 Add(aPanel);
@@ -109,9 +101,6 @@ Add(paramPanel);
 angleMapPanel = new GLTitledPanel("Incident angle distribution");
 angleMapPanel->SetBounds(5,508,309,149);
 Add(angleMapPanel);
-histogramPanel = new GLTitledPanel("Histogram");
-histogramPanel->SetBounds(5,663,309,66);
-Add(histogramPanel);
 lengthText = new GLTextField(0,"");
 aPanel->SetCompBounds(lengthText,180,36,72,18);
 aPanel->Add(lengthText);
@@ -331,7 +320,7 @@ angleMapPanel->SetCompBounds(angleMapReleaseButton,205,122,93,20);
 angleMapPanel->Add(angleMapReleaseButton);
 
 remeshButton = new GLButton(0,"Force remesh");
-aPanel->SetCompBounds(remeshButton,218,13,77,20);
+aPanel->SetCompBounds(remeshButton,73,77,77,20);
 aPanel->Add(remeshButton);
 
 label16 = new GLLabel("part cosine^");
@@ -393,34 +382,6 @@ angleMapPanel->Add(angleMapStatusLabel);
 reflectionExponentBox = new GLTextField(0,"");
 paramPanel->SetCompBounds(reflectionExponentBox,171,41,40,18);
 paramPanel->Add(reflectionExponentBox);
-
-label22 = new GLLabel("Hit count bin size:");
-histogramPanel->SetCompBounds(label22,163,41,78,12);
-histogramPanel->Add(label22);
-
-label21 = new GLLabel("Hit count limit:");
-histogramPanel->SetCompBounds(label21,48,41,64,12);
-histogramPanel->Add(label21);
-
-label18 = new GLLabel("Flight distance limit (cm):");
-histogramPanel->SetCompBounds(label18,133,19,108,12);
-histogramPanel->Add(label18);
-
-histogramHitBinSizeText = new GLTextField(0,"1");
-histogramPanel->SetCompBounds(histogramHitBinSizeText,249,38,46,18);
-histogramPanel->Add(histogramHitBinSizeText);
-
-histogramFlightDistanceLimitText = new GLTextField(0,"");
-histogramPanel->SetCompBounds(histogramFlightDistanceLimitText,249,16,46,18);
-histogramPanel->Add(histogramFlightDistanceLimitText);
-
-histogramHitCountLimitText = new GLTextField(0,"");
-histogramPanel->SetCompBounds(histogramHitCountLimitText,112,38,46,18);
-histogramPanel->Add(histogramHitCountLimitText);
-
-histogramRecordCheckbox = new GLToggle(0,"Record");
-histogramPanel->SetCompBounds(histogramRecordCheckbox,10,18,54,16);
-histogramPanel->Add(histogramRecordCheckbox);
 
 SetTitle("Advanced facet parameters");
 // Center dialog
