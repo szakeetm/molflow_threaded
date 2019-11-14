@@ -108,11 +108,7 @@ unsigned long MersenneTwister::GetSeed() {
 }
 
 MersenneTwister::MersenneTwister() {
-#ifdef DEBUG
-    SetSeed(42424242);
-#else
-    SetSeed(GetSeed());
-#endif
+	SetSeed(GetSeed());
 }
 
  double TruncatedGaussian::GetGaussian(gsl_rng * gen, const double & mean, const double & sigma, const double & lowerBound, const double & upperBound) //inline
