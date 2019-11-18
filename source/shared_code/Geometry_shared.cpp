@@ -1010,25 +1010,38 @@ void Geometry::MoveVertexTo(size_t idx, double x, double y, double z) {
 }
 
 void Geometry::SwapNormal() {
+	//Default: sweap selected facets
+	SwapNormal(GetSelectedFacets());
+}
+
+void Geometry::RevertFlippedNormals() {
+	std::vector<size_t> flippedFacetList;
+	auto selectedFacetList = GetSelectedFacets();
+	for (auto i : selectedFacetList) {
+		if (facets[i]->normalFlipped) {
+			flippedFacetList.push_back(i);
+		}
+	}
+	SwapNormal(flippedFacetList);
+}
+
+void Geometry::SwapNormal(const std::vector < size_t>& facetList) { //Swap the normal for a list of facets
 
 	if (!IsLoaded()) {
 		GLMessageBox::Display("No geometry loaded.", "No geometry", GLDLG_OK, GLDLG_ICONERROR);
 		return;
 	}
-	if (GetNbSelectedFacets() <= 0) return;
 	mApp->changedSinceSave = true;
-	for (int i = 0; i < sh.nbFacet; i++) {
+	for (auto i:facetList) {
 		Facet *f = facets[i];
-		if (f->selected) {
-			f->SwapNormal();
-			InitializeGeometry(i);
-			try {
-				SetFacetTexture(i, f->tRatio, f->hasMesh);
-			}
-			catch (Error &e) {
-				GLMessageBox::Display(e.GetMsg(), "Error", GLDLG_OK, GLDLG_ICONERROR);
-			}
+		f->SwapNormal();
+		InitializeGeometry((int)i);
+		try {
+			SetFacetTexture(i, f->tRatio, f->hasMesh);
 		}
+		catch (Error &e) {
+			GLMessageBox::Display(e.GetMsg(), "Error", GLDLG_OK, GLDLG_ICONERROR);
+		}	
 	}
 
 	DeleteGLLists(true, true);
@@ -2857,6 +2870,7 @@ void Geometry::CalculateFacetParams(Facet* f) {
 	else if (area < 0.0) {
 		//f->sign = -1;
 		f->nonSimple = false;
+		
 		//This is a case where a concave facet doesn't obey the right-hand rule:
 		//it happens when the first rotation (usually around the second index) is the opposite as the general outline rotation
 		
@@ -2873,6 +2887,7 @@ void Geometry::CalculateFacetParams(Facet* f) {
 			BBmax.v = std::max(BBmax.v, v.v);
 			BBmin.v = std::min(BBmin.v, v.v);
 		}
+		f->normalFlipped = true; //So we can revert it later
 	}
 	else { //Area==0.0
 		//f->sign = 0;

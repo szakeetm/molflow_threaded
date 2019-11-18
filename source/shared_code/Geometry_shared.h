@@ -165,7 +165,9 @@ public:
 	void SaveSuper(int s);
 	void SaveProfileTXT(FileWriter *file);
 	void UpdateSelection();
-	void SwapNormal();
+	void SwapNormal(); //Swap normals of selected facets
+	void RevertFlippedNormals(); //Reverts flipping for facets with normalFlipped flag
+	void SwapNormal(const std::vector < size_t> & facetList); //Swap normals of a list of facets
 	void Extrude(int mode, Vector3d radiusBase, Vector3d offsetORradiusdir, bool againstNormal, double distanceORradius, double totalAngle, size_t steps);
 	
 	void RemoveFacets(const std::vector<size_t> &facetIdList, bool doNotDestroy = false);
