@@ -211,7 +211,7 @@ if(MSVC)
     # Add Windows Console output for debug build
     if(CMAKE_BUILD_TYPE STREQUAL "Debug")
         set_target_properties(${PROJECT_NAME} PROPERTIES LINK_FLAGS "/SUBSYSTEM:CONSOLE ${LINK_FLAGS}")
-    else()
+    endif()
     message(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
     link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
     target_link_libraries(${PROJECT_NAME} bzip2.lib clipper.lib libcurl_a_x64.lib SDL2.lib SDL2main.lib libgsl.lib libgslcblas.lib lzma.lib png_zlib_win_library.lib pugixml.lib ZipLib.lib zlib.lib nativefiledialog.lib sdl_savepng.lib truncatedgaussian.lib opengl32.lib user32.lib shell32.lib ole32.lib )
