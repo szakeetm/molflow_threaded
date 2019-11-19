@@ -28,8 +28,8 @@ ELSE()
 ENDIF()
 
 # Output Variables
-set(OUTPUT_DEBUG ../../bin/${OS_NAME}/debug/)
-set(OUTPUT_REL ../../bin/${OS_NAME}/release/)
+set(OUTPUT_DEBUG ${OS_RELPATH}/bin/${OS_NAME}/debug/)
+set(OUTPUT_REL ${OS_RELPATH}/bin/${OS_NAME}/release/)
 
 # Folders files
 set(CPP_DIR_1 ../../source/molflow_code)
