@@ -838,6 +838,7 @@ void Interface::OneTimeSceneInit_shared_pre() {
 	menu->GetSubMenu("Facet")->Add(NULL);
 	menu->GetSubMenu("Facet")->Add("Collapse ...", MENU_FACET_COLLAPSE);
 	menu->GetSubMenu("Facet")->Add("Explode", MENU_FACET_EXPLODE);
+	menu->GetSubMenu("Facet")->Add("Revert flipped normals (old geometries)", MENU_FACET_REVERTFLIP);
 	
 
 	//menu->GetSubMenu("Facet")->Add("Facet Details ...", MENU_FACET_DETAILS);
@@ -1291,6 +1292,13 @@ bool Interface::ProcessMessage_shared(GLComponent *src, int message) {
 				catch (Error &e) {
 					GLMessageBox::Display(e.GetMsg(), "Error", GLDLG_OK, GLDLG_ICONERROR);
 				}
+			}
+			return true;
+		case MENU_FACET_REVERTFLIP:
+			if (AskToReset()) {
+				geom->RevertFlippedNormals();
+				// Send to sub process
+				worker.Reload();
 			}
 			return true;
 		case MENU_FACET_EXTRUDE:
