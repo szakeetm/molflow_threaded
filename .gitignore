@@ -34,6 +34,11 @@ CTestTestfile.cmake
 Makefile
 cmake_install.cmake
 **/CMakeCache.txt
+#Visual Studio generated solutions (based on CMake):
+**/*.dir
+CMake/**/*.vcxproj
+CMake/**/*.vcxproj.filters
+CMake/**/*.sln
 
 !/additional_libraries/**/Makefile
 **/Screenshots/
