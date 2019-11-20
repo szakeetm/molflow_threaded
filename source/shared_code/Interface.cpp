@@ -1,7 +1,7 @@
 /*
 Program:     MolFlow+ / Synrad+
 Description: Monte Carlo simulator for ultra-high vacuum and synchrotron radiation
-Authors:     Jean-Luc PONS / Roberto KERSEVAN / Marton ADY
+Authors:     Jean-Luc PONS / Roberto KERSEVAN / Marton ADY / Pascal BAEHR
 Copyright:   E.S.R.F / CERN
 Website:     https://cern.ch/molflow
 
@@ -1749,7 +1749,7 @@ bool Interface::ProcessMessage_shared(GLComponent *src, int message) {
 			std::ostringstream aboutText;
 			aboutText << "Program:    " << appName << " " << appVersionName << " (" << appVersionId <<")";
 			aboutText << R"(
-Authors:     Jean-Luc PONS / Roberto KERSEVAN / Marton ADY
+Authors:     Jean-Luc PONS / Roberto KERSEVAN / Marton ADY / Pascal BAEHR
 Copyright:   E.S.R.F / CERN   (2019)
 Website:    https://cern.ch/molflow
 
