@@ -48,13 +48,15 @@ if(NOT MSVC)
     if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
     endif()
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O3")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 endif(NOT MSVC)
 
 option(USE_PROFILING "disable optimisation for profiling the application" OFF) # OFF is the default
 if(USE_PROFILING)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O0")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O0")
-endif(USE_PROFILING)
+endif()
 
 
 
