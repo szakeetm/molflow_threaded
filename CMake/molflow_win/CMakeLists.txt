@@ -303,9 +303,7 @@ if(NOT MSVC)
         add_library( libnfd STATIC IMPORTED GLOBAL)
         set_target_properties( libnfd PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libnfd.a )
         target_link_libraries(${PROJECT_NAME} libnfd) # from ./lib/
-	ELSE()
-		target_link_libraries(${PROJECT_NAME} nativefiledialog)
-    ENDIF()
+    endif()
 
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
         target_link_libraries(${PROJECT_NAME} c++fs)
@@ -316,6 +314,7 @@ if(NOT MSVC)
     endif()
 
     target_link_libraries(${PROJECT_NAME} pugixml clipper sdl_savepng truncatedgaussian)
+    target_link_libraries(${PROJECT_NAME} nativefiledialog)
 endif(NOT MSVC)
 
 # Clear previous build to prevent remaining (old) files
@@ -337,7 +336,7 @@ IF (WIN32)
     set(COPY_FILES ${COPY_FILES}
             ${COPY_DIR}/7za.exe
             )
-ELSE()
+ELSEIF(NOT APPLE)
     set(COPY_FILES ${COPY_FILES}
             ${COPY_DIR}/7za
             )
