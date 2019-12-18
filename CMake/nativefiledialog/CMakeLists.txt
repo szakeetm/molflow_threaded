@@ -81,6 +81,12 @@ ELSEIF(APPLE)
             ${HEADER_DIR_2}/nfd.h
             ${HEADER_DIR_2}/nfd_common.h
             )
+    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+        file(GLOB SRC_FILES
+                ${CPP_DIR_1}/nfd_wrapper.cpp
+                ${HEADER_DIR_1}/nfd_wrapper.h
+                )
+    endif()
 ELSE()
     file(GLOB SRC_FILES
             ${CPP_DIR_1}/nfd_wrapper.cpp

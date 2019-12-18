@@ -4,10 +4,12 @@ SO_LIBRARY = Bin/libzip.so
 ST_LIBRARY = Bin/libzip.a
 
 # C & C++ compiler
-CC       = gcc
-CXX      = g++
-#CC        = clang
-#CXX       = clang++
+#CC       = gcc
+#CXX      = g++
+#CC       = /usr/local/bin/gcc-9
+#CXX      = /usr/local/bin/g++-9
+CC        = clang
+CXX       = clang++
 CFLAGS    = -Wno-enum-conversion -O3
 CXXFLAGS  = -std=c++11 -O3
 #compile with -stdlib=libc++ when using clang in other projects

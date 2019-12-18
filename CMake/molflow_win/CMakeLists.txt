@@ -144,10 +144,8 @@ if(MSVC)
 endif(MSVC)
 if(NOT MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
-    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-    elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
-		set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
     endif()
 endif(NOT MSVC)
 
@@ -294,20 +292,20 @@ if(NOT MSVC)
     get_filename_component(ABS_LINK_DIR_1 "${LINK_DIR_1}" REALPATH)
 
     # other static libraries need to be built with similar settings for clang (here: libc++)
-    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
-
+    if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
         set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_clang.a )
-        target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
-
-	elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
-		set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_clang.a )
-        target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
     else()
-
         set_target_properties( libzip PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libzip_gcc.a )
-        target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
-
     endif()
+    target_link_libraries(${PROJECT_NAME} libzip) # from ./lib/
+
+	if(APPLE AND "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+        add_library( libnfd STATIC IMPORTED GLOBAL)
+        set_target_properties( libnfd PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_1}/libnfd.a )
+        target_link_libraries(${PROJECT_NAME} libnfd) # from ./lib/
+	ELSE()
+		target_link_libraries(${PROJECT_NAME} nativefiledialog)
+    ENDIF()
 
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
         target_link_libraries(${PROJECT_NAME} c++fs)
@@ -317,7 +315,7 @@ if(NOT MSVC)
         target_link_libraries(${PROJECT_NAME} stdc++fs)
     endif()
 
-    target_link_libraries(${PROJECT_NAME} pugixml clipper nativefiledialog sdl_savepng truncatedgaussian)
+    target_link_libraries(${PROJECT_NAME} pugixml clipper sdl_savepng truncatedgaussian)
 endif(NOT MSVC)
 
 # Clear previous build to prevent remaining (old) files

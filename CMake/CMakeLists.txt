@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12.2 FATAL_ERROR)
 
 project(molflow)
 
-option(USE_CLANG "build application with clang" OFF) # OFF is the default
+#option(USE_CLANG "build application with clang" OFF) # OFF is the default
 
 message("-- CMAKE_SYSTEM_INFO_FILE: ${CMAKE_SYSTEM_INFO_FILE}")
 message("-- CMAKE_SYSTEM_NAME:      ${CMAKE_SYSTEM_NAME}")
@@ -45,7 +45,7 @@ if(MSVC)
 endif(MSVC)
 if(NOT MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
-    if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+    if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
         set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
     endif()
 endif(NOT MSVC)
@@ -63,11 +63,15 @@ add_subdirectory(molflow_win)
 add_subdirectory(compress)
 add_subdirectory(pugixml)
 add_subdirectory(clipper)
-add_subdirectory(nativefiledialog)
+#IF(NOT APPLE)
+    add_subdirectory(nativefiledialog)
+#ENDIF()
 add_subdirectory(sdl_savepng)
 add_subdirectory(truncatedgaussian)
 
 IF (WIN32)
     add_subdirectory(png_zlib_win_library)
+ELSE()
+    add_subdirectory(molflow_testsuit)
 ENDIF(WIN32)
 
