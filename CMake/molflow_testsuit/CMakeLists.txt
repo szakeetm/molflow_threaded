@@ -24,6 +24,9 @@ ELSE()
     set(MY_BUILD_TYPE "release")
 ENDIF()
 
+add_definitions(-DMOLFLOW_PATH="\\"/${OS_NAME}/${MY_BUILD_TYPE}/\\"")
+
+
 # Output Variables
 set(OUTPUT_DEBUG ../../bin/${OS_NAME}/debug/)
 set(OUTPUT_REL ../../bin/${OS_NAME}/release/)

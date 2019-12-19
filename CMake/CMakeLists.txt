@@ -22,6 +22,7 @@ endif(NOT CMAKE_BUILD_TYPE)
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
     MESSAGE("Adding Debug flag...")
     ADD_DEFINITIONS(-DDEBUG)
+    ADD_DEFINITIONS(-D_DEBUG)
 endif()
 message(STATUS "Build type used: " ${CMAKE_BUILD_TYPE})
 
