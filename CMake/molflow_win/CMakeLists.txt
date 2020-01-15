@@ -348,6 +348,15 @@ IF(APPLE OR (${OS_NAME} STREQUAL "linux_fedora"))
             )
 ENDIF()
 
+#Copy our own libSDL2 to /lib
+IF(APPLE)
+    file(COPY
+	 ${LINK_DIR_2}/libSDL2-2.0.dylib
+	DESTINATION 
+	${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY}/lib
+            )
+ENDIF()
+
 set(COPY_FILES ${COPY_FILES}
         ${COPY_DIR}/updater_config_default_${OS_NAME}.xml
         )
