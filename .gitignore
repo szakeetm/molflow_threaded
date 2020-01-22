@@ -47,6 +47,7 @@ CMake/**/*.sln
 *.bak
 *.obsolete
 *.cbp
+*.cache
 
 molflow.cfg
 
