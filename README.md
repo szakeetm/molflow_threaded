@@ -3,7 +3,7 @@ A Monte Carlo simulator for Ultra High Vacuum systems
 
 **Authors:** Marton ADY, Pascal Rene BAEHR, Roberto KERSEVAN, Jean-Luc PONS  
 **Website:** https://cern.ch/molflow  
-**Copyright:** CERN (2019)  
+**Copyright:** CERN (2020)  
 **License:** GNU GPLv2 or later
 
 <img src="https://molflow.web.cern.ch/sites/molflow.web.cern.ch/files/pictures/2018-10-09%2016_14_20-PowerPoint%20Slide%20Show%20%20-%20%20Presentation1.png" alt="Molflow image" width="800"/>

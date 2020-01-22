@@ -1750,7 +1750,7 @@ bool Interface::ProcessMessage_shared(GLComponent *src, int message) {
 			aboutText << "Program:    " << appName << " " << appVersionName << " (" << appVersionId <<")";
 			aboutText << R"(
 Authors:     Jean-Luc PONS / Roberto KERSEVAN / Marton ADY / Pascal BAEHR
-Copyright:   E.S.R.F / CERN   (2019)
+Copyright:   E.S.R.F / CERN   (2020)
 Website:    https://cern.ch/molflow
 
 This program is free software; you can redistribute it and/or modify
