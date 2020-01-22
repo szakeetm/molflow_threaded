@@ -79,7 +79,6 @@ GeometryViewer::GeometryViewer(int id) :GLComponent(id) {
 	view.projMode = ORTHOGRAPHIC_PROJ;
 	view.camAngleOx = 0.0;
 	view.camAngleOy = 0.0;
-
 	view.camAngleOz = 0.0;
 
 	view.lightAngleOx = 0.0;
