@@ -73,6 +73,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include "AddVertex.h"
 #include "FormulaEditor.h"
 #include "ParticleLogger.h"
+#include "GeometryConverter.h"
 
 #include "NativeFileDialog/nfd.h"
 
@@ -1749,6 +1750,7 @@ bool Interface::ProcessMessage_shared(GLComponent *src, int message) {
 			return true;
 		case MENU_TRIANGULATE:
 			if (AskToSave()) GeometryConverter::PolygonsToTriangles(this->worker.GetGeometry());
+			worker.Reload();
 			return true;
 		case MENU_ABOUT:
 		{
