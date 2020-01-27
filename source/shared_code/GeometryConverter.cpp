@@ -6,44 +6,29 @@
 #include <GLApp/MathTools.h>
 #include "GeometryConverter.h"
 #include "Facet_shared.h"
+#include <numeric> //std::iota
 
 
-std::vector<Facet*> GeometryConverter::GetTriangulatedGeometry(Geometry* geometry)
+std::vector<Facet*> GeometryConverter::GetTriangulatedGeometry(Geometry* geometry,GLProgress* prg)
 {
 	std::vector<Facet*> triangleFacets;
-	for (size_t i = 0; i < geometry->sh.nbFacet; i++) {
-		size_t nb = geometry->facets[i]->sh.nbIndex;
+	for (size_t i = 0; i < geometry->GetNbFacet(); i++) {
+		if (prg) prg->SetProgress((double)i/(double(geometry->GetNbFacet())));
+		size_t nb = geometry->GetFacet(i)->sh.nbIndex;
 		if (nb > 3) {
-			// Create new triangle facets and invalidate old polygon facet
-			std::vector<Facet*> newTriangles = Triangulate(geometry->facets[i]);
+			// Create new triangle facets (does not invalidate old ones, you have to manually delete them)
+			std::vector<Facet*> newTriangles = Triangulate(geometry->GetFacet(i));
 			triangleFacets.insert(std::end(triangleFacets), std::begin(newTriangles), std::end(newTriangles));
 		}
 		else {
 			//Copy
-			Facet* newFacet = new Facet(geometry->facets[i]->indices.size());
-			newFacet->CopyFacetProperties(geometry->facets[i], false);
-			triangleFacets.push_back(); 
+			Facet* newFacet = new Facet(nb);
+			newFacet->indices = geometry->GetFacet(i)->indices;
+			newFacet->CopyFacetProperties(geometry->GetFacet(i), false);
+			triangleFacets.push_back(newFacet); 
 		}
 	}
 	return triangleFacets;
-}
-
-// Update facet list of geometry by removing polygon facets and replacing them with triangular facets with the same properties
-void GeometryConverter::PolygonsToTriangles(Geometry* geometry){
-    std::vector<Facet*> triangleFacets = GetTriangulatedGeometry(geometry);
-
-	for (size_t i = 0;i < geometry->sh.nbFacet;i++) {
-		SAFE_DELETE(geometry->facets[i]);
-	}
-
-    geometry->sh.nbFacet = triangleFacets.size();
-    geometry->facets = (Facet **)realloc(geometry->facets, geometry->sh.nbFacet * sizeof(Facet *));
-
-    // Update facet list
-    memcpy(geometry->facets,triangleFacets.data(),triangleFacets.size()*sizeof(Facet*));
-
-    // to recalculate various facet properties
-    geometry->InitializeGeometry();
 }
 
 std::vector<Facet*> GeometryConverter::Triangulate(Facet *f) {
@@ -63,13 +48,17 @@ std::vector<Facet*> GeometryConverter::Triangulate(Facet *f) {
     p.pts = f->vertices2;
     //p.sign = f->sign;
 
+	std::unique_ptr<Facet> facetCopy(new Facet(f->sh.nbIndex)); //Create a copy and don't touch original
+	facetCopy->CopyFacetProperties(f);
+	facetCopy->indices = f->indices;
+
     // Perform triangulation
     while (p.pts.size() > 3) {
         int e = FindEar(p);
         //DrawEar(f, p, e, addTextureCoord);
 
         // Create new triangle facet and copy polygon parameters, but change indices
-        Facet* triangle = GetTriangleFromEar(f, p, e);
+        Facet* triangle = GetTriangleFromEar(facetCopy.get(), p, e);
         triangleFacets.push_back(triangle);
 
         // Remove the ear
@@ -77,9 +66,8 @@ std::vector<Facet*> GeometryConverter::Triangulate(Facet *f) {
     }
 
     // Draw the last ear
-    Facet* triangle = GetTriangleFromEar(f, p, 0);
+    Facet* triangle = GetTriangleFromEar(facetCopy.get(), p, 0);
     triangleFacets.push_back(triangle);
-
     //DrawEar(f, p, 0, addTextureCoord);
 
     return triangleFacets;
@@ -130,4 +118,16 @@ Facet* GeometryConverter::GetTriangleFromEar(Facet *f, const GLAppPolygon& p, in
     const Vector2d* p3 = &(p.pts[Next(ear, p.pts.size())]);*/
 
     return triangle;
+}
+
+// Update facet list of geometry by removing polygon facets and replacing them with triangular facets with the same properties
+void GeometryConverter::PolygonsToTriangles(Geometry* geometry) {
+	std::vector<Facet*> triangleFacets = GetTriangulatedGeometry(geometry);
+
+	//Clear all facets
+	std::vector<size_t> toDelete(geometry->GetNbFacet());
+	std::iota(std::begin(toDelete), std::end(toDelete), 0); // Fill with 0, 1, ..., GetNbFacet()
+	geometry->RemoveFacets(toDelete);
+	//Add new ones
+	geometry->AddFacets(triangleFacets);
 }

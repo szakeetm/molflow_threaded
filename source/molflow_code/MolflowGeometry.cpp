@@ -1459,6 +1459,7 @@ bool MolflowGeometry::LoadTexturesGEO(FileReader *file, GLProgress *prg, GlobalS
 * \param saveSelected if a selection is to be saved
 * \param crashSave if crash save is enabled
 */
+
 void MolflowGeometry::SaveGEO(FileWriter *file, GLProgress *prg, GlobalSimuState& results, Worker *worker,
 	bool saveSelected, bool crashSave) {
 
