@@ -188,8 +188,9 @@ void Worker::SaveGeometry(std::string fileName, GLProgress *prg, bool askConfirm
 	bool isGEO7Z = ext == "geo7z";
 	bool isXML = ext == "xml";
 	bool isXMLzip = ext == "zip";
+	bool isSTL = ext == "stl";
 
-	if (isTXT || isGEO || isGEO7Z || isSTR || isXML || isXMLzip) {
+	if (isTXT || isGEO || isGEO7Z || isSTR || isXML || isXMLzip || isSTL) {
 #ifdef _WIN32
 		//Check (using native handle) if background compressor is still alive
 		if ((isGEO7Z) && WAIT_TIMEOUT == WaitForSingleObject(mApp->compressProcessHandle, 0)) {
@@ -226,7 +227,11 @@ void Worker::SaveGeometry(std::string fileName, GLProgress *prg, bool askConfirm
 
 				ok = (GLMessageBox::Display(tmp, "Question", GLDLG_OK | GLDLG_CANCEL, GLDLG_ICONWARNING) == GLDLG_OK);
 			}
-		}		
+		}
+		if (isSTL) {
+			//Nothing to prepare
+			ok = true;
+		}
 
 		if (ok) {
 			if (isSTR) {
@@ -240,7 +245,7 @@ void Worker::SaveGeometry(std::string fileName, GLProgress *prg, bool askConfirm
 					}
 					else if (!(isXML || isXMLzip))
 
-						f = new FileWriter(fileName);
+						f = new FileWriter(fileName); //Txt, stl, geo, etc...
 				}
 
 				catch (Error &e) {
@@ -262,6 +267,9 @@ void Worker::SaveGeometry(std::string fileName, GLProgress *prg, bool askConfirm
 					if (!crashSave && !saveSelected) GetHHit(hitCache, &nbHHitSave);
 					*/
 					geom->SaveGEO(f, prg, results, this, saveSelected, crashSave);
+				}
+				else if (isSTL) {
+					geom->SaveSTL(f, prg);
 				}
 				else if (isXML || isXMLzip) {
 					{
@@ -327,7 +335,7 @@ void Worker::SaveGeometry(std::string fileName, GLProgress *prg, bool askConfirm
 	}
 	else {
 		SAFE_DELETE(f);
-		throw Error("SaveGeometry(): Invalid file extension [only xml,zip,geo,geo7z,txt or str]");
+		throw Error("SaveGeometry(): Invalid file extension [only xml,zip,geo,geo7z,txt,stl or str]");
 	}
 
 	SAFE_DELETE(f);
@@ -360,7 +368,7 @@ void Worker::SaveGeometry(std::string fileName, GLProgress *prg, bool askConfirm
 		}
 	}
 	else if (ok && isGEO) fileName = fileNameWithGeo;
-	if (!autoSave && !saveSelected) {
+	if (!autoSave && !saveSelected && !isSTL) { //STL file is just a copy
 		SetCurrentFileName(fileName.c_str());
 		mApp->UpdateTitle();
 	}

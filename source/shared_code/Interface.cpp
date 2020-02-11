@@ -73,6 +73,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 #include "AddVertex.h"
 #include "FormulaEditor.h"
 #include "ParticleLogger.h"
+#include "GeometryConverter.h"
 
 #include "NativeFileDialog/nfd.h"
 
@@ -910,6 +911,9 @@ void Interface::OneTimeSceneInit_shared_pre() {
 	//Quick test pipe
 	menu->GetSubMenu("Test")->Add(NULL);
 	menu->GetSubMenu("Test")->Add("Quick Pipe", MENU_QUICKPIPE, SDLK_q, ALT_MODIFIER);
+	menu->GetSubMenu("Test")->Add(NULL);
+	menu->GetSubMenu("Test")->Add("Triangulate Geometry", MENU_TRIANGULATE);
+
 
 	geomNumber = new GLTextField(0, NULL);
 	geomNumber->SetEditable(false);
@@ -1744,13 +1748,17 @@ bool Interface::ProcessMessage_shared(GLComponent *src, int message) {
 		case MENU_QUICKPIPE:
 			if (AskToSave()) BuildPipe(5.0,5);
 			return true;
+		case MENU_TRIANGULATE:
+			if (AskToSave()) GeometryConverter::PolygonsToTriangles(this->worker.GetGeometry());
+			worker.Reload();
+			return true;
 		case MENU_ABOUT:
 		{
 			std::ostringstream aboutText;
 			aboutText << "Program:    " << appName << " " << appVersionName << " (" << appVersionId <<")";
 			aboutText << R"(
 Authors:     Jean-Luc PONS / Roberto KERSEVAN / Marton ADY / Pascal BAEHR
-Copyright:   E.S.R.F / CERN   (2019)
+Copyright:   E.S.R.F / CERN   (2020)
 Website:    https://cern.ch/molflow
 
 This program is free software; you can redistribute it and/or modify

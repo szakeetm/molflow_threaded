@@ -520,6 +520,7 @@ void MolflowGeometry::InsertSYNGeom(FileReader *file, size_t strIdx, bool newStr
 		v.projMode = file->ReadInt();
 		v.camAngleOx = file->ReadDouble();
 		v.camAngleOy = file->ReadDouble();
+		v.camAngleOz = 0.0; //No support for Z angle in current SYN version
 		v.camDist = file->ReadDouble();
 		v.camOffset.x = file->ReadDouble();
 		v.camOffset.y = file->ReadDouble();
@@ -888,6 +889,7 @@ void MolflowGeometry::LoadGEO(FileReader *file, GLProgress *prg, int *version, W
 			v.projMode = file->ReadInt();
 			v.camAngleOx = file->ReadDouble();
 			v.camAngleOy = file->ReadDouble();
+			v.camAngleOz = 0.0; //No support for Z angle in current GEO version
 			v.camDist = file->ReadDouble();
 			v.camOffset.x = file->ReadDouble();
 			v.camOffset.y = file->ReadDouble();
@@ -1150,6 +1152,7 @@ void MolflowGeometry::LoadSYN(FileReader *file, GLProgress *prg, int *version, W
 		v.projMode = file->ReadInt();
 		v.camAngleOx = file->ReadDouble();
 		v.camAngleOy = file->ReadDouble();
+		v.camAngleOz = 0.0; //No support for Z angle in current SYN version
 		v.camDist = file->ReadDouble();
 		v.camOffset.x = file->ReadDouble();
 		v.camOffset.y = file->ReadDouble();
@@ -1456,6 +1459,7 @@ bool MolflowGeometry::LoadTexturesGEO(FileReader *file, GLProgress *prg, GlobalS
 * \param saveSelected if a selection is to be saved
 * \param crashSave if crash save is enabled
 */
+
 void MolflowGeometry::SaveGEO(FileWriter *file, GLProgress *prg, GlobalSimuState& results, Worker *worker,
 	bool saveSelected, bool crashSave) {
 
@@ -2488,6 +2492,7 @@ void MolflowGeometry::SaveXML_geometry(pugi::xml_node saveDoc, Worker *work, GLP
 		newView.append_attribute("projMode") = mApp->views[i].projMode;
 		newView.append_attribute("camAngleOx") = mApp->views[i].camAngleOx;
 		newView.append_attribute("camAngleOy") = mApp->views[i].camAngleOy;
+		newView.append_attribute("camAngleOz") = mApp->views[i].camAngleOz;
 		newView.append_attribute("camDist") = mApp->views[i].camDist;
 		newView.append_attribute("camOffset.x") = mApp->views[i].camOffset.x;
 		newView.append_attribute("camOffset.y") = mApp->views[i].camOffset.y;
@@ -2861,6 +2866,12 @@ void MolflowGeometry::LoadXML_geom(pugi::xml_node loadXML, Worker *work, GLProgr
 		v.projMode = newView.attribute("projMode").as_int();
 		v.camAngleOx = newView.attribute("camAngleOx").as_double();
 		v.camAngleOy = newView.attribute("camAngleOy").as_double();
+		if (newView.attribute("camAngleOz")) {
+			v.camAngleOz = newView.attribute("camAngleOz").as_double();
+		}
+		else {
+			v.camAngleOz = 0.0; //Otherwise RoundAngle() routine hangs for unitialized value
+		}
 		v.camDist = newView.attribute("camDist").as_double();
 		v.camOffset.x = newView.attribute("camOffset.x").as_double();
 		v.camOffset.y = newView.attribute("camOffset.y").as_double();
@@ -3100,6 +3111,12 @@ void MolflowGeometry::InsertXML(pugi::xml_node loadXML, Worker *work, GLProgress
 		v.projMode = newView.attribute("projMode").as_int();
 		v.camAngleOx = newView.attribute("camAngleOx").as_double();
 		v.camAngleOy = newView.attribute("camAngleOy").as_double();
+		if (newView.attribute("camAngleOz")) {
+			v.camAngleOz = newView.attribute("camAngleOz").as_double();
+		}
+		else {
+			v.camAngleOz = 0.0; //Otherwise RoundAngle() routine hangs for unitialized value
+		}
 		v.camDist = newView.attribute("camDist").as_double();
 		v.camOffset.x = newView.attribute("camOffset.x").as_double();
 		v.camOffset.y = newView.attribute("camOffset.y").as_double();

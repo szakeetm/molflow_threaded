@@ -89,7 +89,7 @@ static const char *fileDesFilters = "Desorption files\0*.des\0All files\0*.*\0";
 //NativeFileDialog compatible file filters
 std::string fileLoadFilters = "txt,xml,zip,stl,str,ase,geo,syn,geo7z,syn7z";
 std::string fileInsertFilters = "txt,xml,zip,stl,geo,syn,geo7z,syn7z";
-std::string fileSaveFilters = "xml,zip,txt,geo,geo7z";
+std::string fileSaveFilters = "xml,zip,txt,geo,geo7z,stl";
 std::string fileSelFilters = "sel";
 std::string fileTexFilters = "txt";
 std::string fileProfFilters = "csv;txt";

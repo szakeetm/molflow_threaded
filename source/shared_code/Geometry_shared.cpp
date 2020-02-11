@@ -21,6 +21,7 @@ Full license text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 //Common geometry handling/editing features, shared between Molflow and Synrad
 
 #include "Geometry_shared.h"
+#include "GeometryConverter.h"
 #include "Facet_shared.h"
 #include "GLApp/MathTools.h"
 #include "GLApp/GLMessageBox.h"
@@ -1440,6 +1441,19 @@ void Geometry::RemoveFacets(const std::vector<size_t> &facetIdList, bool doNotDe
 	// Delete old resources
 	DeleteGLLists(true, true);
 	BuildGLList();
+}
+
+void Geometry::AddFacets(std::vector<Facet*> facetList) {
+	//Adds to end
+	std::vector<DeletedFacet> toRestore(facetList.size());
+	for (size_t i = 0;i < facetList.size();i++) {
+		DeletedFacet df;
+		df.f = facetList[i];
+		df.ori_pos = 0; //Unused
+		df.replaceOri = false; //Unused
+		toRestore[i] = df;
+	}
+	RestoreFacets(toRestore, true);
 }
 
 void Geometry::RestoreFacets(std::vector<DeletedFacet> deletedFacetList, bool toEnd) {
@@ -3855,6 +3869,7 @@ void Geometry::InsertGEOGeom(FileReader *file, size_t strIdx, bool newStruct) {
 			v.projMode = file->ReadInt();
 			v.camAngleOx = file->ReadDouble();
 			v.camAngleOy = file->ReadDouble();
+			v.camAngleOz = 0.0; //No support for Z angle in current GEO version
 			v.camDist = file->ReadDouble();
 			v.camOffset.x = file->ReadDouble();
 			v.camOffset.y = file->ReadDouble();
@@ -4097,6 +4112,32 @@ void Geometry::SaveSTR(/*Dataport *dpHit*/ GlobalSimuState& results, bool saveSe
 	for (int i = 0; i < sh.nbSuper; i++)
 		SaveSuper(i);
 
+}
+
+void Geometry::SaveSTL(FileWriter* f, GLProgress* prg) {
+	prg->SetMessage("Triangulating geometry...");
+	auto triangulatedGeometry = GeometryConverter::GetTriangulatedGeometry(this,prg);
+	prg->SetMessage("Saving STL file...");
+	f->Write("solid ");f->Write("\"");f->Write(GetName());f->Write("\"\n");
+	for (size_t i = 0;i < triangulatedGeometry.size();i++) {
+		prg->SetProgress((double)i / (double)triangulatedGeometry.size());
+		Facet* fac = triangulatedGeometry[i];
+		f->Write("\tfacet normal ");
+		f->Write(fac->sh.N.x);f->Write(fac->sh.N.y);f->Write(fac->sh.N.z,"\n");
+		f->Write("\t\touter loop\n");
+		for (size_t j = 0;j < fac->sh.nbIndex /*should be 3*/;j++) {
+			f->Write("\t\t\tvertex");
+			f->Write(GetVertex(fac->indices[j])->x);
+			f->Write(GetVertex(fac->indices[j])->y);
+			f->Write(GetVertex(fac->indices[j])->z, "\n");
+		}
+		f->Write("\t\tendloop\n\tendfacet\n");
+	}
+	f->Write("endsolid\n");
+	//Manually delete created facets
+	for (auto& f : triangulatedGeometry) {
+		SAFE_DELETE(f);
+	}
 }
 
 void Geometry::SaveSuper(int s) {
@@ -4484,3 +4525,4 @@ PhysicalValue Geometry::GetPhysicalValue(Facet* f, const PhysicalMode& mode, con
 		}
 		return result;
 }
+

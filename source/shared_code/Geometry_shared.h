@@ -162,6 +162,7 @@ public:
 	void InsertSTL(FileReader *file, GLProgress *prg, double scaleFactor, bool newStr);
 
 	void SaveSTR(GlobalSimuState& results, bool saveSelected);
+	void SaveSTL(FileWriter* f, GLProgress* prg);
 	void SaveSuper(int s);
 	void SaveProfileTXT(FileWriter *file);
 	void UpdateSelection();
@@ -172,6 +173,7 @@ public:
 	
 	void RemoveFacets(const std::vector<size_t> &facetIdList, bool doNotDestroy = false);
 	void RestoreFacets(std::vector<DeletedFacet> deletedFacetList, bool toEnd);
+	void AddFacets(std::vector<Facet*> facetList);
 	void RemoveSelectedVertex();
 	void RemoveFromStruct(int numToDel);
 	void CreateLoft();
