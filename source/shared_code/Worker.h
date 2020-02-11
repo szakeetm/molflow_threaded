@@ -247,7 +247,7 @@ private:
   bool Wait(size_t waitState, LoadStatus *statusWindow);
   void ResetWorkerStats();
   void ClearHits(bool noReload);
-  const char *GetErrorDetails();
+  std::string GetErrorDetails();
   void ThrowSubProcError(std::string message);
   void ThrowSubProcError(const char *message = NULL);
   void Start();

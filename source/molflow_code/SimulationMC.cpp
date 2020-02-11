@@ -886,7 +886,7 @@ bool Simulation::StartFromSource() {
 	if (src->facetRef->sh.superIdx == -1) {
 		std::ostringstream out;
 		out << "Facet " << (src->globalId + 1) << " is in all structures, it shouldn't desorb.";
-		SetErrorSub(out.str().c_str());
+		SetErrorSub(out.str());
 		return false;
 	}
 	currentParticle.structureId = src->facetRef->sh.superIdx;

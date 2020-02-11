@@ -1236,7 +1236,7 @@ void Worker::RealReload(bool sendOnly) { //Sharing geometry with workers
 	progressDlg->SetMessage("Waiting for subprocesses to load geometry...");
 	if (!ExecuteAndWait(COMMAND_LOAD, PROCESS_READY)) {
 		char errMsg[1024];
-		sprintf(errMsg, "Failed to send geometry to sub process:\n%s", GetErrorDetails());
+		sprintf(errMsg, "Failed to send geometry to sub process:\n%s", GetErrorDetails().c_str());
 
 		progressDlg->SetVisible(false);
 		SAFE_DELETE(progressDlg);
@@ -1693,6 +1693,12 @@ void Worker::PrepareToRun() {
 				sprintf(tmp, "Facet #%zd: Can't RECORD and USE angle map desorption at the same time.", i + 1);
 				throw Error(tmp);
 			}
+		}
+
+		if (f->sh.superDest>0 && (f->sh.superDest == (f->sh.superIdx + 1))) {
+			std::ostringstream tmp;
+			tmp << "Facet #" << (i + 1) << " is a link facet pointing to his own structure (structure " << f->sh.superDest << ")";
+			throw Error(tmp.str().c_str());
 		}
 
 		/* //First worker::update will do it

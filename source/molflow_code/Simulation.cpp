@@ -337,8 +337,9 @@ void Simulation::CopyStateFromMaster() {
 * \return true if particle hit a facet
 */
 bool Simulation::StartSimulation() {
-	StartFromSource();
-	return currentParticle.lastHitFacet != NULL;
+	//StartFromSource();
+	//return currentParticle.lastHitFacet != NULL;
+	return StartFromSource();
 }
 
 /**

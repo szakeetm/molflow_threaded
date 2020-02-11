@@ -243,9 +243,9 @@ void Worker::ThrowSubProcError(const char *message) {
 
 	char errMsg[1024];
 	if (!message)
-		sprintf(errMsg, "Bad response from sub process(es):\n%s", GetErrorDetails());
+		sprintf(errMsg, "Bad response from sub process(es):\n%s", GetErrorDetails().c_str());
 	else
-		sprintf(errMsg, "%s\n%s", message, GetErrorDetails());
+		sprintf(errMsg, "%s\n%s", message, GetErrorDetails().c_str());
 	throw Error(errMsg);
 
 }
@@ -271,7 +271,7 @@ void Worker::SetMaxDesorption(size_t max) {
 }
 */
 
-const char *Worker::GetErrorDetails() {
+std::string Worker::GetErrorDetails() {
 
 	std::ostringstream errorText;
 
@@ -295,7 +295,7 @@ const char *Worker::GetErrorDetails() {
 	}
 	ReleaseMutex(workerControl.mutex);
 
-	return errorText.str().c_str();
+	return errorText.str();
 }
 
 bool Worker::Wait(size_t readyState, LoadStatus *statusWindow) {
@@ -721,7 +721,7 @@ void Worker::ChangeSimuParams() { //Send simulation mode changes to subprocesses
 	if (!ExecuteAndWait(COMMAND_UPDATEPARAMS, isRunning ? PROCESS_RUN : PROCESS_READY, isRunning ? PROCESS_RUN : PROCESS_READY)) {
 		//CLOSEDP(loader);
 		char errMsg[1024];
-		sprintf(errMsg, "Failed to send params to sub process:\n%s", GetErrorDetails());
+		sprintf(errMsg, "Failed to send params to sub process:\n%s", GetErrorDetails().c_str());
 		GLMessageBox::Display(errMsg, "Warning (Updateparams)", GLDLG_OK, GLDLG_ICONWARNING);
 
 		progressDlg->SetVisible(false);
