@@ -62,19 +62,19 @@ endif()
 
 
 
-add_subdirectory(molflow_win)
-add_subdirectory(compress)
-add_subdirectory(pugixml)
-add_subdirectory(clipper)
+add_subdirectory(CMake/molflow_win)
+add_subdirectory(CMake/compress)
+add_subdirectory(CMake/pugixml)
+add_subdirectory(CMake/clipper)
 #IF(NOT APPLE)
-    add_subdirectory(nativefiledialog)
+    add_subdirectory(CMake/nativefiledialog)
 #ENDIF()
-add_subdirectory(sdl_savepng)
-add_subdirectory(truncatedgaussian)
+add_subdirectory(CMake/sdl_savepng)
+add_subdirectory(CMake/truncatedgaussian)
 
 IF (WIN32)
-    add_subdirectory(png_zlib_win_library)
+    add_subdirectory(CMake/png_zlib_win_library)
 ELSEIF(NOT APPLE)
-    add_subdirectory(molflow_testsuit)
+    add_subdirectory(CMake/molflow_testsuit)
 ENDIF()
 
