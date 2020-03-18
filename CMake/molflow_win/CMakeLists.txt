@@ -8,17 +8,17 @@ set(PROJECT_NAME molflow)
 
 IF (WIN32)
     set(OS_NAME "win")
-	set(OS_RELPATH "../..")
+	set(OS_RELPATH "..")
 ELSEIF(APPLE)
 	set(OS_NAME "mac")
-	set(OS_RELPATH "..")
+	set(OS_RELPATH "")
 ELSE()
     IF(os_version_suffix STREQUAL ".el7")
         set(OS_NAME "linux_fedora")
     ELSE()
         set(OS_NAME "linux_debian")
     ENDIF()
-	set(OS_RELPATH "../..")
+	set(OS_RELPATH "..")
 ENDIF()
 
 IF (CMAKE_BUILD_TYPE STREQUAL "Debug")
@@ -62,7 +62,7 @@ ELSEIF(APPLE)
     set(HEADER_DIR_8 "")
 
     set(LINK_DIR_1 ../../lib_external/mac)
-    set(LINK_DIR_2 ../../lib_external/mac/SDL2)
+    #set(LINK_DIR_2 ../../lib_external/mac/SDL2)
 ELSE()
     # set stuff for other systems
 
@@ -225,10 +225,10 @@ if(NOT MSVC)
 		#link to self-build sdl shared lib
 		target_link_libraries(${PROJECT_NAME} "-framework AppKit")
 
-		add_library( libSDL2 SHARED IMPORTED GLOBAL)
-		get_filename_component(ABS_LINK_DIR_2 "${LINK_DIR_2}" REALPATH)
-		set_target_properties( libSDL2 PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_2}/libSDL2-2.0.dylib)
-		target_link_libraries(${PROJECT_NAME} libSDL2) # from ./lib/
+		#add_library( libSDL2 SHARED IMPORTED GLOBAL)
+		#get_filename_component(ABS_LINK_DIR_2 "${LINK_DIR_2}" REALPATH)
+		#set_target_properties( libSDL2 PROPERTIES IMPORTED_LOCATION ${ABS_LINK_DIR_2}/libSDL2-2.0.dylib)
+		#target_link_libraries(${PROJECT_NAME} libSDL2) # from ./lib/
 
 	else()
 		# Use the package PkgConfig to detect GTK+ headers/library files
@@ -251,7 +251,8 @@ if(NOT MSVC)
 		target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
 	endif()
     
-
+    find_package(SDL2 REQUIRED)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
 
     find_package(OpenGL REQUIRED)
     target_include_directories(${PROJECT_NAME} PRIVATE ${OPENGL_INCLUDE_DIRS})
@@ -277,7 +278,7 @@ if(NOT MSVC)
     #find_package(stdc++fs REQUIRED)
     #target_include_directories(${PROJECT_NAME} PRIVATE ${stdc++fs_INCLUDE_DIRS})
 
-
+    target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARIES})
     target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES})
     target_link_libraries(${PROJECT_NAME} ${PNG_LIBRARIES})
     target_link_libraries(${PROJECT_NAME} ${GSL_LIBRARIES})
@@ -342,7 +343,7 @@ ELSEIF(NOT APPLE)
             )
 ENDIF()
 
-IF(APPLE OR (${OS_NAME} STREQUAL "linux_fedora"))
+IF(${OS_NAME} STREQUAL "linux_fedora")
     set(COPY_FILES ${COPY_FILES}
             ${COPY_DIR}/launch_molflow.sh
             )
@@ -350,11 +351,11 @@ ENDIF()
 
 #Copy our own libSDL2 to /lib
 IF(APPLE)
-    file(COPY
-	 ${LINK_DIR_2}/libSDL2-2.0.dylib
-	DESTINATION 
-	${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY}/lib
-            )
+#    file(COPY
+#	 ${LINK_DIR_2}/libSDL2-2.0.dylib
+#	DESTINATION 
+#	${CMAKE_EXECUTABLE_OUTPUT_DIRECTORY}/lib
+#            )
 ENDIF()
 
 set(COPY_FILES ${COPY_FILES}
