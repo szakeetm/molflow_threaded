@@ -178,6 +178,7 @@ MoveFacet::MoveFacet(Geometry *g,Worker *w):GLWindow() {
 
 void MoveFacet::ProcessMessage(GLComponent *src,int message) {
 	double dX,dY,dZ,distance;
+	dX = dY = dZ = distance = 0.0; //To avoid runtime "uninitialized value" checks
 
 	switch(message) {
 	case MSG_BUTTON:

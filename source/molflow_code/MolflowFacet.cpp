@@ -256,10 +256,10 @@ void Facet::LoadXML(xml_node f, size_t nbVertex, bool isMolflowFile, bool& ignor
 		hasMesh = texNode.attribute("hasMesh").as_bool();
 		sh.texWidthD = texNode.attribute("texDimX").as_double();
 		sh.texHeightD = texNode.attribute("texDimY").as_double();
-		sh.countDes = texNode.attribute("countDes").as_bool();
-		sh.countAbs = texNode.attribute("countAbs").as_bool();
-		sh.countRefl = texNode.attribute("countRefl").as_bool();
-		sh.countTrans = texNode.attribute("countTrans").as_bool();
+		sh.countDes = texNode.attribute("countDes").as_bool() && hasMesh; //Sanitize input
+		sh.countAbs = texNode.attribute("countAbs").as_bool() && hasMesh; //Sanitize input
+		sh.countRefl = texNode.attribute("countRefl").as_bool() && hasMesh; //Sanitize input
+		sh.countTrans = texNode.attribute("countTrans").as_bool() && hasMesh; //Sanitize input
 		sh.countDirection = texNode.attribute("countDir").as_bool();
 		sh.countACD = texNode.attribute("countAC").as_bool();
 
@@ -1030,6 +1030,9 @@ void  Facet::SaveXML_geom(pugi::xml_node f) {
 		break;
 	}
 	t = e.append_child("Texture");
+	if (cellPropertiesIds == NULL && (sh.countAbs || sh.countDes || sh.countRefl || sh.countTrans))
+		__debugbreak(); //Count texture on non-existent texture
+
 	t.append_attribute("hasMesh") = cellPropertiesIds != NULL;
 	t.append_attribute("texDimX") = sh.texWidthD;
 	t.append_attribute("texDimY") = sh.texHeightD;

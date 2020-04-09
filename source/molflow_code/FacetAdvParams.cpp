@@ -978,7 +978,7 @@ bool FacetAdvParams::ApplyTexture(bool force) {
 		//set textures
 		try {
 			bool needsRemeshing = force || (hadAnyTexture != hasAnyTexture) || (hadDirCount != f->sh.countDirection) || (doRatio && (!IsZero(geom->GetFacet(sel)->tRatio - ratio)));
-			if (needsRemeshing) geom->SetFacetTexture(sel, hasAnyTexture ? ratio : 0.0, hasAnyTexture ? boundMap : false);
+			if (needsRemeshing) geom->SetFacetTexture(sel, hasAnyTexture ? (doRatio?ratio:f->tRatio) : 0.0, hasAnyTexture ? boundMap : false);
 		}
 		catch (Error &e) {
 			GLMessageBox::Display(e.GetMsg(), "Error", GLDLG_OK, GLDLG_ICONWARNING);
