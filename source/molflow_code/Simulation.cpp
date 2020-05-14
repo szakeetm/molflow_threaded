@@ -149,6 +149,7 @@ int Simulation::mainLoop(int index) {
 	prIdx = index;
 
 	//InitSimulation(); //Creates sHandle instance
+	randomGenerator.GetSeed(); //By this point this is a unique thread with its own id
 
 	// Sub process ready
 	SetReady();
