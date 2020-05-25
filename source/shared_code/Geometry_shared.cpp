@@ -421,7 +421,13 @@ void Geometry::CreatePolyFromVertices_Convex() {
 
 void Geometry::CreatePolyFromVertices_Order() {
 	//creates facet from selected vertices
-
+    if (selectedVertexList_ordered.size() < 3) {
+		char errMsg[512];
+		sprintf(errMsg, "Select at least 3 vertices.\n"
+		"For ordered polygon creation, you have to manually select vertices to add them to selection history.");
+		throw Error(errMsg);
+		return;
+	}//at least three vertices
 	AddFacet(selectedVertexList_ordered);
 }
 
