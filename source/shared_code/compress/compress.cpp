@@ -71,6 +71,9 @@ int main(int argc, char* argv[]) {
 	else if (FileUtils::Exist("/usr/bin/7za")) {
 		sevenZipName = "/usr/bin/7za"; //use p7zip installed system-wide
 	}
+	else if (FileUtils::Exist("/usr/local/bin/7za")) {
+		sevenZipName = "/usr/bin/7za"; //use p7zip installed for user (HomeBrew)
+	}
 	else
 	{
 		sevenZipName = "7za"; //so that Exist() check fails and we get an error message on the next command
