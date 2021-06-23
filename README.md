@@ -8,7 +8,11 @@ A Monte Carlo simulator for Ultra High Vacuum systems
 
 <img src="https://molflow.web.cern.ch/sites/molflow.web.cern.ch/files/pictures/2018-10-09%2016_14_20-PowerPoint%20Slide%20Show%20%20-%20%20Presentation1.png" alt="Molflow image" width="800"/>
 
-# Building
+# Building (CMake)
+
+All operating systems (Windows, Linux and Mac) now have their CMake configuration.
+
+# Building (manual)
 ## Windows
 * Open *molflow_win.sln* in the *Visual_Studio* folder, and use Visual Studio to build the solution.  
 Tested with Visual Studio Community 2019.
